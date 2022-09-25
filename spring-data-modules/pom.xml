@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>spring-data-modules</artifactId>
+    <name>spring-data-modules</name>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>cn.tuyucheng.taketoday</groupId>
+        <artifactId>java-development-guide</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <modules>
+        <module>spring-data-jpa-crud-1</module>
+        <module>spring-data-jpa-crud-2</module>
+        <module>spring-data-jpa-query-1</module>
+        <module>spring-data-jpa-query-2</module>
+        <module>spring-data-jpa-query-3</module>
+    </modules>
+
+    <properties>
+        <hibernate.version>5.6.1.Final</hibernate.version>
+        <!--<postgresql.version>42.2.20</postgresql.version>-->
+        <!--<hsqldb.version>2.3.4</hsqldb.version>-->
+        <!--<testcontainers.version>1.16.3</testcontainers.version>-->
+    </properties>
+</project>
