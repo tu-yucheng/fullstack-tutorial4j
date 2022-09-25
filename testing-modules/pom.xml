@@ -13,39 +13,39 @@
         <version>1.0.0</version>
     </parent>
 
-    <!--<modules>-->
-    <!--    <module>assertion-libraries</module>-->
-    <!--    <module>cucumber</module>-->
-    <!--    <module>easy-random</module>-->
-    <!--    <module>easymock</module>-->
-    <!--    <module>gatling</module>-->
-    <!--    <module>groovy-spock</module>-->
-    <!--    <module>hamcrest</module>-->
-    <!--    <module>junit-4</module>-->
-    <!--    <module>junit-5-advanced</module>-->
-    <!--    <module>junit-5-basics</module>-->
-    <!--    <module>junit-5</module>-->
-    <!--    <module>junit5-annotations</module>-->
-    <!--    <module>junit5-migration</module>-->
-    <!--    <module>load-testing-comparison</module>-->
-    <!--    <module>mockito</module>-->
-    <!--    <module>mockito-simple</module>-->
-    <!--    <module>mocks</module>-->
-    <!--    <module>mockserver</module>-->
-    <!--    <module>parallel-tests-junit</module>-->
-    <!--    <module>powermock</module>-->
-    <!--    <module>rest-assured</module>-->
-    <!--    <module>rest-testing</module>-->
-    <!--    <module>selenium-junit-testng</module>-->
-    <!--    <module>spring-mockito</module>-->
-    <!--    <module>spring-testing-2</module>-->
-    <!--    <module>spring-testing</module>-->
-    <!--    <module>test-containers</module>-->
-    <!--    <module>testing-libraries-2</module>-->
-    <!--    <module>testing-libraries</module>-->
-    <!--    <module>testng</module>-->
-    <!--    <module>testng-command-line</module>-->
-    <!--    <module>xmlunit-2</module>-->
-    <!--    <module>zerocode</module>-->
-    <!--</modules>-->
+    <modules>
+        <!--<module>assertion-libraries</module>-->
+        <!--<module>cucumber</module>-->
+        <!--<module>easy-random</module>-->
+        <!--<module>easymock</module>-->
+        <!--<module>gatling</module>-->
+        <!--<module>groovy-spock</module>-->
+        <!--<module>hamcrest</module>-->
+        <!--<module>junit-4</module>-->
+        <module>testing-junit-5-advanced</module>
+        <module>testing-junit-5-basics</module>
+        <module>testing-junit-5</module>
+        <module>testing-junit-5-annotations</module>
+        <module>testing-junit-5-migration</module>
+        <!--<module>load-testing-comparison</module>-->
+        <!--<module>mockito</module>-->
+        <!--<module>mockito-simple</module>-->
+        <!--<module>mocks</module>-->
+        <!--<module>mockserver</module>-->
+        <!--<module>parallel-tests-junit</module>-->
+        <!--<module>powermock</module>-->
+        <!--<module>rest-assured</module>-->
+        <!--<module>rest-testing</module>-->
+        <!--<module>selenium-junit-testng</module>-->
+        <!--<module>spring-mockito</module>-->
+        <!--<module>spring-testing-2</module>-->
+        <!--<module>spring-testing</module>-->
+        <!--<module>test-containers</module>-->
+        <!--<module>testing-libraries-2</module>-->
+        <!--<module>testing-libraries</module>-->
+        <!--<module>testng</module>-->
+        <!--<module>testng-command-line</module>-->
+        <!--<module>xmlunit-2</module>-->
+        <!--<module>zerocode</module>-->
+    </modules>
 </project>

@@ -16,6 +16,13 @@
 
     <modules>
         <module>reactive-reactor-core</module>
+        <module>reactive-spring-1</module>
+        <module>reactive-spring-2</module>
+        <module>reactive-spring-3</module>
+        <module>reactive-spring-4</module>
+        <module>reactive-spring-webflux-1</module>
+        <module>reactive-spring-webflux-2</module>
+        <module>reactive-spring-reactor</module>
     </modules>
 
     <dependencyManagement>
