@@ -4,7 +4,7 @@
 
 ## 2. Maven依赖
 
-```
+```text
 <dependencies>
     <dependency>
         <groupId>io.projectreactor</groupId>
@@ -32,7 +32,7 @@
 我们还将创建oddNumbers，包含奇数序列的Flux：
 
 ```java
-public class CombiningPublishersIntegrationTest {
+class CombiningPublishersIntegrationTest {
     private static final Integer MIN = 1;
     private static final Integer MAX = 5;
 
@@ -50,7 +50,8 @@ concat()是通过顺序订阅第一个源，然后等待它完成，再订阅下
 下面是一个简单的例子：
 
 ```java
-public class CombiningPublishersIntegrationTest {
+class CombiningPublishersIntegrationTest {
+
     @Test
     void givenFluxes_whenConcatIsInvoked_thenConcat() {
         Flux<Integer> fluxOfIntegers = Flux.concat(evenNumbers, oddNumbers);
@@ -71,7 +72,8 @@ public class CombiningPublishersIntegrationTest {
 使用静态方法concatWith()，我们将生成两个类型为Flux<T\>的源的串联结果：
 
 ```java
-public class CombiningPublishersIntegrationTest {
+class CombiningPublishersIntegrationTest {
+
     @Test
     void givenFluxes_whenConcatWithIsInvoked_thenConcatWith() {
         Flux<Integer> fluxOfIntegers = evenNumbers.concatWith(oddNumbers);
@@ -87,7 +89,8 @@ Flux的静态方法combineLatest()将生成由来自每个发布者源的最新�
 下面是使用此方法的示例，其中两个发布者源Publisher和一个BiFunction作为参数：
 
 ```java
-public class CombiningPublishersIntegrationTest {
+class CombiningPublishersIntegrationTest {
+
     @Test
     public void givenFluxes_whenCombineLatestIsInvoked_thenCombineLatest() {
         BiFunction<Integer, Integer, Integer> adder = Integer::sum;
@@ -111,7 +114,8 @@ public class CombiningPublishersIntegrationTest {
 merge()方法执行将数组中包含的发布者序列中的数据合并到交错的合并序列中：
 
 ```java
-public class CombiningPublishersIntegrationTest {
+class CombiningPublishersIntegrationTest {
+
     @Test
     void givenFluxes_whenMergeIsInvoked_thenMerge() {
         Flux<Integer> fluxOfIntegers = Flux.merge(evenNumbers, oddNumbers);
@@ -132,7 +136,8 @@ public class CombiningPublishersIntegrationTest {
 在这里，如果我们在发布者元素之间插入延迟，我们可以看到merge()方法的不同结果：
 
 ```java
-public class CombiningPublishersIntegrationTest {
+class CombiningPublishersIntegrationTest {
+
     @Test
     void givenFluxes_whenMergeWithDelayedElementsIsInvoked_thenMergeWithDelayedElements() {
         Flux<Integer> fluxOfIntegers = Flux.merge(
@@ -159,7 +164,8 @@ mergeSequential()方法将数组中提供的发布者序列中的数据合并为
 此外，与merge()不同，它们发出的值按订阅顺序合并到最终序列中：
 
 ```java
-public class CombiningPublishersIntegrationTest {
+class CombiningPublishersIntegrationTest {
+
     @Test
     void givenFluxes_whenMergeSequentialIsInvoked_thenMergeSequential() {
         Flux<Integer> fluxOfIntegers = Flux.mergeSequential(evenNumbers, oddNumbers);
@@ -186,7 +192,8 @@ mergeDelayError()将数组中包含的发布者序列中的数据合并到交错
 以下是mergeDelayError()的一个示例：
 
 ```java
-public class CombiningPublishersIntegrationTest {
+class CombiningPublishersIntegrationTest {
+
     @Test
     public void givenFluxes_whenMergeDelayErrorIsInvoked_thenMergeDelayError() {
         Flux<Integer> fluxOfIntegers = Flux.mergeDelayError(1,
@@ -212,7 +219,8 @@ public class CombiningPublishersIntegrationTest {
 同样，与concat()不同的是，内部资源被热切地订阅：
 
 ```java
-public class CombiningPublishersIntegrationTest {
+class CombiningPublishersIntegrationTest {
+
     @Test
     void givenFluxes_whenMergeWithIsInvoked_thenMergeWith() {
         Flux<Integer> fluxOfIntegers = evenNumbers.mergeWith(oddNumbers);
@@ -236,7 +244,8 @@ public class CombiningPublishersIntegrationTest {
 此操作一直继续下去，直到任何源消费完成：
 
 ```java
-public class CombiningPublishersIntegrationTest {
+class CombiningPublishersIntegrationTest {
+
     @Test
     void givenFluxes_whenZipIsInvoked_thenZip() {
         Flux<Integer> fluxOfIntegers = Flux.zip(evenNumbers, oddNumbers, Integer::sum);
@@ -257,7 +266,8 @@ public class CombiningPublishersIntegrationTest {
 zipWith()方法执行与zip()相同的操作，但仅使用两个发布者：
 
 ```java
-public class CombiningPublishersIntegrationTest {
+class CombiningPublishersIntegrationTest {
+
     @Test
     void givenFluxes_whenZipWithIsInvoked_thenZipWith() {
         Flux<Integer> fluxOfIntegers = evenNumbers.zipWith(oddNumbers, (a, b) -> a * b);

@@ -12,11 +12,11 @@ class CombiningPublishersIntegrationTest {
 
     private static final Flux<Integer> evenNumbers = Flux.range(MIN, MAX).filter(x -> x % 2 == 0);
     private static final Flux<Integer> oddNumbers = Flux.range(MIN, MAX).filter(x -> x % 2 > 0);
-    
+
     @Test
-    void givenFluxes_whenConcatIsInvoked_thenConcat () {
+    void givenFluxes_whenConcatIsInvoked_thenConcat() {
         Flux<Integer> fluxOfIntegers = Flux.concat(evenNumbers, oddNumbers);
-        
+
         StepVerifier.create(fluxOfIntegers)
                 .expectNext(2)
                 .expectNext(4)
