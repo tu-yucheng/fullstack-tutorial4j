@@ -217,7 +217,7 @@
     </profiles>
 
     <properties>
-        <!-- <start-class>cn.tuyucheng.taketoday.jdbcauthentication.postgre.PostgreJdbcAuthenticationApplication</start-class> -->
+        <!-- <start-class>cn.tuyucheng.taketoday.jdbcauthentication.postgre.PostgresJdbcAuthenticationApplication</start-class> -->
         <!--This runs the example with the multiple logins application -->
         <start-class>cn.tuyucheng.taketoday.multiplelogin.MultipleLoginApplication</start-class>
         <!--If you want to run the example with the multiple http elements, comment the tag above and -->
