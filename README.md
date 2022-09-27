@@ -24,15 +24,11 @@
 该项目使用`Java 17` + `Maven` + `Intellij IDEA 2022.2`构建。  
 请确保你的本地安装了`JDK 17`并且配置好环境变量。
 
-在上述配置中选择你自己机器上安装的`Gradle`路径。或者你也可以使用`Gradle Wrapper`。
-
 # Table Of Contents
 
 * java-core
     - java-core-concurrency
-        + [java-core-concurrency-basic](java-concurrency-simple/README.md)
-        + [java-core-concurrency-advanced](java-concurrency-advanced-1/README.md)
-        + [java-core-concurrency-collections](java-concurrency-collections-1/README.md)
+        + [java-core-concurrency-basic](java-core-modules/java-concurrency-simple/README.md)
 * spring-framework
     - spring-core
     - spring-di
@@ -42,6 +38,7 @@
 * spring-boot
 * spring-data
 * spring-security
+  + [spring-security-web-boot](spring-security-modules/spring-security-web-boot-1/README.md)
 * spring-cloud
 
 # Contributors

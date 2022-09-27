@@ -12,4 +12,5 @@ This module contains articles about basic Java concurrency
 - [How to Get the Number of Threads in a Java Process](docs/Java_Get_ThreadNumber.md)
 - [Set the Name of a Thread in Java](docs/Java_Set_ThreadName.md)
 
+- More articles: [[<-- prev]](../java-concurrency-basic-1/README.md)
 - More Articles: [[next -->]](../java-concurrency-basic-3/README.md)
