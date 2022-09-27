@@ -13,3 +13,7 @@ Content-Type: application/json
 Accept: application/json
 
 < ./request.json
+
+### [Spring Security – Cache Control Headers] -- /default/users/tuyucheng
+GET http://localhost:8080/default/users/tuyucheng
+Content-Type: application/json
