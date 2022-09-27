@@ -1,0 +1,15 @@
+### [Spring Security – Request Rejected Exception] -- create user - 1
+POST http://localhost:8080/api/v1/users
+Authorization: Basic user password
+Content-Type: application/json
+Accept: application/json
+
+< ./request.json
+
+### [Spring Security – Request Rejected Exception] -- create user - 2
+POST http://localhost:8080/api<strong>\\</strong>v1/users
+Authorization: Basic user password
+Content-Type: application/json
+Accept: application/json
+
+< ./request.json
