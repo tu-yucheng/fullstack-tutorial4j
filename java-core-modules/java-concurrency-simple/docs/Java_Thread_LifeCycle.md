@@ -29,7 +29,7 @@ java.lang.Thread类包含一个静态的State枚举，定义了线程的潜在�
 
 以下代码段显示了一个新创建的线程，该线程处于NEW状态：
 
-```
+```text
 Runnable runnable = new NewState();
 Thread t = new Thread(runnable);
 Log.info(t.getState());
@@ -37,7 +37,7 @@ Log.info(t.getState());
 
 由于我们尚未启动上述线程，因此方法t.getState()会打印：
 
-```
+```text
 NEW
 ```
 
@@ -50,7 +50,7 @@ NEW
 
 例如，我们将t.start()调用添加到前面的代码中，并尝试访问其当前状态：
 
-```
+```text
 Runnable runnable = new NewState();
 Thread t = new Thread(runnable);
 t.start();
@@ -59,7 +59,7 @@ Log.info(t.getState());
 
 以上代码最有可能打印以下输出：
 
-```
+```text
 RUNNABLE
 ```
 
@@ -116,7 +116,7 @@ public class BlockedState {
 
 在这种状态下，我们调用t2.getState()得到的输出为：
 
-```
+```text
 BLOCKED
 ```
 
@@ -175,7 +175,7 @@ public class WaitingState implements Runnable {
 
 正如你所期望的，这里的输出是：
 
-```
+```text
 WAITING
 ```
 
@@ -222,7 +222,7 @@ public class TimedWaitingState {
 
 这里，我们创建并启动了一个线程t1，它进入睡眠状态，超时时间为5秒；最后得到的输出为：
 
-```
+```text
 TIMED_WAITING
 ```
 
@@ -251,13 +251,13 @@ public class TerminatedState implements Runnable {
 
 在这里，我们启动了线程t1，下一行代码Thread.sleep(1000)为t1提供了足够的时间来完成执行，因此该程序打印的输出如下：
 
-```
+```text
 TERMINATED
 ```
 
 除了线程状态，我们还可以使用isAlive()方法来确定线程是否处于活动状态。例如，如果我们在这个线程上调用isAlive()方法：
 
-```
+```text
 Assertions.assertFalse(t1.isAlive());
 ```
 
