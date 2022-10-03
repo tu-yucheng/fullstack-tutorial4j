@@ -56,7 +56,7 @@ public class Address {
 
 通常，我们使用类的构造函数创建对象：
 
-```
+```text
 Address address = new Address("High Street", 1000);
 Company company = new Company(address);
 ```
@@ -104,13 +104,13 @@ public class Config {
 
 由于我们在配置类中定义了bean，**因此需要AnnotationConfigApplicationContext类的实例来构建容器**：
 
-```
+```text
 ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
 ```
 
 然后我们可以从容器中获取Company类型的bean，并验证它的成员变量address已成功注入：
 
-```
+```text
 Company company = context.getBean("company", Company.class);
 assertEquals("High Street", company.getAddress().getStreet());
 assertEquals(1000, company.getAddress().getNumber());

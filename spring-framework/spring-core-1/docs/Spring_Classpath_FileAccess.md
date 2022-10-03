@@ -13,7 +13,7 @@ Resource接口抽象了对低级资源的访问，事实上，它支持以统一
 为了从classpath(类路径)访问资源，我们可以简单地使用ClassPathResource：
 
 ```java
-public class SpringResourceIntegrationTest {
+class SpringResourceIntegrationTest {
 
     private Resource loadEmployeesWithClassPathResource() {
         return new ClassPathResource("data/employees.dat");
@@ -25,13 +25,13 @@ public class SpringResourceIntegrationTest {
 
 但是，我们也可以指定类加载器：
 
-```
+```text
 return new ClassPathResource("data/employees.dat", this.getClass().getClassLoader());
 ```
 
 或间接通过指定的类：
 
-```
+```text
 return new ClassPathResource("data/employees.dat", Employee.class.getClassLoader());
 ```
 
@@ -39,7 +39,7 @@ return new ClassPathResource("data/employees.dat", Employee.class.getClassLoader
 
 这里需要注意的另一点是，上述方法仅适用于绝对路径。如果要指定相对路径，可以传递第二个Class参数。路径将相对于该类：
 
-```
+```text
 new ClassPathResource("../../../../data/employees.dat", Example.class).getFile();
 ```
 
@@ -50,7 +50,7 @@ new ClassPathResource("../../../../data/employees.dat", Example.class).getFile()
 我们还可以使用@Value注解注入Resource：
 
 ```java
-public class SpringResourceIntegrationTest {
+class SpringResourceIntegrationTest {
     @Value("classpath:data/employees.dat")
     private Resource resourceFile;
 }
@@ -63,7 +63,7 @@ public class SpringResourceIntegrationTest {
 如果我们想延迟加载Resource，可以使用ResourceLoader：
 
 ```java
-public class SpringResourceIntegrationTest {
+class SpringResourceIntegrationTest {
     @Autowired
     private ResourceLoader resourceLoader;
 }
@@ -72,7 +72,7 @@ public class SpringResourceIntegrationTest {
 然后使用getResource()方法获取Resource：
 
 ```java
-public class SpringResourceIntegrationTest {
+class SpringResourceIntegrationTest {
     private Resource loadEmployeesWithResourceLoader() {
         return resourceLoader.getResource("classpath:data/employees.dat");
     }
@@ -82,7 +82,7 @@ public class SpringResourceIntegrationTest {
 还要注意，所有具体的ApplicationContext都实现了ResourceLoader，这意味着如果它更适合我们的情况，我们也可以简单地依赖ApplicationContext：
 
 ```java
-public class SpringResourceIntegrationTest {
+class SpringResourceIntegrationTest {
     @Autowired
     private ApplicationContext appContext;
 
@@ -99,7 +99,7 @@ public class SpringResourceIntegrationTest {
 如果在我们的代码中使用ResourceUtils，如下所示：
 
 ```java
-public class SpringResourceIntegrationTest {
+class SpringResourceIntegrationTest {
     private File loadEmployeesWithSpringInternalClass() throws FileNotFoundException {
         return ResourceUtils.getFile("classpath:data/employees.dat");
     }
@@ -114,7 +114,7 @@ public class SpringResourceIntegrationTest {
 
 假设我们在类路径下有如下data/employees.dat文件：
 
-```
+```text
 Joe Employee,Jan Employee,James T. Employee
 ```
 
@@ -123,7 +123,8 @@ Joe Employee,Jan Employee,James T. Employee
 现在我们可以通过调用getFile()来读取它的内容：
 
 ```java
-public class SpringResourceIntegrationTest {
+class SpringResourceIntegrationTest {
+
     @Test
     void whenResourceAsFile_thenReadSuccessful() throws IOException {
         final File resource = loadEmployeesWithClassPathResource().getFile();
@@ -142,7 +143,8 @@ public class SpringResourceIntegrationTest {
 我们可以改为将Resource作为InputStream读取：
 
 ```java
-public class SpringResourceIntegrationTest {
+class SpringResourceIntegrationTest {
+
     @Test
     void whenResourceAsStream_thenReadSuccessful() throws IOException {
         final InputStream resource = loadEmployeesWithClassPathResource().getInputStream();

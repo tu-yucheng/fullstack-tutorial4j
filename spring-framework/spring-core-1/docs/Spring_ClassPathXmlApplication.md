@@ -69,7 +69,7 @@ class ClasspathXmlApplicationContextIntegrationTest {
 
 有时，我们希望使用多个XML配置来初始化一个Spring容器。在这种情况下，我们只需在构建ApplicationContext时指定多个配置文件：
 
-```
+```text
 ApplicationContext context = new ClassPathXmlApplicationContext("ctx.xml", "ctx2.xml");
 ```
 
@@ -93,7 +93,8 @@ public class Student {
 
 我们现在可以将此方法配置为Student bean的destroy-method：
 
-```
+```xml
+
 <bean id="student" class="cn.tuyucheng.taketoday.applicationcontext.Student" destroy-method="destroy">
     <property name="no" value="15"/>
     <property name="name" value="Tom"/>
@@ -234,7 +235,7 @@ public class Teacher implements ApplicationContextAware {
 
 然后让我们在classpathxmlapplicationcontext-example.xml中配置Course和Teacher bean。
 
-```
+```text
 <bean id="math" class="cn.tuyucheng.taketoday.applicationcontext.Course">
     <property name="name" value="math"/>
 </bean>

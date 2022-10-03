@@ -8,7 +8,8 @@
 
 StreamUtils类属于spring-core模块，所以让我们将其添加到pom.xml中：
 
-```
+```xml
+
 <dependency>
     <groupId>org.springframework</groupId>
     <artifactId>spring-core</artifactId>
@@ -65,6 +66,7 @@ public class CopyStream {
 
 ```java
 class CopyStreamIntegrationTest {
+
     @Test
     void whenCopyRangeOfInputStreamToOutputStream_thenCorrect() throws IOException {
         String inputFileName = "src/test/resources/input.txt";
@@ -90,6 +92,7 @@ class CopyStreamIntegrationTest {
 
 ```java
 class CopyStreamIntegrationTest {
+
     @Test
     void whenCopyStringToOutputStream_thenCorrect() throws IOException {
         String string = "Should be copied to OutputStream";
@@ -110,6 +113,7 @@ class CopyStreamIntegrationTest {
 
 ```java
 class CopyStreamIntegrationTest {
+
     @Test
     void whenCopyInputStreamToString_thenCorrect() throws IOException {
         String inputFileName = "src/test/resources/input.txt";
@@ -125,6 +129,7 @@ class CopyStreamIntegrationTest {
 
 ```java
 class CopyStreamIntegrationTest {
+
     @Test
     void whenCopyByteArrayToOutputStream_thenCorrect() throws IOException {
         String outputFileName = "src/test/resources/output.txt";
@@ -142,6 +147,7 @@ class CopyStreamIntegrationTest {
 
 ```java
 class CopyStreamIntegrationTest {
+
     @Test
     void whenCopyInputStreamToByteArray_thenCorrect() throws IOException {
         String inputFileName = "src/test/resources/input.txt";
