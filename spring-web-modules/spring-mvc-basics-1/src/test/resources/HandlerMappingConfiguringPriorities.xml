@@ -1,0 +1,29 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+        <property name="order" value="2"/>
+    </bean>
+
+    <bean name="/welcome" class="cn.tuyucheng.taketoday.web.controller.handlermapping.WelcomeController"/>
+
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <value>
+                /welcome=test
+                /*/welcome=test
+            </value>
+        </property>
+        <property name="order" value="0"/>
+    </bean>
+
+    <bean id="test" class="cn.tuyucheng.taketoday.web.controller.handlermapping.TestController"/>
+
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping">
+        <property name="order" value="1"/>
+    </bean>
+    <bean class="cn.tuyucheng.taketoday.web.controller.handlermapping.WelcomeController"/>
+</beans>
