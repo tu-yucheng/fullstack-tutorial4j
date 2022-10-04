@@ -31,14 +31,16 @@
         + [java-core-concurrency-basic](java-core-modules/java-concurrency-simple/README.md)
         + [java-core-concurrency-advanced](java-core-modules/java-concurrency-advanced-1/README.md)
 * spring-framework
-    - spring-core
+    - [spring-core](spring-framework/spring-core-1/README.md)
     - spring-di
     - spring-aop
     - spring-caching
 * spring-mvc
+    - [spring-mvc-basic](spring-web-modules/spring-mvc-basics-1/README.md)
 * spring-boot
 * spring-data
 * spring-security
+    + [spring-security-core](spring-security-modules/spring-security-core-1/README.md)
     + [spring-security-web-boot](spring-security-modules/spring-security-web-boot-1/README.md)
 * spring-cloud
 
