@@ -6,14 +6,13 @@
 
 ## 2. Gradle依赖
 
-```groovy
-ext {
-    reactor = '3.4.12'
-}
+```xml
 
-dependencies {
-    implementation "io.projectreactor:reactor-core:${reactor}"
-}
+<dependency>
+    <groupId>io.projectreactor</groupId>
+    <artifactId>reactor-core</artifactId>
+    <version>3.4.12</version>
+</dependency>
 ```
 
 ## 3. map操作
@@ -22,14 +21,14 @@ dependencies {
 
 Flux#map方法需要一个Function参数，其简单如下：
 
-```
+```text
 Function<String, String> mapper = String::toUpperCase;
 ```
 
 mapper函数将输入字符串转换为其大写形式。我们可以将其应用于Flux流：
 
 ```java
-public class MappingUnitTest {
+class MappingUnitTest {
 
     @Test
     void givenInputStream_whenCallingTheMapOperator_thenItemsAreTransformed() {
@@ -58,7 +57,7 @@ public class MappingUnitTest {
 
 以下是一个例子：
 
-```
+```text
 Function<String, Publisher<String>> mapper = s -> Flux.just(s.toUpperCase().split(""));
 ```
 
@@ -67,7 +66,7 @@ Function<String, Publisher<String>> mapper = s -> Flux.just(s.toUpperCase().spli
 我们现在可以将给定的mapper传递给flatMap方法：
 
 ```java
-public class MappingUnitTest {
+class MappingUnitTest {
 
     @Test
     void givenInputStream_whenCallingTheFlatMapOperator_thenItemsAreFlatten() {

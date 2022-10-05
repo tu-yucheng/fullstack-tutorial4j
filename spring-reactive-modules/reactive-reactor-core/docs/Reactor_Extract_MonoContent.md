@@ -31,7 +31,7 @@ class MonoUnitTest {
 为了获得更多控制，我们设置一个显式的持续时间：
 
 ```java
-public class MonoUnitTest {
+class MonoUnitTest {
 
     @Test
     void whenMonoProducesString_thenBlockAndConsume() {
@@ -46,7 +46,7 @@ public class MonoUnitTest {
 此外，Mono可能为空，并且上面的block()方法将返回null。在这种情况下，我们可以使用blockOptional()：
 
 ```java
-public class MonoUnitTest {
+class MonoUnitTest {
 
     @Test
     void whenMonoProducesString_thenBlockAndConsume() {
@@ -65,7 +65,7 @@ public class MonoUnitTest {
 首先，我们应该使用subscribe()方法以非阻塞方式订阅。此外，我们将指定最终值的消费者：
 
 ```java
-public class MonoUnitTest {
+class MonoUnitTest {
 
     @Test
     void whenMonoProducesString_thenConsumeNonBlocking() {
@@ -79,8 +79,8 @@ public class MonoUnitTest {
 在某些情况下，我们希望在中间步骤中消费该值。因此，我们可以使用运算符来添加行为：
 
 ```java
-public class MonoUnitTest {
-    
+class MonoUnitTest {
+
     @Test
     void whenMonoProducesString_thenConsumeNonBlocking() {
         blockingHelloWorld().doOnNext(result -> assertEquals("Hello world", result)).subscribe();

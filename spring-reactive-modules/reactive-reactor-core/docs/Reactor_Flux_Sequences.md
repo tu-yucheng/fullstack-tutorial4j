@@ -2,17 +2,24 @@
 
 在本教程中，我们将使用Reactor基础知识来学习一些创建Flux的方法。
 
-## 2. Gradle依赖
+## 2. Maven依赖
 
-```groovy
-ext {
-    reactor = '3.4.12'
-}
+```text
+<dependency>
+    <groupId>io.projectreactor</groupId>
+    <artifactId>reactor-core</artifactId>
+    <version>${reactor.version}</version>
+</dependency>
+<dependency>
+    <groupId>io.projectreactor</groupId>
+    <artifactId>reactor-test</artifactId>
+    <version>${reactor.version}</version>
+    <scope>test</scope>
+</dependency>
 
-dependencies {
-    implementation "io.projectreactor:reactor-core:${reactor}"
-    testImplementation "io.projectreactor:reactor-test:${reactor}"
-}
+<properties>
+    <reactor.version>3.4.12</reactor.version>
+</properties>
 ```
 
 ## 3. 同步发射
@@ -54,7 +61,7 @@ public class SequenceGenerator {
 让我们使用StepVerifier验证生成的序列：
 
 ```java
-public class SequenceUnitTest {
+class SequenceUnitTest {
 
     @Test
     void whenGeneratingNumbersWithTuplesState_thenFibonacciSequenceIsProduced() {
@@ -94,7 +101,7 @@ public class FibonacciState {
 修改我们的初始示例，我们现在将使用可变状态生成器：
 
 ```java
-public class SequenceGenerator {
+class SequenceGenerator {
 
     public Flux<Integer> generateFibonacciWithCustomClass(int limit) {
         return Flux.generate(
@@ -124,7 +131,7 @@ Callable类型的状态提供者只需创建一个初始属性为0和1的Fibonac
 现在我们测试以确认它是否有效：
 
 ```java
-public class SequenceGenerator {
+class SequenceGenerator {
 
     @Test
     void whenGeneratingNumbersWithCustomClass_thenFibonacciSequenceIsProduced() {
@@ -177,7 +184,7 @@ public class SequenceCreator {
 让我们将create()运算符付诸行动，从两个数字序列开始：
 
 ```java
-public class SequenceUnitTest {
+class SequenceUnitTest {
 
     @Test
     void whenCreatingNumbers_thenSequenceIsProducedAsynchronously() {
@@ -268,7 +275,7 @@ public class SequenceHandler {
 最后，让我们使用StepVerifier来确认我们的SequenceHandler有效：
 
 ```java
-public class SequenceUnitTest {
+class SequenceUnitTest {
 
     @Test
     void whenHandlingNumbers_thenSequenceIsMappedAndFiltered() {

@@ -3,16 +3,15 @@
 在本教程中，我们将介绍几种在Reactor中处理异常的方法。
 代码案例中介绍的操作符是在Mono和Flux类中定义的，这里我们只关注Flux类中方法的用法。
 
-## 2. Gradle依赖
+## 2. Maven依赖
 
-```groovy
-ext {
-    reactor = '3.4.12'
-}
+```xml
 
-dependencies {
-    implementation "io.projectreactor:reactor-core:${reactor}"
-}
+<dependency>
+    <groupId>io.projectreactor</groupId>
+    <artifactId>reactor-core</artifactId>
+    <version>3.4.12</version>
+</dependency>
 ```
 
 ## 3. 直接在管道运算符中抛出异常
@@ -25,7 +24,7 @@ dependencies {
 使用map运算符进行这种转换是一种常见的做法：
 
 ```java
-public class ExceptionUnitTest {
+class ExceptionUnitTest {
 
     @Test
     void givenInvalidElement_whenPipelineThrowsException_thenErrorIsSentDownstream() {
@@ -64,7 +63,7 @@ Reactor通过将异常转换为错误信号来帮助我们。但是，我们可�
 让我们更新上一节中的示例以使用handle运算符：
 
 ```java
-public class ExceptionUnitTest {
+class ExceptionUnitTest {
 
     @Test
     void givenInvalidElement_whenHandleCallsSinkErrorMethod_thenErrorIsSentDownstream() {
@@ -102,7 +101,7 @@ public class ExceptionUnitTest {
 下面使用flatMap改写之前的例子：
 
 ```java
-public class ExceptionUnitTest {
+class ExceptionUnitTest {
 
     @Test
     void givenInvalidElement_whenFlatMapCallsMonoErrorMethod_thenErrorIsSentToDownstream() {
@@ -135,7 +134,7 @@ handle操作符在接收器上调用error方法，而flatMaps在Publisher上调�
 为避免此异常，我们通常将变量与null进行比较，如果该变量实际上为null，则将执行定向到不同的分支。
 
 ```java
-public class ExceptionUnitTest {
+class ExceptionUnitTest {
 
     @Test
     void givenNullElement_whenPipelineOperatorExecutes_thenNpeIsSentToDownstream() {

@@ -13,17 +13,24 @@ Flux API在Flux上提供了几个静态工厂方法，用于创建源或从多�
 
 在接下来的部分中，让我们看看Flux中generate()和create()方法的一些用法。
 
-## 3. Gradle依赖
+## 3. Maven依赖
 
-```groovy
-ext {
-    reactor = '3.4.12'
-}
+```text
+<dependency>
+    <groupId>io.projectreactor</groupId>
+    <artifactId>reactor-core</artifactId>
+    <version>${reactor.version}</version>
+</dependency>
+<dependency>
+    <groupId>io.projectreactor</groupId>
+    <artifactId>reactor-test</artifactId>
+    <version>${reactor.version}</version>
+    <scope>test</scope>
+</dependency>
 
-dependencies {
-    implementation "io.projectreactor:reactor-core:${reactor}"
-    testImplementation "io.projectreactor:reactor-test:${reactor}"
-}
+<properties>
+    <reactor.version>3.4.12</reactor.version>
+</properties>
 ```
 
 ## 4. generate
@@ -69,7 +76,7 @@ public class CharacterGenerator {
 让我们使用StepVerifier验证生成的序列：
 
 ```java
-public class CharacterUnitTest {
+class CharacterUnitTest {
 
     @Test
     void whenGeneratingCharacters_thenCharactersAreProduced() {
@@ -116,7 +123,7 @@ public class CharacterCreator {
 现在让我们将CharacterCreator用于两个字符序列：
 
 ```java
-public class CharacterUnitTest {
+class CharacterUnitTest {
 
     @Test
     void whenCreatingCharactersWithMultipleThreads_thenSequenceIsProducedAsynchronously() {
@@ -162,7 +169,7 @@ producerThread2.join();
 
 最后，让我们验证一下操作的结果：
 
-```
+```text
 assertThat(consolidated).containsExactlyInAnyOrder('a', 'b', 'c', 'a', 'b');
 ```
 

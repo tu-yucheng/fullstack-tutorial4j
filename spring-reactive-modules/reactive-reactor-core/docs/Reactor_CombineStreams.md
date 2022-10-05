@@ -4,7 +4,8 @@
 
 ## 2. Maven依赖
 
-```text
+```xml
+
 <dependencies>
     <dependency>
         <groupId>io.projectreactor</groupId>
@@ -92,7 +93,7 @@ Flux的静态方法combineLatest()将生成由来自每个发布者源的最新�
 class CombiningPublishersIntegrationTest {
 
     @Test
-    public void givenFluxes_whenCombineLatestIsInvoked_thenCombineLatest() {
+    void givenFluxes_whenCombineLatestIsInvoked_thenCombineLatest() {
         BiFunction<Integer, Integer, Integer> adder = Integer::sum;
         Flux<Integer> fluxOfIntegers = Flux.combineLatest(evenNumbers, oddNumbers, adder);
 
@@ -195,7 +196,7 @@ mergeDelayError()将数组中包含的发布者序列中的数据合并到交错
 class CombiningPublishersIntegrationTest {
 
     @Test
-    public void givenFluxes_whenMergeDelayErrorIsInvoked_thenMergeDelayError() {
+    void givenFluxes_whenMergeDelayErrorIsInvoked_thenMergeDelayError() {
         Flux<Integer> fluxOfIntegers = Flux.mergeDelayError(1,
                 evenNumbers.delayElements(Duration.ofMillis(500L)),
                 oddNumbers.delayElements(Duration.ofMillis(300L)));

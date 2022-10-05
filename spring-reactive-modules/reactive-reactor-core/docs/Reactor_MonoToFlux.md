@@ -29,7 +29,7 @@ Mono<T\>是Publisher<T\>的一种类型，可以发出0或1个T类型的元素�
 首先我们从一个字符串集合创建我们的Mono发布者：
 
 ```java
-public class MonoUnitTest {
+class MonoUnitTest {
 
     private Mono<List<String>> monoOfList() {
         List<String> list = new ArrayList<>();
@@ -45,7 +45,7 @@ public class MonoUnitTest {
 flatMapMany是Mono上返回发布者的通用运算符。让我们将flatMapMany应用于我们的解决方案：
 
 ```java
-public class MonoUnitTest {
+class MonoUnitTest {
 
     private <T> Flux<T> monoToFluxUsingFlatMapMany(Mono<List<T>> monoList) {
         return monoList.flatMapMany(Flux::fromIterable).log();
@@ -64,7 +64,7 @@ public class MonoUnitTest {
 让我们使用flatMapIterable作为我们的解决方案：
 
 ```java
-public class MonoUnitTest {
+class MonoUnitTest {
 
     private <T> Flux<T> monoToFluxUsingFlatMapIterable(Mono<List<T>> monoList) {
         return monoList.flatMapIterable(list -> list).log();

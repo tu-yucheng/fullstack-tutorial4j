@@ -23,7 +23,7 @@ Mono.just()方法提供了Mono类型的热发布者。
 让我们探讨一个生成Mono类型的Supplier的案例：
 
 ```java
-public class MonoUnitTest {
+class MonoUnitTest {
 
     private Mono<String> sampleMsg(String str) {
         log.debug("Call to Retrieve Sample Message!! --> {} at : {}", str, System.currentTimeMillis());
@@ -35,7 +35,7 @@ public class MonoUnitTest {
 在这里，这个方法返回一个热Mono发布者。让我们热切地订阅以下内容：
 
 ```java
-public class MonoUnitTest {
+class MonoUnitTest {
 
     @Test
     void whenUsingMonoJust_thenEagerEvaluation() throws InterruptedException {
@@ -72,7 +72,8 @@ public class MonoUnitTest {
 让我们看看Mono.defer()如何将其转换为冷(惰性)发布者：
 
 ```java
-public class MonoUnitTest {
+class MonoUnitTest {
+    
     @Test
     void whenUsingMonoDefer_thenLazyEvaluation() throws InterruptedException {
         Mono<String> deferMsg = Mono.defer(() -> sampleMsg("Lazy Publisher"));
@@ -118,7 +119,7 @@ public class MonoUnitTest {
 让我们看一个使用Mono.defer()方法的示例：
 
 ```java
-public class MonoUnitTest {
+class MonoUnitTest {
 
     @Test
     void whenEmptyList_thenMonoDeferExecuted() {
@@ -141,13 +142,13 @@ public class MonoUnitTest {
 现在，让我们看一下非空集合的相同代码：
 
 ```java
-public class MonoUnitTest {
+class MonoUnitTest {
 
     @Test
     void whenNonEmptyList_thenMonoDeferNotExecuted() {
         Mono<List<String>> nonEmptyList = Mono.defer(this::monoOfList);
 
-        // Non empty list, hence Mono publisher in switchIfEmpty won't evaluated ...
+        // Non-empty list, hence Mono publisher in switchIfEmpty won't evaluated ...
         Flux<String> listElements = nonEmptyList.flatMapIterable(l -> l)
                 .switchIfEmpty(Mono.defer(() -> sampleMsg("NonEmptyList")))
                 .log();
