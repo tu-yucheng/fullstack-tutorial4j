@@ -47,6 +47,7 @@
     + [reactor-core](spring-reactive-modules/reactive-reactor-core/README.md)
 * testing-framework
     + [Junit-5](testing-modules/testing-junit-5/README.md)
+    + [Mockito](testing-modules/testing-mockito/README.md)
 
 # Contributors
 
