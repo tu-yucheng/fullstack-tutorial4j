@@ -27,6 +27,10 @@
         <module>testing-junit-5</module>
         <module>testing-junit-5-annotations</module>
         <module>testing-junit-5-migration</module>
+
+        <module>testing-mockito</module>
+        <module>testing-mockito-simple</module>
+        <module>testing-mockito-spring</module>
         <!--<module>load-testing-comparison</module>-->
         <!--<module>mockito</module>-->
         <!--<module>mockito-simple</module>-->
