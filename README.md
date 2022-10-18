@@ -30,6 +30,7 @@
 * spring-mvc
     - [spring-mvc-basic](spring-web-modules/spring-mvc-basics-1/README.md)
 * spring-boot
+    - [spring-boot-data](spring-boot-modules/spring-boot-data-1/README.md)
 * spring-data
 * spring-security
     + [spring-security-core](spring-security-modules/spring-security-core-1/README.md)
