@@ -8,7 +8,7 @@ This module contains articles about login mechanisms with Spring Security.
 - [Spring Security Logout](docs/SpringSecurity_Logout.md)
 - [Spring HTTP/HTTPS Channel Security](docs/SpringSecurity_HttpsChannel.md)
 - [Spring Security – Customize the 403 Forbidden/Access Denied Page](docs/SpringSecurity_Custom_AccessDeniedPage.md)
-- [Spring Security – Redirect to the Previous URL After Login]()
+- [Spring Security – Redirect to the Previous URL After Login](docs/SpringSecurity_RedirectLogin.md)
 - [Spring Security Custom AuthenticationFailureHandler]()
 - [Extra Login Fields with Spring Security]()
 
