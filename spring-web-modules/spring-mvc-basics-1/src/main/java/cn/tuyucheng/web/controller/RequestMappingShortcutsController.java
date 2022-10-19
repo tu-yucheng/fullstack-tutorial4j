@@ -1,4 +1,4 @@
-package cn.tuyucheng.taketoday.web.controller;
+package cn.tuyucheng.web.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

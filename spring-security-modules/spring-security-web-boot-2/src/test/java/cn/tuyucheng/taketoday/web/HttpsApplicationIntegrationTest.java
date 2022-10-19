@@ -1,4 +1,4 @@
-package cn.tuyucheng.taketoday.web;
+package cn.tuyucheng.web;
 
 import cn.tuyucheng.taketoday.ssl.HttpsEnabledApplication;
 import org.apache.http.client.HttpClient;

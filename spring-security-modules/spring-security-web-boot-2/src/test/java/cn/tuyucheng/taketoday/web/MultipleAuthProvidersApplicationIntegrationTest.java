@@ -1,4 +1,4 @@
-package cn.tuyucheng.taketoday.web;
+package cn.tuyucheng.web;
 
 import cn.tuyucheng.taketoday.multipleauthproviders.MultipleAuthProvidersApplication;
 import org.junit.jupiter.api.Test;

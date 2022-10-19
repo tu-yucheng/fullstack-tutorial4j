@@ -100,7 +100,7 @@ public class MyUserPrincipal implements UserDetails {
 并将其注入Spring的authentication-provider bean：
 
 ```text
-<bean id="myUserDetailsService" class="cn.tuyucheng.taketoday.security.MyUserDetailsService"/>
+<bean id="myUserDetailsService" class="cn.tuyucheng.security.MyUserDetailsService"/>
 
 <security:authentication-manager>
     <security:authentication-provider user-service-ref="myUserDetailsService" >

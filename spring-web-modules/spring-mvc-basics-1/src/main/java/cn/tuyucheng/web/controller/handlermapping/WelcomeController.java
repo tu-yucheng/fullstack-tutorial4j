@@ -1,4 +1,4 @@
-package cn.tuyucheng.taketoday.web.controller.handlermapping;
+package cn.tuyucheng.web.controller.handlermapping;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ModelAndView;

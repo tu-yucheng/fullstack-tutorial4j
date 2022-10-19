@@ -1,4 +1,4 @@
-package cn.tuyucheng.taketoday.web.controller;
+package cn.tuyucheng.web.controller;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

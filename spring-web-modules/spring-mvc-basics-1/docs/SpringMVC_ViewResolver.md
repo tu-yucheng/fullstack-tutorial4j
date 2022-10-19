@@ -17,7 +17,7 @@ Spring框架附带了很多视图解析器，例如InternalResourceViewResolver�
 ```java
 
 @EnableWebMvc
-@ComponentScan(basePackages = {"cn.tuyucheng.taketoday.web.controller"})
+@ComponentScan(basePackages = {"cn.tuyucheng.web.controller"})
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 

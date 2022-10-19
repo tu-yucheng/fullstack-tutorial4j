@@ -1,4 +1,4 @@
-package cn.tuyucheng.taketoday.web.controller;
+package cn.tuyucheng.web.controller;
 
 import cn.tuyucheng.taketoday.model.Book;
 import org.springframework.web.bind.annotation.PathVariable;

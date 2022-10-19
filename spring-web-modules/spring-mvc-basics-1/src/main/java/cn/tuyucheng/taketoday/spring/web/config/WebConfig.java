@@ -18,7 +18,7 @@ import org.springframework.web.servlet.view.JstlView;
 import java.io.IOException;
 
 //@EnableWebMvc
-//@ComponentScan(basePackages = { "cn.tuyucheng.taketoday.web.controller" })
+//@ComponentScan(basePackages = { "cn.tuyucheng.web.controller" })
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 

@@ -1,7 +1,7 @@
 package cn.tuyucheng.taketoday.config;
 
-import cn.tuyucheng.taketoday.web.controller.handlermapping.BeanNameHandlerMappingController;
-import cn.tuyucheng.taketoday.web.controller.handlermapping.WelcomeController;
+import cn.tuyucheng.web.controller.handlermapping.BeanNameHandlerMappingController;
+import cn.tuyucheng.web.controller.handlermapping.WelcomeController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

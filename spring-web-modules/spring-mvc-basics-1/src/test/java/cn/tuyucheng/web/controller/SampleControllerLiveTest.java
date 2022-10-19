@@ -1,4 +1,4 @@
-package cn.tuyucheng.taketoday.web.controller;
+package cn.tuyucheng.web.controller;
 
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.Test;

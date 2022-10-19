@@ -64,7 +64,7 @@ public class WebConfig implements WebMvcConfigurer {
 
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages = {"cn.tuyucheng.taketoday.web.controller"})
+@ComponentScan(basePackages = {"cn.tuyucheng.web.controller"})
 public class WebConfig implements WebMvcConfigurer {
     // ...
 }
@@ -104,7 +104,7 @@ public class MainWebAppInitializer implements WebApplicationInitializer {
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <context:component-scan base-package="cn.tuyucheng.taketoday.web.controller"/>
+    <context:component-scan base-package="cn.tuyucheng.web.controller"/>
     <mvc:annotation-driven/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

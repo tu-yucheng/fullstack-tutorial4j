@@ -47,7 +47,7 @@ public class BeanNameUrlHandlerMappingConfig {
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
-    <bean name="beanNameUrl" class="cn.tuyucheng.taketoday.web.controller.handlermapping.WelcomeController"/>
+    <bean name="beanNameUrl" class="cn.tuyucheng.web.controller.handlermapping.WelcomeController"/>
 </beans>
 ```
 
@@ -151,7 +151,7 @@ public class SimpleUrlHandlerMappingConfig {
         </property>
     </bean>
 
-    <bean id="welcome" class="cn.tuyucheng.taketoday.web.controller.handlermapping.WelcomeController"/>
+    <bean id="welcome" class="cn.tuyucheng.web.controller.handlermapping.WelcomeController"/>
 </beans>
 ```
 
@@ -250,7 +250,7 @@ public class ControllerClassNameHandlerMappingConfig {
 
     <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
 
-    <bean class="cn.tuyucheng.taketoday.web.controller.handlermapping.WelcomeController"/>
+    <bean class="cn.tuyucheng.web.controller.handlermapping.WelcomeController"/>
 </beans>
 ```
 
