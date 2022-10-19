@@ -36,6 +36,7 @@
     + [spring-security-core](spring-security-modules/spring-security-core-1/README.md)
     + [spring-security-web-boot](spring-security-modules/spring-security-web-boot-1/README.md)
     + [spring-security-web-login](spring-security-modules/spring-security-web-login-1/README.md)
+    + [spring-security-auth0](spring-security-modules/spring-security-auth0/README.md)
 * spring-cloud
 * reactive-programming
     + [reactor-core](spring-reactive-modules/reactive-reactor-core/README.md)
