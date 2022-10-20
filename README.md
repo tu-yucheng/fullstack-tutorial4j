@@ -32,6 +32,7 @@
 * spring-boot
     - [spring-boot-data](spring-boot-modules/spring-boot-data-1/README.md)
 * spring-data
+    - [spring-data-crud](spring-data-modules/spring-data-jpa-crud-1/README.md)
 * spring-security
     + [spring-security-core](spring-security-modules/spring-security-core-1/README.md)
     + [spring-security-web-boot](spring-security-modules/spring-security-web-boot-1/README.md)
