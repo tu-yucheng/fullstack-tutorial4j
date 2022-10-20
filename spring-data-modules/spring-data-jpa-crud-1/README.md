@@ -6,7 +6,7 @@ This module contains articles about CRUD operations in Spring Data JPA
 
 - [Spring Data JPA – Derived Delete Methods](docs/SpringData_Jpa_DeleteBy.md)
 - [Spring Data JPA Delete and Relationships](docs/SpringData_Jpa_Delete.md)
-- [INSERT Statement in JPA]()
+- [INSERT Statement in JPA](docs/SpringData_Insert.md)
 - [Spring Data JPA Batch Inserts]()
 - [Batch Insert/Update with Hibernate/JPA]()
 - [Difference Between save() and saveAndFlush() in Spring Data JPA]()
