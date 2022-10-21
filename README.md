@@ -31,6 +31,7 @@
     - [spring-mvc-basic](spring-web-modules/spring-mvc-basics-1/README.md)
 * spring-boot
     - [spring-boot-data](spring-boot-modules/spring-boot-data-1/README.md)
+    - [spring-boot-annotations](spring-boot-modules/spring-boot-annotations-1/README.md)
 * spring-data
     - [spring-data-crud](spring-data-modules/spring-data-jpa-crud-1/README.md)
 * spring-security
