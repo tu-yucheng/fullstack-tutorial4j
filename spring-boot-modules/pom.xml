@@ -15,12 +15,6 @@
         <version>1.0.0</version>
     </parent>
 
-    <modules>
-        <module>spring-boot-data-1</module>
-        <module>spring-boot-data-2</module>
-        <module>spring-boot-data-3</module>
-    </modules>
-
     <dependencyManagement>
         <dependencies>
             <dependency>

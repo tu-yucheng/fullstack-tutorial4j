@@ -71,18 +71,8 @@
     </properties>
 
     <modules>
-        <module>algorithms-modules</module>
-        <module>apache-modules</module>
-        <module>design-patterns</module>
-        <module>graphql-modules</module>
-        <module>guava-modules</module>
-        <module>jackson-modules</module>
         <module>java-core-modules</module>
-        <module>libraries-modules</module>
-        <module>logging-modules</module>
-        <module>lombok-modules</module>
         <module>maven-modules</module>
-        <module>persistence-modules</module>
         <module>spring-boot-modules</module>
         <module>spring-cloud-modules</module>
         <module>spring-data-modules</module>
