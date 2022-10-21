@@ -8,8 +8,8 @@ This module contains articles about Spring Boot annotations
 - [Spring Scheduling Annotations](docs/SpringScheduling_Annotations.md)
 - [Spring Web Annotations](docs/SpringMVC_Annotations.md)
 - [Spring Core Annotations](docs/SpringCore_Annotations.md)
-- [Spring Bean Annotations]()
-- [Difference Between @ComponentScan and @EnableAutoConfiguration in Spring Boot]()
+- [Spring Bean Annotations](docs/SpringBean_Annotations.md)
+- [Difference Between @ComponentScan and @EnableAutoConfiguration in Spring Boot](docs/@ComponentScan_@EnableAutoConfiguration.md)
 - [Where Should the Spring @Service Annotation Be Kept?]()
 
 - More articles: [[next -->]](../spring-boot-annotations-2/README.md)
