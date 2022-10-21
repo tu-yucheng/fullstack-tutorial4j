@@ -5,7 +5,7 @@ This module contains articles about Spring Boot annotations
 ## Relevant Articles:
 
 - [Spring Boot Annotations](docs/SpringBoot_Annotation.md)
-- [Spring Scheduling Annotations]()
+- [Spring Scheduling Annotations](docs/SpringScheduling_Annotations.md)
 - [Spring Web Annotations]()
 - [Spring Core Annotations]()
 - [Spring Bean Annotations]()
