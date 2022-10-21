@@ -9,7 +9,7 @@ This module contains articles about dependency injection with Spring
 - [Guice vs Spring – Dependency Injection](docs/Spring_Guice.md)
 - [Injecting Prototype Beans into a Singleton Instance in Spring](docs/Spring_InjectPrototypeBean_ToSingletonBean.md)
 - [Controlling Bean Creation Order with @DependsOn Annotation](docs/Spring_@DependsOn.md)
-- [Unsatisfied Dependency in Spring]()
+- [Unsatisfied Dependency in Spring](docs/Spring_UnsatisfiedDependency.md)
 - [XML-Based Injection in Spring]()
 
 - More articles: [[next -->]](../spring-di-2/README.md)
