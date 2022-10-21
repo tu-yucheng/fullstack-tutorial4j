@@ -24,7 +24,7 @@
         + [java-core-concurrency-advanced](java-core-modules/java-concurrency-advanced-1/README.md)
 * spring-framework
     - [spring-core](spring-framework/spring-core-1/README.md)
-    - spring-di
+    - [spring-di](spring-framework/spring-di-1/README.md)
     - spring-aop
     - spring-caching
 * spring-mvc
