@@ -5,7 +5,7 @@ This module contains articles about Spring aspect oriented programming (AOP)
 ## Relevant articles
 
 - [Implementing a Custom Spring AOP Annotation](docs/Spring_CustomAop_Annotation.md)
-- [Intro to AspectJ]()
+- [Intro to AspectJ](docs/Spring_Aspectj.md)
 - [Introduction to Spring AOP]()
 - [Introduction to Pointcut Expressions in Spring]()
 - [Introduction to Advice Types in Spring]()
