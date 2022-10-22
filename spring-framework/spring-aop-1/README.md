@@ -10,6 +10,6 @@ This module contains articles about Spring aspect oriented programming (AOP)
 - [Introduction to Pointcut Expressions in Spring](docs/Spring_Aop_Pointcut.md)
 - [Introduction to Advice Types in Spring](docs/Spring_Aop_AdviceType.md)
 - [Advise Methods on Annotated Classes With AspectJ]()
-- [Joinpoint vs. ProceedingJoinPoint in AspectJ]()
+- [Joinpoint vs. ProceedingJoinPoint in AspectJ](docs/Spring_Joinpoint_ProceedingJoinPoint.md)
 
 - More articles: [[next -->]](../spring-aop-2/README.md)
