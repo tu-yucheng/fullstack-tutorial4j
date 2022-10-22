@@ -24,7 +24,7 @@
 * spring-framework
     - [spring-core](spring-framework/spring-core-1/README.md)
     - [spring-di](spring-framework/spring-di-1/README.md)
-    - spring-aop
+    - [spring-aop](spring-framework/spring-aop-1/README.md)
     - spring-caching
 * spring-mvc
     - [spring-mvc-basic](spring-web-modules/spring-mvc-basics-1/README.md)
