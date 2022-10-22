@@ -5,7 +5,7 @@ This module contains articles about dependency injection with Spring
 ## Relevant Articles
 
 - [Injecting Spring Beans into Unmanaged Objects](docs/Spring_InjectBean_IntoUnmanagedObject.md)
-- [Injecting a Value in a Static Field in Spring]()
+- [Injecting a Value in a Static Field in Spring](docs/Spring_Inject_StaticField.md)
 - [Spring – Injecting Collections]()
 - [Wiring in Spring: @Autowired, @Resource and @Inject]()
 - [Injecting Spring Beans into Unmanaged Objects]()
