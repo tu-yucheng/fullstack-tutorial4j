@@ -9,7 +9,7 @@ This module contains articles about dependency injection with Spring
 - [Spring – Injecting Collections](docs/Spring_InjectCollection.md)
 - [Wiring in Spring: @Autowired, @Resource and @Inject](docs/Spring_@Autowire_@Inject_@Resource.md)
 - [Constructor Dependency Injection in Spring](docs/Spring_ConstructorInjection.md)
-- [Circular Dependencies in Spring]()
+- [Circular Dependencies in Spring](docs/Spring_CircularDependencies.md)
 
 - More articles: [[<-- prev]](../spring-di-1/README.md)
 - More articles: [[next -->]](../spring-di-3/README.md)
