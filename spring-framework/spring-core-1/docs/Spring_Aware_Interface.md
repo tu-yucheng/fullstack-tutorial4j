@@ -25,7 +25,7 @@ public class MyBeanName implements BeanNameAware {
         System.out.println(beanName);
     }
 }
-``` 
+```
 
 beanName参数表示在Spring容器中注册的bean id。在我们的实现中，我们只是输出bean名称。
 
