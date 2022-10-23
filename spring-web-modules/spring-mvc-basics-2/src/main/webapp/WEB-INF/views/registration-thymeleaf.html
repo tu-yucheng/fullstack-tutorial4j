@@ -1,0 +1,13 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>User Registration</title>
+</head>
+<body>
+<form action="#" method="post" th:action="@{/register}" th:object="${user}">
+    Email:<input th:field="*{email}" type="text"/> <br/>
+    Password:<input th:field="*{password}" type="password"/> <br/>
+    <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>

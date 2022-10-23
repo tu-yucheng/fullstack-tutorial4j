@@ -5,7 +5,7 @@ This module contains articles about Spring MVC
 ## Relevant articles:
 
 - [HandlerAdapters in Spring MVC](docs/SpringMVC_HandlerAdapter.md)
-- [Template Engines for Spring]()
+- [Template Engines for Spring](docs/SpringMVC_Template_Engine.md)
 - [Spring 5 and Servlet 4 – The PushBuilder]()
 - [Servlet Redirect vs Forward]()
 - [Guide to Spring Email]()
