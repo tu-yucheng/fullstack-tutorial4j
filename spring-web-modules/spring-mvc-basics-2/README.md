@@ -7,7 +7,7 @@ This module contains articles about Spring MVC
 - [HandlerAdapters in Spring MVC](docs/SpringMVC_HandlerAdapter.md)
 - [Template Engines for Spring](docs/SpringMVC_Template_Engine.md)
 - [Spring 5 and Servlet 4 – The PushBuilder](docs/SpringMVC_Servlet_Push.md)
-- [Servlet Redirect vs Forward]()
+- [Servlet Redirect vs Forward](docs/SpringMVC_Servlet_Redirect_Forward.md)
 - [Guide to Spring Email]()
 - [Using ThymeLeaf and FreeMarker Emails Templates with Spring]()
 - [Request Method Not Supported (405) in Spring]()
