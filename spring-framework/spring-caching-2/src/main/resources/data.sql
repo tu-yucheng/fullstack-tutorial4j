@@ -1,0 +1,2 @@
+INSERT INTO ITEM
+VALUES ('abc', 'ITEM1');
