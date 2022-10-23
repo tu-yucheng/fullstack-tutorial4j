@@ -1,0 +1,15 @@
+## Spring MVC Basics 3
+
+This module contains articles about Spring MVC
+
+## Relevant articles:
+
+- [How to Read HTTP Headers in Spring REST Controllers](docs/SpringMVC_RestHttpHeaders.md)
+- [A Custom Data Binder in Spring MVC]()
+- [Spring Validation Message Interpolation]()
+- [Using Enums as Request Parameters in Spring]()
+- [Guide to Flash Attributes in a Spring Web Application]()
+- [Reading HttpServletRequest Multiple Times in Spring]()
+
+- More articles: [[<-- prev]](../spring-mvc-basics-2/README.md)
+- More articles: [[next -->]](../spring-mvc-basics-4/README.md)
