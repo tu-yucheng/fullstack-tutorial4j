@@ -1,0 +1,27 @@
+package cn.tuyucheng.taketoday.boot.converter.controller;
+
+import cn.tuyucheng.taketoday.boot.domain.Bar;
+import cn.tuyucheng.taketoday.boot.domain.Foo;
+import cn.tuyucheng.taketoday.boot.domain.Modes;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/string-to-abstract")
+public class AbstractEntityController {
+
+    @GetMapping("/foo/{foo}")
+    public ResponseEntity<Object> getStringToFoo(@PathVariable Foo foo) {
+        return ResponseEntity.ok(foo);
+    }
+
+    @GetMapping("/bar/{bar}")
+    public ResponseEntity<Object> getStringToBar(@PathVariable Bar bar) {
+        return ResponseEntity.ok(bar);
+    }
+
+    @GetMapping
+    public ResponseEntity<Object> getStringToMode(@RequestParam("mode") Modes mode) {
+        return ResponseEntity.ok(mode);
+    }
+}

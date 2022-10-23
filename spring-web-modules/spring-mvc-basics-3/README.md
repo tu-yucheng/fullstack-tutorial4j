@@ -5,7 +5,7 @@ This module contains articles about Spring MVC
 ## Relevant articles:
 
 - [How to Read HTTP Headers in Spring REST Controllers](docs/SpringMVC_RestHttpHeaders.md)
-- [A Custom Data Binder in Spring MVC]()
+- [A Custom Data Binder in Spring MVC](docs/SpringMVC_Custom_DataBinder.md)
 - [Spring Validation Message Interpolation]()
 - [Using Enums as Request Parameters in Spring]()
 - [Guide to Flash Attributes in a Spring Web Application]()
