@@ -8,7 +8,7 @@ This module contains articles about Spring MVC
 - [A Custom Data Binder in Spring MVC](docs/SpringMVC_Custom_DataBinder.md)
 - [Spring Validation Message Interpolation](docs/SpringMVC_ValidationMessage_Interpolation.md)
 - [Using Enums as Request Parameters in Spring](docs/SpringMVC_Enum_RequestParam.md)
-- [Guide to Flash Attributes in a Spring Web Application]()
+- [Guide to Flash Attributes in a Spring Web Application](docs/SpringMVC_Flash_Attributes.md)
 - [Reading HttpServletRequest Multiple Times in Spring]()
 
 - More articles: [[<-- prev]](../spring-mvc-basics-2/README.md)
