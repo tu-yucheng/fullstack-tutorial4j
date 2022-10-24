@@ -5,7 +5,7 @@ This module contains articles about Spring Boot customization
 ## Relevant Articles:
 
 - [How to Change the Default Port in Spring Boot](docs/SpringBoot_Change_Port.md)
-- [Using Custom Banners in Spring Boot]()
+- [Using Custom Banners in Spring Boot](docs/SpringBoot_Banner.md)
 - [Create a Custom FailureAnalyzer with Spring Boot]()
 - [Spring Boot: Customize Whitelabel Error Page]()
 - [Spring Boot: Configuring a Main Class]()
