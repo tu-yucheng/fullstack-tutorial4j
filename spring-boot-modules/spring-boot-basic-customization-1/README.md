@@ -1,0 +1,15 @@
+## Spring Boot Basic Customization - 1
+
+This module contains articles about Spring Boot customization
+
+## Relevant Articles:
+
+- [How to Change the Default Port in Spring Boot](docs/SpringBoot_Change_Port.md)
+- [Using Custom Banners in Spring Boot]()
+- [Create a Custom FailureAnalyzer with Spring Boot]()
+- [Spring Boot: Customize Whitelabel Error Page]()
+- [Spring Boot: Configuring a Main Class]()
+- [How to Define a Spring Boot Filter?]()
+- [Guide to the Favicon in Spring Boot]()
+
+- More articles: [[next -->]](../spring-boot-basic-customization-2/README.md)
