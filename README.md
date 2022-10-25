@@ -21,6 +21,7 @@
     - java-core-concurrency
         + [java-core-concurrency-basic](java-core-modules/java-concurrency-simple/README.md)
         + [java-core-concurrency-advanced](java-core-modules/java-concurrency-advanced-1/README.md)
+        + [java-core-concurrency-collections](java-core-modules/java-concurrency-collections-1/README.md)
 * spring-framework
     - [spring-core](spring-framework/spring-core-1/README.md)
     - [spring-di](spring-framework/spring-di-1/README.md)
