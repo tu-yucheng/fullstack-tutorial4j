@@ -2,7 +2,7 @@
 
 This module contains articles about Mockito that are also part of an Ebook.
 
-### Relevant articles:
+## Relevant articles:
 
 - [Getting Started with Mockito @Mock, @Spy, @Captor and @InjectMocks](docs/Mockito_Annotation.md)
 - [Mockito When/Then Cookbook](docs/Mockito_Behavior.md)
