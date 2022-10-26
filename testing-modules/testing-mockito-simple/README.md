@@ -12,7 +12,7 @@ This module contains articles about Mockito that are also part of an Ebook.
 - [Mockito – Using Spies](docs/Mockito_Spy.md)
 - [Using Mockito ArgumentCaptor](docs/Mockito_ArgumentCaptor.md)
 - [Mocking Void Methods with Mockito](docs/Mockito_Void_Method.md)
-- [Mocking Static Methods With Mockito]()
+- [Mocking Static Methods With Mockito](docs/Mockito_Static_Method.md)
 - [Mock Final Classes and Methods with Mockito](docs/Mockito_Final.md)
 - [Mocking Exception Throwing using Mockito](docs/Mockito_Exceptions.md)
 - [Mockito and JUnit 5 – Using ExtendWith]()
