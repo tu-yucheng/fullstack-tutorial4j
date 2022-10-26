@@ -41,7 +41,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <finalName>springStartupApp</finalName>
-                    <mainClass>com.baeldung.springStart.SpringStartApplication</mainClass>
+                    <mainClass>cn.tuyucheng.taketoday.springStart.SpringStartApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
