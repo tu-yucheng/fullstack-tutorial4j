@@ -15,7 +15,7 @@ This module contains articles about Mockito that are also part of an Ebook.
 - [Mocking Static Methods With Mockito](docs/Mockito_Static_Method.md)
 - [Mock Final Classes and Methods with Mockito](docs/Mockito_Final.md)
 - [Mocking Exception Throwing using Mockito](docs/Mockito_Exceptions.md)
-- [Mockito and JUnit 5 – Using ExtendWith]()
+- [Mockito and JUnit 5 – Using ExtendWith](docs/Mockito_Junit5_Extension.md)
 
 - More articles: [[<-- prev]](../testing-mockito/README.md)
 - More articles: [[next -->]](../testing-mockito-spring/README.md)
