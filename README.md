@@ -49,6 +49,7 @@
     + [Junit-5](testing-modules/testing-junit-5/README.md)
     + [Mockito](testing-modules/testing-mockito/README.md)
     + [Cucumber](testing-modules/testing-cucumber-1/README.md)
+    + [Spring-test](testing-modules/testing-spring-1/README.md)
 
 # Contributors
 
