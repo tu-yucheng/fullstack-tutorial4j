@@ -10,6 +10,6 @@ This module contains articles about Spring Boot customization 2
 - [Spring Boot Exit Codes](docs/SpringBoot_ExitCodes.md)
 - [Guide to Spring Type Conversions](docs/SpringBoot_TypeConversions.md)
 - [Container Configuration in Spring Boot 2](docs/SpringBoot_ContainerConfiguration.md)
-- [Speed up Spring Boot Startup Time]()
+- [Speed up Spring Boot Startup Time](docs/SpringBoot_StartupSpeed.md)
 
 - More articles: [[<-- prev]](../spring-boot-basic-customization-1/README.md)
