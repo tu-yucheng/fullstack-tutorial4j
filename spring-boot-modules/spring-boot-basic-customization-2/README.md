@@ -5,7 +5,7 @@ This module contains articles about Spring Boot customization 2
 ## Relevant Articles:
 
 - [DispatcherServlet and web.xml in Spring Boot](docs/SpringBoot_DispatcherServlet_WebXML.md)
-- [XML Defined Beans in Spring Boot]()
+- [XML Defined Beans in Spring Boot](docs/SpringBoot_XML_Bean.md)
 - [What Is OncePerRequestFilter?]()
 - [Spring Boot Exit Codes]()
 - [Guide to Spring Type Conversions]()
