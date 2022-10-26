@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = SpringBootXmlApplication.class)
-class SpringBootXmlApplicationIntegrationTest {
+class SpringBootXmlConversionApplicationIntegrationTest {
 
     @Autowired
     private Pojo pojo;

@@ -8,7 +8,7 @@ This module contains articles about Spring Boot customization 2
 - [XML Defined Beans in Spring Boot](docs/SpringBoot_XML_Bean.md)
 - [What Is OncePerRequestFilter?](docs/SpringBoot_OncePerRequestFilter.md)
 - [Spring Boot Exit Codes](docs/SpringBoot_ExitCodes.md)
-- [Guide to Spring Type Conversions]()
+- [Guide to Spring Type Conversions](docs/SpringBoot_TypeConversions.md)
 - [Container Configuration in Spring Boot 2]()
 - [Speed up Spring Boot Startup Time]()
 
