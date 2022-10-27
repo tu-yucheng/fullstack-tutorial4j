@@ -50,6 +50,7 @@
     + [Mockito](testing-modules/testing-mockito/README.md)
     + [Cucumber](testing-modules/testing-cucumber-1/README.md)
     + [Spring-test](testing-modules/testing-spring-1/README.md)
+    + [Mocking](testing-modules/testing-easymock/README.md)
 
 # Contributors
 
