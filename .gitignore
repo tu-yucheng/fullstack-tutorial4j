@@ -5,3 +5,5 @@
 build
 
 *banner.txt
+
+**/node_modules
