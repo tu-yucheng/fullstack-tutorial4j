@@ -1,0 +1,15 @@
+description = 'Jackson核心'
+
+ext {
+    restAssured = '4.4.0'
+    jackson = '2.13.0'
+}
+
+dependencies {
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jackson}"
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-joda:${jackson}"
+    implementation "com.fasterxml.jackson.module:jackson-module-jsonSchema:${jackson}"
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:${jackson}"
+    testImplementation "io.rest-assured:json-schema-validator:${restAssured}"
+    testImplementation "io.rest-assured:json-path:${restAssured}"
+}
