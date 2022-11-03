@@ -20,6 +20,8 @@
         + [java-core-concurrency-basic](java-core/java-concurrency-simple/README.md)
         + [java-core-concurrency-advanced](java-core/java-concurrency-advanced-1/README.md)
         + [java-core-concurrency-collections](java-core/java-concurrency-collections-1/README.md)
+* jackson
+    - [jackson-core](jackson-modules/jackson-core/README.md)
 * spring-framework
     - [spring-core](spring-framework/spring-core-1/README.md)
     - [spring-di](spring-framework/spring-di-1/README.md)
