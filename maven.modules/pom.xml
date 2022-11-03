@@ -17,6 +17,7 @@
 	<modules>
 		<module>maven-surefire-plugin</module>
 		<module>maven-builder-plugin</module>
+		<module>animal-sniffer-mvn-plugin</module>
 	</modules>
 
 	<dependencyManagement>
