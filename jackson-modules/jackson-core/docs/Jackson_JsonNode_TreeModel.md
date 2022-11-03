@@ -359,7 +359,7 @@ public String toYaml(JsonNode root) {
 }
 ```
 
-### 5.2. 处理不同的节点类型
+### 5.2 处理不同的节点类型
 
 我们需要稍微不同地处理不同类型的节点。我们将在processNode方法中执行此操作：
 
@@ -437,6 +437,6 @@ private void addFieldNameToYaml(StringBuilder yaml, String fieldName, int depth,
 
 现在我们已经准备好所有代码来遍历节点并创建YAML输出，可以运行我们的测试来证明它有效。
 
-## 六，结论
+## 6. 结论
 
 本文介绍了在Jackson中使用树模型时的常见API和场景。
