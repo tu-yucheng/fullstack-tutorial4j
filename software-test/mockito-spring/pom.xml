@@ -3,27 +3,27 @@
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>spring-framework</artifactId>
+	<artifactId>mockito-spring</artifactId>
 	<version>1.0.0</version>
-	<name>spring-framework</name>
-	<packaging>pom</packaging>
-	<description>Parent for all spring 5 core modules</description>
+	<name>mockito-spring</name>
+	<packaging>jar</packaging>
+	<description>Injecting Mockito Mocks into Spring Beans</description>
 
 	<parent>
 		<groupId>cn.tuyucheng.taketoday</groupId>
-		<artifactId>fullstack-roadmaps</artifactId>
+		<artifactId>software-test</artifactId>
 		<version>1.0.0</version>
 	</parent>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.version}</version>
 		</dependency>
 	</dependencies>
-
-	<properties>
-		<spring.version>5.3.13</spring.version>
-	</properties>
 </project>

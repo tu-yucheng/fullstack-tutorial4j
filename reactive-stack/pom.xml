@@ -3,9 +3,9 @@
 		 xmlns="http://maven.apache.org/POM/4.0.0"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>spring-cloud-modules</artifactId>
+	<artifactId>reactive-stack</artifactId>
 	<version>1.0.0</version>
-	<name>spring-cloud-modules</name>
+	<name>reactive-stack</name>
 	<packaging>pom</packaging>
 
 	<parent>
@@ -13,17 +13,6 @@
 		<artifactId>fullstack-roadmaps</artifactId>
 		<version>1.0.0</version>
 	</parent>
-
-	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-maven-plugin</artifactId>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
 
 	<dependencyManagement>
 		<dependencies>
@@ -44,13 +33,14 @@
 		</dependencies>
 	</dependencyManagement>
 
-	<properties>
-		<spring-cloud-dependencies.version>2021.0.1</spring-cloud-dependencies.version>
-		<spring-cloud-starter-config.version>2.2.3.RELEASE</spring-cloud-starter-config.version>
-		<spring-cloud-config-server.version>2.2.3.RELEASE</spring-cloud-config-server.version>
-		<spring-cloud-starter-eureka.version>1.4.7.RELEASE</spring-cloud-starter-eureka.version>
-		<spring-cloud-starter-feign.version>1.4.7.RELEASE</spring-cloud-starter-feign.version>
-		<spring-cloud-starter-hystrix.version>1.4.7.RELEASE</spring-cloud-starter-hystrix.version>
-		<spring-cloud-stream.version>3.1.3</spring-cloud-stream.version>
-	</properties>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 </project>

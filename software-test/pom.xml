@@ -3,8 +3,8 @@
 		 xmlns="http://maven.apache.org/POM/4.0.0"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>jackson-modules</artifactId>
-	<name>jackson-modules</name>
+	<artifactId>software-test</artifactId>
+	<name>software-test</name>
 	<packaging>pom</packaging>
 
 	<parent>
@@ -12,17 +12,4 @@
 		<artifactId>fullstack-roadmaps</artifactId>
 		<version>1.0.0</version>
 	</parent>
-
-	<dependencies>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>${jackson.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.dataformat</groupId>
-			<artifactId>jackson-dataformat-xml</artifactId>
-			<version>${jackson.version}</version>
-		</dependency>
-	</dependencies>
 </project>

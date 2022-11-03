@@ -3,27 +3,31 @@
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>spring-framework</artifactId>
+	<artifactId>reactor-core</artifactId>
 	<version>1.0.0</version>
-	<name>spring-framework</name>
-	<packaging>pom</packaging>
-	<description>Parent for all spring 5 core modules</description>
+	<name>reactor-core</name>
 
 	<parent>
 		<groupId>cn.tuyucheng.taketoday</groupId>
-		<artifactId>fullstack-roadmaps</artifactId>
+		<artifactId>reactive-stack</artifactId>
 		<version>1.0.0</version>
 	</parent>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-core</artifactId>
+			<version>${reactor.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-test</artifactId>
+			<version>${reactor.version}</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
 	<properties>
-		<spring.version>5.3.13</spring.version>
+		<reactor.version>3.4.12</reactor.version>
 	</properties>
 </project>

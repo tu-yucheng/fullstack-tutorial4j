@@ -5,23 +5,21 @@
 # Java Development Practice
 
 ![Language](https://img.shields.io/badge/language-java-brightgreen)
-![Java CI](https://github.com/iluwatar/java-design-patterns/workflows/Java%20CI/badge.svg)
 [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/tu-yucheng/java-development-practice/master/LICENSE.md)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=tu-yucheng_java-development-guide&metric=ncloc)](https://sonarcloud.io/project/overview?id=tu-yucheng_java-development-guide)
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
 # Getting Started
 
-该项目使用`Java 17` + `Maven` + `Intellij IDEA 2022.2`构建。  
-请确保你的本地安装了`JDK 17`并且配置好环境变量。
+该项目使用`Java 17` + `Maven` + `Gradle` + `Intellij IDEA 2022.2`构建。请确保你的本地安装了`JDK 17`并且配置好环境变量。
 
 # Table Of Contents
 
 * java-core
     - java-core-concurrency
-        + [java-core-concurrency-basic](java-core-modules/java-concurrency-simple/README.md)
-        + [java-core-concurrency-advanced](java-core-modules/java-concurrency-advanced-1/README.md)
-        + [java-core-concurrency-collections](java-core-modules/java-concurrency-collections-1/README.md)
+        + [java-core-concurrency-basic](java-core/java-concurrency-simple/README.md)
+        + [java-core-concurrency-advanced](java-core/java-concurrency-advanced-1/README.md)
+        + [java-core-concurrency-collections](java-core/java-concurrency-collections-1/README.md)
 * spring-framework
     - [spring-core](spring-framework/spring-core-1/README.md)
     - [spring-di](spring-framework/spring-di-1/README.md)
@@ -45,13 +43,13 @@
     + [spring-security-angular](spring-security-modules/spring-security-web-angular/README.md)
 * spring-cloud
 * reactive-programming
-    + [reactor-core](spring-reactive-modules/reactive-reactor-core/README.md)
+    + [reactor-core](reactive-stack/reactor-core/README.md)
 * testing-framework
-    + [Junit-5](testing-modules/testing-junit-5/README.md)
-    + [Mockito](testing-modules/testing-mockito/README.md)
-    + [Cucumber](testing-modules/testing-cucumber-1/README.md)
-    + [Spring-test](testing-modules/testing-spring-1/README.md)
-    + [Mocking](testing-modules/testing-easymock/README.md)
+    + [Junit-5](software-test/junit-5/README.md)
+    + [Mockito](software-test/mockito/README.md)
+    + [Cucumber](software-test/cucumber-1/README.md)
+    + [Spring-test](software-test/spring-1/README.md)
+    + [Mocking](software-test/easymock/README.md)
 
 # Contributors
 
@@ -60,6 +58,6 @@
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/tu-yucheng"><img src="https://avatars0.githubusercontent.com/u/4526195?v=4?s=100" width="100px;" alt=""/><br /><sub><b>tuyucheng</b></sub></a><br /><a href="#projectManagement-tuyucheng" title="Project Management">📆</a> <a href="#maintenance-tuyucheng" title="Maintenance">🚧</a> <a href="#content-tuyucheng" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/tu-yucheng"><img src="https://avatars.githubusercontent.com/u/88582540?v=4s=100" width="100px;" alt=""/><br /><sub><b>tuyucheng</b></sub></a><br /><a href="#projectManagement-tuyucheng" title="Project Management">📆</a> <a href="#maintenance-tuyucheng" title="Maintenance">🚧</a> <a href="#content-tuyucheng" title="Content">🖋</a></td>
   </tr>
 </table>
