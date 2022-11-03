@@ -1,0 +1,17 @@
+rootProject.name = 'fullstack-roadmaps'
+
+// include 'reactive-programming:reactor-core'
+// findProject(":reactive-programming:reactor-core")?.name = 'reactor-core'
+// include 'reactive-programming:reactor-spring'
+// findProject(":reactive-programming:reactor-spring")?.name = 'reactor-spring'
+// include 'reactive-programming:reactive-spring-1'
+// findProject(":reactive-programming:reactive-spring-1")?.name = 'reactive-spring-1'
+// include 'reactive-programming:reactive-spring-2'
+// findProject(":reactive-programming:reactive-spring-2")?.name = 'reactive-spring-2'
+
+// include 'software-test:cucumber'
+// findProject(':software-test:cucumber')?.name = 'cucumber'
+// include 'software-test:junit5'
+// findProject(':software-test:junit5')?.name = 'junit5'
+// include 'software-test:mockito'
+// findProject(':software-test:mockito')?.name = 'mockito'
