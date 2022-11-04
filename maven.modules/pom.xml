@@ -23,6 +23,7 @@
 		<module>maven-custom-plugin</module>
 		<module>maven-exec-plugin</module>
 		<module>maven-generate-war</module>
+		<module>maven-multi-source</module>
 	</modules>
 
 	<dependencyManagement>
