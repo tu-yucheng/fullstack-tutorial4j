@@ -2,7 +2,7 @@
      that smart and dearly wants an empty line before a heading to be able to
      display it as such, e.g. website) -->
 
-# Java Development Practice
+# Fullstack RoadMaps
 
 ![Language](https://img.shields.io/badge/language-java-brightgreen)
 [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/tu-yucheng/java-development-practice/master/LICENSE.md)
@@ -11,7 +11,9 @@
 
 # Getting Started
 
-该项目使用`Java 17` + `Maven` + `Gradle` + `Intellij IDEA 2022.2`构建。请确保你的本地安装了`JDK 17`并且配置好环境变量。
+该仓库记录了我在[Baeldung](https://www.baeldung.com/)网站上的学习笔记，这是一个只关于`Java`的教程网站，包含大量`Java`技术的文章；同时[Github](https://github.com/eugenp/tutorials)上也有完整的代码案例。
+
+项目使用`Java 17` + `Maven` + `Gradle` + `Intellij IDEA 2022.2`构建，请确保你的本地安装了`JDK 17`并且配置好环境变量。同时，项目中的每个子模块中包含`README.md`和`README-en.md`，分别包含中文笔记以及网站作者撰写的原文(英文)。
 
 # Table Of Contents
 
