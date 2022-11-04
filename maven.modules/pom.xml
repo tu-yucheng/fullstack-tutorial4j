@@ -22,6 +22,7 @@
 		<module>maven-copy-files</module>
 		<module>maven-custom-plugin</module>
 		<module>maven-exec-plugin</module>
+		<module>maven-generate-war</module>
 	</modules>
 
 	<dependencyManagement>
