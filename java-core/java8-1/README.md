@@ -7,7 +7,7 @@
 - [Java 8中的新特性](docs/Java8中的新特性.md)
 - [Java 8中的策略设计模式](docs/Java8中的策略设计模式.md)
 - [Java 8中的Comparator.comparing方法](docs/Java8中的Comparator.comparing方法.md)
-- [Guide to the Java 8 forEach]()
+- [Java 8中的ForEach](docs/Java8中的ForEach.md)
 - [Introduction to Spliterator in Java]()
 - [Finding Min/Max in an Array with Java]()
 - [Internationalization and Localization in Java 8]()
