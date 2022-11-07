@@ -4,8 +4,8 @@
 
 ## 相关文章:
 
-- [Java8中的新特性](docs/Java8中的新特性.md)
-- [Strategy Design Pattern in Java 8]()
+- [Java 8中的新特性](docs/Java8中的新特性.md)
+- [Java 8中的策略设计模式](docs/Java8中的策略设计模式.md)
 - [Guide to Java 8 Comparator.comparing()]()
 - [Guide to the Java 8 forEach]()
 - [Introduction to Spliterator in Java]()
