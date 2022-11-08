@@ -4,8 +4,8 @@
 
 ## 相关文章:
 
-- [Method Handles in Java](docs/Java中的MethodHandles.md)
-- [Introduction to Chronicle Queue]()
+- [Java中的MethodHandles](docs/Java中的MethodHandles.md)
+- [ChronicleQueue介绍](docs/ChronicleQueue介绍.md)
 - [Iterate Through a Range of Dates in Java]()
 - [Initialize a HashMap in Java]()
 - [Immutable ArrayList in Java]()
