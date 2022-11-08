@@ -9,7 +9,7 @@
 - [Iterate Through a Range of Dates in Java](docs/在Java中遍历一系列日期.md)
 - [在Java中初始化一个HashMap](docs/在Java中初始化一个HashMap.md)
 - [Java中创建不可变的ArrayList](docs/Java中的不可变ArrayList.md)
-- [Easy Ways to Write a Java InputStream to an OutputStream]()
+- [将InputStream写入OutputStream的简单方法](docs/将InputStream写入OutputStream的简单方法.md)
 - [Private Methods in Java Interfaces]()
 - [Java Scanner useDelimiter with Examples]()
 - [Is There a Destructor in Java?]()
