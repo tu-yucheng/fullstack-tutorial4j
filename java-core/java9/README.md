@@ -10,7 +10,7 @@
 - [在Java中初始化一个HashMap](docs/在Java中初始化一个HashMap.md)
 - [Java中创建不可变的ArrayList](docs/Java中的不可变ArrayList.md)
 - [将InputStream写入OutputStream的简单方法](docs/将InputStream写入OutputStream的简单方法.md)
-- [Private Methods in Java Interfaces]()
+- [Java接口中定义私有方法](docs/Java接口中的私有方法.md)
 - [Java Scanner useDelimiter with Examples]()
 - [Is There a Destructor in Java?]()
 
