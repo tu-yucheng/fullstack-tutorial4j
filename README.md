@@ -16,7 +16,7 @@
 # Table Of Contents
 
 * java-core
-    - [Java 8](java-core/java8-1/README.md)
+    - [Java 8-17](java-core/java8-1/README.md)
     - java-core-concurrency
         + [java-core-concurrency-basic](java-core/java-concurrency-simple/README.md)
         + [java-core-concurrency-advanced](java-core/java-concurrency-advanced-1/README.md)
