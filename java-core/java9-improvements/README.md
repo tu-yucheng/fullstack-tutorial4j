@@ -9,7 +9,7 @@
 - [Java 9中Stream API的增强](docs/Java9中Stream的增强.md)
 - [Java 9中对Objects工具类的增强](docs/Java9中Objects的增强.md)
 - [Java 9中对CompletableFuture的增强](docs/Java9中CompletableFuture的增强.md)
-- []()
+- [将InputStream转换为字节数组和字节缓冲区](docs/InputStream转换为字节数组和字节缓冲区.md)
 
 - 更多文章： [[<-- prev]](../java9-streams/README.md)
 - 更多文章： [[next -->]](../java9-new-features/README.md)
