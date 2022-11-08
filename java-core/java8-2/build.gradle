@@ -1,0 +1,7 @@
+ext {
+    icu = '64.2'
+}
+
+dependencies {
+    implementation "com.ibm.icu:icu4j:${icu}"
+}
