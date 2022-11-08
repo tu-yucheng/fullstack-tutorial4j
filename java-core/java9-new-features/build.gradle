@@ -1,0 +1,10 @@
+ext {
+    rxjava = '3.0.0'
+    awaitility = '4.0.2'
+}
+
+dependencies {
+    implementation "io.reactivex.rxjava3:rxjava:${rxjava}"
+    testImplementation "org.junit.platform:junit-platform-runner:${junitPlatform}"
+    testImplementation "org.awaitility:awaitility:${awaitility}"
+}
