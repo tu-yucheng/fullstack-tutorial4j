@@ -13,4 +13,4 @@
 - [Internationalization and Localization in Java 8]()
 - [Generalized Target-Type Inference in Java](docs/Java中的泛型目标类型推断.md)
 
-- 更多文章: [[next -->]](../core-java-8-2/README.md)
+- 更多文章：[[next -->]](../java8-2/README.md)
