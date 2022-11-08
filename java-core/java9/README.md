@@ -11,7 +11,7 @@
 - [Java中创建不可变的ArrayList](docs/Java中的不可变ArrayList.md)
 - [将InputStream写入OutputStream的简单方法](docs/将InputStream写入OutputStream的简单方法.md)
 - [Java接口中定义私有方法](docs/Java接口中的私有方法.md)
-- [Java Scanner useDelimiter with Examples]()
+- [Scanner中useDelimiter方法示例](docs/Scanner中useDelimiter的示例.md)
 - [Is There a Destructor in Java?]()
 
 - 更多文章：[[next -->]]()
