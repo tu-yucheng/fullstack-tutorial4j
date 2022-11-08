@@ -7,7 +7,7 @@
 - [Java中的MethodHandles](docs/Java中的MethodHandles.md)
 - [ChronicleQueue介绍](docs/ChronicleQueue介绍.md)
 - [Iterate Through a Range of Dates in Java](docs/在Java中遍历一系列日期.md)
-- [Initialize a HashMap in Java]()
+- [在Java中初始化一个HashMap](docs/在Java中初始化一个HashMap.md)
 - [Immutable ArrayList in Java]()
 - [Easy Ways to Write a Java InputStream to an OutputStream]()
 - [Private Methods in Java Interfaces]()
