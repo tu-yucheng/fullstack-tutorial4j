@@ -5,7 +5,7 @@
 ## 相关文章：
 
 - [Java 9中新增的Stream收集器](docs/Java9中的Stream收集器.md)
-- []()
+- [Java 9中集合新增的工厂方法](docs/Java9中集合新增的工厂方法.md)
 - []()
 - []()
 - []()
