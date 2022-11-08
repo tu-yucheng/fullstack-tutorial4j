@@ -1,0 +1,11 @@
+ext {
+    awaitility = '1.7.0'
+}
+
+dependencies {
+    testImplementation "com.jayway.awaitility:awaitility:${awaitility}"
+    testImplementation "org.junit.platform:junit-platform-runner:${junitPlatform}"
+    implementation "org.apache.commons:commons-collections4:${commonsCollections4}"
+    implementation "org.apache.commons:commons-lang3:${commonsLang3}"
+    implementation "commons-io:commons-io:${commonsIo}"
+}
