@@ -9,7 +9,7 @@
 - [Java 8中的Comparator.comparing方法](docs/Java8中的Comparator.comparing方法.md)
 - [Java 8中的ForEach](docs/Java8中的ForEach.md)
 - [Introduction to Spliterator in Java](docs/Java中的Spliterator介绍.md)
-- [Finding Min/Max in an Array with Java]()
+- [Finding Min/Max in an Array with Java](docs/使用Java在数组中查找最小值和最大值.md)
 - [Internationalization and Localization in Java 8]()
 - [Generalized Target-Type Inference in Java]()
 
