@@ -14,5 +14,5 @@
 - [Scanner中useDelimiter方法示例](docs/Scanner中useDelimiter的示例.md)
 - [Java中有析构函数吗?](docs/Java中有析构函数吗.md)
 
-- 更多文章：[[next -->]]()
 - 更多文章：[[<-- prev]](../java8-2/README.md)
+- 更多文章：[[next -->]](../java9-streams/README.md)
