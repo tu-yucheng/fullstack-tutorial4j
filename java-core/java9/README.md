@@ -12,7 +12,7 @@
 - [将InputStream写入OutputStream的简单方法](docs/将InputStream写入OutputStream的简单方法.md)
 - [Java接口中定义私有方法](docs/Java接口中的私有方法.md)
 - [Scanner中useDelimiter方法示例](docs/Scanner中useDelimiter的示例.md)
-- [Is There a Destructor in Java?]()
+- [Java中有析构函数吗?](docs/Java中有析构函数吗.md)
 
 - 更多文章：[[next -->]]()
 - 更多文章：[[<-- prev]](../java8-2/README.md)
