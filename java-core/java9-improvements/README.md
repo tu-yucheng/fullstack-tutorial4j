@@ -8,7 +8,7 @@
 - [Java 9中集合新增的工厂方法](docs/Java9中集合新增的工厂方法.md)
 - [Java 9中Stream API的增强](docs/Java9中Stream的增强.md)
 - [Java 9中对Objects工具类的增强](docs/Java9中Objects的增强.md)
-- []()
+- [Java 9中对CompletableFuture的增强](docs/Java9中CompletableFuture的增强.md)
 - []()
 
 - 更多文章： [[<-- prev]](../java9-streams/README.md)
