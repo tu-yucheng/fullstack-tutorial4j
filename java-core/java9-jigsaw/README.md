@@ -6,7 +6,7 @@
 
 - [Java 9 Jigsaw项目介绍](docs/Jigsaw项目介绍.md)
 - [Java 9模块化指南](docs/Java9模块化指南.md)
-- []()
+- [Java 9中Module API的使用](docs/Java9中的Module的使用.md)
 - []()
 
 - 更多文章： [[<-- prev]](../java9-new-features/README.md)
