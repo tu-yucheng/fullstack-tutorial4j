@@ -11,7 +11,7 @@
 - [在Java中复制Set集合](docs/在Java中复制Set集合.md)
 - [Java中的List和Set之间的转换](docs/Java中的List和Set之间的转换.md)
 - [Java中的IndexOutOfBoundsException-源不适合目标](docs/Java中的IndexOutOfBoundsException-源不适合目标.md)
-- []()
+- [将Java流收集到不可变集合](docs/将Java流收集到不可变集合.md)
 
 - 更多文章： [[<-- prev]](../java9-jigsaw/README.md)
 - 更多文章： [[next -->]](../java11-1/README.md)
