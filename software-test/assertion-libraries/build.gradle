@@ -1,0 +1,18 @@
+ext {
+    truth = '0.32'
+    assertjGuava = '3.4.0'
+    javalite = '1.4.13'
+    jgotesting = '0.12'
+}
+
+dependencies {
+    implementation("com.google.truth:truth:${truth}") {
+        exclude group: 'junit', module: 'junit'
+    }
+    testImplementation "com.google.truth.extensions:truth-java8-extension:${truth}"
+    implementation "org.assertj:assertj-guava:${assertjGuava}"
+    implementation "org.javalite:javalite-common:${javalite}"
+    testImplementation("org.jgotesting:jgotesting:${jgotesting}") {
+        exclude group: 'junit', module: 'junit'
+    }
+}
