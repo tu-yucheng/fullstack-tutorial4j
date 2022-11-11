@@ -10,19 +10,19 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class ClassPathXmlSingletonApplicationContextUnitTest {
 
-    @Test
-    void givenXmlConfiguration_whenGetSimpleBean_thenReturnConstructedBean() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("patterns-context.xml");
-        Foo foo = context.getBean(Foo.class);
-        assertNotNull(foo);
-    }
+	@Test
+	void givenXmlConfiguration_whenGetSimpleBean_thenReturnConstructedBean() {
+		ApplicationContext context = new ClassPathXmlApplicationContext("patterns-context.xml");
+		Foo foo = context.getBean(Foo.class);
+		assertNotNull(foo);
+	}
 
-    @Test
-    void givenXmlConfiguration_whenGetPrototypeBean_thenReturnConstructedBean() {
-        String expectedName = "Some name";
-        ApplicationContext context = new ClassPathXmlApplicationContext("patterns-context.xml");
-        Bar bar = context.getBean(Bar.class, expectedName);
-        assertNotNull(bar);
-        assertThat(bar.getName(), is(expectedName));
-    }
+	@Test
+	void givenXmlConfiguration_whenGetPrototypeBean_thenReturnConstructedBean() {
+		String expectedName = "Some name";
+		ApplicationContext context = new ClassPathXmlApplicationContext("patterns-context.xml");
+		Bar bar = context.getBean(Bar.class, expectedName);
+		assertNotNull(bar);
+		assertThat(bar.getName(), is(expectedName));
+	}
 }

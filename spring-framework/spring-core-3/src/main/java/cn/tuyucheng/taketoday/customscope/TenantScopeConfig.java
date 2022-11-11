@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class TenantScopeConfig {
 
-    @Bean
-    public static BeanFactoryPostProcessor beanFactoryPostProcessor() {
-        return new TenantBeanFactoryPostProcessor();
-    }
+	@Bean
+	public static BeanFactoryPostProcessor beanFactoryPostProcessor() {
+		return new TenantBeanFactoryPostProcessor();
+	}
 }

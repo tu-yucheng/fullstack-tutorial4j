@@ -6,7 +6,7 @@ public class ExecutorDemo {
 
 	public void execute() {
 		Executor executor = new Invoker();
-		executor.execute(()->{
+		executor.execute(() -> {
 			// task to be performed
 		});
 	}

@@ -22,47 +22,47 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(
-        loader = AnnotationConfigWebContextLoader.class,
-        classes = {
-                HttpRequestDemoConfig.class,
-                ContentCachingFilter.class,
-                PrintRequestContentFilter.class,
-                PersonController.class
-        }
+		loader = AnnotationConfigWebContextLoader.class,
+		classes = {
+				HttpRequestDemoConfig.class,
+				ContentCachingFilter.class,
+				PrintRequestContentFilter.class,
+				PersonController.class
+		}
 )
 @WebAppConfiguration
 class PersonControllerIntegrationTest {
 
-    ObjectMapper objectMapper = new ObjectMapper();
-    @Autowired
-    private WebApplicationContext wac;
-    private MockMvc mockMvc;
-    @Autowired
-    private ContentCachingFilter contentCachingFilter;
+	ObjectMapper objectMapper = new ObjectMapper();
+	@Autowired
+	private WebApplicationContext wac;
+	private MockMvc mockMvc;
+	@Autowired
+	private ContentCachingFilter contentCachingFilter;
 
-    @Autowired
-    private PrintRequestContentFilter printRequestContentFilter;
+	@Autowired
+	private PrintRequestContentFilter printRequestContentFilter;
 
-    @BeforeEach
-    void setup() throws Exception {
-        this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac)
-                .addFilter(contentCachingFilter, "/**")
-                .addFilter(printRequestContentFilter, "/**")
-                .build();
-    }
+	@BeforeEach
+	void setup() throws Exception {
+		this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac)
+				.addFilter(contentCachingFilter, "/**")
+				.addFilter(printRequestContentFilter, "/**")
+				.build();
+	}
 
-    @Test
-    void whenValidInput_thenCreateBook() throws IOException, Exception {
-        // assign - given
-        Person person = new Person("sumit", "abc", 100);
+	@Test
+	void whenValidInput_thenCreateBook() throws IOException, Exception {
+		// assign - given
+		Person person = new Person("sumit", "abc", 100);
 
-        // act - when
-        ResultActions result = mockMvc.perform(post("/person")
-                .accept(APPLICATION_JSON)
-                .contentType(APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(person)));
+		// act - when
+		ResultActions result = mockMvc.perform(post("/person")
+				.accept(APPLICATION_JSON)
+				.contentType(APPLICATION_JSON)
+				.content(objectMapper.writeValueAsString(person)));
 
-        // assert - then
-        result.andExpect(status().isNoContent());
-    }
+		// assert - then
+		result.andExpect(status().isNoContent());
+	}
 }

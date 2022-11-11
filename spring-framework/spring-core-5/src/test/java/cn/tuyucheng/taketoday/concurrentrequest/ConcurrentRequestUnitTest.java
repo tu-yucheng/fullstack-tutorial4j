@@ -18,32 +18,32 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 class ConcurrentRequestUnitTest {
-    @Autowired
-    private MockMvc mockMvc;
+	@Autowired
+	private MockMvc mockMvc;
 
-    @Autowired
-    private ProductController controller;
+	@Autowired
+	private ProductController controller;
 
-    @Test
-    void givenContextLoads_thenProductControllerIsAvailable() {
-        assertThat(controller).isNotNull();
-    }
+	@Test
+	void givenContextLoads_thenProductControllerIsAvailable() {
+		assertThat(controller).isNotNull();
+	}
 
-    @Test
-    void givenMultipleCallsRunInParallel_thenAllCallsReturn200() throws Exception {
-        ExecutorService executor = Executors.newFixedThreadPool(2);
-        executor.submit(() -> performCall("/product/1", status().isOk()));
-        executor.submit(() -> performCall("/product/2/stock", status().isOk()));
-        if (!executor.awaitTermination(60, TimeUnit.SECONDS)) {
-            executor.shutdownNow();
-        }
-    }
+	@Test
+	void givenMultipleCallsRunInParallel_thenAllCallsReturn200() throws Exception {
+		ExecutorService executor = Executors.newFixedThreadPool(2);
+		executor.submit(() -> performCall("/product/1", status().isOk()));
+		executor.submit(() -> performCall("/product/2/stock", status().isOk()));
+		if (!executor.awaitTermination(60, TimeUnit.SECONDS)) {
+			executor.shutdownNow();
+		}
+	}
 
-    private void performCall(String url, ResultMatcher expect) {
-        try {
-            this.mockMvc.perform(get(url)).andExpect(expect);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
+	private void performCall(String url, ResultMatcher expect) {
+		try {
+			this.mockMvc.perform(get(url)).andExpect(expect);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
 }

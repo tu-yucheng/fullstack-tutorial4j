@@ -5,20 +5,20 @@ import org.springframework.beans.factory.config.AbstractFactoryBean;
 
 @Data
 public class NonSingleToolFactory extends AbstractFactoryBean<Tool> {
-    private int factoryId;
-    private int toolId;
+	private int factoryId;
+	private int toolId;
 
-    public NonSingleToolFactory() {
-        setSingleton(false);
-    }
+	public NonSingleToolFactory() {
+		setSingleton(false);
+	}
 
-    @Override
-    public Class<?> getObjectType() {
-        return Tool.class;
-    }
+	@Override
+	public Class<?> getObjectType() {
+		return Tool.class;
+	}
 
-    @Override
-    protected Tool createInstance() {
-        return new Tool(toolId);
-    }
+	@Override
+	protected Tool createInstance() {
+		return new Tool(toolId);
+	}
 }

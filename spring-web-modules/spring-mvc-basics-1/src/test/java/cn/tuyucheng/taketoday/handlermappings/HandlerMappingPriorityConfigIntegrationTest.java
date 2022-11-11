@@ -23,21 +23,21 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ContextConfiguration(classes = HandlerMappingPrioritiesConfig.class)
 class HandlerMappingPriorityConfigIntegrationTest {
 
-    @Autowired
-    private WebApplicationContext webAppContext;
-    private MockMvc mockMvc;
+	@Autowired
+	private WebApplicationContext webAppContext;
+	private MockMvc mockMvc;
 
-    @BeforeEach
-    void setup() {
-        MockitoAnnotations.openMocks(this);
-        mockMvc = MockMvcBuilders.webAppContextSetup(webAppContext).build();
-    }
+	@BeforeEach
+	void setup() {
+		MockitoAnnotations.openMocks(this);
+		mockMvc = MockMvcBuilders.webAppContextSetup(webAppContext).build();
+	}
 
-    @Test
-    void whenConfiguringPriorities_thenMappedOK() throws Exception {
-        mockMvc.perform(get("/welcome"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("simple-url-handler-mapping"))
-                .andDo(print());
-    }
+	@Test
+	void whenConfiguringPriorities_thenMappedOK() throws Exception {
+		mockMvc.perform(get("/welcome"))
+				.andExpect(status().isOk())
+				.andExpect(view().name("simple-url-handler-mapping"))
+				.andDo(print());
+	}
 }

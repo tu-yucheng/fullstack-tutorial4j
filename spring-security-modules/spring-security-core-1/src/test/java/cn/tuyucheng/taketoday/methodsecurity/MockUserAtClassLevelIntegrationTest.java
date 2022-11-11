@@ -17,18 +17,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @WithMockUser(username = "john", roles = {"VIEWER"})
 class MockUserAtClassLevelIntegrationTest {
 
-    @Autowired
-    UserRoleService userService;
+	@Autowired
+	UserRoleService userService;
 
-    @Test
-    void givenRoleViewer_whenCallGetUsername_thenReturnUsername() {
-        String currentUserName = userService.getUsername();
-        assertEquals("john", currentUserName);
-    }
+	@Test
+	void givenRoleViewer_whenCallGetUsername_thenReturnUsername() {
+		String currentUserName = userService.getUsername();
+		assertEquals("john", currentUserName);
+	}
 
-    @Configuration
-    @ComponentScan("cn.tuyucheng.taketoday.methodsecurity.*")
-    public static class SpringConfig {
+	@Configuration
+	@ComponentScan("cn.tuyucheng.taketoday.methodsecurity.*")
+	public static class SpringConfig {
 
-    }
+	}
 }

@@ -14,16 +14,16 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @ComponentScan(basePackages = "cn.tuyucheng.taketoday.spring.push.controller")
 public class PushConfiguration implements WebMvcConfigurer {
 
-    @Bean
-    public InternalResourceViewResolver jspViewResolver() {
-        InternalResourceViewResolver bean = new InternalResourceViewResolver();
-        bean.setPrefix("/WEB-INF/views/");
-        bean.setSuffix(".jsp");
-        return bean;
-    }
+	@Bean
+	public InternalResourceViewResolver jspViewResolver() {
+		InternalResourceViewResolver bean = new InternalResourceViewResolver();
+		bean.setPrefix("/WEB-INF/views/");
+		bean.setSuffix(".jsp");
+		return bean;
+	}
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-    }
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+	}
 }

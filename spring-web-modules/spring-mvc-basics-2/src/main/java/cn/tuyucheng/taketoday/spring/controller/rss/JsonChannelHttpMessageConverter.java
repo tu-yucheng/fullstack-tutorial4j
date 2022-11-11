@@ -16,32 +16,32 @@ import org.springframework.http.converter.HttpMessageNotWritableException;
 import java.io.IOException;
 
 public class JsonChannelHttpMessageConverter extends AbstractHttpMessageConverter<Channel> {
-    public JsonChannelHttpMessageConverter() {
-        super(new MediaType("application", "rss+json"));
-    }
+	public JsonChannelHttpMessageConverter() {
+		super(new MediaType("application", "rss+json"));
+	}
 
-    @Override
-    protected boolean supports(Class<?> aClass) {
-        return Channel.class.isAssignableFrom(aClass);
-    }
+	@Override
+	protected boolean supports(Class<?> aClass) {
+		return Channel.class.isAssignableFrom(aClass);
+	}
 
-    @Override
-    protected Channel readInternal(Class<? extends Channel> aClass, HttpInputMessage httpInputMessage) throws IOException, HttpMessageNotReadableException {
-        return null;
-    }
+	@Override
+	protected Channel readInternal(Class<? extends Channel> aClass, HttpInputMessage httpInputMessage) throws IOException, HttpMessageNotReadableException {
+		return null;
+	}
 
-    @Override
-    protected void writeInternal(Channel wireFeed, HttpOutputMessage outputMessage) throws IOException, HttpMessageNotWritableException {
-        WireFeedOutput feedOutput = new WireFeedOutput();
+	@Override
+	protected void writeInternal(Channel wireFeed, HttpOutputMessage outputMessage) throws IOException, HttpMessageNotWritableException {
+		WireFeedOutput feedOutput = new WireFeedOutput();
 
-        try {
-            String xmlStr = feedOutput.outputString(wireFeed, true);
-            JSONObject xmlJSONObj = XML.toJSONObject(xmlStr);
-            String jsonPrettyPrintString = xmlJSONObj.toString(4);
+		try {
+			String xmlStr = feedOutput.outputString(wireFeed, true);
+			JSONObject xmlJSONObj = XML.toJSONObject(xmlStr);
+			String jsonPrettyPrintString = xmlJSONObj.toString(4);
 
-            outputMessage.getBody().write(jsonPrettyPrintString.getBytes());
-        } catch (JSONException | FeedException e) {
-            e.printStackTrace();
-        }
-    }
+			outputMessage.getBody().write(jsonPrettyPrintString.getBytes());
+		} catch (JSONException | FeedException e) {
+			e.printStackTrace();
+		}
+	}
 }

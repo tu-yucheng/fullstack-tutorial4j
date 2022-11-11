@@ -19,23 +19,23 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = {SpringBootSecurityApplication.class})
 class ResourceControllerUnitTest {
 
-    private MockMvc mockMvc;
+	private MockMvc mockMvc;
 
-    @Autowired
-    private WebApplicationContext wac;
+	@Autowired
+	private WebApplicationContext wac;
 
-    @BeforeEach
-    void setUp() {
-        this.mockMvc = MockMvcBuilders.webAppContextSetup(wac)
-                .apply(SecurityMockMvcConfigurers.springSecurity())
-                .build();
-    }
+	@BeforeEach
+	void setUp() {
+		this.mockMvc = MockMvcBuilders.webAppContextSetup(wac)
+				.apply(SecurityMockMvcConfigurers.springSecurity())
+				.build();
+	}
 
-    @Test
-    void givenPreFlightRequest_whenPerformed_shouldReturnOK() throws Exception {
-        mockMvc.perform(options("/user")
-                        .header("Access-Control-Request-Method", "GET")
-                        .header("Origin", "http://localhost:4200"))
-                .andExpect(status().isOk());
-    }
+	@Test
+	void givenPreFlightRequest_whenPerformed_shouldReturnOK() throws Exception {
+		mockMvc.perform(options("/user")
+						.header("Access-Control-Request-Method", "GET")
+						.header("Origin", "http://localhost:4200"))
+				.andExpect(status().isOk());
+	}
 }

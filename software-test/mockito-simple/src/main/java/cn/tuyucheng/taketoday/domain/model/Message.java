@@ -10,9 +10,9 @@ import java.util.UUID;
 @Setter
 public class Message {
 
-    private String from;
-    private String to;
-    private String text;
-    private Date date;
-    private UUID id;
+	private String from;
+	private String to;
+	private String text;
+	private Date date;
+	private UUID id;
 }

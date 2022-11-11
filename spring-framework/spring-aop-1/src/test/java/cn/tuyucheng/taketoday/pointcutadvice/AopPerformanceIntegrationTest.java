@@ -26,42 +26,42 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @ContextConfiguration(classes = {Application.class}, loader = AnnotationConfigContextLoader.class)
 class AopPerformanceIntegrationTest {
 
-    @Autowired
-    private FooDao dao;
-    private Handler logEventHandler;
-    private List<String> messages;
+	@Autowired
+	private FooDao dao;
+	private Handler logEventHandler;
+	private List<String> messages;
 
-    @BeforeEach
-    void setUp() {
-        logEventHandler = new Handler() {
-            @Override
-            public void publish(LogRecord record) {
-                messages.add(record.getMessage());
-            }
+	@BeforeEach
+	void setUp() {
+		logEventHandler = new Handler() {
+			@Override
+			public void publish(LogRecord record) {
+				messages.add(record.getMessage());
+			}
 
-            @Override
-            public void flush() {
-            }
+			@Override
+			public void flush() {
+			}
 
-            @Override
-            public void close() throws SecurityException {
-            }
-        };
+			@Override
+			public void close() throws SecurityException {
+			}
+		};
 
-        messages = new ArrayList<>();
-    }
+		messages = new ArrayList<>();
+	}
 
-    @Test
-    void givenPerformanceAspect_whenCallDaoMethod_thenPerformanceMeasurementAdviceIsCalled() {
-        Logger logger = Logger.getLogger(PerformanceAspect.class.getName());
-        logger.addHandler(logEventHandler);
+	@Test
+	void givenPerformanceAspect_whenCallDaoMethod_thenPerformanceMeasurementAdviceIsCalled() {
+		Logger logger = Logger.getLogger(PerformanceAspect.class.getName());
+		logger.addHandler(logEventHandler);
 
-        final String entity = dao.findById(1L);
-        assertThat(entity, notNullValue());
-        assertThat(messages, hasSize(1));
+		final String entity = dao.findById(1L);
+		assertThat(entity, notNullValue());
+		assertThat(messages, hasSize(1));
 
-        String logMessage = messages.get(0);
-        Pattern pattern = Pattern.compile("Execution of findById took \\d+ ms");
-        assertTrue(pattern.matcher(logMessage).matches());
-    }
+		String logMessage = messages.get(0);
+		Pattern pattern = Pattern.compile("Execution of findById took \\d+ ms");
+		assertTrue(pattern.matcher(logMessage).matches());
+	}
 }

@@ -12,37 +12,37 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class UndeclaredThrowableExceptionUnitTest {
 
-    @Test
-    @SuppressWarnings("unchecked")
-    void givenAProxy_whenProxyUndeclaredThrowsCheckedException_thenShouldBeWrapped() {
-        ClassLoader classLoader = getClass().getClassLoader();
-        InvocationHandler invocationHandler = new ExceptionalInvocationHandler();
-        List<String> proxy = (List<String>) Proxy.newProxyInstance(classLoader, new Class[]{List.class}, invocationHandler);
+	@Test
+	@SuppressWarnings("unchecked")
+	void givenAProxy_whenProxyUndeclaredThrowsCheckedException_thenShouldBeWrapped() {
+		ClassLoader classLoader = getClass().getClassLoader();
+		InvocationHandler invocationHandler = new ExceptionalInvocationHandler();
+		List<String> proxy = (List<String>) Proxy.newProxyInstance(classLoader, new Class[]{List.class}, invocationHandler);
 
-        assertThatThrownBy(proxy::size)
-                .isInstanceOf(UndeclaredThrowableException.class)
-                .hasCauseInstanceOf(SomeCheckedException.class);
-    }
+		assertThatThrownBy(proxy::size)
+				.isInstanceOf(UndeclaredThrowableException.class)
+				.hasCauseInstanceOf(SomeCheckedException.class);
+	}
 
-    @Test
-    @SuppressWarnings("unchecked")
-    public void givenAProxy_whenProxyThrowsUncheckedException_thenShouldBeThrownAsIs() {
-        ClassLoader classLoader = getClass().getClassLoader();
-        InvocationHandler invocationHandler = new ExceptionalInvocationHandler();
-        List<String> proxy = (List<String>) Proxy.newProxyInstance(classLoader, new Class[]{List.class}, invocationHandler);
+	@Test
+	@SuppressWarnings("unchecked")
+	public void givenAProxy_whenProxyThrowsUncheckedException_thenShouldBeThrownAsIs() {
+		ClassLoader classLoader = getClass().getClassLoader();
+		InvocationHandler invocationHandler = new ExceptionalInvocationHandler();
+		List<String> proxy = (List<String>) Proxy.newProxyInstance(classLoader, new Class[]{List.class}, invocationHandler);
 
-        assertThatThrownBy(proxy::isEmpty).isInstanceOf(RuntimeException.class);
-    }
+		assertThatThrownBy(proxy::isEmpty).isInstanceOf(RuntimeException.class);
+	}
 
-    private static class ExceptionalInvocationHandler implements InvocationHandler {
+	private static class ExceptionalInvocationHandler implements InvocationHandler {
 
-        @Override
-        public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-            if ("size".equals(method.getName())) {
-                throw new SomeCheckedException("Always fails");
-            }
+		@Override
+		public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+			if ("size".equals(method.getName())) {
+				throw new SomeCheckedException("Always fails");
+			}
 
-            throw new RuntimeException();
-        }
-    }
+			throw new RuntimeException();
+		}
+	}
 }

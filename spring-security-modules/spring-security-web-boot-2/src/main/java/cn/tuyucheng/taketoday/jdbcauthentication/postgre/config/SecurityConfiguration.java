@@ -12,17 +12,17 @@ import javax.sql.DataSource;
 @Configuration
 public class SecurityConfiguration {
 
-    @Autowired
-    private DataSource dataSource;
+	@Autowired
+	private DataSource dataSource;
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication()
-                .dataSource(dataSource);
-    }
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+		auth.jdbcAuthentication()
+				.dataSource(dataSource);
+	}
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 }

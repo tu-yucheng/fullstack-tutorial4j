@@ -11,9 +11,9 @@ import java.io.PrintWriter;
 @WebServlet("/forwarded")
 public class ForwardedServlet extends HttpServlet {
 
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PrintWriter out = resp.getWriter();
-        out.write("In forwarded servlet page.");
-        out.write("\nWelcome:" + req.getParameter("name"));
-    }
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		PrintWriter out = resp.getWriter();
+		out.write("In forwarded servlet page.");
+		out.write("\nWelcome:" + req.getParameter("name"));
+	}
 }

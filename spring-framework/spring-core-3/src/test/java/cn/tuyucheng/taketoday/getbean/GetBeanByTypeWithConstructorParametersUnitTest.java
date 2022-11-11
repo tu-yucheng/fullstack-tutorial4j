@@ -10,16 +10,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class GetBeanByTypeWithConstructorParametersUnitTest {
-    private ApplicationContext context;
+	private ApplicationContext context;
 
-    @BeforeAll
-    void setup() {
-        context = new AnnotationConfigApplicationContext(AnnotationConfig.class);
-    }
+	@BeforeAll
+	void setup() {
+		context = new AnnotationConfigApplicationContext(AnnotationConfig.class);
+	}
 
-    @Test
-    void whenGivenExistingTypeAndValidParameters_thenShouldReturnRelatedBean() {
-        Tiger tiger = context.getBean(Tiger.class, "Shere Khan");
-        assertEquals("Shere Khan", tiger.getName());
-    }
+	@Test
+	void whenGivenExistingTypeAndValidParameters_thenShouldReturnRelatedBean() {
+		Tiger tiger = context.getBean(Tiger.class, "Shere Khan");
+		assertEquals("Shere Khan", tiger.getName());
+	}
 }

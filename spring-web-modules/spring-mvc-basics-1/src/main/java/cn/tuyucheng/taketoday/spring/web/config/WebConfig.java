@@ -22,111 +22,111 @@ import java.io.IOException;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
-    @Override
-    public void addViewControllers(final ViewControllerRegistry registry) {
-        registry.addViewController("/")
-                .setViewName("index");
-    }
+	@Override
+	public void addViewControllers(final ViewControllerRegistry registry) {
+		registry.addViewController("/")
+				.setViewName("index");
+	}
 
-    /**
-     * Multipart file uploading configuratioin
-     */
-    @Bean
-    public CommonsMultipartResolver multipartResolver() throws IOException {
-        CommonsMultipartResolver resolver = new CommonsMultipartResolver();
-        resolver.setMaxUploadSize(10000000);
-        return resolver;
-    }
+	/**
+	 * Multipart file uploading configuratioin
+	 */
+	@Bean
+	public CommonsMultipartResolver multipartResolver() throws IOException {
+		CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+		resolver.setMaxUploadSize(10000000);
+		return resolver;
+	}
 
-    @Bean
-    public ViewResolver viewResolver() {
-        final InternalResourceViewResolver bean = new InternalResourceViewResolver();
-        bean.setViewClass(JstlView.class);
-        bean.setPrefix("/WEB-INF/view/");
-        bean.setSuffix(".jsp");
-        bean.setOrder(2);
-        return bean;
-    }
+	@Bean
+	public ViewResolver viewResolver() {
+		final InternalResourceViewResolver bean = new InternalResourceViewResolver();
+		bean.setViewClass(JstlView.class);
+		bean.setPrefix("/WEB-INF/view/");
+		bean.setSuffix(".jsp");
+		bean.setOrder(2);
+		return bean;
+	}
 
-    /**
-     * Static resource locations including themes
-     */
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**")
-                .addResourceLocations("/", "/resources/")
-                .setCachePeriod(3600)
-                .resourceChain(true)
-                .addResolver(new PathResourceResolver());
-    }
+	/**
+	 * Static resource locations including themes
+	 */
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/resources/**")
+				.addResourceLocations("/", "/resources/")
+				.setCachePeriod(3600)
+				.resourceChain(true)
+				.addResolver(new PathResourceResolver());
+	}
 
-    /**
-     * BEGIN theme configuration
-     */
-    @Bean
-    public ResourceBundleThemeSource themeSource() {
-        ResourceBundleThemeSource themeSource = new ResourceBundleThemeSource();
-        themeSource.setDefaultEncoding("UTF-8");
-        themeSource.setBasenamePrefix("themes.");
-        return themeSource;
-    }
+	/**
+	 * BEGIN theme configuration
+	 */
+	@Bean
+	public ResourceBundleThemeSource themeSource() {
+		ResourceBundleThemeSource themeSource = new ResourceBundleThemeSource();
+		themeSource.setDefaultEncoding("UTF-8");
+		themeSource.setBasenamePrefix("themes.");
+		return themeSource;
+	}
 
-    @Bean
-    public CookieThemeResolver themeResolver() {
-        CookieThemeResolver resolver = new CookieThemeResolver();
-        resolver.setDefaultThemeName("default");
-        resolver.setCookieName("example-theme-cookie");
-        return resolver;
-    }
+	@Bean
+	public CookieThemeResolver themeResolver() {
+		CookieThemeResolver resolver = new CookieThemeResolver();
+		resolver.setDefaultThemeName("default");
+		resolver.setCookieName("example-theme-cookie");
+		return resolver;
+	}
 
-    @Bean
-    public ThemeChangeInterceptor themeChangeInterceptor() {
-        ThemeChangeInterceptor interceptor = new ThemeChangeInterceptor();
-        interceptor.setParamName("theme");
-        return interceptor;
-    }
+	@Bean
+	public ThemeChangeInterceptor themeChangeInterceptor() {
+		ThemeChangeInterceptor interceptor = new ThemeChangeInterceptor();
+		interceptor.setParamName("theme");
+		return interceptor;
+	}
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(themeChangeInterceptor());
-    }
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(themeChangeInterceptor());
+	}
 
-    /**
-     * END theme configuration
-     */
-    @Bean
-    public BeanNameViewResolver beanNameViewResolver() {
-        BeanNameViewResolver beanNameViewResolver = new BeanNameViewResolver();
-        beanNameViewResolver.setOrder(1);
-        return beanNameViewResolver;
-    }
+	/**
+	 * END theme configuration
+	 */
+	@Bean
+	public BeanNameViewResolver beanNameViewResolver() {
+		BeanNameViewResolver beanNameViewResolver = new BeanNameViewResolver();
+		beanNameViewResolver.setOrder(1);
+		return beanNameViewResolver;
+	}
 
-    @Bean
-    public View sample() {
-        return new JstlView("/WEB-INF/view/sample.jsp");
-    }
+	@Bean
+	public View sample() {
+		return new JstlView("/WEB-INF/view/sample.jsp");
+	}
 
-    @Bean
-    public View sample2() {
-        return new JstlView("/WEB-INF/view2/sample2.jsp");
-    }
+	@Bean
+	public View sample2() {
+		return new JstlView("/WEB-INF/view2/sample2.jsp");
+	}
 
-    @Bean
-    public View sample3() {
-        return new JstlView("/WEB-INF/view3/sample3.jsp");
-    }
+	@Bean
+	public View sample3() {
+		return new JstlView("/WEB-INF/view3/sample3.jsp");
+	}
 
-    /**
-     * Spring Boot allows configuring Content Negotiation using properties
-     */
-    @Override
-    public void configureContentNegotiation(final ContentNegotiationConfigurer configurer) {
-        configurer.favorParameter(true)
-                .parameterName("mediaType")
-                .ignoreAcceptHeader(false)
-                .useRegisteredExtensionsOnly(false)
-                .defaultContentType(MediaType.APPLICATION_JSON)
-                .mediaType("xml", MediaType.APPLICATION_XML)
-                .mediaType("json", MediaType.APPLICATION_JSON);
-    }
+	/**
+	 * Spring Boot allows configuring Content Negotiation using properties
+	 */
+	@Override
+	public void configureContentNegotiation(final ContentNegotiationConfigurer configurer) {
+		configurer.favorParameter(true)
+				.parameterName("mediaType")
+				.ignoreAcceptHeader(false)
+				.useRegisteredExtensionsOnly(false)
+				.defaultContentType(MediaType.APPLICATION_JSON)
+				.mediaType("xml", MediaType.APPLICATION_XML)
+				.mediaType("json", MediaType.APPLICATION_JSON);
+	}
 }

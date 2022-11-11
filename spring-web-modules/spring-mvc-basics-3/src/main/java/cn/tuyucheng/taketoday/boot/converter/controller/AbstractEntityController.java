@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/string-to-abstract")
 public class AbstractEntityController {
 
-    @GetMapping("/foo/{foo}")
-    public ResponseEntity<Object> getStringToFoo(@PathVariable Foo foo) {
-        return ResponseEntity.ok(foo);
-    }
+	@GetMapping("/foo/{foo}")
+	public ResponseEntity<Object> getStringToFoo(@PathVariable Foo foo) {
+		return ResponseEntity.ok(foo);
+	}
 
-    @GetMapping("/bar/{bar}")
-    public ResponseEntity<Object> getStringToBar(@PathVariable Bar bar) {
-        return ResponseEntity.ok(bar);
-    }
+	@GetMapping("/bar/{bar}")
+	public ResponseEntity<Object> getStringToBar(@PathVariable Bar bar) {
+		return ResponseEntity.ok(bar);
+	}
 
-    @GetMapping
-    public ResponseEntity<Object> getStringToMode(@RequestParam("mode") Modes mode) {
-        return ResponseEntity.ok(mode);
-    }
+	@GetMapping
+	public ResponseEntity<Object> getStringToMode(@RequestParam("mode") Modes mode) {
+		return ResponseEntity.ok(mode);
+	}
 }

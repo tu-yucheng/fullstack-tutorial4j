@@ -18,17 +18,17 @@ import static org.springframework.test.util.AssertionErrors.assertTrue;
 @ContextConfiguration(loader = AnnotationConfigContextLoader.class, classes = AppConfigFunctionBean.class)
 class PrototypeFunctionBeanIntegrationTest {
 
-    @Test
-    @DisplayName("givenPrototypeInjection_WhenFunction_ThenNewInstanceReturn")
-    void givenPrototypeInjection_WhenFunction_ThenNewInstanceReturn() {
-        AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfigFunctionBean.class);
+	@Test
+	@DisplayName("givenPrototypeInjection_WhenFunction_ThenNewInstanceReturn")
+	void givenPrototypeInjection_WhenFunction_ThenNewInstanceReturn() {
+		AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfigFunctionBean.class);
 
-        SingletonFunctionBean firstContext = context.getBean(SingletonFunctionBean.class);
-        SingletonFunctionBean secondContext = context.getBean(SingletonFunctionBean.class);
+		SingletonFunctionBean firstContext = context.getBean(SingletonFunctionBean.class);
+		SingletonFunctionBean secondContext = context.getBean(SingletonFunctionBean.class);
 
-        PrototypeBean firstInstance = firstContext.getPrototypeInstance("instance1");
-        PrototypeBean secondInstance = secondContext.getPrototypeInstance("instance2");
+		PrototypeBean firstInstance = firstContext.getPrototypeInstance("instance1");
+		PrototypeBean secondInstance = secondContext.getPrototypeInstance("instance2");
 
-        assertTrue("New instance expected", firstInstance != secondInstance);
-    }
+		assertTrue("New instance expected", firstInstance != secondInstance);
+	}
 }

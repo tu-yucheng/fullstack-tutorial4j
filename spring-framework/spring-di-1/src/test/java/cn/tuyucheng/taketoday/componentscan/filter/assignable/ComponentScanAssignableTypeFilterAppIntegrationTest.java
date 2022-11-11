@@ -17,15 +17,15 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @SpringBootTest(classes = ComponentScanAssignableTypeFilterApp.class)
 class ComponentScanAssignableTypeFilterAppIntegrationTest {
 
-    @Test
-    void whenAssignableTypeFilterIsUsed_thenComponentScanShouldRegisterBean() {
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ComponentScanAssignableTypeFilterApp.class);
-        List<String> beans = Arrays.stream(applicationContext.getBeanDefinitionNames())
-                .filter(bean -> !bean.contains("org.springframework") && !bean.contains("componentScanAssignableTypeFilterApp"))
-                .toList();
+	@Test
+	void whenAssignableTypeFilterIsUsed_thenComponentScanShouldRegisterBean() {
+		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ComponentScanAssignableTypeFilterApp.class);
+		List<String> beans = Arrays.stream(applicationContext.getBeanDefinitionNames())
+				.filter(bean -> !bean.contains("org.springframework") && !bean.contains("componentScanAssignableTypeFilterApp"))
+				.toList();
 
-        assertThat(beans.size(), equalTo(2));
-        assertThat(beans.contains("cat"), equalTo(true));
-        assertThat(beans.contains("elephant"), equalTo(true));
-    }
+		assertThat(beans.size(), equalTo(2));
+		assertThat(beans.contains("cat"), equalTo(true));
+		assertThat(beans.contains("elephant"), equalTo(true));
+	}
 }

@@ -5,12 +5,12 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class Application {
 
-    public static void main(String[] args) {
-        ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-        Foo foo = context.getBean(Foo.class);
-        Bar bar = context.getBean(Bar.class, "Some name");
+	public static void main(String[] args) {
+		ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+		Foo foo = context.getBean(Foo.class);
+		Bar bar = context.getBean(Bar.class, "Some name");
 
-        System.out.println(foo);
-        System.out.println("Bar's name: " + bar.getName());
-    }
+		System.out.println(foo);
+		System.out.println("Bar's name: " + bar.getName());
+	}
 }

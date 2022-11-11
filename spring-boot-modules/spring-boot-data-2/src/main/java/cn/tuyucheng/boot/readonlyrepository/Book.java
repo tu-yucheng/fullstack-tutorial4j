@@ -11,9 +11,9 @@ import javax.persistence.Id;
 @Getter
 @Entity
 public class Book {
-    @Id
-    @GeneratedValue
-    private Long id;
-    private String author;
-    private String title;
+	@Id
+	@GeneratedValue
+	private Long id;
+	private String author;
+	private String title;
 }

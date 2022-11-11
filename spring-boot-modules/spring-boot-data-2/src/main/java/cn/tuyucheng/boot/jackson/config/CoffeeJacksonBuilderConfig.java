@@ -9,11 +9,11 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 @Configuration
 public class CoffeeJacksonBuilderConfig {
 
-    @Bean
-    @Primary
-    public Jackson2ObjectMapperBuilder jackson2ObjectMapperBuilder() {
-        return new Jackson2ObjectMapperBuilder()
-                .serializers(CoffeeConstants.LOCAL_DATETIME_SERIALIZER)
-                .serializationInclusion(JsonInclude.Include.NON_NULL);
-    }
+	@Bean
+	@Primary
+	public Jackson2ObjectMapperBuilder jackson2ObjectMapperBuilder() {
+		return new Jackson2ObjectMapperBuilder()
+				.serializers(CoffeeConstants.LOCAL_DATETIME_SERIALIZER)
+				.serializationInclusion(JsonInclude.Include.NON_NULL);
+	}
 }

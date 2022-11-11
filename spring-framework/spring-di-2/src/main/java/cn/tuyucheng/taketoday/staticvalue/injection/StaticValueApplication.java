@@ -9,7 +9,7 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("/application.properties")
 public class StaticValueApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(StaticValueApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(StaticValueApplication.class, args);
+	}
 }

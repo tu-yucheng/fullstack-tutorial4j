@@ -7,13 +7,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SetterBasedBeanInjectionWithXMLConfigIntegrationTest {
 
-    private static final String HELM_NAME = "HelmBrand";
+	private static final String HELM_NAME = "HelmBrand";
 
-    @Test
-    public void givenXMLConfigFile_whenUsingSetterBasedBeanInjection_thenCorrectHelmName() {
-        final ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beanInjection-setter.xml");
+	@Test
+	public void givenXMLConfigFile_whenUsingSetterBasedBeanInjection_thenCorrectHelmName() {
+		final ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beanInjection-setter.xml");
 
-        final Ship shipSetterBean = (Ship) applicationContext.getBean("ship");
-        Assertions.assertEquals(HELM_NAME, shipSetterBean.getHelm().getBrandOfHelm());
-    }
+		final Ship shipSetterBean = (Ship) applicationContext.getBean("ship");
+		Assertions.assertEquals(HELM_NAME, shipSetterBean.getHelm().getBrandOfHelm());
+	}
 }

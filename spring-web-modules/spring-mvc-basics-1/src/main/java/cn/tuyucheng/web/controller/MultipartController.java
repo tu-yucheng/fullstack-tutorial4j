@@ -16,32 +16,32 @@ import java.io.InputStream;
 @Controller
 public class MultipartController {
 
-    @Autowired
-    ServletContext context;
+	@Autowired
+	ServletContext context;
 
-    @RequestMapping(value = "/upload", method = RequestMethod.POST)
-    public ModelAndView FileUploadController(@RequestParam("file") MultipartFile file) {
-        ModelAndView modelAndView = new ModelAndView("index");
-        try {
-            InputStream in = file.getInputStream();
-            String path = new File(".").getAbsolutePath();
-            FileOutputStream f = new FileOutputStream(path.substring(0, path.length() - 1) + "/uploads/" + file.getOriginalFilename());
-            try {
-                int ch;
-                while ((ch = in.read()) != -1) {
-                    f.write(ch);
-                }
-                modelAndView.getModel().put("message", "File uploaded successfully!");
-            } catch (Exception e) {
-                System.out.println("Exception uploading multipart: " + e);
-            } finally {
-                f.flush();
-                f.close();
-                in.close();
-            }
-        } catch (Exception e) {
-            System.out.println("Exception uploading multipart: " + e);
-        }
-        return modelAndView;
-    }
+	@RequestMapping(value = "/upload", method = RequestMethod.POST)
+	public ModelAndView FileUploadController(@RequestParam("file") MultipartFile file) {
+		ModelAndView modelAndView = new ModelAndView("index");
+		try {
+			InputStream in = file.getInputStream();
+			String path = new File(".").getAbsolutePath();
+			FileOutputStream f = new FileOutputStream(path.substring(0, path.length() - 1) + "/uploads/" + file.getOriginalFilename());
+			try {
+				int ch;
+				while ((ch = in.read()) != -1) {
+					f.write(ch);
+				}
+				modelAndView.getModel().put("message", "File uploaded successfully!");
+			} catch (Exception e) {
+				System.out.println("Exception uploading multipart: " + e);
+			} finally {
+				f.flush();
+				f.close();
+				in.close();
+			}
+		} catch (Exception e) {
+			System.out.println("Exception uploading multipart: " + e);
+		}
+		return modelAndView;
+	}
 }

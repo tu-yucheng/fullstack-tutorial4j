@@ -14,15 +14,15 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @ContextConfiguration(classes = {SynchronousSpringEventsConfig.class}, loader = AnnotationConfigContextLoader.class)
 class GenericAppEventListenerIntegrationTest {
 
-    @Autowired
-    private CustomSpringEventPublisher publisher;
-    @Autowired
-    private GenericSpringEventListener listener;
+	@Autowired
+	private CustomSpringEventPublisher publisher;
+	@Autowired
+	private GenericSpringEventListener listener;
 
-    @Test
-    void testGenericSpringEvent() {
-        assertFalse(listener.isHitEventHandler(), "The initial value should be false");
-        publisher.publishGenericAppEvent("Hello world!!!");
-        assertTrue(listener.isHitEventHandler(), "Now the value should be changed to true");
-    }
+	@Test
+	void testGenericSpringEvent() {
+		assertFalse(listener.isHitEventHandler(), "The initial value should be false");
+		publisher.publishGenericAppEvent("Hello world!!!");
+		assertTrue(listener.isHitEventHandler(), "Now the value should be changed to true");
+	}
 }

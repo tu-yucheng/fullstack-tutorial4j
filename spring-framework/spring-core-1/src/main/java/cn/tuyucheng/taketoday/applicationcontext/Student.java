@@ -10,10 +10,10 @@ import lombok.extern.slf4j.Slf4j;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Student {
-    private int no;
-    private String name;
+	private int no;
+	private String name;
 
-    public void destroy() {
-        log.info("Student(no: {}) is destroyed", no);
-    }
+	public void destroy() {
+		log.info("Student(no: {}) is destroyed", no);
+	}
 }

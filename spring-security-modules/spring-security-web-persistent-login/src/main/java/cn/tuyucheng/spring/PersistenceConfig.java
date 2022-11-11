@@ -19,16 +19,16 @@ import javax.sql.DataSource;
 @PropertySource({"classpath:persistence-h2.properties"})
 public class PersistenceConfig {
 
-    @Autowired
-    private Environment environment;
+	@Autowired
+	private Environment environment;
 
-    @Bean
-    public DataSource dataSource() {
-        final DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(Preconditions.checkNotNull(environment.getProperty("jdbc.driverClassName")));
-        dataSource.setUrl(Preconditions.checkNotNull(environment.getProperty("jdbc.url")));
-        dataSource.setUsername(Preconditions.checkNotNull(environment.getProperty("jdbc.user")));
-        dataSource.setPassword(Preconditions.checkNotNull(environment.getProperty("jdbc.pass")));
-        return dataSource;
-    }
+	@Bean
+	public DataSource dataSource() {
+		final DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName(Preconditions.checkNotNull(environment.getProperty("jdbc.driverClassName")));
+		dataSource.setUrl(Preconditions.checkNotNull(environment.getProperty("jdbc.url")));
+		dataSource.setUsername(Preconditions.checkNotNull(environment.getProperty("jdbc.user")));
+		dataSource.setPassword(Preconditions.checkNotNull(environment.getProperty("jdbc.pass")));
+		return dataSource;
+	}
 }

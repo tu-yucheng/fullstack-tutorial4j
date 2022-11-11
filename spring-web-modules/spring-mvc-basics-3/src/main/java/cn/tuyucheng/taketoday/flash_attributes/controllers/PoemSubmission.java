@@ -16,30 +16,30 @@ import java.util.Map;
 @Controller
 public class PoemSubmission {
 
-    @GetMapping("/poem/success")
-    public String getSuccess(HttpServletRequest request) {
-        Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
-        if (inputFlashMap != null) {
-            Poem poem = (Poem) inputFlashMap.get("poem");
-            return "success";
-        } else {
-            return "redirect:/poem/submit";
-        }
-    }
+	@GetMapping("/poem/success")
+	public String getSuccess(HttpServletRequest request) {
+		Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
+		if (inputFlashMap != null) {
+			Poem poem = (Poem) inputFlashMap.get("poem");
+			return "success";
+		} else {
+			return "redirect:/poem/submit";
+		}
+	}
 
-    @PostMapping("/poem/submit")
-    public RedirectView submitPost(HttpServletRequest request, @ModelAttribute Poem poem, RedirectAttributes redirectAttributes) {
-        if (Poem.isValidPoem(poem)) {
-            redirectAttributes.addFlashAttribute("poem", poem);
-            return new RedirectView("/poem/success", true);
-        } else {
-            return new RedirectView("/poem/submit", true);
-        }
-    }
+	@PostMapping("/poem/submit")
+	public RedirectView submitPost(HttpServletRequest request, @ModelAttribute Poem poem, RedirectAttributes redirectAttributes) {
+		if (Poem.isValidPoem(poem)) {
+			redirectAttributes.addFlashAttribute("poem", poem);
+			return new RedirectView("/poem/success", true);
+		} else {
+			return new RedirectView("/poem/submit", true);
+		}
+	}
 
-    @GetMapping("/poem/submit")
-    public String submitGet(Model model) {
-        model.addAttribute("poem", new Poem());
-        return "submit";
-    }
+	@GetMapping("/poem/submit")
+	public String submitGet(Model model) {
+		model.addAttribute("poem", new Poem());
+		return "submit";
+	}
 }

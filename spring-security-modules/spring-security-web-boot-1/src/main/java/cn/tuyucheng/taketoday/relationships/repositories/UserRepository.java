@@ -11,12 +11,12 @@ import java.util.Date;
 import java.util.List;
 
 public interface UserRepository extends CrudRepository<AppUser, Long> {
-    AppUser findByUsername(String username);
+	AppUser findByUsername(String username);
 
-    List<AppUser> findByName(String name);
+	List<AppUser> findByName(String name);
 
-    @Query("UPDATE AppUser u SET u.lastLogin=:lastLogin WHERE u.username = ?#{ principal?.username }")
-    @Modifying
-    @Transactional
-    void updateLastLogin(@Param("lastLogin") Date lastLogin);
+	@Query("UPDATE AppUser u SET u.lastLogin=:lastLogin WHERE u.username = ?#{ principal?.username }")
+	@Modifying
+	@Transactional
+	void updateLastLogin(@Param("lastLogin") Date lastLogin);
 }

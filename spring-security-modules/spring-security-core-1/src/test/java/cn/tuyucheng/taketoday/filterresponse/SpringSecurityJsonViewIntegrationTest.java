@@ -22,43 +22,43 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ContextConfiguration(classes = AppConfig.class)
 @WebAppConfiguration
 class SpringSecurityJsonViewIntegrationTest {
-    @Autowired
-    private WebApplicationContext context;
+	@Autowired
+	private WebApplicationContext context;
 
-    private MockMvc mvc;
+	private MockMvc mvc;
 
-    @BeforeEach
-    void setup() {
-        mvc = MockMvcBuilders
-                .webAppContextSetup(context)
-                .build();
-    }
+	@BeforeEach
+	void setup() {
+		mvc = MockMvcBuilders
+				.webAppContextSetup(context)
+				.build();
+	}
 
-    @Test
-    @WithMockUser(username = "admin", password = "adminPass", roles = "ADMIN")
-    void whenAdminRequests_thenOwnerNameIsPresent() throws Exception {
-        mvc.perform(get("/items"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].id").value(1))
-                .andExpect(jsonPath("$[0].name").value("Item 1"))
-                .andExpect(jsonPath("$[0].ownerName").exists());
-    }
+	@Test
+	@WithMockUser(username = "admin", password = "adminPass", roles = "ADMIN")
+	void whenAdminRequests_thenOwnerNameIsPresent() throws Exception {
+		mvc.perform(get("/items"))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$[0].id").value(1))
+				.andExpect(jsonPath("$[0].name").value("Item 1"))
+				.andExpect(jsonPath("$[0].ownerName").exists());
+	}
 
-    @Test
-    @WithMockUser(username = "user", password = "userPass", roles = "USER")
-    void whenUserRequests_thenOwnerNameIsAbsent() throws Exception {
-        mvc.perform(get("/items"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].id").value(1))
-                .andExpect(jsonPath("$[0].name").value("Item 1"))
-                .andExpect(jsonPath("$[0].ownerName").doesNotExist());
-    }
+	@Test
+	@WithMockUser(username = "user", password = "userPass", roles = "USER")
+	void whenUserRequests_thenOwnerNameIsAbsent() throws Exception {
+		mvc.perform(get("/items"))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$[0].id").value(1))
+				.andExpect(jsonPath("$[0].name").value("Item 1"))
+				.andExpect(jsonPath("$[0].ownerName").doesNotExist());
+	}
 
-    @Test
-    @WithMockUser(username = "user", password = "userPass", roles = {"ADMIN", "USER"})
-    void whenMultipleRoles_thenExceptionIsThrown() throws Exception {
-        assertThatThrownBy(() -> mvc.perform(get("/items")).andExpect(status().isOk()))
-                .hasCauseExactlyInstanceOf(IllegalArgumentException.class)
-                .hasRootCauseMessage("Ambiguous @JsonView declaration for roles ROLE_ADMIN,ROLE_USER");
-    }
+	@Test
+	@WithMockUser(username = "user", password = "userPass", roles = {"ADMIN", "USER"})
+	void whenMultipleRoles_thenExceptionIsThrown() throws Exception {
+		assertThatThrownBy(() -> mvc.perform(get("/items")).andExpect(status().isOk()))
+				.hasCauseExactlyInstanceOf(IllegalArgumentException.class)
+				.hasRootCauseMessage("Ambiguous @JsonView declaration for roles ROLE_ADMIN,ROLE_USER");
+	}
 }

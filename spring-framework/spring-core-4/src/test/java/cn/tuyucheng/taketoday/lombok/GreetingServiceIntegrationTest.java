@@ -13,27 +13,27 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(
-        loader = AnnotationConfigContextLoader.class,
-        classes = TestConfig.class
+		loader = AnnotationConfigContextLoader.class,
+		classes = TestConfig.class
 )
 class GreetingServiceIntegrationTest {
 
-    @Autowired
-    private GreetingService greetingService;
+	@Autowired
+	private GreetingService greetingService;
 
-    @Autowired
-    private Translator translator;
+	@Autowired
+	private Translator translator;
 
-    @Test
-    void greetWithTranslatedMessage() {
-        String translated = "translated";
-        when(translator.translate("hello")).thenReturn(translated);
-        assertEquals(translated, greetingService.greet());
-    }
+	@Test
+	void greetWithTranslatedMessage() {
+		String translated = "translated";
+		when(translator.translate("hello")).thenReturn(translated);
+		assertEquals(translated, greetingService.greet());
+	}
 
-    @Test
-    void throwWhenInstantiated() {
-        GreetingService greetingService = new GreetingService();
-        assertThrows(NullPointerException.class, greetingService::greet);
-    }
+	@Test
+	void throwWhenInstantiated() {
+		GreetingService greetingService = new GreetingService();
+		assertThrows(NullPointerException.class, greetingService::greet);
+	}
 }

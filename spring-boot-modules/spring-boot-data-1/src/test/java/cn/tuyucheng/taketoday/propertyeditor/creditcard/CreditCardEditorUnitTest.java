@@ -10,32 +10,32 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
 public class CreditCardEditorUnitTest {
 
-    private CreditCardEditor creditCardEditor;
+	private CreditCardEditor creditCardEditor;
 
-    @BeforeEach
-    void setup() {
-        creditCardEditor = new CreditCardEditor();
-    }
+	@BeforeEach
+	void setup() {
+		creditCardEditor = new CreditCardEditor();
+	}
 
-    @Test
-    void whenInvalidCardNoWithLessDigits_thenThrowsException() {
-        assertThrows(IllegalArgumentException.class, () -> creditCardEditor.setAsText("123-123-123-123"));
-    }
+	@Test
+	void whenInvalidCardNoWithLessDigits_thenThrowsException() {
+		assertThrows(IllegalArgumentException.class, () -> creditCardEditor.setAsText("123-123-123-123"));
+	}
 
-    @Test
-    void whenInvalidCardNoWithNonDigits_thenThrowsException() {
-        assertThrows(IllegalArgumentException.class, () -> creditCardEditor.setAsText("1234-1234-xxxx-yyyy"));
-    }
+	@Test
+	void whenInvalidCardNoWithNonDigits_thenThrowsException() {
+		assertThrows(IllegalArgumentException.class, () -> creditCardEditor.setAsText("1234-1234-xxxx-yyyy"));
+	}
 
-    @Test
-    void whenCardNoWithNonDigits_parseCreditCard() {
-        creditCardEditor.setAsText("1234-5678-9123-4560");
+	@Test
+	void whenCardNoWithNonDigits_parseCreditCard() {
+		creditCardEditor.setAsText("1234-5678-9123-4560");
 
-        CreditCard creditCard = (CreditCard) creditCardEditor.getValue();
-        assertNotNull(creditCard);
+		CreditCard creditCard = (CreditCard) creditCardEditor.getValue();
+		assertNotNull(creditCard);
 
-        assertEquals(123456, creditCard.getBankIdNo().intValue());
-        assertEquals(789123456, creditCard.getAccountNo().intValue());
-        assertEquals(0, creditCard.getCheckCode().intValue());
-    }
+		assertEquals(123456, creditCard.getBankIdNo().intValue());
+		assertEquals(789123456, creditCard.getAccountNo().intValue());
+		assertEquals(0, creditCard.getCheckCode().intValue());
+	}
 }

@@ -5,8 +5,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class LogRepository {
 
-    @Override
-    public String toString() {
-        return "logRepository";
-    }
+	@Override
+	public String toString() {
+		return "logRepository";
+	}
 }

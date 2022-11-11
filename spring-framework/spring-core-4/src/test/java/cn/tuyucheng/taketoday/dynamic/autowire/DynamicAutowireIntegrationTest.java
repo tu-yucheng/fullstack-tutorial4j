@@ -13,21 +13,21 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @ContextConfiguration(classes = DynamicAutowireConfig.class)
 class DynamicAutowireIntegrationTest {
 
-    @Autowired
-    private BeanFactoryDynamicAutowireService beanFactoryDynamicAutowireService;
+	@Autowired
+	private BeanFactoryDynamicAutowireService beanFactoryDynamicAutowireService;
 
-    @Autowired
-    private CustomMapFromListDynamicAutowireService customMapFromListDynamicAutowireService;
+	@Autowired
+	private CustomMapFromListDynamicAutowireService customMapFromListDynamicAutowireService;
 
-    @Test
-    void givenDynamicallyAutowiredBean_whenCheckingServerInGB_thenServerIsNotActive() {
-        assertThat(beanFactoryDynamicAutowireService.isServerActive("CN", 101), is(false));
-        assertThat(customMapFromListDynamicAutowireService.isServerActive("CN", 101), is(false));
-    }
+	@Test
+	void givenDynamicallyAutowiredBean_whenCheckingServerInGB_thenServerIsNotActive() {
+		assertThat(beanFactoryDynamicAutowireService.isServerActive("CN", 101), is(false));
+		assertThat(customMapFromListDynamicAutowireService.isServerActive("CN", 101), is(false));
+	}
 
-    @Test
-    void givenDynamicallyAutowiredBean_whenCheckingServerInUS_thenServerIsActive() {
-        assertThat(beanFactoryDynamicAutowireService.isServerActive("US", 101), is(true));
-        assertThat(customMapFromListDynamicAutowireService.isServerActive("US", 101), is(true));
-    }
+	@Test
+	void givenDynamicallyAutowiredBean_whenCheckingServerInUS_thenServerIsActive() {
+		assertThat(beanFactoryDynamicAutowireService.isServerActive("US", 101), is(true));
+		assertThat(customMapFromListDynamicAutowireService.isServerActive("US", 101), is(true));
+	}
 }

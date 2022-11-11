@@ -12,28 +12,28 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class GetBeanByNameUnitTest {
-    private ApplicationContext context;
+	private ApplicationContext context;
 
-    @BeforeAll
-    void setup() {
-        context = new AnnotationConfigApplicationContext(AnnotationConfig.class);
-    }
+	@BeforeAll
+	void setup() {
+		context = new AnnotationConfigApplicationContext(AnnotationConfig.class);
+	}
 
-    @Test
-    void whenGivenExistingBeanName_shouldReturnThatBean() {
-        Object lion = context.getBean("lion");
-        assertEquals(lion.getClass(), Lion.class);
-    }
+	@Test
+	void whenGivenExistingBeanName_shouldReturnThatBean() {
+		Object lion = context.getBean("lion");
+		assertEquals(lion.getClass(), Lion.class);
+	}
 
-    @Test
-    void whenGivenNonExistingBeanName_shouldThrowException() {
-        assertThrows(NoSuchBeanDefinitionException.class, () -> context.getBean("non-existing"));
-    }
+	@Test
+	void whenGivenNonExistingBeanName_shouldThrowException() {
+		assertThrows(NoSuchBeanDefinitionException.class, () -> context.getBean("non-existing"));
+	}
 
-    @Test
-    void whenCastingToWrongType_thenShouldThrowException() {
-        assertThrows(ClassCastException.class, () -> {
-            Tiger tiger = (Tiger) context.getBean("lion");
-        });
-    }
+	@Test
+	void whenCastingToWrongType_thenShouldThrowException() {
+		assertThrows(ClassCastException.class, () -> {
+			Tiger tiger = (Tiger) context.getBean("lion");
+		});
+	}
 }

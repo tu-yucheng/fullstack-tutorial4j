@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ApplicationContextTestInjectName {
 
-    @Bean
-    public ArbitraryDependency yetAnotherFieldInjectDependency() {
-        return new YetAnotherArbitraryDependency();
-    }
+	@Bean
+	public ArbitraryDependency yetAnotherFieldInjectDependency() {
+		return new YetAnotherArbitraryDependency();
+	}
 }

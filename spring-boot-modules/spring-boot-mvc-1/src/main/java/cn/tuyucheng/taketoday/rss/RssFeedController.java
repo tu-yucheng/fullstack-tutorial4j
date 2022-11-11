@@ -11,18 +11,19 @@ import org.springframework.web.servlet.View;
 @RestController
 public class RssFeedController {
 
-    /**
-     * View used by this controller.
-     */
-    @Autowired
-    private RssFeedView view;
+	/**
+	 * View used by this controller.
+	 */
+	@Autowired
+	private RssFeedView view;
 
-    /**
-     * Returns an RSS Feed created by {@link #view}.
-     * @return an RSS Feed
-     */
-    @GetMapping("/rss")
-    public View getFeed() {
-        return view;
-    }
+	/**
+	 * Returns an RSS Feed created by {@link #view}.
+	 *
+	 * @return an RSS Feed
+	 */
+	@GetMapping("/rss")
+	public View getFeed() {
+		return view;
+	}
 }

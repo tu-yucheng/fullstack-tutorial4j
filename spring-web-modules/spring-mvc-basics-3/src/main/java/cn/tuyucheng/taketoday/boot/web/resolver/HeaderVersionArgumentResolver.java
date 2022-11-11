@@ -12,15 +12,15 @@ import javax.servlet.http.HttpServletRequest;
 @Component
 public class HeaderVersionArgumentResolver implements HandlerMethodArgumentResolver {
 
-    @Override
-    public boolean supportsParameter(final MethodParameter methodParameter) {
-        return methodParameter.getParameterAnnotation(Version.class) != null;
-    }
+	@Override
+	public boolean supportsParameter(final MethodParameter methodParameter) {
+		return methodParameter.getParameterAnnotation(Version.class) != null;
+	}
 
-    @Override
-    public Object resolveArgument(final MethodParameter methodParameter, final ModelAndViewContainer modelAndViewContainer, final NativeWebRequest nativeWebRequest, final WebDataBinderFactory webDataBinderFactory) throws Exception {
-        HttpServletRequest request = (HttpServletRequest) nativeWebRequest.getNativeRequest();
+	@Override
+	public Object resolveArgument(final MethodParameter methodParameter, final ModelAndViewContainer modelAndViewContainer, final NativeWebRequest nativeWebRequest, final WebDataBinderFactory webDataBinderFactory) throws Exception {
+		HttpServletRequest request = (HttpServletRequest) nativeWebRequest.getNativeRequest();
 
-        return request.getHeader("Version");
-    }
+		return request.getHeader("Version");
+	}
 }

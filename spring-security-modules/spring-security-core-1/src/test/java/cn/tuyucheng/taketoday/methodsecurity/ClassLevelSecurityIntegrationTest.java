@@ -18,32 +18,32 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @ContextConfiguration
 class ClassLevelSecurityIntegrationTest {
 
-    @Autowired
-    SystemService systemService;
+	@Autowired
+	SystemService systemService;
 
-    @Configuration
-    @ComponentScan("cn.tuyucheng.taketoday.methodsecurity.*")
-    public static class SpringConfig {
+	@Configuration
+	@ComponentScan("cn.tuyucheng.taketoday.methodsecurity.*")
+	public static class SpringConfig {
 
-    }
+	}
 
-    @Test
-    @WithMockUser(username = "john", roles = {"ADMIN"})
-    void givenRoleAdmin_whenCallGetSystemYear_return2017() {
-        String systemYear = systemService.getSystemYear();
-        assertEquals("2017", systemYear);
-    }
+	@Test
+	@WithMockUser(username = "john", roles = {"ADMIN"})
+	void givenRoleAdmin_whenCallGetSystemYear_return2017() {
+		String systemYear = systemService.getSystemYear();
+		assertEquals("2017", systemYear);
+	}
 
-    @Test
-    @WithMockUser(username = "john", roles = {"VIEWER"})
-    void givenRoleViewer_whenCallGetSystemYear_returnAccessDenied() {
-        assertThrows(AccessDeniedException.class, () -> systemService.getSystemYear());
-    }
+	@Test
+	@WithMockUser(username = "john", roles = {"VIEWER"})
+	void givenRoleViewer_whenCallGetSystemYear_returnAccessDenied() {
+		assertThrows(AccessDeniedException.class, () -> systemService.getSystemYear());
+	}
 
-    @Test
-    @WithMockUser(username = "john", roles = {"ADMIN"})
-    void givenRoleAdmin_whenCallGetSystemDate_returnDate() {
-        String systemYear = systemService.getSystemDate();
-        assertEquals("31-12-2017", systemYear);
-    }
+	@Test
+	@WithMockUser(username = "john", roles = {"ADMIN"})
+	void givenRoleAdmin_whenCallGetSystemDate_returnDate() {
+		String systemYear = systemService.getSystemDate();
+		assertEquals("31-12-2017", systemYear);
+	}
 }

@@ -11,23 +11,23 @@ import org.springframework.context.annotation.*;
 @ComponentScan("cn.tuyucheng.taketoday.dependson")
 public class Config {
 
-    @Autowired
-    File file;
+	@Autowired
+	File file;
 
-    @Bean("fileProcessor")
-    @DependsOn({"fileReader", "fileWriter"})
-    @Lazy
-    public FileProcessor fileProcessor() {
-        return new FileProcessor(file);
-    }
+	@Bean("fileProcessor")
+	@DependsOn({"fileReader", "fileWriter"})
+	@Lazy
+	public FileProcessor fileProcessor() {
+		return new FileProcessor(file);
+	}
 
-    @Bean("fileReader")
-    public FileReader fileReader() {
-        return new FileReader(file);
-    }
+	@Bean("fileReader")
+	public FileReader fileReader() {
+		return new FileReader(file);
+	}
 
-    @Bean("fileWriter")
-    public FileWriter fileWriter() {
-        return new FileWriter(file);
-    }
+	@Bean("fileWriter")
+	public FileWriter fileWriter() {
+		return new FileWriter(file);
+	}
 }

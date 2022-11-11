@@ -24,40 +24,40 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @ContextConfiguration(classes = {Application.class}, loader = AnnotationConfigContextLoader.class)
 class AopPublishingIntegrationTest {
 
-    @Autowired
-    private FooDao dao;
-    private Handler logEventHandler;
-    private List<String> messages;
+	@Autowired
+	private FooDao dao;
+	private Handler logEventHandler;
+	private List<String> messages;
 
-    @BeforeEach
-    void setUp() {
-        logEventHandler = new Handler() {
-            @Override
-            public void publish(LogRecord record) {
-                messages.add(record.getMessage());
-            }
+	@BeforeEach
+	void setUp() {
+		logEventHandler = new Handler() {
+			@Override
+			public void publish(LogRecord record) {
+				messages.add(record.getMessage());
+			}
 
-            @Override
-            public void flush() {
-            }
+			@Override
+			public void flush() {
+			}
 
-            @Override
-            public void close() throws SecurityException {
-            }
-        };
+			@Override
+			public void close() throws SecurityException {
+			}
+		};
 
-        messages = new ArrayList<>();
-    }
+		messages = new ArrayList<>();
+	}
 
-    @Test
-    void givenPublishingAspect_whenCallCreate_thenCreationEventIsPublished() {
-        Logger logger = Logger.getLogger(FooCreationEventListener.class.getName());
-        logger.addHandler(logEventHandler);
+	@Test
+	void givenPublishingAspect_whenCallCreate_thenCreationEventIsPublished() {
+		Logger logger = Logger.getLogger(FooCreationEventListener.class.getName());
+		logger.addHandler(logEventHandler);
 
-        dao.create(1L, "Bar");
+		dao.create(1L, "Bar");
 
-        String logMessage = messages.get(0);
-        Pattern pattern = Pattern.compile("Created foo instance: " + Pattern.quote(new Foo(1L, "Bar").toString()));
-        assertTrue(pattern.matcher(logMessage).matches());
-    }
+		String logMessage = messages.get(0);
+		Pattern pattern = Pattern.compile("Created foo instance: " + Pattern.quote(new Foo(1L, "Bar").toString()));
+		assertTrue(pattern.matcher(logMessage).matches());
+	}
 }

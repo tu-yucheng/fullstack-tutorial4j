@@ -12,12 +12,12 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 @ContextConfiguration(classes = {AsynchronousSpringEventsConfig.class}, loader = AnnotationConfigContextLoader.class)
 class AsynchronousCustomSpringEventsIntegrationTest {
 
-    @Autowired
-    private CustomSpringEventPublisher publisher;
+	@Autowired
+	private CustomSpringEventPublisher publisher;
 
-    @Test
-    void testCustomSpringEvents() {
-        publisher.publishCustomEvent("Hello world!!");
-        System.out.println("Done publishing asynchronous custom event. ");
-    }
+	@Test
+	void testCustomSpringEvents() {
+		publisher.publishCustomEvent("Hello world!!");
+		System.out.println("Done publishing asynchronous custom event. ");
+	}
 }

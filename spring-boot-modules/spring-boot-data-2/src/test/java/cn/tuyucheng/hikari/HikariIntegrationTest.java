@@ -14,11 +14,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 class HikariIntegrationTest {
 
-    @Autowired
-    private DataSource dataSource;
+	@Autowired
+	private DataSource dataSource;
 
-    @Test
-    void hikariConnectionPoolIsConfigured() {
-        assertEquals("com.zaxxer.hikari.HikariDataSource", dataSource.getClass().getName());
-    }
+	@Test
+	void hikariConnectionPoolIsConfigured() {
+		assertEquals("com.zaxxer.hikari.HikariDataSource", dataSource.getClass().getName());
+	}
 }

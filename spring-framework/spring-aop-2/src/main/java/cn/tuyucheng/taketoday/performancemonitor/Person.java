@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Data
 public class Person {
-    private String lastName;
-    private String firstName;
-    private LocalDate dateOfBirth;
+	private String lastName;
+	private String firstName;
+	private LocalDate dateOfBirth;
 }

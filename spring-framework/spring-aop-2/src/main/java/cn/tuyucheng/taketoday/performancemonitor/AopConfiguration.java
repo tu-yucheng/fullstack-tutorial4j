@@ -16,45 +16,45 @@ import java.time.Month;
 @EnableAspectJAutoProxy
 public class AopConfiguration {
 
-    @Pointcut("execution(public String cn.tuyucheng.taketoday.performancemonitor.PersonService.getFullName(..))")
-    public void monitor() {
-    }
+	@Pointcut("execution(public String cn.tuyucheng.taketoday.performancemonitor.PersonService.getFullName(..))")
+	public void monitor() {
+	}
 
-    @Pointcut("execution(public int cn.tuyucheng.taketoday.performancemonitor.PersonService.getAge(..))")
-    public void myMonitor() {
-    }
+	@Pointcut("execution(public int cn.tuyucheng.taketoday.performancemonitor.PersonService.getAge(..))")
+	public void myMonitor() {
+	}
 
-    @Bean
-    public Advisor performanceMonitorAdvisor() {
-        AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
-        pointcut.setExpression("cn.tuyucheng.taketoday.performancemonitor.AopConfiguration.monitor()");
-        return new DefaultPointcutAdvisor(pointcut, performanceMonitorInterceptor());
-    }
+	@Bean
+	public Advisor performanceMonitorAdvisor() {
+		AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
+		pointcut.setExpression("cn.tuyucheng.taketoday.performancemonitor.AopConfiguration.monitor()");
+		return new DefaultPointcutAdvisor(pointcut, performanceMonitorInterceptor());
+	}
 
-    @Bean
-    public PerformanceMonitorInterceptor performanceMonitorInterceptor() {
-        return new PerformanceMonitorInterceptor(true);
-    }
+	@Bean
+	public PerformanceMonitorInterceptor performanceMonitorInterceptor() {
+		return new PerformanceMonitorInterceptor(true);
+	}
 
-    @Bean
-    public Person person() {
-        return new Person("John", "Smith", LocalDate.of(1980, Month.JANUARY, 12));
-    }
+	@Bean
+	public Person person() {
+		return new Person("John", "Smith", LocalDate.of(1980, Month.JANUARY, 12));
+	}
 
-    @Bean
-    public PersonService personService() {
-        return new PersonService();
-    }
+	@Bean
+	public PersonService personService() {
+		return new PersonService();
+	}
 
-    @Bean
-    public Advisor myPerformanceMonitorAdvisor() {
-        AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
-        pointcut.setExpression("cn.tuyucheng.taketoday.performancemonitor.AopConfiguration.myMonitor()");
-        return new DefaultPointcutAdvisor(pointcut, myPerformanceMonitorInterceptor());
-    }
+	@Bean
+	public Advisor myPerformanceMonitorAdvisor() {
+		AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
+		pointcut.setExpression("cn.tuyucheng.taketoday.performancemonitor.AopConfiguration.myMonitor()");
+		return new DefaultPointcutAdvisor(pointcut, myPerformanceMonitorInterceptor());
+	}
 
-    @Bean
-    public MyPerformanceMonitorInterceptor myPerformanceMonitorInterceptor() {
-        return new MyPerformanceMonitorInterceptor(true);
-    }
+	@Bean
+	public MyPerformanceMonitorInterceptor myPerformanceMonitorInterceptor() {
+		return new MyPerformanceMonitorInterceptor(true);
+	}
 }

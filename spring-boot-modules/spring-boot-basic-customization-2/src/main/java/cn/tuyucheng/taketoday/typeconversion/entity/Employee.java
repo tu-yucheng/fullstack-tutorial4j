@@ -15,7 +15,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 public class Employee {
 
-    @Id
-    private long id;
-    private double salary;
+	@Id
+	private long id;
+	private double salary;
 }

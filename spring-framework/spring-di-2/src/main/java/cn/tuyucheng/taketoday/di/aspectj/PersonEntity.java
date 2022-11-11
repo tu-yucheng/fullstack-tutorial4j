@@ -10,27 +10,27 @@ import javax.persistence.Transient;
 @Entity
 @Configurable(preConstruction = true)
 public class PersonEntity {
-    @Autowired
-    @Transient
-    private IdService idService;
+	@Autowired
+	@Transient
+	private IdService idService;
 
-    @Id
-    private int id;
-    private String name;
+	@Id
+	private int id;
+	private String name;
 
-    public PersonEntity() {
-    }
+	public PersonEntity() {
+	}
 
-    public PersonEntity(String name) {
-        id = idService.generateId();
-        this.name = name;
-    }
+	public PersonEntity(String name) {
+		id = idService.generateId();
+		this.name = name;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 }

@@ -12,21 +12,21 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class GetBeanByTypeUnitTest {
-    private ApplicationContext context;
+	private ApplicationContext context;
 
-    @BeforeAll
-    void setup() {
-        context = new AnnotationConfigApplicationContext(AnnotationConfig.class);
-    }
+	@BeforeAll
+	void setup() {
+		context = new AnnotationConfigApplicationContext(AnnotationConfig.class);
+	}
 
-    @Test
-    void whenGivenExistingUniqueType_thenShouldReturnRelatedBean() {
-        Lion lion = context.getBean(Lion.class);
-        assertNotNull(lion);
-    }
+	@Test
+	void whenGivenExistingUniqueType_thenShouldReturnRelatedBean() {
+		Lion lion = context.getBean(Lion.class);
+		assertNotNull(lion);
+	}
 
-    @Test
-    void whenGivenAmbiguousType_thenShouldThrowException() {
-        assertThrows(NoUniqueBeanDefinitionException.class, () -> context.getBean(AnnotationConfig.Animal.class));
-    }
+	@Test
+	void whenGivenAmbiguousType_thenShouldThrowException() {
+		assertThrows(NoUniqueBeanDefinitionException.class, () -> context.getBean(AnnotationConfig.Animal.class));
+	}
 }

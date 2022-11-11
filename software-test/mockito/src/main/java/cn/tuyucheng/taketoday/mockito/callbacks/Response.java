@@ -6,6 +6,6 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Response {
-    private Data data;
-    private boolean isValid = true;
+	private Data data;
+	private boolean isValid = true;
 }

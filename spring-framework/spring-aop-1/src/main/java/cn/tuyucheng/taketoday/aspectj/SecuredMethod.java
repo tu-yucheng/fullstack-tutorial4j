@@ -4,20 +4,20 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class SecuredMethod {
-    private static final Logger logger = LoggerFactory.getLogger(SecuredMethod.class);
+	private static final Logger logger = LoggerFactory.getLogger(SecuredMethod.class);
 
-    public static void main(String[] args) throws Exception {
-        SecuredMethod sv = new SecuredMethod();
-        sv.lockedMethod();
-    }
+	public static void main(String[] args) throws Exception {
+		SecuredMethod sv = new SecuredMethod();
+		sv.lockedMethod();
+	}
 
-    @Secured(isLocked = true)
-    public void lockedMethod() throws Exception {
-        logger.info("lockedMethod");
-    }
+	@Secured(isLocked = true)
+	public void lockedMethod() throws Exception {
+		logger.info("lockedMethod");
+	}
 
-    @Secured(isLocked = false)
-    public void unlockedMethod() {
-        logger.info("unlockedMethod");
-    }
+	@Secured(isLocked = false)
+	public void unlockedMethod() {
+		logger.info("unlockedMethod");
+	}
 }

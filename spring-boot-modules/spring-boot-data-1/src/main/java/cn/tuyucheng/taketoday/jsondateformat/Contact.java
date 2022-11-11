@@ -12,13 +12,13 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Contact {
-    private String name;
-    private String address;
-    private String phone;
+	private String name;
+	private String address;
+	private String phone;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate birthday;
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private LocalDate birthday;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime lastUpdate;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private LocalDateTime lastUpdate;
 }

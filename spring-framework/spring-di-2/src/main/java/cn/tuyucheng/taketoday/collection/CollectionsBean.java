@@ -11,49 +11,49 @@ import java.util.Set;
 
 public class CollectionsBean {
 
-    @Autowired
-    private List<String> nameList;
+	@Autowired
+	private List<String> nameList;
 
-    private Set<String> nameSet;
+	private Set<String> nameSet;
 
-    private Map<Integer, String> nameMap;
+	private Map<Integer, String> nameMap;
 
-    @Autowired(required = false)
-    @Qualifier("CollectionsBean")
-    private List<TuyuchengBean> beanList = new ArrayList<>();
+	@Autowired(required = false)
+	@Qualifier("CollectionsBean")
+	private List<TuyuchengBean> beanList = new ArrayList<>();
 
-    @Value("${names.list:}#{T(java.util.Collections).emptyList()}")
-    private List<String> nameListWithDefaultValue;
+	@Value("${names.list:}#{T(java.util.Collections).emptyList()}")
+	private List<String> nameListWithDefaultValue;
 
-    public CollectionsBean() {
-    }
+	public CollectionsBean() {
+	}
 
-    public CollectionsBean(Set<String> strings) {
-        this.nameSet = strings;
-    }
+	public CollectionsBean(Set<String> strings) {
+		this.nameSet = strings;
+	}
 
-    @Autowired
-    public void setNameMap(Map<Integer, String> nameMap) {
-        this.nameMap = nameMap;
-    }
+	@Autowired
+	public void setNameMap(Map<Integer, String> nameMap) {
+		this.nameMap = nameMap;
+	}
 
-    public void printNameList() {
-        System.out.println(nameList);
-    }
+	public void printNameList() {
+		System.out.println(nameList);
+	}
 
-    public void printNameSet() {
-        System.out.println(nameSet);
-    }
+	public void printNameSet() {
+		System.out.println(nameSet);
+	}
 
-    public void printNameMap() {
-        System.out.println(nameMap);
-    }
+	public void printNameMap() {
+		System.out.println(nameMap);
+	}
 
-    public void printBeanList() {
-        System.out.println(beanList);
-    }
+	public void printBeanList() {
+		System.out.println(beanList);
+	}
 
-    public void printNameListWithDefaults() {
-        System.out.println(nameListWithDefaultValue);
-    }
+	public void printNameListWithDefaults() {
+		System.out.println(nameListWithDefaultValue);
+	}
 }

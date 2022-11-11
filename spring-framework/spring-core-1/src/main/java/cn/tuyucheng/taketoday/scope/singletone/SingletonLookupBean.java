@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class SingletonLookupBean {
 
-    @Lookup
-    public PrototypeBean getPrototypeBean() {
-        return null;
-    }
+	@Lookup
+	public PrototypeBean getPrototypeBean() {
+		return null;
+	}
 }

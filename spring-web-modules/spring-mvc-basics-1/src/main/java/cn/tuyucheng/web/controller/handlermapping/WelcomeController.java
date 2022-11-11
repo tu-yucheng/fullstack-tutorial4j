@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class WelcomeController extends AbstractController {
 
-    @Override
-    protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        return new ModelAndView("welcome");
-    }
+	@Override
+	protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		return new ModelAndView("welcome");
+	}
 }

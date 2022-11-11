@@ -12,80 +12,80 @@ import static org.mockito.Mockito.*;
 
 class MockitoWhenThenExamplesUnitTest {
 
-    @Test
-    final void whenMockReturnBehaviorIsConfigured_thenBehaviorIsVerified() {
-        final MyList listMock = Mockito.mock(MyList.class);
-        when(listMock.add(anyString())).thenReturn(false);
+	@Test
+	final void whenMockReturnBehaviorIsConfigured_thenBehaviorIsVerified() {
+		final MyList listMock = Mockito.mock(MyList.class);
+		when(listMock.add(anyString())).thenReturn(false);
 
-        final boolean added = listMock.add(randomAlphabetic(6));
-        assertThat(added).isFalse();
-    }
+		final boolean added = listMock.add(randomAlphabetic(6));
+		assertThat(added).isFalse();
+	}
 
-    @Test
-    final void whenMockReturnBehaviorIsConfigured2_thenBehaviorIsVerified() {
-        final MyList listMock = Mockito.mock(MyList.class);
-        doReturn(false).when(listMock).add(anyString());
+	@Test
+	final void whenMockReturnBehaviorIsConfigured2_thenBehaviorIsVerified() {
+		final MyList listMock = Mockito.mock(MyList.class);
+		doReturn(false).when(listMock).add(anyString());
 
-        final boolean added = listMock.add(randomAlphabetic(6));
-        assertThat(added).isFalse();
-    }
+		final boolean added = listMock.add(randomAlphabetic(6));
+		assertThat(added).isFalse();
+	}
 
-    @Test
-    final void givenMethodIsConfiguredToThrowException_whenCallingMethod_thenExceptionIsThrown() {
-        final MyList listMock = Mockito.mock(MyList.class);
-        when(listMock.add(anyString())).thenThrow(IllegalStateException.class);
+	@Test
+	final void givenMethodIsConfiguredToThrowException_whenCallingMethod_thenExceptionIsThrown() {
+		final MyList listMock = Mockito.mock(MyList.class);
+		when(listMock.add(anyString())).thenThrow(IllegalStateException.class);
 
-        assertThrows(IllegalStateException.class, () -> listMock.add(randomAlphabetic(6)));
-    }
+		assertThrows(IllegalStateException.class, () -> listMock.add(randomAlphabetic(6)));
+	}
 
-    @Test
-    final void givenBehaviorIsConfiguredToThrowExceptionOnSecondCall_whenCallingOnlyOnce_thenNoExceptionIsThrown() {
-        final MyList listMock = Mockito.mock(MyList.class);
-        when(listMock.add(anyString())).thenReturn(false).thenThrow(IllegalStateException.class);
+	@Test
+	final void givenBehaviorIsConfiguredToThrowExceptionOnSecondCall_whenCallingOnlyOnce_thenNoExceptionIsThrown() {
+		final MyList listMock = Mockito.mock(MyList.class);
+		when(listMock.add(anyString())).thenReturn(false).thenThrow(IllegalStateException.class);
 
-        listMock.add(randomAlphabetic(6));
-    }
+		listMock.add(randomAlphabetic(6));
+	}
 
-    @Test
-    final void whenMethodHasNoReturnType_whenConfiguringBehaviorOfMethod_thenPossible() {
-        final MyList listMock = Mockito.mock(MyList.class);
-        doThrow(NullPointerException.class).when(listMock).clear();
+	@Test
+	final void whenMethodHasNoReturnType_whenConfiguringBehaviorOfMethod_thenPossible() {
+		final MyList listMock = Mockito.mock(MyList.class);
+		doThrow(NullPointerException.class).when(listMock).clear();
 
-        assertThrows(NullPointerException.class, listMock::clear);
-    }
+		assertThrows(NullPointerException.class, listMock::clear);
+	}
 
-    @Test
-    final void givenBehaviorIsConfiguredToThrowExceptionOnSecondCall_whenCallingTwice_thenExceptionIsThrown() {
-        final MyList listMock = Mockito.mock(MyList.class);
-        when(listMock.add(anyString())).thenReturn(false).thenThrow(IllegalStateException.class);
+	@Test
+	final void givenBehaviorIsConfiguredToThrowExceptionOnSecondCall_whenCallingTwice_thenExceptionIsThrown() {
+		final MyList listMock = Mockito.mock(MyList.class);
+		when(listMock.add(anyString())).thenReturn(false).thenThrow(IllegalStateException.class);
 
-        listMock.add(randomAlphabetic(6));
-        assertThrows(IllegalStateException.class, () -> listMock.add(randomAlphabetic(6)));
-    }
+		listMock.add(randomAlphabetic(6));
+		assertThrows(IllegalStateException.class, () -> listMock.add(randomAlphabetic(6)));
+	}
 
-    @Test
-    final void givenSpy_whenConfiguringBehaviorOfSpy_thenCorrectlyConfigured() {
-        final MyList instance = new MyList();
-        final MyList spy = Mockito.spy(instance);
+	@Test
+	final void givenSpy_whenConfiguringBehaviorOfSpy_thenCorrectlyConfigured() {
+		final MyList instance = new MyList();
+		final MyList spy = Mockito.spy(instance);
 
-        doThrow(NullPointerException.class).when(spy).size();
-        assertThrows(NullPointerException.class, spy::size);
-    }
+		doThrow(NullPointerException.class).when(spy).size();
+		assertThrows(NullPointerException.class, spy::size);
+	}
 
-    @Test
-    final void whenMockMethodCallIsConfiguredToCallTheRealMethod_thenRealMethodIsCalled() {
-        final MyList listMock = Mockito.mock(MyList.class);
-        when(listMock.size()).thenCallRealMethod();
+	@Test
+	final void whenMockMethodCallIsConfiguredToCallTheRealMethod_thenRealMethodIsCalled() {
+		final MyList listMock = Mockito.mock(MyList.class);
+		when(listMock.size()).thenCallRealMethod();
 
-        assertThat(listMock).hasSize(1);
-    }
+		assertThat(listMock).hasSize(1);
+	}
 
-    @Test
-    final void whenMockMethodCallIsConfiguredWithCustomAnswer_thenRealMethodIsCalled() {
-        final MyList listMock = Mockito.mock(MyList.class);
-        doAnswer(invocation -> "Always the same").when(listMock).get(anyInt());
+	@Test
+	final void whenMockMethodCallIsConfiguredWithCustomAnswer_thenRealMethodIsCalled() {
+		final MyList listMock = Mockito.mock(MyList.class);
+		doAnswer(invocation -> "Always the same").when(listMock).get(anyInt());
 
-        final String element = listMock.get(1);
-        assertThat(element).isEqualTo("Always the same");
-    }
+		final String element = listMock.get(1);
+		assertThat(element).isEqualTo("Always the same");
+	}
 }

@@ -6,15 +6,15 @@ import org.springframework.core.SpringVersion;
 
 public class VersionObtained {
 
-    public String getSpringVersion() {
-        return SpringVersion.getVersion();
-    }
+	public String getSpringVersion() {
+		return SpringVersion.getVersion();
+	}
 
-    public String getJavaVersion() {
-        return JavaVersion.getJavaVersion().toString();
-    }
+	public String getJavaVersion() {
+		return JavaVersion.getJavaVersion().toString();
+	}
 
-    public String getJdkVersion() {
-        return SystemProperties.get("java.version");
-    }
+	public String getJdkVersion() {
+		return SystemProperties.get("java.version");
+	}
 }

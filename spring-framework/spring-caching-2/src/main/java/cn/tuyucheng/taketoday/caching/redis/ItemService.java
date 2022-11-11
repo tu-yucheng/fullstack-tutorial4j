@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class ItemService {
-    private final ItemRepository itemRepository;
+	private final ItemRepository itemRepository;
 
-    @Cacheable(value = "itemCache")
-    public Item getItemForId(String id) {
-        return itemRepository.findById(id).orElseThrow(RuntimeException::new);
-    }
+	@Cacheable(value = "itemCache")
+	public Item getItemForId(String id) {
+		return itemRepository.findById(id).orElseThrow(RuntimeException::new);
+	}
 }

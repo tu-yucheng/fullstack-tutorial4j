@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LibraryController {
 
-    @Autowired
-    private BookRepository repository;
+	@Autowired
+	private BookRepository repository;
 
-    @GetMapping("/count")
-    public Long findCount() {
-        System.out.println(repository);
-        return repository.count();
-    }
+	@GetMapping("/count")
+	public Long findCount() {
+		System.out.println(repository);
+		return repository.count();
+	}
 }

@@ -13,11 +13,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ContextConfiguration(classes = AppConfig.class, loader = AnnotationConfigContextLoader.class)
 class FooServiceIntegrationTest {
 
-    @Autowired
-    FooService fooService;
+	@Autowired
+	FooService fooService;
 
-    @Test
-    void whenFooFormatterType_thenReturnFoo() {
-        assertEquals("foo", fooService.doStuff());
-    }
+	@Test
+	void whenFooFormatterType_thenReturnFoo() {
+		assertEquals("foo", fooService.doStuff());
+	}
 }

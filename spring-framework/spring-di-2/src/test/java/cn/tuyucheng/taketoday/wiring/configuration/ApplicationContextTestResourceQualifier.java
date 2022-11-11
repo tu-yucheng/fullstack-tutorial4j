@@ -8,13 +8,13 @@ import java.io.File;
 @Configuration
 public class ApplicationContextTestResourceQualifier {
 
-    @Bean(name = "defaultFile")
-    public File defaultFile() {
-        return new File("defaultFile.txt");
-    }
+	@Bean(name = "defaultFile")
+	public File defaultFile() {
+		return new File("defaultFile.txt");
+	}
 
-    @Bean(name = "namedFile")
-    public File namedFile() {
-        return new File("namedFile.txt");
-    }
+	@Bean(name = "namedFile")
+	public File namedFile() {
+		return new File("namedFile.txt");
+	}
 }

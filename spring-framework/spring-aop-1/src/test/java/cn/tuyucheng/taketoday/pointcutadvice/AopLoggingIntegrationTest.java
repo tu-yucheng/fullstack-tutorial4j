@@ -26,53 +26,53 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @ContextConfiguration(classes = {Application.class}, loader = AnnotationConfigContextLoader.class)
 class AopLoggingIntegrationTest {
 
-    @Autowired
-    private FooDao dao;
-    private List<String> messages;
+	@Autowired
+	private FooDao dao;
+	private List<String> messages;
 
-    @BeforeEach
-    void setUp() {
-        messages = new ArrayList<>();
+	@BeforeEach
+	void setUp() {
+		messages = new ArrayList<>();
 
-        Handler logEventHandler = new Handler() {
-            @Override
-            public void publish(LogRecord record) {
-                messages.add(record.getMessage());
-            }
+		Handler logEventHandler = new Handler() {
+			@Override
+			public void publish(LogRecord record) {
+				messages.add(record.getMessage());
+			}
 
-            @Override
-            public void flush() {
-            }
+			@Override
+			public void flush() {
+			}
 
-            @Override
-            public void close() throws SecurityException {
-            }
-        };
+			@Override
+			public void close() throws SecurityException {
+			}
+		};
 
-        Logger logger = Logger.getLogger(LoggingAspect.class.getName());
-        logger.addHandler(logEventHandler);
-    }
+		Logger logger = Logger.getLogger(LoggingAspect.class.getName());
+		logger.addHandler(logEventHandler);
+	}
 
-    @Test
-    void givenLoggingAspect_whenCallDaoMethod_thenBeforeAdviceIsCalled() {
-        dao.findById(1L);
-        assertThat(messages, hasSize(1));
+	@Test
+	void givenLoggingAspect_whenCallDaoMethod_thenBeforeAdviceIsCalled() {
+		dao.findById(1L);
+		assertThat(messages, hasSize(1));
 
-        String logMessage = messages.get(0);
-        Pattern pattern = Pattern.compile("^\\[\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}:\\d{3}]findById$");
-        assertTrue(pattern.matcher(logMessage).matches());
-    }
+		String logMessage = messages.get(0);
+		Pattern pattern = Pattern.compile("^\\[\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}:\\d{3}]findById$");
+		assertTrue(pattern.matcher(logMessage).matches());
+	}
 
-    @Test
-    void givenLoggingAspect_whenCallLoggableAnnotatedMethod_thenMethodIsLogged() {
-        dao.create(42L, "baz");
-        assertThat(messages, hasItem("Executing method: create"));
-    }
+	@Test
+	void givenLoggingAspect_whenCallLoggableAnnotatedMethod_thenMethodIsLogged() {
+		dao.create(42L, "baz");
+		assertThat(messages, hasItem("Executing method: create"));
+	}
 
-    @Test
-    void givenLoggingAspect_whenCallMethodAcceptingAnnotatedArgument_thenArgumentIsLogged() {
-        Foo foo = new Foo(42L, "baz");
-        dao.merge(foo);
-        assertThat(messages, hasItem("Accepting beans with @Entity annotation: " + foo));
-    }
+	@Test
+	void givenLoggingAspect_whenCallMethodAcceptingAnnotatedArgument_thenArgumentIsLogged() {
+		Foo foo = new Foo(42L, "baz");
+		dao.merge(foo);
+		assertThat(messages, hasItem("Accepting beans with @Entity annotation: " + foo));
+	}
 }

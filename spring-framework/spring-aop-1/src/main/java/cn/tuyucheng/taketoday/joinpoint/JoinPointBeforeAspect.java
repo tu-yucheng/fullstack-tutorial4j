@@ -15,14 +15,14 @@ import static java.lang.String.format;
 @Component
 public class JoinPointBeforeAspect {
 
-    private static final Logger log = Logger.getLogger(JoinPointBeforeAspect.class.getName());
+	private static final Logger log = Logger.getLogger(JoinPointBeforeAspect.class.getName());
 
-    @Pointcut("execution(* cn.tuyucheng.taketoday.joinpoint.ArticleService.getArticleList(..))")
-    public void articleListPointcut() {
-    }
+	@Pointcut("execution(* cn.tuyucheng.taketoday.joinpoint.ArticleService.getArticleList(..))")
+	public void articleListPointcut() {
+	}
 
-    @Before("articleListPointcut()")
-    public void beforeAdvice(JoinPoint joinPoint) {
-        log.info(format("Method %s executed with %s arguments", joinPoint.getStaticPart().getSignature(), Arrays.toString(joinPoint.getArgs())));
-    }
+	@Before("articleListPointcut()")
+	public void beforeAdvice(JoinPoint joinPoint) {
+		log.info(format("Method %s executed with %s arguments", joinPoint.getStaticPart().getSignature(), Arrays.toString(joinPoint.getArgs())));
+	}
 }

@@ -8,20 +8,20 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class AccountUnitTest {
 
-    private Account account;
+	private Account account;
 
-    @BeforeEach
-    void before() {
-        account = new Account();
-    }
+	@BeforeEach
+	void before() {
+		account = new Account();
+	}
 
-    @Test
-    void givenBalance20AndMinBalance10_whenWithdraw5_thenSuccess() {
-        assertTrue(account.withdraw(5));
-    }
+	@Test
+	void givenBalance20AndMinBalance10_whenWithdraw5_thenSuccess() {
+		assertTrue(account.withdraw(5));
+	}
 
-    @Test
-    void givenBalance20AndMinBalance10_whenWithdraw100_thenFail() {
-        assertFalse(account.withdraw(100));
-    }
+	@Test
+	void givenBalance20AndMinBalance10_whenWithdraw100_thenFail() {
+		assertFalse(account.withdraw(100));
+	}
 }

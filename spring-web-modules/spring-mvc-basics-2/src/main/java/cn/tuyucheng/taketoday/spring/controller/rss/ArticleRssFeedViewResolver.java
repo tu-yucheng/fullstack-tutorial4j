@@ -7,8 +7,8 @@ import java.util.Locale;
 
 public class ArticleRssFeedViewResolver implements ViewResolver {
 
-    @Override
-    public View resolveViewName(String s, Locale locale) throws Exception {
-        return new ArticleFeedView();
-    }
+	@Override
+	public View resolveViewName(String s, Locale locale) throws Exception {
+		return new ArticleFeedView();
+	}
 }

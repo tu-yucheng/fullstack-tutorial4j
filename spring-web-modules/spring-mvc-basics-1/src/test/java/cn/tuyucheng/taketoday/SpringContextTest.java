@@ -6,8 +6,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class SpringContextTest {
 
-    @Test
-    void whenSpringContextIsBootstrapped_thenNoExceptions() {
+	@Test
+	void whenSpringContextIsBootstrapped_thenNoExceptions() {
 
-    }
+	}
 }

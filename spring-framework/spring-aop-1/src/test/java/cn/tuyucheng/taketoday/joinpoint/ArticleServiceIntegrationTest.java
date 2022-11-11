@@ -14,25 +14,25 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 @SpringBootTest
 class ArticleServiceIntegrationTest {
 
-    @Autowired
-    private ArticleService articleService;
+	@Autowired
+	private ArticleService articleService;
 
-    @Test
-    void shouldGetNotEmptyArticleList() {
-        List<String> articleList = articleService.getArticleList();
+	@Test
+	void shouldGetNotEmptyArticleList() {
+		List<String> articleList = articleService.getArticleList();
 
-        assertFalse(articleList.isEmpty());
-    }
+		assertFalse(articleList.isEmpty());
+	}
 
-    @Test
-    void shouldGetNotEmptyArticleListWithStartsWithFilter() {
-        List<String> articleList = articleService.getArticleList("Article");
+	@Test
+	void shouldGetNotEmptyArticleListWithStartsWithFilter() {
+		List<String> articleList = articleService.getArticleList("Article");
 
-        assertFalse(articleList.isEmpty());
-    }
+		assertFalse(articleList.isEmpty());
+	}
 
-    @Test/*(expected = IllegalArgumentException.class)*/
-    void shouldThrowExceptionIfStartsWithFilterIsBlank() {
-        articleService.getArticleList(" ");
-    }
+	@Test/*(expected = IllegalArgumentException.class)*/
+	void shouldThrowExceptionIfStartsWithFilterIsBlank() {
+		articleService.getArticleList(" ");
+	}
 }

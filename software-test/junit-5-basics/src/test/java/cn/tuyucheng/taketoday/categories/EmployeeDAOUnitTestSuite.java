@@ -9,5 +9,5 @@ import org.junit.runners.Suite.SuiteClasses;
 @IncludeCategory(UnitTest.class)
 @SuiteClasses(EmployeeDAOCategoryIntegrationTest.class)
 public class EmployeeDAOUnitTestSuite {
-    
+
 }

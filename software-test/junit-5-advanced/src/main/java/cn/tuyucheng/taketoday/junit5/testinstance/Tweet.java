@@ -9,8 +9,8 @@ import java.io.Serializable;
 @Setter
 @Getter
 public class Tweet implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 1L;
-    private String id;
-    private String content;
+	@Serial
+	private static final long serialVersionUID = 1L;
+	private String id;
+	private String content;
 }

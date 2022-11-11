@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackageClasses = Company.class)
 public class Config {
 
-    @Bean
-    public Address getAddress() {
-        return new Address("High Street", 1000);
-    }
+	@Bean
+	public Address getAddress() {
+		return new Address("High Street", 1000);
+	}
 }

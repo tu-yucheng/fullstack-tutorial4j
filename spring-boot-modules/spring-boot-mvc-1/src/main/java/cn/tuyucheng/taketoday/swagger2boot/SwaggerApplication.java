@@ -11,16 +11,16 @@ import springfox.documentation.spring.web.plugins.Docket;
 @SpringBootApplication
 public class SwaggerApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(SwaggerApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(SwaggerApplication.class, args);
+	}
 
-    @Bean
-    public Docket api() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.baeldung.web.controller"))
-                .paths(PathSelectors.ant("/foos/*"))
-                .build();
-    }
+	@Bean
+	public Docket api() {
+		return new Docket(DocumentationType.SWAGGER_2)
+				.select()
+				.apis(RequestHandlerSelectors.basePackage("com.baeldung.web.controller"))
+				.paths(PathSelectors.ant("/foos/*"))
+				.build();
+	}
 }

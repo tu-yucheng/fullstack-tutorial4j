@@ -15,18 +15,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest(classes = MocksApplication.class)
 class UserServiceUnitTest {
 
-    @Autowired
-    private UserService userService;
+	@Autowired
+	private UserService userService;
 
-    @Autowired
-    private NameService nameService;
+	@Autowired
+	private NameService nameService;
 
-    @Test
-    void whenUserIdIsProvided_thenRetrievedNameIsCorrect() {
-        Mockito.when(nameService.getUserName("SomeId")).thenReturn("Mock user name");
+	@Test
+	void whenUserIdIsProvided_thenRetrievedNameIsCorrect() {
+		Mockito.when(nameService.getUserName("SomeId")).thenReturn("Mock user name");
 
-        String testName = userService.getUserName("SomeId");
+		String testName = userService.getUserName("SomeId");
 
-        assertEquals("Mock user name", testName);
-    }
+		assertEquals("Mock user name", testName);
+	}
 }

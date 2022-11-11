@@ -18,12 +18,12 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Customer {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
 
-    @ContactInfo
-    @NotNull
-    private String contactInfo;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+
+	@ContactInfo
+	@NotNull
+	private String contactInfo;
 }

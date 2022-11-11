@@ -14,26 +14,26 @@ import org.springframework.context.annotation.Configuration;
 @EnableCaching
 public class MultipleCacheManagerConfig extends CachingConfigurerSupport {
 
-    @Bean
-    public CacheResolver cacheResolver() {
-        return new MultipleCacheResolver(alternateCacheManager(), cacheManager());
-    }
+	@Bean
+	public CacheResolver cacheResolver() {
+		return new MultipleCacheResolver(alternateCacheManager(), cacheManager());
+	}
 
-    @Bean
-    public CacheManager alternateCacheManager() {
-        return new ConcurrentMapCacheManager("customerOrders", "orderprice");
-    }
+	@Bean
+	public CacheManager alternateCacheManager() {
+		return new ConcurrentMapCacheManager("customerOrders", "orderprice");
+	}
 
-    @Bean
-    @Override
-    // @Primary
-    public CacheManager cacheManager() {
-        CaffeineCacheManager cacheManager = new CaffeineCacheManager("customers", "orders");
-        cacheManager.setCaffeine(Caffeine.newBuilder()
-                .initialCapacity(200)
-                .maximumSize(500)
-                .weakKeys()
-                .recordStats());
-        return cacheManager;
-    }
+	@Bean
+	@Override
+	// @Primary
+	public CacheManager cacheManager() {
+		CaffeineCacheManager cacheManager = new CaffeineCacheManager("customers", "orders");
+		cacheManager.setCaffeine(Caffeine.newBuilder()
+				.initialCapacity(200)
+				.maximumSize(500)
+				.weakKeys()
+				.recordStats());
+		return cacheManager;
+	}
 }

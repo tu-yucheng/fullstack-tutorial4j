@@ -14,25 +14,25 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringJUnitWebConfig(PushConfiguration.class)
 class PushControllerIntegrationTest {
-    @Autowired
-    private WebApplicationContext webAppContext;
-    private MockMvc mockMvc;
+	@Autowired
+	private WebApplicationContext webAppContext;
+	private MockMvc mockMvc;
 
-    @BeforeEach
-    void setup() {
-        mockMvc = MockMvcBuilders.webAppContextSetup(webAppContext)
-                .build();
-    }
+	@BeforeEach
+	void setup() {
+		mockMvc = MockMvcBuilders.webAppContextSetup(webAppContext)
+				.build();
+	}
 
-    @Test
-    void whenDemoWithPushGETisPerformed_thenRetrievedStatusOk() throws Exception {
-        mockMvc.perform(get("/demoWithPush"))
-                .andExpect(status().isOk());
-    }
+	@Test
+	void whenDemoWithPushGETisPerformed_thenRetrievedStatusOk() throws Exception {
+		mockMvc.perform(get("/demoWithPush"))
+				.andExpect(status().isOk());
+	}
 
-    @Test
-    void whenDemoWithoutPushGETisPerformed_thenRetrievedStatusOk() throws Exception {
-        mockMvc.perform(get("/demoWithoutPush"))
-                .andExpect(status().isOk());
-    }
+	@Test
+	void whenDemoWithoutPushGETisPerformed_thenRetrievedStatusOk() throws Exception {
+		mockMvc.perform(get("/demoWithoutPush"))
+				.andExpect(status().isOk());
+	}
 }

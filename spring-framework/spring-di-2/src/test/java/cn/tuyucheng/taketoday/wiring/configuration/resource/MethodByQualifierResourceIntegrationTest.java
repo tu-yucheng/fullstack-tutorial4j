@@ -16,32 +16,32 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(
-        loader = AnnotationConfigContextLoader.class,
-        classes = ApplicationContextTestResourceQualifier.class
+		loader = AnnotationConfigContextLoader.class,
+		classes = ApplicationContextTestResourceQualifier.class
 )
 class MethodByQualifierResourceIntegrationTest {
-    
-    private File arbDependency;
-    
-    private File anotherArbDependency;
 
-    @Resource
-    @Qualifier("namedFile")
-    public void setArbDependency(File arbDependency) {
-        this.arbDependency = arbDependency;
-    }
+	private File arbDependency;
 
-    @Resource
-    @Qualifier("defaultFile")
-    public void setAnotherArbDependency(File anotherArbDependency) {
-        this.anotherArbDependency = anotherArbDependency;
-    }
+	private File anotherArbDependency;
 
-    @Test
-    void givenResourceQualifier_WhenSetter_ThenValidDependencies() {
-        assertNotNull(arbDependency);
-        assertEquals("namedFile.txt", arbDependency.getName());
-        assertNotNull(anotherArbDependency);
-        assertEquals("defaultFile.txt", anotherArbDependency.getName());
-    }
+	@Resource
+	@Qualifier("namedFile")
+	public void setArbDependency(File arbDependency) {
+		this.arbDependency = arbDependency;
+	}
+
+	@Resource
+	@Qualifier("defaultFile")
+	public void setAnotherArbDependency(File anotherArbDependency) {
+		this.anotherArbDependency = anotherArbDependency;
+	}
+
+	@Test
+	void givenResourceQualifier_WhenSetter_ThenValidDependencies() {
+		assertNotNull(arbDependency);
+		assertEquals("namedFile.txt", arbDependency.getName());
+		assertNotNull(anotherArbDependency);
+		assertEquals("defaultFile.txt", anotherArbDependency.getName());
+	}
 }

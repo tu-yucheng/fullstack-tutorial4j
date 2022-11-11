@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class GreetingService {
 
-    @Autowired
-    private Translator translator;
+	@Autowired
+	private Translator translator;
 
-    public String greet() {
-        return translator.translate("hello");
-    }
+	public String greet() {
+		return translator.translate("hello");
+	}
 }

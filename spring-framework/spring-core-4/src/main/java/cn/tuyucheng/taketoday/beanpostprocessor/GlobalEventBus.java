@@ -7,31 +7,31 @@ import java.util.concurrent.Executors;
 
 @SuppressWarnings("ALL")
 public final class GlobalEventBus {
-    public static final String GLOBAL_EVENT_BUS_EXPRESSION = "T(cn.tuyucheng.taketoday.beanpostprocessor.GlobalEventBus).getEventBus()";
-    private static final String IDENTIFIER = "global-event-bus";
-    private static final GlobalEventBus GLOBAL_EVENT_BUS = new GlobalEventBus();
-    private final EventBus eventBus = new AsyncEventBus(IDENTIFIER, Executors.newCachedThreadPool());
+	public static final String GLOBAL_EVENT_BUS_EXPRESSION = "T(cn.tuyucheng.taketoday.beanpostprocessor.GlobalEventBus).getEventBus()";
+	private static final String IDENTIFIER = "global-event-bus";
+	private static final GlobalEventBus GLOBAL_EVENT_BUS = new GlobalEventBus();
+	private final EventBus eventBus = new AsyncEventBus(IDENTIFIER, Executors.newCachedThreadPool());
 
-    private GlobalEventBus() {
-    }
+	private GlobalEventBus() {
+	}
 
-    public static GlobalEventBus getInstance() {
-        return GlobalEventBus.GLOBAL_EVENT_BUS;
-    }
+	public static GlobalEventBus getInstance() {
+		return GlobalEventBus.GLOBAL_EVENT_BUS;
+	}
 
-    public static void subscribe(Object obj) {
-        getEventBus().register(obj);
-    }
+	public static void subscribe(Object obj) {
+		getEventBus().register(obj);
+	}
 
-    public static EventBus getEventBus() {
-        return GlobalEventBus.GLOBAL_EVENT_BUS.eventBus;
-    }
+	public static EventBus getEventBus() {
+		return GlobalEventBus.GLOBAL_EVENT_BUS.eventBus;
+	}
 
-    public static void unsubscribe(Object obj) {
-        getEventBus().unregister(obj);
-    }
+	public static void unsubscribe(Object obj) {
+		getEventBus().unregister(obj);
+	}
 
-    public static void post(Object event) {
-        getEventBus().post(event);
-    }
+	public static void post(Object event) {
+		getEventBus().post(event);
+	}
 }

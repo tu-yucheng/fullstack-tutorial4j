@@ -16,27 +16,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(IgnoreFileNotFoundExceptionExtension.class)
 public class EmployeesUnitTest {
 
-    private final EmployeeJdbcDao employeeDao;
+	private final EmployeeJdbcDao employeeDao;
 
-    private Logger logger;
+	private Logger logger;
 
-    public EmployeesUnitTest(EmployeeJdbcDao employeeDao) {
-        this.employeeDao = employeeDao;
-    }
+	public EmployeesUnitTest(EmployeeJdbcDao employeeDao) {
+		this.employeeDao = employeeDao;
+	}
 
-    @Test
-    void whenAddEmployee_thenGetEmployee() throws SQLException {
-        Employee emp = new Employee(1, "john");
-        employeeDao.add(emp);
-        assertEquals(1, employeeDao.findAll().size());
-    }
+	@Test
+	void whenAddEmployee_thenGetEmployee() throws SQLException {
+		Employee emp = new Employee(1, "john");
+		employeeDao.add(emp);
+		assertEquals(1, employeeDao.findAll().size());
+	}
 
-    @Test
-    void whenGetEmployees_thenEmptyList() throws SQLException {
-        assertEquals(0, employeeDao.findAll().size());
-    }
+	@Test
+	void whenGetEmployees_thenEmptyList() throws SQLException {
+		assertEquals(0, employeeDao.findAll().size());
+	}
 
-    public void setLogger(Logger logger) {
-        this.logger = logger;
-    }
+	public void setLogger(Logger logger) {
+		this.logger = logger;
+	}
 }

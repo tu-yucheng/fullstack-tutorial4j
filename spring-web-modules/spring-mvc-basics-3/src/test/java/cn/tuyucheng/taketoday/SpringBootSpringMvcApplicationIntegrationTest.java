@@ -24,46 +24,46 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebAppConfiguration
 class SpringBootSpringMvcApplicationIntegrationTest {
 
-    @Autowired
-    private WebApplicationContext webApplicationContext;
+	@Autowired
+	private WebApplicationContext webApplicationContext;
 
-    private MockMvc mockMvc;
+	private MockMvc mockMvc;
 
-    @BeforeEach
-    void setupMockMvc() {
-        mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
-    }
+	@BeforeEach
+	void setupMockMvc() {
+		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+	}
 
-    @Test
-    void givenRequestHasBeenMade_whenMeetsAllOfGivenConditions_thenCorrect() throws Exception {
-        mockMvc.perform(get("/entity/all"))
-                .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$", hasSize(4)));
-    }
+	@Test
+	void givenRequestHasBeenMade_whenMeetsAllOfGivenConditions_thenCorrect() throws Exception {
+		mockMvc.perform(get("/entity/all"))
+				.andExpect(status().isOk())
+				.andExpect(content().contentType(MediaType.APPLICATION_JSON))
+				.andExpect(jsonPath("$", hasSize(4)));
+	}
 
-    @Test
-    void givenRequestHasBeenMade_whenMeetsFindByDateOfGivenConditions_thenCorrect() throws Exception {
-        mockMvc.perform(get("/entity/findbydate/{date}", "2011-12-03T10:15:30"))
-                .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.id", equalTo(1)));
-    }
+	@Test
+	void givenRequestHasBeenMade_whenMeetsFindByDateOfGivenConditions_thenCorrect() throws Exception {
+		mockMvc.perform(get("/entity/findbydate/{date}", "2011-12-03T10:15:30"))
+				.andExpect(status().isOk())
+				.andExpect(content().contentType(MediaType.APPLICATION_JSON))
+				.andExpect(jsonPath("$.id", equalTo(1)));
+	}
 
-    @Test
-    void givenRequestHasBeenMade_whenMeetsFindByModeOfGivenConditions_thenCorrect() throws Exception {
-        mockMvc.perform(get("/entity/findbymode/{mode}", Modes.ALPHA.name()))
-                .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.id", equalTo(1)));
-    }
+	@Test
+	void givenRequestHasBeenMade_whenMeetsFindByModeOfGivenConditions_thenCorrect() throws Exception {
+		mockMvc.perform(get("/entity/findbymode/{mode}", Modes.ALPHA.name()))
+				.andExpect(status().isOk())
+				.andExpect(content().contentType(MediaType.APPLICATION_JSON))
+				.andExpect(jsonPath("$.id", equalTo(1)));
+	}
 
-    @Test
-    void givenRequestHasBeenMade_whenMeetsFindByVersionOfGivenConditions_thenCorrect() throws Exception {
-        mockMvc.perform(get("/entity/findbyversion")
-                        .header("Version", "1.0.0"))
-                .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.id", equalTo(1)));
-    }
+	@Test
+	void givenRequestHasBeenMade_whenMeetsFindByVersionOfGivenConditions_thenCorrect() throws Exception {
+		mockMvc.perform(get("/entity/findbyversion")
+						.header("Version", "1.0.0"))
+				.andExpect(status().isOk())
+				.andExpect(content().contentType(MediaType.APPLICATION_JSON))
+				.andExpect(jsonPath("$.id", equalTo(1)));
+	}
 }

@@ -16,80 +16,80 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
 class CachedBodyServletInputStreamUnitTest {
 
-    private CachedBodyServletInputStream servletInputStream;
+	private CachedBodyServletInputStream servletInputStream;
 
-    @AfterEach
-    void cleanUp() throws IOException {
-        if (null != servletInputStream) {
-            servletInputStream.close();
-        }
-    }
+	@AfterEach
+	void cleanUp() throws IOException {
+		if (null != servletInputStream) {
+			servletInputStream.close();
+		}
+	}
 
-    @Test
-    void testGivenServletInputStreamCreated_whenCalledIsFinished_thenFalse() {
-        // given
-        byte[] cachedBody = "{\"firstName\" :\"abc\",\"lastName\" : \"xyz\",\"age\" : 30\"}".getBytes();
-        servletInputStream = new CachedBodyServletInputStream(cachedBody);
+	@Test
+	void testGivenServletInputStreamCreated_whenCalledIsFinished_thenFalse() {
+		// given
+		byte[] cachedBody = "{\"firstName\" :\"abc\",\"lastName\" : \"xyz\",\"age\" : 30\"}".getBytes();
+		servletInputStream = new CachedBodyServletInputStream(cachedBody);
 
-        // when
-        boolean finished = servletInputStream.isFinished();
+		// when
+		boolean finished = servletInputStream.isFinished();
 
-        // then
-        assertFalse(finished);
-    }
+		// then
+		assertFalse(finished);
+	}
 
-    @Test
-    void testGivenServletInputStreamCreatedAndBodyRead_whenCalledIsFinished_thenTrue() throws IOException {
-        // given
-        byte[] cachedBody = "{\"firstName\" :\"abc\",\"lastName\" : \"xyz\",\"age\" : 30\"}".getBytes();
-        servletInputStream = new CachedBodyServletInputStream(cachedBody);
-        StreamUtils.copyToByteArray(servletInputStream);
+	@Test
+	void testGivenServletInputStreamCreatedAndBodyRead_whenCalledIsFinished_thenTrue() throws IOException {
+		// given
+		byte[] cachedBody = "{\"firstName\" :\"abc\",\"lastName\" : \"xyz\",\"age\" : 30\"}".getBytes();
+		servletInputStream = new CachedBodyServletInputStream(cachedBody);
+		StreamUtils.copyToByteArray(servletInputStream);
 
-        // when
-        boolean finished = servletInputStream.isFinished();
+		// when
+		boolean finished = servletInputStream.isFinished();
 
-        // then
-        assertTrue(finished);
-    }
+		// then
+		assertTrue(finished);
+	}
 
-    @Test
-    void testGivenServletInputStreamCreatedAndBodyRead_whenCalledIsReady_thenTrue() throws IOException {
-        // given
-        byte[] cachedBody = "{\"firstName\" :\"abc\",\"lastName\" : \"xyz\",\"age\" : 30\"}".getBytes();
-        servletInputStream = new CachedBodyServletInputStream(cachedBody);
+	@Test
+	void testGivenServletInputStreamCreatedAndBodyRead_whenCalledIsReady_thenTrue() throws IOException {
+		// given
+		byte[] cachedBody = "{\"firstName\" :\"abc\",\"lastName\" : \"xyz\",\"age\" : 30\"}".getBytes();
+		servletInputStream = new CachedBodyServletInputStream(cachedBody);
 
-        // when
-        boolean ready = servletInputStream.isReady();
+		// when
+		boolean ready = servletInputStream.isReady();
 
-        // then
-        assertTrue(ready);
-    }
+		// then
+		assertTrue(ready);
+	}
 
-    @Test
-    void testGivenServletInputStreamCreated_whenCalledIsRead_thenReturnsBody() throws IOException {
-        // given
-        byte[] cachedBody = "{\"firstName\" :\"abc\",\"lastName\" : \"xyz\",\"age\" : 30\"}".getBytes();
-        servletInputStream = new CachedBodyServletInputStream(cachedBody);
+	@Test
+	void testGivenServletInputStreamCreated_whenCalledIsRead_thenReturnsBody() throws IOException {
+		// given
+		byte[] cachedBody = "{\"firstName\" :\"abc\",\"lastName\" : \"xyz\",\"age\" : 30\"}".getBytes();
+		servletInputStream = new CachedBodyServletInputStream(cachedBody);
 
-        // when
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        int len = 0;
-        byte[] buffer = new byte[1024];
-        while ((len = servletInputStream.read(buffer)) != -1) {
-            byteArrayOutputStream.write(buffer, 0, len);
-        }
+		// when
+		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+		int len = 0;
+		byte[] buffer = new byte[1024];
+		while ((len = servletInputStream.read(buffer)) != -1) {
+			byteArrayOutputStream.write(buffer, 0, len);
+		}
 
-        // then
-        assertEquals(new String(cachedBody), byteArrayOutputStream.toString());
-    }
+		// then
+		assertEquals(new String(cachedBody), byteArrayOutputStream.toString());
+	}
 
-    @Test
-    void testGivenServletInputStreamCreated_whenCalledIsRead_thenThrowsException() throws IOException {
-        // given
-        byte[] cachedBody = "{\"firstName\" :\"abc\",\"lastName\" : \"xyz\",\"age\" : 30\"}".getBytes();
-        servletInputStream = new CachedBodyServletInputStream(cachedBody);
+	@Test
+	void testGivenServletInputStreamCreated_whenCalledIsRead_thenThrowsException() throws IOException {
+		// given
+		byte[] cachedBody = "{\"firstName\" :\"abc\",\"lastName\" : \"xyz\",\"age\" : 30\"}".getBytes();
+		servletInputStream = new CachedBodyServletInputStream(cachedBody);
 
-        // when
-        assertThrows(UnsupportedOperationException.class, () -> servletInputStream.setReadListener(Mockito.mock(ReadListener.class)));
-    }
+		// when
+		assertThrows(UnsupportedOperationException.class, () -> servletInputStream.setReadListener(Mockito.mock(ReadListener.class)));
+	}
 }

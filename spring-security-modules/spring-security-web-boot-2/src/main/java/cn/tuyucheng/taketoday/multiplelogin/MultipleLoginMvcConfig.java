@@ -13,27 +13,27 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 public class MultipleLoginMvcConfig implements WebMvcConfigurer {
 
-    public MultipleLoginMvcConfig() {
-        super();
-    }
+	public MultipleLoginMvcConfig() {
+		super();
+	}
 
-    @Override
-    public void addViewControllers(final ViewControllerRegistry registry) {
-        registry.addViewController("/anonymous.html");
+	@Override
+	public void addViewControllers(final ViewControllerRegistry registry) {
+		registry.addViewController("/anonymous.html");
 
-        registry.addViewController("/login.html");
-        registry.addViewController("/homepage.html");
-        registry.addViewController("/console.html");
-    }
+		registry.addViewController("/login.html");
+		registry.addViewController("/homepage.html");
+		registry.addViewController("/console.html");
+	}
 
-    @Bean
-    public ViewResolver viewResolver() {
-        final InternalResourceViewResolver bean = new InternalResourceViewResolver();
+	@Bean
+	public ViewResolver viewResolver() {
+		final InternalResourceViewResolver bean = new InternalResourceViewResolver();
 
-        bean.setViewClass(JstlView.class);
-        bean.setPrefix("/WEB-INF/view/");
-        bean.setSuffix(".jsp");
+		bean.setViewClass(JstlView.class);
+		bean.setPrefix("/WEB-INF/view/");
+		bean.setSuffix(".jsp");
 
-        return bean;
-    }
+		return bean;
+	}
 }

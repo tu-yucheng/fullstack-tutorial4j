@@ -14,19 +14,19 @@ import java.util.concurrent.TimeUnit;
 @ComponentScan("com.baeldung.core")
 public class CoreConfig implements WebMvcConfigurer {
 
-    public CoreConfig() {
-        super();
-    }
+	public CoreConfig() {
+		super();
+	}
 
-    // beans
+	// beans
 
-    @Bean
-    public ExecutorService setupExecutor() {
-        final int coreThreads = 4;
-        final int maxThreads = 8;
-        final ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(coreThreads, maxThreads, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>());
-        threadPoolExecutor.allowCoreThreadTimeOut(true);
-        return threadPoolExecutor;
-    }
+	@Bean
+	public ExecutorService setupExecutor() {
+		final int coreThreads = 4;
+		final int maxThreads = 8;
+		final ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(coreThreads, maxThreads, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>());
+		threadPoolExecutor.allowCoreThreadTimeOut(true);
+		return threadPoolExecutor;
+	}
 
 }

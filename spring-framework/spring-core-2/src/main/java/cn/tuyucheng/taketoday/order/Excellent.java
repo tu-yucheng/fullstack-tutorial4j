@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 @Order(1)
 public class Excellent implements Rating {
 
-    @Override
-    public int getRating() {
-        return 1;
-    }
+	@Override
+	public int getRating() {
+		return 1;
+	}
 }

@@ -4,10 +4,10 @@ import cn.tuyucheng.taketoday.dependson.shared.File;
 
 public class FileReader {
 
-    public FileReader(File file) {
-        file.setText("read");
-    }
+	public FileReader(File file) {
+		file.setText("read");
+	}
 
-    public void readFile() {
-    }
+	public void readFile() {
+	}
 }

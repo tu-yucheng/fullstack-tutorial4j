@@ -8,7 +8,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface BookRepository extends CrudRepository<Book, UUID> {
-    
-    @Cacheable(value = "books", unless = "#a0=='Foundation'")
-    Optional<Book> findFirstByTitle(String title);
+
+	@Cacheable(value = "books", unless = "#a0=='Foundation'")
+	Optional<Book> findFirstByTitle(String title);
 }

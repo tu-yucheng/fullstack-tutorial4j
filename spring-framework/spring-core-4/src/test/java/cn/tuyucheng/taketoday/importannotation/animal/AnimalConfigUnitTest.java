@@ -14,18 +14,18 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @ContextConfiguration(classes = {AnimalConfiguration.class})
 class AnimalConfigUnitTest {
 
-    @Autowired
-    ApplicationContext context;
+	@Autowired
+	ApplicationContext context;
 
-    @Test
-    void givenImportedBeans_whenGettingEach_shallFindOnlyTheImportedBeans() {
-        assertThatBeanExists("dog", Dog.class);
-        assertThatBeanExists("cat", Cat.class);
-        assertThatBeanExists("bird", Cat.class);
-    }
+	@Test
+	void givenImportedBeans_whenGettingEach_shallFindOnlyTheImportedBeans() {
+		assertThatBeanExists("dog", Dog.class);
+		assertThatBeanExists("cat", Cat.class);
+		assertThatBeanExists("bird", Cat.class);
+	}
 
-    private void assertThatBeanExists(String beanName, Class<?> beanClass) {
-        assertTrue(context.containsBean(beanName));
-        assertNotNull(context.getBean(beanClass));
-    }
+	private void assertThatBeanExists(String beanName, Class<?> beanClass) {
+		assertTrue(context.containsBean(beanName));
+		assertNotNull(context.getBean(beanClass));
+	}
 }

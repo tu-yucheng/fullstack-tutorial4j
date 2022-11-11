@@ -17,30 +17,30 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class CustomAnswerWithLambdaUnitTest {
 
-    @InjectMocks
-    private UnemploymentServiceImpl unemploymentService;
+	@InjectMocks
+	private UnemploymentServiceImpl unemploymentService;
 
-    @Mock
-    private JobService jobService;
+	@Mock
+	private JobService jobService;
 
-    @Test
-    void whenPersonWithJobHistory_thenSearchReturnsValue() {
-        Person peter = new Person("Peter");
+	@Test
+	void whenPersonWithJobHistory_thenSearchReturnsValue() {
+		Person peter = new Person("Peter");
 
-        assertEquals("Teacher", unemploymentService.searchJob(peter, "").get().getTitle());
-    }
+		assertEquals("Teacher", unemploymentService.searchJob(peter, "").get().getTitle());
+	}
 
-    @Test
-    void whenPersonWithNoJobHistory_thenSearchReturnsEmpty() {
-        Person linda = new Person("Linda");
+	@Test
+	void whenPersonWithNoJobHistory_thenSearchReturnsEmpty() {
+		Person linda = new Person("Linda");
 
-        assertFalse(unemploymentService.searchJob(linda, "").isPresent());
-    }
+		assertFalse(unemploymentService.searchJob(linda, "").isPresent());
+	}
 
-    @BeforeEach
-    void init() {
-        when(jobService.listJobs(any(Person.class))).then((i) ->
-                Stream.of(new JobPosition("Teacher"))
-                        .filter(p -> ((Person) i.getArgument(0)).getName().equals("Peter")));
-    }
+	@BeforeEach
+	void init() {
+		when(jobService.listJobs(any(Person.class))).then((i) ->
+				Stream.of(new JobPosition("Teacher"))
+						.filter(p -> ((Person) i.getArgument(0)).getName().equals("Peter")));
+	}
 }

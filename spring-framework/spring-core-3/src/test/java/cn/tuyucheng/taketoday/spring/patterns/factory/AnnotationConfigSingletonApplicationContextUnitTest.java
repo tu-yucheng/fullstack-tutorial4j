@@ -10,19 +10,19 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class AnnotationConfigSingletonApplicationContextUnitTest {
 
-    @Test
-    void whenGetSimpleBean_thenReturnConstructedBean() {
-        ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-        Foo foo = context.getBean(Foo.class);
-        assertNotNull(foo);
-    }
+	@Test
+	void whenGetSimpleBean_thenReturnConstructedBean() {
+		ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+		Foo foo = context.getBean(Foo.class);
+		assertNotNull(foo);
+	}
 
-    @Test
-    void whenGetPrototypeBean_thenReturnConstructedBean() {
-        String expectedName = "Some name";
-        ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-        Bar bar = context.getBean(Bar.class, expectedName);
-        assertNotNull(bar);
-        assertThat(bar.getName(), is(expectedName));
-    }
+	@Test
+	void whenGetPrototypeBean_thenReturnConstructedBean() {
+		String expectedName = "Some name";
+		ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+		Bar bar = context.getBean(Bar.class, expectedName);
+		assertNotNull(bar);
+		assertThat(bar.getName(), is(expectedName));
+	}
 }

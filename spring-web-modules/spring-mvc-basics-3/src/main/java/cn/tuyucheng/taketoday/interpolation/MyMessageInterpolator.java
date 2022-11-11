@@ -8,23 +8,23 @@ import java.util.Locale;
 
 public class MyMessageInterpolator implements MessageInterpolator {
 
-    private static final Logger logger = LoggerFactory.getLogger(MyMessageInterpolator.class);
+	private static final Logger logger = LoggerFactory.getLogger(MyMessageInterpolator.class);
 
-    private final MessageInterpolator defaultInterpolator;
+	private final MessageInterpolator defaultInterpolator;
 
-    public MyMessageInterpolator(MessageInterpolator interpolator) {
-        this.defaultInterpolator = interpolator;
-    }
+	public MyMessageInterpolator(MessageInterpolator interpolator) {
+		this.defaultInterpolator = interpolator;
+	}
 
-    @Override
-    public String interpolate(String messageTemplate, Context context) {
-        messageTemplate = messageTemplate.toUpperCase();
-        return defaultInterpolator.interpolate(messageTemplate, context, Locale.getDefault());
-    }
+	@Override
+	public String interpolate(String messageTemplate, Context context) {
+		messageTemplate = messageTemplate.toUpperCase();
+		return defaultInterpolator.interpolate(messageTemplate, context, Locale.getDefault());
+	}
 
-    @Override
-    public String interpolate(String messageTemplate, Context context, Locale locale) {
-        messageTemplate = messageTemplate.toUpperCase();
-        return defaultInterpolator.interpolate(messageTemplate, context, locale);
-    }
+	@Override
+	public String interpolate(String messageTemplate, Context context, Locale locale) {
+		messageTemplate = messageTemplate.toUpperCase();
+		return defaultInterpolator.interpolate(messageTemplate, context, locale);
+	}
 }

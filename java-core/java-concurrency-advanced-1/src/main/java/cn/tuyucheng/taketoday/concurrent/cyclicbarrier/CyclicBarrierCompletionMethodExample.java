@@ -8,40 +8,40 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class CyclicBarrierCompletionMethodExample {
-    private final int count;
-    private final int threadCount;
-    private final AtomicInteger updateCount;
-    
-    CyclicBarrierCompletionMethodExample(int count, int threadCount) {
-        updateCount = new AtomicInteger(0);
-        this.count = count;
-        this.threadCount = threadCount;
-    }
+	private final int count;
+	private final int threadCount;
+	private final AtomicInteger updateCount;
 
-    public int countTrips() {
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(count, updateCount::incrementAndGet);
+	CyclicBarrierCompletionMethodExample(int count, int threadCount) {
+		updateCount = new AtomicInteger(0);
+		this.count = count;
+		this.threadCount = threadCount;
+	}
 
-        ExecutorService es = Executors.newFixedThreadPool(threadCount);
-        for (int i = 0; i < threadCount; i++) {
-            es.execute(() -> {
-                try {
-                    cyclicBarrier.await();
-                } catch (InterruptedException | BrokenBarrierException e) {
-                    e.printStackTrace();
-                }
-            });
-        }
-        es.shutdown();
-        try {
-            es.awaitTermination(1, TimeUnit.SECONDS);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return updateCount.get();
-    }
+	public int countTrips() {
+		CyclicBarrier cyclicBarrier = new CyclicBarrier(count, updateCount::incrementAndGet);
 
-    public static void main(String[] args) {
-        CyclicBarrierCompletionMethodExample ex = new CyclicBarrierCompletionMethodExample(5, 20);
-        System.out.println("Count : " + ex.countTrips());
-    }
+		ExecutorService es = Executors.newFixedThreadPool(threadCount);
+		for (int i = 0; i < threadCount; i++) {
+			es.execute(() -> {
+				try {
+					cyclicBarrier.await();
+				} catch (InterruptedException | BrokenBarrierException e) {
+					e.printStackTrace();
+				}
+			});
+		}
+		es.shutdown();
+		try {
+			es.awaitTermination(1, TimeUnit.SECONDS);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		return updateCount.get();
+	}
+
+	public static void main(String[] args) {
+		CyclicBarrierCompletionMethodExample ex = new CyclicBarrierCompletionMethodExample(5, 20);
+		System.out.println("Count : " + ex.countTrips());
+	}
 }

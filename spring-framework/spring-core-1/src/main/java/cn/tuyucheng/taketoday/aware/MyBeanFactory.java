@@ -8,17 +8,17 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 
 public class MyBeanFactory implements BeanFactoryAware {
-    private static final Logger log = LoggerFactory.getLogger(MyBeanName.class);
-    private BeanFactory beanFactory;
+	private static final Logger log = LoggerFactory.getLogger(MyBeanName.class);
+	private BeanFactory beanFactory;
 
-    @Override
-    public void setBeanFactory(@NotNull BeanFactory beanFactory) throws BeansException {
-        this.beanFactory = beanFactory;
-    }
+	@Override
+	public void setBeanFactory(@NotNull BeanFactory beanFactory) throws BeansException {
+		this.beanFactory = beanFactory;
+	}
 
-    public void getMyBeanName() {
-        MyBeanName myBeanName = beanFactory.getBean(MyBeanName.class);
-        log.info("{}", myBeanName);
-        System.out.println(beanFactory.isSingleton("myCustomBeanName"));
-    }
+	public void getMyBeanName() {
+		MyBeanName myBeanName = beanFactory.getBean(MyBeanName.class);
+		log.info("{}", myBeanName);
+		System.out.println(beanFactory.isSingleton("myCustomBeanName"));
+	}
 }

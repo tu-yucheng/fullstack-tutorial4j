@@ -9,6 +9,6 @@ import javax.validation.constraints.NotNull;
 @Setter
 public class NotNullRequest {
 
-    @NotNull(message = "stringValue has to be present")
-    private String stringValue;
+	@NotNull(message = "stringValue has to be present")
+	private String stringValue;
 }

@@ -26,93 +26,93 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration
 @TestExecutionListeners(listeners = {ServletTestExecutionListener.class,
-        DependencyInjectionTestExecutionListener.class,
-        DirtiesContextTestExecutionListener.class,
-        TransactionalTestExecutionListener.class,
-        WithSecurityContextTestExecutionListener.class
+		DependencyInjectionTestExecutionListener.class,
+		DirtiesContextTestExecutionListener.class,
+		TransactionalTestExecutionListener.class,
+		WithSecurityContextTestExecutionListener.class
 })
 class SpringACLIntegrationTest extends AbstractJUnit4SpringContextTests {
 
-    private static final Integer FIRST_MESSAGE_ID = 1;
-    private static final Integer SECOND_MESSAGE_ID = 2;
-    private static final String EDITED_CONTENT = "EDITED";
+	private static final Integer FIRST_MESSAGE_ID = 1;
+	private static final Integer SECOND_MESSAGE_ID = 2;
+	private static final String EDITED_CONTENT = "EDITED";
 
-    @Configuration
-    @ComponentScan("cn.tuyucheng.acl.*")
-    public static class SpringConfig {
+	@Configuration
+	@ComponentScan("cn.tuyucheng.acl.*")
+	public static class SpringConfig {
 
-    }
+	}
 
-    @Autowired
-    NoticeMessageRepository noticeMessageRepository;
+	@Autowired
+	NoticeMessageRepository noticeMessageRepository;
 
-    @Test
-    @WithMockUser(username = "manager")
-    void givenUserManager_whenFindAllMessage_thenReturnFirstMessage() {
-        List<NoticeMessage> details = noticeMessageRepository.findAll();
-        assertNotNull(details);
-        assertEquals(1, details.size());
-        assertEquals(FIRST_MESSAGE_ID, details.get(0).getId());
-    }
+	@Test
+	@WithMockUser(username = "manager")
+	void givenUserManager_whenFindAllMessage_thenReturnFirstMessage() {
+		List<NoticeMessage> details = noticeMessageRepository.findAll();
+		assertNotNull(details);
+		assertEquals(1, details.size());
+		assertEquals(FIRST_MESSAGE_ID, details.get(0).getId());
+	}
 
-    @Test
-    @WithMockUser(username = "manager")
-    void givenUserManager_whenFind1stMessageByIdAndUpdateItsContent_thenOK() {
-        NoticeMessage firstMessage = noticeMessageRepository.findById(FIRST_MESSAGE_ID);
-        assertNotNull(firstMessage);
-        assertEquals(FIRST_MESSAGE_ID, firstMessage.getId());
+	@Test
+	@WithMockUser(username = "manager")
+	void givenUserManager_whenFind1stMessageByIdAndUpdateItsContent_thenOK() {
+		NoticeMessage firstMessage = noticeMessageRepository.findById(FIRST_MESSAGE_ID);
+		assertNotNull(firstMessage);
+		assertEquals(FIRST_MESSAGE_ID, firstMessage.getId());
 
-        firstMessage.setContent(EDITED_CONTENT);
-        noticeMessageRepository.save(firstMessage);
+		firstMessage.setContent(EDITED_CONTENT);
+		noticeMessageRepository.save(firstMessage);
 
-        NoticeMessage editedFirstMessage = noticeMessageRepository.findById(FIRST_MESSAGE_ID);
-        assertNotNull(editedFirstMessage);
-        assertEquals(FIRST_MESSAGE_ID, editedFirstMessage.getId());
-        assertEquals(EDITED_CONTENT, editedFirstMessage.getContent());
-    }
+		NoticeMessage editedFirstMessage = noticeMessageRepository.findById(FIRST_MESSAGE_ID);
+		assertNotNull(editedFirstMessage);
+		assertEquals(FIRST_MESSAGE_ID, editedFirstMessage.getId());
+		assertEquals(EDITED_CONTENT, editedFirstMessage.getContent());
+	}
 
-    @Test
-    @WithMockUser(username = "hr")
-    void givenUsernameHr_whenFindMessageById2_thenOK() {
-        NoticeMessage secondMessage = noticeMessageRepository.findById(SECOND_MESSAGE_ID);
-        assertNotNull(secondMessage);
-        assertEquals(SECOND_MESSAGE_ID, secondMessage.getId());
-    }
+	@Test
+	@WithMockUser(username = "hr")
+	void givenUsernameHr_whenFindMessageById2_thenOK() {
+		NoticeMessage secondMessage = noticeMessageRepository.findById(SECOND_MESSAGE_ID);
+		assertNotNull(secondMessage);
+		assertEquals(SECOND_MESSAGE_ID, secondMessage.getId());
+	}
 
-    @Test
-    @WithMockUser(username = "hr")
-    void givenUsernameHr_whenUpdateMessageWithId2_thenFail() {
-        NoticeMessage secondMessage = new NoticeMessage();
-        secondMessage.setId(SECOND_MESSAGE_ID);
-        secondMessage.setContent(EDITED_CONTENT);
-        assertThrows(AccessDeniedException.class, () -> noticeMessageRepository.save(secondMessage));
-    }
+	@Test
+	@WithMockUser(username = "hr")
+	void givenUsernameHr_whenUpdateMessageWithId2_thenFail() {
+		NoticeMessage secondMessage = new NoticeMessage();
+		secondMessage.setId(SECOND_MESSAGE_ID);
+		secondMessage.setContent(EDITED_CONTENT);
+		assertThrows(AccessDeniedException.class, () -> noticeMessageRepository.save(secondMessage));
+	}
 
-    @Test
-    @WithMockUser(roles = {"EDITOR"})
-    void givenRoleEditor_whenFindAllMessage_thenReturn3Message() {
-        List<NoticeMessage> details = noticeMessageRepository.findAll();
-        assertNotNull(details);
-        assertEquals(3, details.size());
-    }
+	@Test
+	@WithMockUser(roles = {"EDITOR"})
+	void givenRoleEditor_whenFindAllMessage_thenReturn3Message() {
+		List<NoticeMessage> details = noticeMessageRepository.findAll();
+		assertNotNull(details);
+		assertEquals(3, details.size());
+	}
 
-    @Test
-    @WithMockUser(roles = {"EDITOR"})
-    void givenRoleEditor_whenUpdateThirdMessage_thenOK() {
-        NoticeMessage thirdMessage = new NoticeMessage();
-        Integer THIRD_MESSAGE_ID = 3;
-        thirdMessage.setId(THIRD_MESSAGE_ID);
-        thirdMessage.setContent(EDITED_CONTENT);
-        noticeMessageRepository.save(thirdMessage);
-    }
+	@Test
+	@WithMockUser(roles = {"EDITOR"})
+	void givenRoleEditor_whenUpdateThirdMessage_thenOK() {
+		NoticeMessage thirdMessage = new NoticeMessage();
+		Integer THIRD_MESSAGE_ID = 3;
+		thirdMessage.setId(THIRD_MESSAGE_ID);
+		thirdMessage.setContent(EDITED_CONTENT);
+		noticeMessageRepository.save(thirdMessage);
+	}
 
-    @Test
-    @WithMockUser(roles = {"EDITOR"})
-    void givenRoleEditor_whenFind1stMessageByIdAndUpdateContent_thenFail() {
-        NoticeMessage firstMessage = noticeMessageRepository.findById(FIRST_MESSAGE_ID);
-        assertNotNull(firstMessage);
-        assertEquals(FIRST_MESSAGE_ID, firstMessage.getId());
-        firstMessage.setContent(EDITED_CONTENT);
-        assertThrows(AccessDeniedException.class, () -> noticeMessageRepository.save(firstMessage));
-    }
+	@Test
+	@WithMockUser(roles = {"EDITOR"})
+	void givenRoleEditor_whenFind1stMessageByIdAndUpdateContent_thenFail() {
+		NoticeMessage firstMessage = noticeMessageRepository.findById(FIRST_MESSAGE_ID);
+		assertNotNull(firstMessage);
+		assertEquals(FIRST_MESSAGE_ID, firstMessage.getId());
+		firstMessage.setContent(EDITED_CONTENT);
+		assertThrows(AccessDeniedException.class, () -> noticeMessageRepository.save(firstMessage));
+	}
 }

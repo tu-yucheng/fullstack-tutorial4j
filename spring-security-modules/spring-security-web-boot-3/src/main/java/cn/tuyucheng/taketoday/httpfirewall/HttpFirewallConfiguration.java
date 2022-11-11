@@ -14,31 +14,31 @@ import java.util.Arrays;
 @Configuration
 public class HttpFirewallConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.csrf()
-                .disable()
-                .authorizeRequests()
-                .antMatchers("/error")
-                .permitAll()
-                .anyRequest()
-                .authenticated()
-                .and()
-                .httpBasic();
-    }
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.csrf()
+				.disable()
+				.authorizeRequests()
+				.antMatchers("/error")
+				.permitAll()
+				.anyRequest()
+				.authenticated()
+				.and()
+				.httpBasic();
+	}
 
-    @Bean
-    public HttpFirewall configureFirewall() {
-        StrictHttpFirewall strictHttpFirewall = new StrictHttpFirewall();
-        strictHttpFirewall.setAllowedHttpMethods(Arrays.asList("GET", "POST", "DELETE", "OPTIONS")); // Allow only HTTP GET, POST, DELETE and OPTIONS methods
-        return strictHttpFirewall;
-    }
+	@Bean
+	public HttpFirewall configureFirewall() {
+		StrictHttpFirewall strictHttpFirewall = new StrictHttpFirewall();
+		strictHttpFirewall.setAllowedHttpMethods(Arrays.asList("GET", "POST", "DELETE", "OPTIONS")); // Allow only HTTP GET, POST, DELETE and OPTIONS methods
+		return strictHttpFirewall;
+	}
 
-    /*
-     Use this bean if you are using Spring Security 5.4 and above
-     */
-    @Bean
-    public RequestRejectedHandler requestRejectedHandler() {
-        return new HttpStatusRequestRejectedHandler(); // Default status code is 400. Can be customized
-    }
+	/*
+	 Use this bean if you are using Spring Security 5.4 and above
+	 */
+	@Bean
+	public RequestRejectedHandler requestRejectedHandler() {
+		return new HttpStatusRequestRejectedHandler(); // Default status code is 400. Can be customized
+	}
 }

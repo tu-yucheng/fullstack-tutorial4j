@@ -24,66 +24,66 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 @ComponentScan("cn.tuyucheng.taketoday.relationships")
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
-    @Autowired
-    private WebApplicationContext applicationContext;
+	@Autowired
+	private WebApplicationContext applicationContext;
 
-    @Autowired
-    private AuthenticationSuccessHandlerImpl successHandler;
+	@Autowired
+	private AuthenticationSuccessHandlerImpl successHandler;
 
-    @Autowired
-    private DataSource dataSource;
+	@Autowired
+	private DataSource dataSource;
 
-    private CustomUserDetailsService userDetailsService;
+	private CustomUserDetailsService userDetailsService;
 
-    @PostConstruct
-    public void completeSetup() {
-        userDetailsService = applicationContext.getBean(CustomUserDetailsService.class);
-    }
+	@PostConstruct
+	public void completeSetup() {
+		userDetailsService = applicationContext.getBean(CustomUserDetailsService.class);
+	}
 
-    @Override
-    protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService)
-                .passwordEncoder(encoder())
-                .and()
-                .authenticationProvider(authenticationProvider())
-                .jdbcAuthentication()
-                .dataSource(dataSource);
-    }
+	@Override
+	protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(userDetailsService)
+				.passwordEncoder(encoder())
+				.and()
+				.authenticationProvider(authenticationProvider())
+				.jdbcAuthentication()
+				.dataSource(dataSource);
+	}
 
-    @Override
-    public void configure(WebSecurity web) {
-        web.ignoring().antMatchers("/resources/**");
-    }
+	@Override
+	public void configure(WebSecurity web) {
+		web.ignoring().antMatchers("/resources/**");
+	}
 
-    @Override
-    protected void configure(final HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/login")
-                .permitAll()
-                .and()
-                .formLogin()
-                .permitAll()
-                .successHandler(successHandler)
-                .and()
-                .csrf()
-                .disable();
-    }
+	@Override
+	protected void configure(final HttpSecurity http) throws Exception {
+		http.authorizeRequests()
+				.antMatchers("/login")
+				.permitAll()
+				.and()
+				.formLogin()
+				.permitAll()
+				.successHandler(successHandler)
+				.and()
+				.csrf()
+				.disable();
+	}
 
-    @Bean
-    public DaoAuthenticationProvider authenticationProvider() {
-        final DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(userDetailsService);
-        authProvider.setPasswordEncoder(encoder());
-        return authProvider;
-    }
+	@Bean
+	public DaoAuthenticationProvider authenticationProvider() {
+		final DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+		authProvider.setUserDetailsService(userDetailsService);
+		authProvider.setPasswordEncoder(encoder());
+		return authProvider;
+	}
 
-    @Bean
-    public PasswordEncoder encoder() {
-        return new BCryptPasswordEncoder(11);
-    }
+	@Bean
+	public PasswordEncoder encoder() {
+		return new BCryptPasswordEncoder(11);
+	}
 
-    @Bean
-    public SecurityEvaluationContextExtension securityEvaluationContextExtension() {
-        return new SecurityEvaluationContextExtension();
-    }
+	@Bean
+	public SecurityEvaluationContextExtension securityEvaluationContextExtension() {
+		return new SecurityEvaluationContextExtension();
+	}
 }

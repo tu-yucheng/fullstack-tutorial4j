@@ -15,29 +15,29 @@ import org.springframework.context.annotation.Scope;
 @ComponentScan("cn.tuyucheng.taketoday.injectionproblem")
 public class AppConfig {
 
-    @Bean
-    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-    public PrototypeBean prototypeBean() {
-        return new PrototypeBean();
-    }
+	@Bean
+	@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+	public PrototypeBean prototypeBean() {
+		return new PrototypeBean();
+	}
 
-    @Bean
-    public SingletonBean singletonBean() {
-        return new SingletonBean();
-    }
+	@Bean
+	public SingletonBean singletonBean() {
+		return new SingletonBean();
+	}
 
-    @Bean
-    public SingletonProviderBean singletonProviderBean() {
-        return new SingletonProviderBean();
-    }
+	@Bean
+	public SingletonProviderBean singletonProviderBean() {
+		return new SingletonProviderBean();
+	}
 
-    @Bean
-    public SingletonAppContextBean singletonAppContextBean() {
-        return new SingletonAppContextBean();
-    }
+	@Bean
+	public SingletonAppContextBean singletonAppContextBean() {
+		return new SingletonAppContextBean();
+	}
 
-    @Bean
-    public SingletonObjectFactoryBean singletonObjectFactoryBean() {
-        return new SingletonObjectFactoryBean();
-    }
+	@Bean
+	public SingletonObjectFactoryBean singletonObjectFactoryBean() {
+		return new SingletonObjectFactoryBean();
+	}
 }

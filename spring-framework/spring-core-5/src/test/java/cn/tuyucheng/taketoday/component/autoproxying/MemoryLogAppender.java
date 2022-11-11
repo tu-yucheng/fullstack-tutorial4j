@@ -9,38 +9,38 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class MemoryLogAppender extends ListAppender<ILoggingEvent> {
-    public void reset() {
-        this.list.clear();
-    }
+	public void reset() {
+		this.list.clear();
+	}
 
-    public boolean contains(String string, Level level) {
-        return this.list.stream()
-                .anyMatch(event -> event.getMessage().contains(string) && event.getLevel().equals(level));
-    }
+	public boolean contains(String string, Level level) {
+		return this.list.stream()
+				.anyMatch(event -> event.getMessage().contains(string) && event.getLevel().equals(level));
+	}
 
-    public int countEventsForLogger(String loggerName) {
-        return (int) this.list.stream()
-                .filter(event -> event.getLoggerName().contains(loggerName))
-                .count();
-    }
+	public int countEventsForLogger(String loggerName) {
+		return (int) this.list.stream()
+				.filter(event -> event.getLoggerName().contains(loggerName))
+				.count();
+	}
 
-    public List<ILoggingEvent> search(String string) {
-        return this.list.stream()
-                .filter(event -> event.getMessage().contains(string))
-                .collect(Collectors.toList());
-    }
+	public List<ILoggingEvent> search(String string) {
+		return this.list.stream()
+				.filter(event -> event.getMessage().contains(string))
+				.collect(Collectors.toList());
+	}
 
-    public List<ILoggingEvent> search(String string, Level level) {
-        return this.list.stream()
-                .filter(event -> event.getMessage().contains(string) && event.getLevel().equals(level))
-                .collect(Collectors.toList());
-    }
+	public List<ILoggingEvent> search(String string, Level level) {
+		return this.list.stream()
+				.filter(event -> event.getMessage().contains(string) && event.getLevel().equals(level))
+				.collect(Collectors.toList());
+	}
 
-    public int getSize() {
-        return this.list.size();
-    }
+	public int getSize() {
+		return this.list.size();
+	}
 
-    public List<ILoggingEvent> getLoggedEvents() {
-        return Collections.unmodifiableList(this.list);
-    }
+	public List<ILoggingEvent> getLoggedEvents() {
+		return Collections.unmodifiableList(this.list);
+	}
 }

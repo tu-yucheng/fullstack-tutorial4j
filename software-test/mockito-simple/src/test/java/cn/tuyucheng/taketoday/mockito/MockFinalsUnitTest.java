@@ -8,23 +8,23 @@ import static org.mockito.Mockito.when;
 
 class MockFinalsUnitTest {
 
-    @Test
-    void whenMockFinalMethodMockWorks() {
-        MyList myList = new MyList();
+	@Test
+	void whenMockFinalMethodMockWorks() {
+		MyList myList = new MyList();
 
-        MyList mock = mock(MyList.class);
-        when(mock.finalMethod()).thenReturn(1);
+		MyList mock = mock(MyList.class);
+		when(mock.finalMethod()).thenReturn(1);
 
-        assertThat(mock.finalMethod()).isNotEqualTo(myList.finalMethod());
-    }
+		assertThat(mock.finalMethod()).isNotEqualTo(myList.finalMethod());
+	}
 
-    @Test
-    void whenMockFinalClassMockWorks() {
-        FinalList finalList = new FinalList();
+	@Test
+	void whenMockFinalClassMockWorks() {
+		FinalList finalList = new FinalList();
 
-        FinalList mock = mock(FinalList.class);
-        when(mock.size()).thenReturn(2);
+		FinalList mock = mock(FinalList.class);
+		when(mock.size()).thenReturn(2);
 
-        assertThat(mock.size()).isNotEqualTo(finalList.size());
-    }
+		assertThat(mock.size()).isNotEqualTo(finalList.size());
+	}
 }

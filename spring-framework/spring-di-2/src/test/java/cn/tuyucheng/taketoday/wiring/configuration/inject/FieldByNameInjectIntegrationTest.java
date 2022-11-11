@@ -16,18 +16,18 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(
-        loader = AnnotationConfigContextLoader.class,
-        classes = ApplicationContextTestInjectName.class
+		loader = AnnotationConfigContextLoader.class,
+		classes = ApplicationContextTestInjectName.class
 )
 class FieldByNameInjectIntegrationTest {
-    
-    @Inject
-    @Named("yetAnotherFieldInjectDependency")
-    private ArbitraryDependency yetAnotherFieldInjectDependency;
 
-    @Test
-    void givenInjectQualifier_WhenSetOnField_ThenDependencyValid() {
-        assertNotNull(yetAnotherFieldInjectDependency);
-        assertEquals("Yet Another Arbitrary Dependency", yetAnotherFieldInjectDependency.toString());
-    }
+	@Inject
+	@Named("yetAnotherFieldInjectDependency")
+	private ArbitraryDependency yetAnotherFieldInjectDependency;
+
+	@Test
+	void givenInjectQualifier_WhenSetOnField_ThenDependencyValid() {
+		assertNotNull(yetAnotherFieldInjectDependency);
+		assertEquals("Yet Another Arbitrary Dependency", yetAnotherFieldInjectDependency.toString());
+	}
 }

@@ -4,5 +4,5 @@ package cn.tuyucheng.taketoday.roles.ip.config;
 //@EnableWebSecurity
 //@ImportResource({ "classpath:spring-security-ip.xml" })
 public class SecurityXmlConfig {
-   
+
 }

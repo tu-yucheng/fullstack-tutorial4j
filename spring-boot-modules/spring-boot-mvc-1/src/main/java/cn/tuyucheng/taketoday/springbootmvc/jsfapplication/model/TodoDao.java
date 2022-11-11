@@ -8,35 +8,35 @@ import java.util.stream.Collectors;
 @Component
 public class TodoDao implements Dao<Todo> {
 
-    private final List<Todo> todoList = new ArrayList<>();
+	private final List<Todo> todoList = new ArrayList<>();
 
-    @Override
-    public Optional<Todo> get(int id) {
-        return Optional.ofNullable(todoList.get(id));
-    }
+	@Override
+	public Optional<Todo> get(int id) {
+		return Optional.ofNullable(todoList.get(id));
+	}
 
-    @Override
-    public Collection<Todo> getAll() {
-        return todoList.stream()
-                .filter(Objects::nonNull)
-                .collect(Collectors.collectingAndThen(Collectors.toList(), Collections::unmodifiableList));
-    }
+	@Override
+	public Collection<Todo> getAll() {
+		return todoList.stream()
+				.filter(Objects::nonNull)
+				.collect(Collectors.collectingAndThen(Collectors.toList(), Collections::unmodifiableList));
+	}
 
-    @Override
-    public int save(Todo todo) {
-        todoList.add(todo);
-        int index = todoList.size() - 1;
-        todo.setId(index);
-        return index;
-    }
+	@Override
+	public int save(Todo todo) {
+		todoList.add(todo);
+		int index = todoList.size() - 1;
+		todo.setId(index);
+		return index;
+	}
 
-    @Override
-    public void update(Todo todo) {
-        todoList.set(todo.getId(), todo);
-    }
+	@Override
+	public void update(Todo todo) {
+		todoList.set(todo.getId(), todo);
+	}
 
-    @Override
-    public void delete(Todo todo) {
-        todoList.set(todo.getId(), null);
-    }
+	@Override
+	public void delete(Todo todo) {
+		todoList.set(todo.getId(), null);
+	}
 }

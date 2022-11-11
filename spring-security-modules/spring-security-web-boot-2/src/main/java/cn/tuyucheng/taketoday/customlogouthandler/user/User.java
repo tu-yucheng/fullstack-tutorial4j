@@ -11,16 +11,16 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
-    @Column(unique = true)
-    private String login;
+	@Column(unique = true)
+	private String login;
 
-    private String password;
+	private String password;
 
-    private String role;
+	private String role;
 
-    private String language;
+	private String language;
 }

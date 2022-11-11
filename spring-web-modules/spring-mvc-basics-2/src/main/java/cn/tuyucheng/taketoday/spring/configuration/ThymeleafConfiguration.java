@@ -11,32 +11,32 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {
-        // "cn.tuyucheng.taketoday.springmvcforms",
-        "cn.tuyucheng.taketoday.spring.controller",
-        "cn.tuyucheng.taketoday.spring.validator"
+		// "cn.tuyucheng.taketoday.springmvcforms",
+		"cn.tuyucheng.taketoday.spring.controller",
+		"cn.tuyucheng.taketoday.spring.validator"
 })
 public class ThymeleafConfiguration {
 
-    @Bean
-    public ThymeleafViewResolver thymeleafViewResolver() {
-        ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
-        viewResolver.setTemplateEngine(templateEngine());
-        return viewResolver;
-    }
+	@Bean
+	public ThymeleafViewResolver thymeleafViewResolver() {
+		ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
+		viewResolver.setTemplateEngine(templateEngine());
+		return viewResolver;
+	}
 
-    @Bean
-    public SpringTemplateEngine templateEngine() {
-        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
-        templateEngine.setTemplateResolver(thymeleafTemplateResolver());
-        return templateEngine;
-    }
+	@Bean
+	public SpringTemplateEngine templateEngine() {
+		SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+		templateEngine.setTemplateResolver(thymeleafTemplateResolver());
+		return templateEngine;
+	}
 
-    @Bean
-    public SpringResourceTemplateResolver thymeleafTemplateResolver() {
-        SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
-        templateResolver.setPrefix("/WEB-INF/views/");
-        templateResolver.setSuffix(".html");
-        templateResolver.setTemplateMode("HTML5");
-        return templateResolver;
-    }
+	@Bean
+	public SpringResourceTemplateResolver thymeleafTemplateResolver() {
+		SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
+		templateResolver.setPrefix("/WEB-INF/views/");
+		templateResolver.setSuffix(".html");
+		templateResolver.setTemplateMode("HTML5");
+		return templateResolver;
+	}
 }

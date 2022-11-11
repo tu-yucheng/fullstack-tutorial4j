@@ -11,13 +11,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DataJpaTest
 class BootstrapModeDefaultIntegrationTest {
 
-    @Autowired
-    private TodoRepository todoRepository;
+	@Autowired
+	private TodoRepository todoRepository;
 
-    @Test
-    void givenBootstrapModeValueIsDefault_whenCreatingTodo_shouldSuccess() {
-        Todo todo = new Todo("Something to be done");
+	@Test
+	void givenBootstrapModeValueIsDefault_whenCreatingTodo_shouldSuccess() {
+		Todo todo = new Todo("Something to be done");
 
-        assertThat(todoRepository.save(todo)).hasNoNullFieldsOrProperties();
-    }
+		assertThat(todoRepository.save(todo)).hasNoNullFieldsOrProperties();
+	}
 }

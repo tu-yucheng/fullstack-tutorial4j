@@ -9,12 +9,12 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootConfiguration
 public class AnnotationApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(AnnotationApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(AnnotationApplication.class, args);
+	}
 
-    @Bean
-    public PersonService personService() {
-        return new PersonServiceImpl();
-    }
+	@Bean
+	public PersonService personService() {
+		return new PersonServiceImpl();
+	}
 }

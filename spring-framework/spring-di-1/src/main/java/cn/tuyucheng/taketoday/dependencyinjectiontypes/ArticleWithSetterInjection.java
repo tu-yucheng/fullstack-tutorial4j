@@ -4,18 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class ArticleWithSetterInjection {
 
-    private TextFormatter formatter;
+	private TextFormatter formatter;
 
-    public ArticleWithSetterInjection(TextFormatter formatter) {
-        this.formatter = formatter;
-    }
+	public ArticleWithSetterInjection(TextFormatter formatter) {
+		this.formatter = formatter;
+	}
 
-    @Autowired
-    public void setTextFormatter(TextFormatter formatter) {
-        this.formatter = formatter;
-    }
+	@Autowired
+	public void setTextFormatter(TextFormatter formatter) {
+		this.formatter = formatter;
+	}
 
-    public String format(String text) {
-        return formatter.format(text);
-    }
+	public String format(String text) {
+		return formatter.format(text);
+	}
 }

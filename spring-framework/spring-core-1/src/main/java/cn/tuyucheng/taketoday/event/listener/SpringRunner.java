@@ -5,8 +5,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class SpringRunner {
 
-    public static void main(String[] args) {
-        ConfigurableApplicationContext ctx = new AnnotationConfigApplicationContext(EventConfig.class);
-        ctx.start();
-    }
+	public static void main(String[] args) {
+		ConfigurableApplicationContext ctx = new AnnotationConfigApplicationContext(EventConfig.class);
+		ctx.start();
+	}
 }

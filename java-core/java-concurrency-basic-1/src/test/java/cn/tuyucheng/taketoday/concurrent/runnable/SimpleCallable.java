@@ -6,8 +6,8 @@ import java.util.concurrent.Callable;
 
 class SimpleCallable implements Callable<Integer> {
 
-    @Override
-    public Integer call() {
-        return RandomUtils.nextInt(0, 100);
-    }
+	@Override
+	public Integer call() {
+		return RandomUtils.nextInt(0, 100);
+	}
 }

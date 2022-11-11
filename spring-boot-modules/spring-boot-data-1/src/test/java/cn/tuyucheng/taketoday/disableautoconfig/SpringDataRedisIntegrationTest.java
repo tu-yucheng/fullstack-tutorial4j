@@ -15,11 +15,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @SpringBootTest(classes = SpringDataRedis.class)
 class SpringDataRedisIntegrationTest {
 
-    @Autowired
-    private ApplicationContext context;
+	@Autowired
+	private ApplicationContext context;
 
-    @Test
-    void givenAutoConfigDisabled_whenStarting_thenNoAutoconfiguredBeansInContext() {
-        assertThrows(NoSuchBeanDefinitionException.class, () -> context.getBean(RedisTemplate.class));
-    }
+	@Test
+	void givenAutoConfigDisabled_whenStarting_thenNoAutoconfiguredBeansInContext() {
+		assertThrows(NoSuchBeanDefinitionException.class, () -> context.getBean(RedisTemplate.class));
+	}
 }

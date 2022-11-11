@@ -9,13 +9,13 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SpringBeanIntegrationTest {
-    
-    @Test
-    @DisplayName("whenUsingIoC_thenDependenciesAreInjected")
-    void whenUsingIoC_thenDependenciesAreInjected() {
-        ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
-        Company company = context.getBean("company", Company.class);
-        assertEquals("High Street", company.getAddress().getStreet());
-        assertEquals(1000, company.getAddress().getNumber());
-    }
+
+	@Test
+	@DisplayName("whenUsingIoC_thenDependenciesAreInjected")
+	void whenUsingIoC_thenDependenciesAreInjected() {
+		ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+		Company company = context.getBean("company", Company.class);
+		assertEquals("High Street", company.getAddress().getStreet());
+		assertEquals(1000, company.getAddress().getNumber());
+	}
 }

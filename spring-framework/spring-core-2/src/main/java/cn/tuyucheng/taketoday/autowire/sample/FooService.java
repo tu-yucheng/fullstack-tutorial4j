@@ -10,21 +10,21 @@ import org.springframework.stereotype.Component;
 @Component
 public class FooService {
 
-    @Autowired
-    @FormatterType("Foo")
-    private Formatter formatter;
+	@Autowired
+	@FormatterType("Foo")
+	private Formatter formatter;
 
-    @Autowired
-    public FooService(@FormatterType("Foo") Formatter formatter) {
-        this.formatter = formatter;
-    }
+	@Autowired
+	public FooService(@FormatterType("Foo") Formatter formatter) {
+		this.formatter = formatter;
+	}
 
-    @Autowired
-    public void setFormatter(@FormatterType("Foo") Formatter formatter) {
-        this.formatter = formatter;
-    }
+	@Autowired
+	public void setFormatter(@FormatterType("Foo") Formatter formatter) {
+		this.formatter = formatter;
+	}
 
-    public String doStuff() {
-        return formatter.format();
-    }
+	public String doStuff() {
+		return formatter.format();
+	}
 }

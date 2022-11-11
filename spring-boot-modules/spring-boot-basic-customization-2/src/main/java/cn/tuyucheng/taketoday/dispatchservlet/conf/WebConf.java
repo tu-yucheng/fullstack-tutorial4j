@@ -12,15 +12,15 @@ import javax.servlet.ServletContextListener;
 @Configuration
 public class WebConf {
 
-    @Bean
-    public ServletRegistrationBean customServletBean() {
-        return new ServletRegistrationBean(new CustomServlet(), "/servlet");
-    }
+	@Bean
+	public ServletRegistrationBean customServletBean() {
+		return new ServletRegistrationBean(new CustomServlet(), "/servlet");
+	}
 
-    @Bean
-    public ServletListenerRegistrationBean<ServletContextListener> customListenerBean() {
-        ServletListenerRegistrationBean<ServletContextListener> bean = new ServletListenerRegistrationBean();
-        bean.setListener(new CustomListener());
-        return bean;
-    }
+	@Bean
+	public ServletListenerRegistrationBean<ServletContextListener> customListenerBean() {
+		ServletListenerRegistrationBean<ServletContextListener> bean = new ServletListenerRegistrationBean();
+		bean.setListener(new CustomListener());
+		return bean;
+	}
 }

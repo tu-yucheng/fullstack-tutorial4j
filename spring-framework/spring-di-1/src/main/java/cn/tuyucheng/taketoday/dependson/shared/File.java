@@ -5,13 +5,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class File {
 
-    private String text = "";
+	private String text = "";
 
-    public String getText() {
-        return text;
-    }
+	public String getText() {
+		return text;
+	}
 
-    public void setText(String text) {
-        this.text = this.text + text;
-    }
+	public void setText(String text) {
+		this.text = this.text + text;
+	}
 }

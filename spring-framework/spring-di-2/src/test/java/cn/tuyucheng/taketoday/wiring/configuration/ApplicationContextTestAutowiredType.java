@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ApplicationContextTestAutowiredType {
 
-    @Bean
-    public ArbitraryDependency autowiredFieldDependency() {
-        return new ArbitraryDependency();
-    }
+	@Bean
+	public ArbitraryDependency autowiredFieldDependency() {
+		return new ArbitraryDependency();
+	}
 }

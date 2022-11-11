@@ -10,22 +10,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 class SimpleCalculatorUnitTest {
 
-    @Test
-    void divideNumbers() {
-        double result = SimpleCalculator.divideNumbers(6, 3);
-        assertEquals(2, result);
-    }
+	@Test
+	void divideNumbers() {
+		double result = SimpleCalculator.divideNumbers(6, 3);
+		assertEquals(2, result);
+	}
 
-    @Test
-    @Disabled("test is expected to fail, disabled so that CI build still goes through")
-    void divideNumbers_failure() {
-        double result = SimpleCalculator.divideNumbers(6, 3);
-        assertEquals(15, result);
-    }
+	@Test
+	@Disabled("test is expected to fail, disabled so that CI build still goes through")
+	void divideNumbers_failure() {
+		double result = SimpleCalculator.divideNumbers(6, 3);
+		assertEquals(15, result);
+	}
 
-    @Test
-    @Disabled("test is expected to raise an error, disabled so that CI build still goes through")
-    void divideNumbers_error() {
-        SimpleCalculator.divideNumbers(10, 0);
-    }
+	@Test
+	@Disabled("test is expected to raise an error, disabled so that CI build still goes through")
+	void divideNumbers_error() {
+		SimpleCalculator.divideNumbers(10, 0);
+	}
 }

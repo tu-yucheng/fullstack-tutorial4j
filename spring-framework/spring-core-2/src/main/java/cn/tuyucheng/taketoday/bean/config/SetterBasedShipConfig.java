@@ -6,13 +6,13 @@ import org.springframework.context.annotation.Bean;
 
 public class SetterBasedShipConfig {
 
-    @Bean
-    public Ship ship() {
-        return new Ship();
-    }
+	@Bean
+	public Ship ship() {
+		return new Ship();
+	}
 
-    @Bean
-    public Helm helm() {
-        return new Helm();
-    }
+	@Bean
+	public Helm helm() {
+		return new Helm();
+	}
 }

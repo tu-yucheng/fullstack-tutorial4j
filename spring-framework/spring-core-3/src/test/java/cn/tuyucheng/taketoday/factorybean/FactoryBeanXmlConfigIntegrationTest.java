@@ -14,14 +14,14 @@ import static org.hamcrest.core.IsEqual.equalTo;
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = {"classpath:factorybean-spring-ctx.xml"})
 class FactoryBeanXmlConfigIntegrationTest {
-    @Autowired
-    private Tool tool;
-    @Resource(name = "&tool")
-    private ToolFactory toolFactory;
+	@Autowired
+	private Tool tool;
+	@Resource(name = "&tool")
+	private ToolFactory toolFactory;
 
-    @Test
-    void testConstructWorkerByXml() {
-        assertThat(tool.getId(), equalTo(1));
-        assertThat(toolFactory.getFactoryId(), equalTo(9090));
-    }
+	@Test
+	void testConstructWorkerByXml() {
+		assertThat(tool.getId(), equalTo(1));
+		assertThat(toolFactory.getFactoryId(), equalTo(9090));
+	}
 }

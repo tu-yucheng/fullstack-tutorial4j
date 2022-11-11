@@ -10,7 +10,7 @@ import java.util.Locale;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Dialog {
-    private Locale locale;
-    private String hello;
-    private String thanks;
+	private Locale locale;
+	private String hello;
+	private String thanks;
 }

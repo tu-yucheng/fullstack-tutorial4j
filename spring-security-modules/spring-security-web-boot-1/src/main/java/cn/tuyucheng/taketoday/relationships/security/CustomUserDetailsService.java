@@ -13,21 +13,21 @@ import javax.annotation.PostConstruct;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
-    @Autowired
-    private WebApplicationContext applicationContext;
+	@Autowired
+	private WebApplicationContext applicationContext;
 
-    private UserRepository userRepository;
+	private UserRepository userRepository;
 
-    @PostConstruct
-    public void completeSetup() {
-        userRepository = applicationContext.getBean(UserRepository.class);
-    }
+	@PostConstruct
+	public void completeSetup() {
+		userRepository = applicationContext.getBean(UserRepository.class);
+	}
 
-    @Override
-    public UserDetails loadUserByUsername(final String username) {
-        final AppUser appUser = userRepository.findByUsername(username);
-        if (appUser == null)
-            throw new UsernameNotFoundException(username);
-        return new AppUserPrincipal(appUser);
-    }
+	@Override
+	public UserDetails loadUserByUsername(final String username) {
+		final AppUser appUser = userRepository.findByUsername(username);
+		if (appUser == null)
+			throw new UsernameNotFoundException(username);
+		return new AppUserPrincipal(appUser);
+	}
 }

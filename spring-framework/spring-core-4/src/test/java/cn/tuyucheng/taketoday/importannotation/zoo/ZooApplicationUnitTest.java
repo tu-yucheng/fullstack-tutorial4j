@@ -13,14 +13,14 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @ContextConfiguration(classes = ZooApplication.class)
 class ZooApplicationUnitTest {
 
-    @Autowired
-    ApplicationContext context;
+	@Autowired
+	ApplicationContext context;
 
-    @Test
-    void givenTheScanInTheAnimalPackage_whenGettingAnyAnimal_shallFindItInTheContext() {
-        assertNotNull(context.getBean("dog"));
-        assertNotNull(context.getBean("bird"));
-        assertNotNull(context.getBean("cat"));
-        assertNotNull(context.getBean("bug"));
-    }
+	@Test
+	void givenTheScanInTheAnimalPackage_whenGettingAnyAnimal_shallFindItInTheContext() {
+		assertNotNull(context.getBean("dog"));
+		assertNotNull(context.getBean("bird"));
+		assertNotNull(context.getBean("cat"));
+		assertNotNull(context.getBean("bug"));
+	}
 }

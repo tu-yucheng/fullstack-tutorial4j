@@ -11,16 +11,16 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ContextConfiguration("classpath:startupConfig.xml")
 class SpringStartupXMLConfigIntegrationTest {
 
-    @Autowired
-    private ApplicationContext ctx;
+	@Autowired
+	private ApplicationContext ctx;
 
-    @Test
-    void whenInitMethod_shouldLogEnv() {
-        ctx.getBean(InitMethodExampleBean.class);
-    }
+	@Test
+	void whenInitMethod_shouldLogEnv() {
+		ctx.getBean(InitMethodExampleBean.class);
+	}
 
-    @Test
-    void whenAllStrategies_shouldLogOrder() {
-        ctx.getBean(AllStrategiesExampleBean.class);
-    }
+	@Test
+	void whenAllStrategies_shouldLogOrder() {
+		ctx.getBean(AllStrategiesExampleBean.class);
+	}
 }

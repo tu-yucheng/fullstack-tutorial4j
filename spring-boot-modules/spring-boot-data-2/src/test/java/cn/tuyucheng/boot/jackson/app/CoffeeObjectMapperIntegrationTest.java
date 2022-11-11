@@ -5,5 +5,5 @@ import org.springframework.context.annotation.Import;
 
 @Import(CoffeeObjectMapperConfig.class)
 class CoffeeObjectMapperIntegrationTest extends AbstractCoffeeIntegrationTest {
-    
+
 }

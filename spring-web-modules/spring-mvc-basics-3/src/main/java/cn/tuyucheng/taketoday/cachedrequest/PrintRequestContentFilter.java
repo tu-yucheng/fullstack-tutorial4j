@@ -20,12 +20,12 @@ import java.io.InputStream;
 @WebFilter(filterName = "printRequestContentFilter", urlPatterns = "/*")
 public class PrintRequestContentFilter extends OncePerRequestFilter {
 
-    @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        System.out.println("IN  PrintRequestContentFilter ");
-        InputStream inputStream = request.getInputStream();
-        byte[] body = StreamUtils.copyToByteArray(inputStream);
-        System.out.println("In PrintRequestContentFilter. Request body is: " + new String(body));
-        filterChain.doFilter(request, response);
-    }
+	@Override
+	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+		System.out.println("IN  PrintRequestContentFilter ");
+		InputStream inputStream = request.getInputStream();
+		byte[] body = StreamUtils.copyToByteArray(inputStream);
+		System.out.println("In PrintRequestContentFilter. Request body is: " + new String(body));
+		filterChain.doFilter(request, response);
+	}
 }

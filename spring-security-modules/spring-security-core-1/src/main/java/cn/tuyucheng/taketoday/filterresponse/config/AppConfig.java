@@ -18,29 +18,29 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @ComponentScan("cn.tuyucheng.taketoday.filterresponse")
 public class AppConfig extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
 
-    @Override
-    protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("user").password(passwordEncoder().encode("userPass")).roles("USER")
-                .and()
-                .withUser("admin").password(passwordEncoder().encode("adminPass")).roles("ADMIN");
-    }
+	@Override
+	protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
+		auth.inMemoryAuthentication()
+				.withUser("user").password(passwordEncoder().encode("userPass")).roles("USER")
+				.and()
+				.withUser("admin").password(passwordEncoder().encode("adminPass")).roles("ADMIN");
+	}
 
-    @Override
-    protected void configure(final HttpSecurity http) throws Exception {
-        http.csrf().disable()
-                .authorizeRequests()
-                .anyRequest().authenticated()
-                .and().httpBasic();
-    }
+	@Override
+	protected void configure(final HttpSecurity http) throws Exception {
+		http.csrf().disable()
+				.authorizeRequests()
+				.anyRequest().authenticated()
+				.and().httpBasic();
+	}
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 
-    public enum Role {
-        ROLE_USER,
-        ROLE_ADMIN
-    }
+	public enum Role {
+		ROLE_USER,
+		ROLE_ADMIN
+	}
 }

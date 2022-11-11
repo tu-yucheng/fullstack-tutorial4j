@@ -15,8 +15,8 @@ import javax.persistence.Id;
 @AllArgsConstructor
 public class Person {
 
-    @Id
-    private Long id;
-    private String firstName;
-    private String lastName;
+	@Id
+	private Long id;
+	private String firstName;
+	private String lastName;
 }

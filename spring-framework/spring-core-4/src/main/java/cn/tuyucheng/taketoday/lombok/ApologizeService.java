@@ -8,15 +8,15 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class ApologizeService {
 
-    private final Translator translator;
-    private final String message;
+	private final Translator translator;
+	private final String message;
 
-    @Autowired
-    public ApologizeService(Translator translator) {
-        this(translator, "sorry");
-    }
+	@Autowired
+	public ApologizeService(Translator translator) {
+		this(translator, "sorry");
+	}
 
-    public String apologize() {
-        return translator.translate(message);
-    }
+	public String apologize() {
+		return translator.translate(message);
+	}
 }

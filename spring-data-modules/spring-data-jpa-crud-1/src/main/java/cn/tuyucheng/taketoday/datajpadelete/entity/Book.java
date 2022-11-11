@@ -13,23 +13,23 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Book {
 
-    @Id
-    @GeneratedValue
-    private Long id;
-    private String title;
+	@Id
+	@GeneratedValue
+	private Long id;
+	private String title;
 
-    @ManyToOne
-    private Category category;
+	@ManyToOne
+	private Category category;
 
-    public Book() {
-    }
+	public Book() {
+	}
 
-    public Book(String title) {
-        this.title = title;
-    }
+	public Book(String title) {
+		this.title = title;
+	}
 
-    public Book(String title, Category category) {
-        this.title = title;
-        this.category = category;
-    }
+	public Book(String title, Category category) {
+		this.title = title;
+		this.category = category;
+	}
 }

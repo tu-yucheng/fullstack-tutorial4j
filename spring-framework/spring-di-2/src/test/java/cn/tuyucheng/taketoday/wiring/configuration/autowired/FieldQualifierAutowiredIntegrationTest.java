@@ -15,28 +15,28 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(
-        loader = AnnotationConfigContextLoader.class,
-        classes = ApplicationContextTestAutowiredQualifier.class
+		loader = AnnotationConfigContextLoader.class,
+		classes = ApplicationContextTestAutowiredQualifier.class
 )
 class FieldQualifierAutowiredIntegrationTest {
 
-    @Autowired
-    @Qualifier("autowiredFieldDependency")
-    private ArbitraryDependency fieldDependency1;
+	@Autowired
+	@Qualifier("autowiredFieldDependency")
+	private ArbitraryDependency fieldDependency1;
 
-    @Autowired
-    @Qualifier("anotherAutowiredFieldDependency")
-    private ArbitraryDependency fieldDependency2;
+	@Autowired
+	@Qualifier("anotherAutowiredFieldDependency")
+	private ArbitraryDependency fieldDependency2;
 
-    @Test
-    void givenAutowiredQualifier_WhenOnField_ThenDep1Valid() {
-        assertNotNull(fieldDependency1);
-        assertEquals("Arbitrary Dependency", fieldDependency1.toString());
-    }
+	@Test
+	void givenAutowiredQualifier_WhenOnField_ThenDep1Valid() {
+		assertNotNull(fieldDependency1);
+		assertEquals("Arbitrary Dependency", fieldDependency1.toString());
+	}
 
-    @Test
-    void givenAutowiredQualifier_WhenOnField_ThenDep2Valid() {
-        assertNotNull(fieldDependency2);
-        assertEquals("Another Arbitrary Dependency", fieldDependency2.toString());
-    }
+	@Test
+	void givenAutowiredQualifier_WhenOnField_ThenDep2Valid() {
+		assertNotNull(fieldDependency2);
+		assertEquals("Another Arbitrary Dependency", fieldDependency2.toString());
+	}
 }

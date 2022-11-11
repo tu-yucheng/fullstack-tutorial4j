@@ -8,13 +8,13 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ConstructorBasedShipConfig {
 
-    @Bean
-    public Ship ship() {
-        return new Ship(helm());
-    }
+	@Bean
+	public Ship ship() {
+		return new Ship(helm());
+	}
 
-    @Bean
-    public Helm helm() {
-        return new Helm();
-    }
+	@Bean
+	public Helm helm() {
+		return new Helm();
+	}
 }

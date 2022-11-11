@@ -17,37 +17,37 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 public class MvcConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private DataSource dataSource;
+	@Autowired
+	private DataSource dataSource;
 
-    @Autowired
-    private CustomLogoutHandler logoutHandler;
+	@Autowired
+	private CustomLogoutHandler logoutHandler;
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.httpBasic()
-                .and()
-                .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/user/**")
-                .hasRole("USER")
-                .and()
-                .logout()
-                .logoutUrl("/user/logout")
-                .addLogoutHandler(logoutHandler)
-                .logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler(HttpStatus.OK))
-                .permitAll()
-                .and()
-                .csrf()
-                .disable()
-                .formLogin()
-                .disable();
-    }
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.httpBasic()
+				.and()
+				.authorizeRequests()
+				.antMatchers(HttpMethod.GET, "/user/**")
+				.hasRole("USER")
+				.and()
+				.logout()
+				.logoutUrl("/user/logout")
+				.addLogoutHandler(logoutHandler)
+				.logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler(HttpStatus.OK))
+				.permitAll()
+				.and()
+				.csrf()
+				.disable()
+				.formLogin()
+				.disable();
+	}
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication()
-                .dataSource(dataSource)
-                .usersByUsernameQuery("select login, password, true from users where login=?")
-                .authoritiesByUsernameQuery("select login, role from users where login=?");
-    }
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.jdbcAuthentication()
+				.dataSource(dataSource)
+				.usersByUsernameQuery("select login, password, true from users where login=?")
+				.authoritiesByUsernameQuery("select login, role from users where login=?");
+	}
 }

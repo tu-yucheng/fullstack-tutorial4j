@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = "cn.tuyucheng.taketoday.dependency.exception")
 public class SpringDependenciesExampleApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(SpringDependenciesExampleApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(SpringDependenciesExampleApplication.class, args);
+	}
 }

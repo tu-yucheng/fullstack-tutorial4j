@@ -19,19 +19,19 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @ContextConfiguration(classes = {SpringBootMvcApplication.class, CustomMessageSourceConfiguration.class})
 class LoginControllerUnitTest {
 
-    @Autowired
-    private MockMvc mockMvc;
+	@Autowired
+	private MockMvc mockMvc;
 
-    @Test
-    void givenLoginForm_whenEmailFieldNotProvided_testCustomValidMessageIsReturned() throws Exception {
-        RequestBuilder builder = MockMvcRequestBuilders
-                .post("/loginform")
-                .param("email", "")
-                .param("password", "helo")
-                .header("accept-language", "zh-CN");
+	@Test
+	void givenLoginForm_whenEmailFieldNotProvided_testCustomValidMessageIsReturned() throws Exception {
+		RequestBuilder builder = MockMvcRequestBuilders
+				.post("/loginform")
+				.param("email", "")
+				.param("password", "helo")
+				.header("accept-language", "zh-CN");
 
-        MvcResult perform = mockMvc.perform(builder).andReturn();
-        System.out.println(perform.getResolvedException().getMessage());
-        assertTrue(perform.getResolvedException().getMessage().contains("有效的邮箱"));
-    }
+		MvcResult perform = mockMvc.perform(builder).andReturn();
+		System.out.println(perform.getResolvedException().getMessage());
+		assertTrue(perform.getResolvedException().getMessage().contains("有效的邮箱"));
+	}
 }

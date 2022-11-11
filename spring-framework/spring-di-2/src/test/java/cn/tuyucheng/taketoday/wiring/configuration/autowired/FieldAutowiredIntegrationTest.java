@@ -14,17 +14,17 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(
-        loader = AnnotationConfigContextLoader.class,
-        classes = ApplicationContextTestAutowiredType.class
+		loader = AnnotationConfigContextLoader.class,
+		classes = ApplicationContextTestAutowiredType.class
 )
 class FieldAutowiredIntegrationTest {
-    
-    @Autowired
-    private ArbitraryDependency fieldDependency;
 
-    @Test
-    void givenAutowired_WhenSetOnField_ThenDependencyResolved() {
-        assertNotNull(fieldDependency);
-        assertEquals("Arbitrary Dependency", fieldDependency.toString());
-    }
+	@Autowired
+	private ArbitraryDependency fieldDependency;
+
+	@Test
+	void givenAutowired_WhenSetOnField_ThenDependencyResolved() {
+		assertNotNull(fieldDependency);
+		assertEquals("Arbitrary Dependency", fieldDependency.toString());
+	}
 }

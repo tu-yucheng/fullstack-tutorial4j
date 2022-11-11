@@ -8,6 +8,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface TweetRepository extends PagingAndSortingRepository<Tweet, Long> {
 
-    @Query("SELECT twt FROM Tweet twt JOIN twt.likes AS lk WHERE lk = ?#{ principal?.username } OR twt.owner = ?#{ principal?.username }")
-    Page<Tweet> getMyTweetsAndTheOnesILiked(Pageable pageable);
+	@Query("SELECT twt FROM Tweet twt JOIN twt.likes AS lk WHERE lk = ?#{ principal?.username } OR twt.owner = ?#{ principal?.username }")
+	Page<Tweet> getMyTweetsAndTheOnesILiked(Pageable pageable);
 }

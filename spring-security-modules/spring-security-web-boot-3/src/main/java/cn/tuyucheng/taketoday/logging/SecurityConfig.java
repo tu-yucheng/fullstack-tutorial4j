@@ -9,18 +9,18 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Value("${spring.websecurity.debug:false}")
-    boolean webSecurityDebug;
+	@Value("${spring.websecurity.debug:false}")
+	boolean webSecurityDebug;
 
-    @Override
-    public void configure(WebSecurity web) {
-        web.debug(webSecurityDebug);
-    }
+	@Override
+	public void configure(WebSecurity web) {
+		web.debug(webSecurityDebug);
+	}
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/**")
-                .permitAll();
-    }
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests()
+				.antMatchers("/**")
+				.permitAll();
+	}
 }

@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 public class ItemController {
 
-    private final ItemService itemService;
+	private final ItemService itemService;
 
-    @GetMapping("/item/{id}")
-    public Item getItemById(@PathVariable String id) {
-        return itemService.getItemForId(id);
-    }
+	@GetMapping("/item/{id}")
+	public Item getItemById(@PathVariable String id) {
+		return itemService.getItemForId(id);
+	}
 }

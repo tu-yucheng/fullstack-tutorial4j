@@ -14,25 +14,25 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/css/**", "/js/**", "/loggedout").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .httpBasic()
-                .and()
-                .logout().disable()
-                .csrf().disable();
-    }
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests()
+				.antMatchers("/css/**", "/js/**", "/loggedout").permitAll()
+				.anyRequest().authenticated()
+				.and()
+				.httpBasic()
+				.and()
+				.logout().disable()
+				.csrf().disable();
+	}
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth, PasswordEncoder passwordEncoder) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("jim").password(passwordEncoder.encode("jim")).roles("USER", "ACTUATOR")
-                .and()
-                .withUser("pam").password(passwordEncoder.encode("pam")).roles("USER")
-                .and()
-                .withUser("michael").password(passwordEncoder.encode("michael")).roles("MANAGER");
-    }
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth, PasswordEncoder passwordEncoder) throws Exception {
+		auth.inMemoryAuthentication()
+				.withUser("jim").password(passwordEncoder.encode("jim")).roles("USER", "ACTUATOR")
+				.and()
+				.withUser("pam").password(passwordEncoder.encode("pam")).roles("USER")
+				.and()
+				.withUser("michael").password(passwordEncoder.encode("michael")).roles("MANAGER");
+	}
 }

@@ -11,40 +11,40 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class CharacterUnitTest {
 
-    @Test
-    void whenGeneratingCharacters_thenCharactersAreProduced() {
-        CharacterGenerator characterGenerator = new CharacterGenerator();
-        Flux<Character> characterFlux = characterGenerator.generateCharacters().take(3);
+	@Test
+	void whenGeneratingCharacters_thenCharactersAreProduced() {
+		CharacterGenerator characterGenerator = new CharacterGenerator();
+		Flux<Character> characterFlux = characterGenerator.generateCharacters().take(3);
 
-        StepVerifier.create(characterFlux)
-                .expectNext('a', 'b', 'c')
-                .expectComplete()
-                .verify();
-    }
+		StepVerifier.create(characterFlux)
+				.expectNext('a', 'b', 'c')
+				.expectComplete()
+				.verify();
+	}
 
-    @Test
-    void whenCreatingCharactersWithMultipleThreads_thenSequenceIsProducedAsynchronously() throws InterruptedException {
-        CharacterGenerator characterGenerator = new CharacterGenerator();
-        List<Character> sequence1 = characterGenerator.generateCharacters()
-                .take(3)
-                .collectList()
-                .block();
-        List<Character> sequence2 = characterGenerator.generateCharacters()
-                .take(2)
-                .collectList()
-                .block();
+	@Test
+	void whenCreatingCharactersWithMultipleThreads_thenSequenceIsProducedAsynchronously() throws InterruptedException {
+		CharacterGenerator characterGenerator = new CharacterGenerator();
+		List<Character> sequence1 = characterGenerator.generateCharacters()
+				.take(3)
+				.collectList()
+				.block();
+		List<Character> sequence2 = characterGenerator.generateCharacters()
+				.take(2)
+				.collectList()
+				.block();
 
-        CharacterCreator characterCreator = new CharacterCreator();
-        Thread producerThread1 = new Thread(() -> characterCreator.consumer.accept(sequence1));
-        Thread producerThread2 = new Thread(() -> characterCreator.consumer.accept(sequence2));
-        List<Character> consolidated = new ArrayList<>();
-        characterCreator.createCharacterSequence().subscribe(consolidated::add);
+		CharacterCreator characterCreator = new CharacterCreator();
+		Thread producerThread1 = new Thread(() -> characterCreator.consumer.accept(sequence1));
+		Thread producerThread2 = new Thread(() -> characterCreator.consumer.accept(sequence2));
+		List<Character> consolidated = new ArrayList<>();
+		characterCreator.createCharacterSequence().subscribe(consolidated::add);
 
-        producerThread1.start();
-        producerThread2.start();
-        producerThread1.join();
-        producerThread2.join();
+		producerThread1.start();
+		producerThread2.start();
+		producerThread1.join();
+		producerThread2.join();
 
-        assertThat(consolidated).containsExactlyInAnyOrder('a', 'b', 'c', 'a', 'b');
-    }
+		assertThat(consolidated).containsExactlyInAnyOrder('a', 'b', 'c', 'a', 'b');
+	}
 }

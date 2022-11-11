@@ -14,13 +14,13 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 @SpringBootTest(classes = UndeclaredApplication.class)
 class UndeclaredThrowableExceptionIntegrationTest {
 
-    @Autowired
-    private UndeclaredService service;
+	@Autowired
+	private UndeclaredService service;
 
-    @Test
-    void givenAnAspect_whenCallingAdvisedMethod_thenShouldWrapTheException() {
-        assertThatThrownBy(service::doSomething)
-                .isInstanceOf(UndeclaredThrowableException.class)
-                .hasCauseInstanceOf(SomeCheckedException.class);
-    }
+	@Test
+	void givenAnAspect_whenCallingAdvisedMethod_thenShouldWrapTheException() {
+		assertThatThrownBy(service::doSomething)
+				.isInstanceOf(UndeclaredThrowableException.class)
+				.hasCauseInstanceOf(SomeCheckedException.class);
+	}
 }

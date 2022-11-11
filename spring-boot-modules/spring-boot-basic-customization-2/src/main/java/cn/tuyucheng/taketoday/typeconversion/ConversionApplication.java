@@ -6,9 +6,9 @@ import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class ConversionApplication {
-    private static ApplicationContext applicationContext;
+	private static ApplicationContext applicationContext;
 
-    public static void main(String[] args) {
-        applicationContext = SpringApplication.run(ConversionApplication.class, args);
-    }
+	public static void main(String[] args) {
+		applicationContext = SpringApplication.run(ConversionApplication.class, args);
+	}
 }

@@ -24,120 +24,120 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = SecurityApplication.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class LiveTest {
-    @Autowired
-    private WebApplicationContext context;
-    private MockMvc mockMvc;
+	@Autowired
+	private WebApplicationContext context;
+	private MockMvc mockMvc;
 
-    @BeforeEach
-    void setUp() {
-        mockMvc = MockMvcBuilders.webAppContextSetup(context).dispatchOptions(true).build();
-    }
+	@BeforeEach
+	void setUp() {
+		mockMvc = MockMvcBuilders.webAppContextSetup(context).dispatchOptions(true).build();
+	}
 
-    @Test
-    @WithMockUser(roles = "MANAGER")
-    void givenUserIsManager_whenGetTasks_thenAllTasks() throws Exception {
-        String allTasks = """
-                [
-                    {
-                        "id": 1,
-                        "description": "Send a fax",
-                        "assignee": "pam"
-                    },
-                    {
-                        "id": 2,
-                        "description": "Print a document",
-                        "assignee": "pam"
-                    },
-                    {
-                        "id": 3,
-                        "description": "Answer the phone",
-                        "assignee": "pam"
-                    },
-                    {
-                        "id": 4,
-                        "description": "Call a client",
-                        "assignee": "jim"
-                    },
-                    {
-                        "id": 5,
-                        "description": "Organize a meeting",
-                        "assignee": "michael"
-                    }
-                ]""";
+	@Test
+	@WithMockUser(roles = "MANAGER")
+	void givenUserIsManager_whenGetTasks_thenAllTasks() throws Exception {
+		String allTasks = """
+				[
+				    {
+				        "id": 1,
+				        "description": "Send a fax",
+				        "assignee": "pam"
+				    },
+				    {
+				        "id": 2,
+				        "description": "Print a document",
+				        "assignee": "pam"
+				    },
+				    {
+				        "id": 3,
+				        "description": "Answer the phone",
+				        "assignee": "pam"
+				    },
+				    {
+				        "id": 4,
+				        "description": "Call a client",
+				        "assignee": "jim"
+				    },
+				    {
+				        "id": 5,
+				        "description": "Organize a meeting",
+				        "assignee": "michael"
+				    }
+				]""";
 
-        mockMvc.perform(get("/api/tasks"))
-                .andExpect(status().isOk())
-                .andExpect(content().json(allTasks));
-    }
+		mockMvc.perform(get("/api/tasks"))
+				.andExpect(status().isOk())
+				.andExpect(content().json(allTasks));
+	}
 
-    @Test
-    @WithMockUser(username = "jim")
-    void givenUserNotManager_whenGetTasks_thenReturnAssignedToMe() throws Exception {
-        String myTasks = """
-                [
-                    {
-                        "id": 4,
-                        "description": "Call a client",
-                        "assignee": "jim"
-                    }
-                ]""";
+	@Test
+	@WithMockUser(username = "jim")
+	void givenUserNotManager_whenGetTasks_thenReturnAssignedToMe() throws Exception {
+		String myTasks = """
+				[
+				    {
+				        "id": 4,
+				        "description": "Call a client",
+				        "assignee": "jim"
+				    }
+				]""";
 
-        mockMvc.perform(get("/api/tasks"))
-                .andExpect(status().isOk())
-                .andExpect(content().json(myTasks));
-    }
+		mockMvc.perform(get("/api/tasks"))
+				.andExpect(status().isOk())
+				.andExpect(content().json(myTasks));
+	}
 
-    @Test
-    @WithMockUser(roles = "MANAGER")
-    void givenUserIsManager_whenPostTasks_thenIncludeAllTasks() throws Exception {
-        String newTasks = """
-                [
-                    {
-                        "id": 6,
-                        "description": "New to Michael",
-                        "assignee": "michael"
-                    },
-                    {
-                        "id": 7,
-                        "description": "New to Pam",
-                        "assignee": "pam"
-                    }
-                ]""";
+	@Test
+	@WithMockUser(roles = "MANAGER")
+	void givenUserIsManager_whenPostTasks_thenIncludeAllTasks() throws Exception {
+		String newTasks = """
+				[
+				    {
+				        "id": 6,
+				        "description": "New to Michael",
+				        "assignee": "michael"
+				    },
+				    {
+				        "id": 7,
+				        "description": "New to Pam",
+				        "assignee": "pam"
+				    }
+				]""";
 
-        mockMvc.perform(post("/api/tasks")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(newTasks)).andExpect(status().isOk())
-                .andExpect(content().json(newTasks));
-    }
+		mockMvc.perform(post("/api/tasks")
+						.contentType(MediaType.APPLICATION_JSON)
+						.content(newTasks)).andExpect(status().isOk())
+				.andExpect(content().json(newTasks));
+	}
 
-    @Test
-    @WithMockUser(username = "jim")
-    void givenUserNotManager_whenPostTasks_thenIncludeOnlyAssignedToMe() throws Exception {
-        String newTasks = """
-                [
-                    {
-                        "description": "New to Jim",
-                        "assignee": "jim"
-                    },
-                    {
-                        "description": "New to Pam",
-                        "assignee": "pam"
-                    }
-                ]""";
+	@Test
+	@WithMockUser(username = "jim")
+	void givenUserNotManager_whenPostTasks_thenIncludeOnlyAssignedToMe() throws Exception {
+		String newTasks = """
+				[
+				    {
+				        "description": "New to Jim",
+				        "assignee": "jim"
+				    },
+				    {
+				        "description": "New to Pam",
+				        "assignee": "pam"
+				    }
+				]""";
 
-        String savedTasks = """
-                [
-                    {
-                        "id": 6,
-                        "description": "New to Jim",
-                        "assignee": "jim"
-                    }
-                ]""";
+		String savedTasks = """
+				[
+				    {
+				        "id": 6,
+				        "description": "New to Jim",
+				        "assignee": "jim"
+				    }
+				]""";
 
-        mockMvc.perform(post("/api/tasks")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(newTasks))
-                .andExpect(status().isOk())
-                .andExpect(content().json(savedTasks));
-    }
+		mockMvc.perform(post("/api/tasks")
+						.contentType(MediaType.APPLICATION_JSON)
+						.content(newTasks))
+				.andExpect(status().isOk())
+				.andExpect(content().json(savedTasks));
+	}
 }

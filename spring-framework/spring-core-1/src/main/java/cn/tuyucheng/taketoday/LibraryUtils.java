@@ -3,10 +3,10 @@ package cn.tuyucheng.taketoday;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class LibraryUtils {
-    @Autowired
-    private EbookRepository eBookRepository;
+	@Autowired
+	private EbookRepository eBookRepository;
 
-    public String findBook(int id) {
-        return eBookRepository.titleById(id);
-    }
+	public String findBook(int id) {
+		return eBookRepository.titleById(id);
+	}
 }

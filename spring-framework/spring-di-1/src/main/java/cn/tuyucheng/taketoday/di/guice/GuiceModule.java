@@ -7,20 +7,20 @@ import lombok.SneakyThrows;
 
 public class GuiceModule extends AbstractModule {
 
-    @SneakyThrows
-    @Override
-    protected void configure() {
-        bind(AccountService.class).to(AccountServiceImpl.class);
-        bind(PersonDao.class).to(PersonDaoImpl.class);
+	@SneakyThrows
+	@Override
+	protected void configure() {
+		bind(AccountService.class).to(AccountServiceImpl.class);
+		bind(PersonDao.class).to(PersonDaoImpl.class);
 
-        bind(Person.class).toConstructor(Person.class.getConstructor());
-        bind(FooProcessor.class).toProvider(FooProcessor::new);
-        // bind(Person.class).toProvider(Person::new);
-        bind(Foo.class).toProvider(() -> null);
-    }
+		bind(Person.class).toConstructor(Person.class.getConstructor());
+		bind(FooProcessor.class).toProvider(FooProcessor::new);
+		// bind(Person.class).toProvider(Person::new);
+		bind(Foo.class).toProvider(() -> null);
+	}
 
-    @Provides
-    public BookService bookServiceGenerator() {
-        return new BookServiceImpl();
-    }
+	@Provides
+	public BookService bookServiceGenerator() {
+		return new BookServiceImpl();
+	}
 }

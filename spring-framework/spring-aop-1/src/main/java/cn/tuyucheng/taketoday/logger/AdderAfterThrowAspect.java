@@ -5,9 +5,9 @@ import org.slf4j.LoggerFactory;
 
 public class AdderAfterThrowAspect {
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    public void afterThrow(final Exception exception) throws Throwable {
-        logger.info("Exception thrown was {}", exception.getMessage());
-    }
+	public void afterThrow(final Exception exception) throws Throwable {
+		logger.info("Exception thrown was {}", exception.getMessage());
+	}
 }

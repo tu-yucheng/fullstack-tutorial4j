@@ -5,17 +5,17 @@ import org.apache.commons.lang3.concurrent.TimedSemaphore;
 import java.util.concurrent.TimeUnit;
 
 public class DelayQueueUsingTimedSemaphore {
-    private final TimedSemaphore semaphore;
-    
-    DelayQueueUsingTimedSemaphore(long period, int slotLimit) {
-        semaphore = new TimedSemaphore(period, TimeUnit.SECONDS, slotLimit);
-    }
-    
-    boolean tryAdd() {
-        return semaphore.tryAcquire();
-    }
+	private final TimedSemaphore semaphore;
 
-    int availableSlots() {
-        return semaphore.getAvailablePermits();
-    } 
+	DelayQueueUsingTimedSemaphore(long period, int slotLimit) {
+		semaphore = new TimedSemaphore(period, TimeUnit.SECONDS, slotLimit);
+	}
+
+	boolean tryAdd() {
+		return semaphore.tryAcquire();
+	}
+
+	int availableSlots() {
+		return semaphore.getAvailablePermits();
+	}
 }

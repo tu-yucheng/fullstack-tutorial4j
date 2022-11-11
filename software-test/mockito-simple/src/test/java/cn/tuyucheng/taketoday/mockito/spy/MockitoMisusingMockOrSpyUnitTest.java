@@ -12,19 +12,19 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class MockitoMisusingMockOrSpyUnitTest {
 
-    @Test
-    void givenNotASpy_whenDoReturn_thenThrowNotAMock() {
-        List<String> list = new ArrayList<>();
+	@Test
+	void givenNotASpy_whenDoReturn_thenThrowNotAMock() {
+		List<String> list = new ArrayList<>();
 
-        assertThatThrownBy(() -> Mockito.doReturn(100).when(list).size())
-                .isInstanceOf(NotAMockException.class)
-                .hasMessageContaining("Argument passed to when() is not a mock!");
-    }
+		assertThatThrownBy(() -> Mockito.doReturn(100).when(list).size())
+				.isInstanceOf(NotAMockException.class)
+				.hasMessageContaining("Argument passed to when() is not a mock!");
+	}
 
-    @Test
-    void givenASpy_whenDoReturn_thenNoError() {
-        final List<String> spyList = Mockito.spy(new ArrayList<>());
+	@Test
+	void givenASpy_whenDoReturn_thenNoError() {
+		final List<String> spyList = Mockito.spy(new ArrayList<>());
 
-        assertThatNoException().isThrownBy(() -> Mockito.doReturn(100).when(spyList).size());
-    }
+		assertThatNoException().isThrownBy(() -> Mockito.doReturn(100).when(spyList).size());
+	}
 }

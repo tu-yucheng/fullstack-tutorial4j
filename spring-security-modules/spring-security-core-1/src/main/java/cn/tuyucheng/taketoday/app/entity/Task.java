@@ -10,17 +10,17 @@ import javax.persistence.Id;
 @Getter
 @Setter
 public class Task {
-    @Id
-    @GeneratedValue
-    private Long id;
-    private String description;
-    private String assignee;
+	@Id
+	@GeneratedValue
+	private Long id;
+	private String description;
+	private String assignee;
 
-    public Task() {
-    }
+	public Task() {
+	}
 
-    public Task(String description, String assignee) {
-        this.description = description;
-        this.assignee = assignee;
-    }
+	public Task(String description, String assignee) {
+		this.description = description;
+		this.assignee = assignee;
+	}
 }

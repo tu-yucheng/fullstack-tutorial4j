@@ -14,42 +14,42 @@ import java.util.Map;
 @Controller
 public class EmployeeController {
 
-    Map<Long, Employee> employeeMap = new HashMap<>();
+	Map<Long, Employee> employeeMap = new HashMap<>();
 
-    @ModelAttribute("employees")
-    public void initEmployees() {
-        employeeMap.put(1L, new Employee(1L, "John", "223334411", "rh"));
-        employeeMap.put(2L, new Employee(2L, "Peter", "22001543", "informatics"));
-        employeeMap.put(3L, new Employee(3L, "Mike", "223334411", "admin"));
-    }
+	@ModelAttribute("employees")
+	public void initEmployees() {
+		employeeMap.put(1L, new Employee(1L, "John", "223334411", "rh"));
+		employeeMap.put(2L, new Employee(2L, "Peter", "22001543", "informatics"));
+		employeeMap.put(3L, new Employee(3L, "Mike", "223334411", "admin"));
+	}
 
-    @RequestMapping(value = "/employee", method = RequestMethod.GET)
-    public ModelAndView showForm() {
-        return new ModelAndView("employeeHome", "employee", new Employee());
-    }
+	@RequestMapping(value = "/employee", method = RequestMethod.GET)
+	public ModelAndView showForm() {
+		return new ModelAndView("employeeHome", "employee", new Employee());
+	}
 
-    @RequestMapping(value = "/employee/{Id}", produces = {"application/json", "application/xml"}, method = RequestMethod.GET)
-    public @ResponseBody Employee getEmployeeById(@PathVariable final Long Id) {
-        return employeeMap.get(Id);
-    }
+	@RequestMapping(value = "/employee/{Id}", produces = {"application/json", "application/xml"}, method = RequestMethod.GET)
+	public @ResponseBody Employee getEmployeeById(@PathVariable final Long Id) {
+		return employeeMap.get(Id);
+	}
 
-    @RequestMapping(value = "/addEmployee", method = RequestMethod.POST)
-    public String submit(@ModelAttribute("employee") final Employee employee, final BindingResult result, final ModelMap model) {
-        if (result.hasErrors()) {
-            return "error";
-        }
-        model.addAttribute("name", employee.getName());
-        model.addAttribute("contactNumber", employee.getContactNumber());
-        model.addAttribute("workingArea", employee.getWorkingArea());
-        model.addAttribute("id", employee.getId());
+	@RequestMapping(value = "/addEmployee", method = RequestMethod.POST)
+	public String submit(@ModelAttribute("employee") final Employee employee, final BindingResult result, final ModelMap model) {
+		if (result.hasErrors()) {
+			return "error";
+		}
+		model.addAttribute("name", employee.getName());
+		model.addAttribute("contactNumber", employee.getContactNumber());
+		model.addAttribute("workingArea", employee.getWorkingArea());
+		model.addAttribute("id", employee.getId());
 
-        employeeMap.put(employee.getId(), employee);
+		employeeMap.put(employee.getId(), employee);
 
-        return "employeeView";
-    }
+		return "employeeView";
+	}
 
-    @ModelAttribute
-    public void addAttributes(final Model model) {
-        model.addAttribute("msg", "Welcome to the Netherlands!");
-    }
+	@ModelAttribute
+	public void addAttributes(final Model model) {
+		model.addAttribute("msg", "Welcome to the Netherlands!");
+	}
 }

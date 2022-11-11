@@ -11,6 +11,6 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD, ElementType.METHOD, ElementType.TYPE, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface FormatterType {
-    
-    String value();
+
+	String value();
 }

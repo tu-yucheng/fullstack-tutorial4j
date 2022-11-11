@@ -11,9 +11,9 @@ import java.io.PrintWriter;
 @WebServlet("/redirected")
 public class RedirectedServlet extends HttpServlet {
 
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PrintWriter out = resp.getWriter();
-        out.write("In redirected servlet page.");
-        out.write("\nWelcome:" + req.getParameter("name"));
-    }
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		PrintWriter out = resp.getWriter();
+		out.write("In redirected servlet page.");
+		out.write("\nWelcome:" + req.getParameter("name"));
+	}
 }

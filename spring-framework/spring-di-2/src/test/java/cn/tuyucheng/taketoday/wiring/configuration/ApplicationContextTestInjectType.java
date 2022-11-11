@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ApplicationContextTestInjectType {
 
-    @Bean
-    public ArbitraryDependency injectDependency() {
-        return new ArbitraryDependency();
-    }
+	@Bean
+	public ArbitraryDependency injectDependency() {
+		return new ArbitraryDependency();
+	}
 }

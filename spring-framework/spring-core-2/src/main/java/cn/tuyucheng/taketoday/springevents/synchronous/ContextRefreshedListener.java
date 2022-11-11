@@ -6,16 +6,16 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ContextRefreshedListener implements ApplicationListener<ContextRefreshedEvent> {
-    // for tests
-    private boolean hitContextRefreshedHandler = false;
+	// for tests
+	private boolean hitContextRefreshedHandler = false;
 
-    @Override
-    public void onApplicationEvent(final ContextRefreshedEvent cse) {
-        System.out.println("Handling context re-fresh event. ");
-        hitContextRefreshedHandler = true;
-    }
+	@Override
+	public void onApplicationEvent(final ContextRefreshedEvent cse) {
+		System.out.println("Handling context re-fresh event. ");
+		hitContextRefreshedHandler = true;
+	}
 
-    boolean isHitContextRefreshedHandler() {
-        return hitContextRefreshedHandler;
-    }
+	boolean isHitContextRefreshedHandler() {
+		return hitContextRefreshedHandler;
+	}
 }

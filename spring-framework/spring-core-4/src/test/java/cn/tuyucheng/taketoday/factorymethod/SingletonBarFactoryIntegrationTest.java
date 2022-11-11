@@ -13,12 +13,12 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @ContextConfiguration("/factorymethod/static-bar-config.xml")
 class SingletonBarFactoryIntegrationTest {
 
-    @Autowired
-    private Bar instance;
+	@Autowired
+	private Bar instance;
 
-    @Test
-    void givenValidStaticFactoryConfig_whenCreateInstance_thenNameIsCorrect() {
-        assertNotNull(instance);
-        assertEquals("someName", instance.getName());
-    }
+	@Test
+	void givenValidStaticFactoryConfig_whenCreateInstance_thenNameIsCorrect() {
+		assertNotNull(instance);
+		assertEquals("someName", instance.getName());
+	}
 }

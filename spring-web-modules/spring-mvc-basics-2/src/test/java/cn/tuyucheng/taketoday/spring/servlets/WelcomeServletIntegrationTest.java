@@ -10,17 +10,17 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class WelcomeServletIntegrationTest {
-    
-    @Test
-    void whenRequested_thenRedirectedToCorrectUrl() throws ServletException, IOException {
-        MockHttpServletRequest request = new MockHttpServletRequest("GET", "/welcome");
-        request.addParameter("name", "Dennis");
-        WelcomeServlet servlet = new WelcomeServlet();
-        MockHttpServletResponse response = new MockHttpServletResponse();
 
-        servlet.doGet(request, response);
+	@Test
+	void whenRequested_thenRedirectedToCorrectUrl() throws ServletException, IOException {
+		MockHttpServletRequest request = new MockHttpServletRequest("GET", "/welcome");
+		request.addParameter("name", "Dennis");
+		WelcomeServlet servlet = new WelcomeServlet();
+		MockHttpServletResponse response = new MockHttpServletResponse();
 
-        assertEquals("/redirected", response.getRedirectedUrl());
-        assertEquals(302, response.getStatus());
-    }
+		servlet.doGet(request, response);
+
+		assertEquals("/redirected", response.getRedirectedUrl());
+		assertEquals(302, response.getStatus());
+	}
 }

@@ -2,13 +2,13 @@ package cn.tuyucheng.taketoday.bean.injection;
 
 public class Helm {
 
-    private String brandOfHelm = "HelmBrand";
+	private String brandOfHelm = "HelmBrand";
 
-    public String getBrandOfHelm() {
-        return brandOfHelm;
-    }
+	public String getBrandOfHelm() {
+		return brandOfHelm;
+	}
 
-    public void setBrandOfHelm(String brandOfHelm) {
-        this.brandOfHelm = brandOfHelm;
-    }
+	public void setBrandOfHelm(String brandOfHelm) {
+		this.brandOfHelm = brandOfHelm;
+	}
 }

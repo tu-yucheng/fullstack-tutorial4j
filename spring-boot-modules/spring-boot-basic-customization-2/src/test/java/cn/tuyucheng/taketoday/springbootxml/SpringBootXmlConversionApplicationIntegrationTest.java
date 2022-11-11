@@ -13,15 +13,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest(classes = SpringBootXmlApplication.class)
 class SpringBootXmlConversionApplicationIntegrationTest {
 
-    @Autowired
-    private Pojo pojo;
-    @Value("${sample}")
-    private String sample;
+	@Autowired
+	private Pojo pojo;
+	@Value("${sample}")
+	private String sample;
 
-    @Test
-    void whenCallingGetter_thenPrintingProperty() {
-        assertThat(pojo.getField())
-                .isNotBlank()
-                .isEqualTo(sample);
-    }
+	@Test
+	void whenCallingGetter_thenPrintingProperty() {
+		assertThat(pojo.getField())
+				.isNotBlank()
+				.isEqualTo(sample);
+	}
 }

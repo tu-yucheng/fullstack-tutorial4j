@@ -19,78 +19,78 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(SpringExtension.class)
 class ReadHeaderRestControllerIntegrationTest {
 
-    private MockMvc mockMvc;
+	private MockMvc mockMvc;
 
-    @BeforeEach
-    void setUp() {
-        mockMvc = MockMvcBuilders.standaloneSetup(new ReadHeaderRestController()).build();
-    }
+	@BeforeEach
+	void setUp() {
+		mockMvc = MockMvcBuilders.standaloneSetup(new ReadHeaderRestController()).build();
+	}
 
-    @Test
-    void whenGetRequestSentToAllHeaders_thenStatusOkAndTextReturned() throws Exception {
-        mockMvc.perform(get("/listHeaders").header("my-header", "Test"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Listed 1 headers"));
-    }
+	@Test
+	void whenGetRequestSentToAllHeaders_thenStatusOkAndTextReturned() throws Exception {
+		mockMvc.perform(get("/listHeaders").header("my-header", "Test"))
+				.andExpect(status().isOk())
+				.andExpect(content().string("Listed 1 headers"));
+	}
 
-    @Test
-    void whenGetRequestSentToMultiValue_thenStatusOkAndTextReturned() throws Exception {
-        mockMvc.perform(get("/multiValue").header("my-header", "ABC", "DEF", "GHI"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Listed 1 headers"));
-    }
+	@Test
+	void whenGetRequestSentToMultiValue_thenStatusOkAndTextReturned() throws Exception {
+		mockMvc.perform(get("/multiValue").header("my-header", "ABC", "DEF", "GHI"))
+				.andExpect(status().isOk())
+				.andExpect(content().string("Listed 1 headers"));
+	}
 
-    @Test
-    void whenGetRequestSentToGreeting_thenStatusOKAndGreetingReturned() throws Exception {
-        mockMvc.perform(get("/greeting").header(HttpHeaders.ACCEPT_LANGUAGE, "de"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Hallo!"));
-    }
+	@Test
+	void whenGetRequestSentToGreeting_thenStatusOKAndGreetingReturned() throws Exception {
+		mockMvc.perform(get("/greeting").header(HttpHeaders.ACCEPT_LANGUAGE, "de"))
+				.andExpect(status().isOk())
+				.andExpect(content().string("Hallo!"));
+	}
 
-    @Test
-    void whenPrioritizedListGetRequestSentToGreeting_thenStatusOKAndGreetingReturned() throws Exception {
-        mockMvc.perform(get("/greeting").header(HttpHeaders.ACCEPT_LANGUAGE, "fr,en,de"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Bonjour!"));
-    }
+	@Test
+	void whenPrioritizedListGetRequestSentToGreeting_thenStatusOKAndGreetingReturned() throws Exception {
+		mockMvc.perform(get("/greeting").header(HttpHeaders.ACCEPT_LANGUAGE, "fr,en,de"))
+				.andExpect(status().isOk())
+				.andExpect(content().string("Bonjour!"));
+	}
 
-    @Test
-    void whenWeightedListGetRequestSentToGreeting_thenStatusOKAndGreetingReturned() throws Exception {
-        mockMvc.perform(get("/greeting").header(HttpHeaders.ACCEPT_LANGUAGE, "Accept-Language: es; q=1.0, de; q=0.5"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Hola!"));
-    }
+	@Test
+	void whenWeightedListGetRequestSentToGreeting_thenStatusOKAndGreetingReturned() throws Exception {
+		mockMvc.perform(get("/greeting").header(HttpHeaders.ACCEPT_LANGUAGE, "Accept-Language: es; q=1.0, de; q=0.5"))
+				.andExpect(status().isOk())
+				.andExpect(content().string("Hola!"));
+	}
 
-    @Test
-    void whenGetRequestSentToDouble_thenStatusOKAndCorrectResultReturned() throws Exception {
-        mockMvc.perform(get("/double").header("my-number", 2))
-                .andExpect(status().isOk())
-                .andExpect(content().string("2 * 2 = 4"));
-    }
+	@Test
+	void whenGetRequestSentToDouble_thenStatusOKAndCorrectResultReturned() throws Exception {
+		mockMvc.perform(get("/double").header("my-number", 2))
+				.andExpect(status().isOk())
+				.andExpect(content().string("2 * 2 = 4"));
+	}
 
-    @Test
-    void whenGetRequestSentToGetBaseUrl_thenStatusOkAndHostReturned() throws Exception {
-        mockMvc.perform(get("/getBaseUrl").header("host", "localhost:8080"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Base URL = http://localhost:8080"));
-    }
+	@Test
+	void whenGetRequestSentToGetBaseUrl_thenStatusOkAndHostReturned() throws Exception {
+		mockMvc.perform(get("/getBaseUrl").header("host", "localhost:8080"))
+				.andExpect(status().isOk())
+				.andExpect(content().string("Base URL = http://localhost:8080"));
+	}
 
-    @Test
-    void whenGetRequestSentToNonRequiredHeaderWithoutHeader_thenStatusOKAndMessageReturned() throws Exception {
-        mockMvc.perform(get("/nonRequiredHeader"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Was the optional header present? No!"));
-    }
+	@Test
+	void whenGetRequestSentToNonRequiredHeaderWithoutHeader_thenStatusOKAndMessageReturned() throws Exception {
+		mockMvc.perform(get("/nonRequiredHeader"))
+				.andExpect(status().isOk())
+				.andExpect(content().string("Was the optional header present? No!"));
+	}
 
-    @Test
-    void whenGetRequestSentToDefaultWithoutHeader_thenStatusOKAndMessageReturned() throws Exception {
-        mockMvc.perform(get("/default"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Optional Header is 3600"));
-    }
+	@Test
+	void whenGetRequestSentToDefaultWithoutHeader_thenStatusOKAndMessageReturned() throws Exception {
+		mockMvc.perform(get("/default"))
+				.andExpect(status().isOk())
+				.andExpect(content().string("Optional Header is 3600"));
+	}
 
-    @Configuration
-    static class Config {
+	@Configuration
+	static class Config {
 
-    }
+	}
 }

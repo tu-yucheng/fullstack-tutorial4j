@@ -23,46 +23,46 @@ import java.util.List;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("user")
-                .password(passwordEncoder().encode("pass"))
-                .roles("USER")
-                .and()
-                .withUser("admin")
-                .password(passwordEncoder().encode("pass"))
-                .roles("ADMIN");
-    }
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+		auth.inMemoryAuthentication()
+				.withUser("user")
+				.password(passwordEncoder().encode("pass"))
+				.roles("USER")
+				.and()
+				.withUser("admin")
+				.password(passwordEncoder().encode("pass"))
+				.roles("ADMIN");
+	}
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-                .authorizeRequests()
-                .anyRequest()
-                .authenticated()
-                .accessDecisionManager(accessDecisionManager())
-                .and()
-                .formLogin()
-                .permitAll()
-                .and()
-                .logout()
-                .permitAll()
-                .deleteCookies("JSESSIONID").logoutSuccessUrl("/login");
-    }
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.csrf().disable()
+				.authorizeRequests()
+				.anyRequest()
+				.authenticated()
+				.accessDecisionManager(accessDecisionManager())
+				.and()
+				.formLogin()
+				.permitAll()
+				.and()
+				.logout()
+				.permitAll()
+				.deleteCookies("JSESSIONID").logoutSuccessUrl("/login");
+	}
 
-    @Bean
-    public AccessDecisionManager accessDecisionManager() {
-        List<AccessDecisionVoter<?>> decisionVoters = Arrays.asList(
-                new WebExpressionVoter(),
-                new RoleVoter(),
-                new AuthenticatedVoter(),
-                new MinuteBasedVoter()
-        );
-        return new UnanimousBased(decisionVoters);
-    }
+	@Bean
+	public AccessDecisionManager accessDecisionManager() {
+		List<AccessDecisionVoter<?>> decisionVoters = Arrays.asList(
+				new WebExpressionVoter(),
+				new RoleVoter(),
+				new AuthenticatedVoter(),
+				new MinuteBasedVoter()
+		);
+		return new UnanimousBased(decisionVoters);
+	}
 
-    private PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+	private PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 }

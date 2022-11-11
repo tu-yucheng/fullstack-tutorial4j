@@ -15,9 +15,9 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ContactInfoExpression {
-    
-    @Id
-    @Column(name = "expression_type")
-    private String type;
-    private String pattern;
+
+	@Id
+	@Column(name = "expression_type")
+	private String type;
+	private String pattern;
 }

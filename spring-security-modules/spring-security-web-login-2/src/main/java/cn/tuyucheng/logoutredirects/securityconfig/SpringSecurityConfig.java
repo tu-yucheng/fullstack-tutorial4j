@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 @EnableWebSecurity
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests(auth -> auth.mvcMatchers("/login")
-                        .permitAll()
-                        .anyRequest()
-                        .authenticated())
-                .logout(logout -> logout.permitAll()
-                        .logoutSuccessHandler((request, response, authentication) -> response.setStatus(HttpServletResponse.SC_OK)));
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests(auth -> auth.mvcMatchers("/login")
+						.permitAll()
+						.anyRequest()
+						.authenticated())
+				.logout(logout -> logout.permitAll()
+						.logoutSuccessHandler((request, response, authentication) -> response.setStatus(HttpServletResponse.SC_OK)));
 
-    }
+	}
 }

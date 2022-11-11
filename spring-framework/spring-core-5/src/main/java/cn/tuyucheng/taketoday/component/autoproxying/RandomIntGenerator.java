@@ -8,14 +8,14 @@ import java.util.Random;
 @Slf4j
 @Component
 public class RandomIntGenerator {
-    private final Random random = new Random();
-    private final DataCache dataCache;
+	private final Random random = new Random();
+	private final DataCache dataCache;
 
-    public RandomIntGenerator(DataCache dataCache) {
-        this.dataCache = dataCache;
-    }
+	public RandomIntGenerator(DataCache dataCache) {
+		this.dataCache = dataCache;
+	}
 
-    public int generate(int min, int max) {
-        return random.nextInt(max - min) + min;
-    }
+	public int generate(int min, int max) {
+		return random.nextInt(max - min) + min;
+	}
 }

@@ -8,12 +8,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class FactorialSquareCalculatorUnitTest {
 
-    @Test
-    void whenCalculatesFactorialSquare_thenReturnCorrectValue() {
-        ForkJoinPool forkJoinPool = new ForkJoinPool();
-        FactorialSquareCalculator calculator = new FactorialSquareCalculator(10);
-        forkJoinPool.execute(calculator);
+	@Test
+	void whenCalculatesFactorialSquare_thenReturnCorrectValue() {
+		ForkJoinPool forkJoinPool = new ForkJoinPool();
+		FactorialSquareCalculator calculator = new FactorialSquareCalculator(10);
+		forkJoinPool.execute(calculator);
 
-        assertEquals(385, calculator.join().intValue(), "The sum of the squares from 1 to 10 is 385");
-    }
+		assertEquals(385, calculator.join().intValue(), "The sum of the squares from 1 to 10 is 385");
+	}
 }

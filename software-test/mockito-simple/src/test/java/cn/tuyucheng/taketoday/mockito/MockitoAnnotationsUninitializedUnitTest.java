@@ -10,11 +10,11 @@ import static org.mockito.Mockito.when;
 
 class MockitoAnnotationsUninitializedUnitTest {
 
-    @Mock
-    List<String> mockedList;
+	@Mock
+	List<String> mockedList;
 
-    @Test
-    void whenMockitoAnnotationsUninitialized_thenNPEThrown() {
-        assertThrows(NullPointerException.class, () -> when(mockedList.size()).thenReturn(1));
-    }
+	@Test
+	void whenMockitoAnnotationsUninitialized_thenNPEThrown() {
+		assertThrows(NullPointerException.class, () -> when(mockedList.size()).thenReturn(1));
+	}
 }

@@ -22,62 +22,62 @@ import java.util.function.BiConsumer;
  */
 @SuppressWarnings("ALL")
 public class GuavaEventBusBeanPostProcessor implements DestructionAwareBeanPostProcessor {
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    private final SpelExpressionParser expressionParser = new SpelExpressionParser();
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	private final SpelExpressionParser expressionParser = new SpelExpressionParser();
 
-    @Override
-    public void postProcessBeforeDestruction(final Object bean, final String beanName) throws BeansException {
-        this.process(bean, EventBus::unregister, "destruction");
-    }
+	@Override
+	public void postProcessBeforeDestruction(final Object bean, final String beanName) throws BeansException {
+		this.process(bean, EventBus::unregister, "destruction");
+	}
 
-    private void process(final Object bean, final BiConsumer<EventBus, Object> consumer, final String action) {
-        Object proxy = this.getTargetObject(bean);
-        final Subscriber annotation = AnnotationUtils.getAnnotation(proxy.getClass(), Subscriber.class);
-        if (annotation == null)
-            return;
-        this.logger.info("{}: processing bean of type {} during {}",
-                this.getClass().getSimpleName(), proxy.getClass().getName(), action);
-        final String annotationValue = annotation.value();
-        try {
-            final Expression expression = this.expressionParser.parseExpression(annotationValue);
-            final Object value = expression.getValue();
-            if (!(value instanceof EventBus)) {
-                this.logger.error("{}: expression {} did not evaluate to an instance of EventBus for bean of type {}",
-                        this.getClass().getSimpleName(), annotationValue, proxy.getClass().getSimpleName());
-                return;
-            }
-            final EventBus eventBus = (EventBus) value;
-            consumer.accept(eventBus, proxy);
-        } catch (ExpressionException ex) {
-            this.logger.error("{}: unable to parse/evaluate expression {} for bean of type {}",
-                    this.getClass().getSimpleName(), annotationValue, proxy.getClass().getName());
-        }
-    }
+	private void process(final Object bean, final BiConsumer<EventBus, Object> consumer, final String action) {
+		Object proxy = this.getTargetObject(bean);
+		final Subscriber annotation = AnnotationUtils.getAnnotation(proxy.getClass(), Subscriber.class);
+		if (annotation == null)
+			return;
+		this.logger.info("{}: processing bean of type {} during {}",
+				this.getClass().getSimpleName(), proxy.getClass().getName(), action);
+		final String annotationValue = annotation.value();
+		try {
+			final Expression expression = this.expressionParser.parseExpression(annotationValue);
+			final Object value = expression.getValue();
+			if (!(value instanceof EventBus)) {
+				this.logger.error("{}: expression {} did not evaluate to an instance of EventBus for bean of type {}",
+						this.getClass().getSimpleName(), annotationValue, proxy.getClass().getSimpleName());
+				return;
+			}
+			final EventBus eventBus = (EventBus) value;
+			consumer.accept(eventBus, proxy);
+		} catch (ExpressionException ex) {
+			this.logger.error("{}: unable to parse/evaluate expression {} for bean of type {}",
+					this.getClass().getSimpleName(), annotationValue, proxy.getClass().getName());
+		}
+	}
 
-    private Object getTargetObject(Object proxy) throws BeansException {
-        if (AopUtils.isJdkDynamicProxy(proxy)) {
-            try {
-                return ((Advised) proxy).getTargetSource().getTarget();
-            } catch (Exception e) {
-                throw new FatalBeanException("Error getting target of JDK proxy", e);
-            }
-        }
-        return proxy;
-    }
+	private Object getTargetObject(Object proxy) throws BeansException {
+		if (AopUtils.isJdkDynamicProxy(proxy)) {
+			try {
+				return ((Advised) proxy).getTargetSource().getTarget();
+			} catch (Exception e) {
+				throw new FatalBeanException("Error getting target of JDK proxy", e);
+			}
+		}
+		return proxy;
+	}
 
-    @Override
-    public boolean requiresDestruction(Object bean) {
-        return true;
-    }
+	@Override
+	public boolean requiresDestruction(Object bean) {
+		return true;
+	}
 
-    @Override
-    public Object postProcessBeforeInitialization(final Object bean, final String beanName) throws BeansException {
-        return bean;
-    }
+	@Override
+	public Object postProcessBeforeInitialization(final Object bean, final String beanName) throws BeansException {
+		return bean;
+	}
 
-    @Override
-    public Object postProcessAfterInitialization(final Object bean, final String beanName) throws BeansException {
-        this.process(bean, EventBus::register, "initialization");
-        return bean;
-    }
+	@Override
+	public Object postProcessAfterInitialization(final Object bean, final String beanName) throws BeansException {
+		this.process(bean, EventBus::register, "initialization");
+		return bean;
+	}
 }

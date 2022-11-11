@@ -12,21 +12,21 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class GetBeanByNameAndTypeUnitTest {
-    private ApplicationContext context;
+	private ApplicationContext context;
 
-    @BeforeAll
-    void setup() {
-        context = new AnnotationConfigApplicationContext(AnnotationConfig.class);
-    }
+	@BeforeAll
+	void setup() {
+		context = new AnnotationConfigApplicationContext(AnnotationConfig.class);
+	}
 
-    @Test
-    void whenSpecifiedMatchingNameAndType_thenShouldReturnRelatedBean() {
-        Lion lion = context.getBean("lion", Lion.class);
-        assertEquals("Hardcoded lion name", lion.getName());
-    }
+	@Test
+	void whenSpecifiedMatchingNameAndType_thenShouldReturnRelatedBean() {
+		Lion lion = context.getBean("lion", Lion.class);
+		assertEquals("Hardcoded lion name", lion.getName());
+	}
 
-    @Test
-    void whenSpecifiedNotMatchingNameAndType_thenShouldThrowException() {
-        assertThrows(BeanNotOfRequiredTypeException.class, () -> context.getBean("lion", Tiger.class));
-    }
+	@Test
+	void whenSpecifiedNotMatchingNameAndType_thenShouldThrowException() {
+		assertThrows(BeanNotOfRequiredTypeException.class, () -> context.getBean("lion", Tiger.class));
+	}
 }

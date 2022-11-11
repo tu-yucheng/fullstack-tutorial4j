@@ -16,101 +16,101 @@ import static org.mockito.Mockito.*;
 
 class MockitoVerifyExamplesUnitTest {
 
-    @Test
-    final void givenInteractionWithMockOccurred_whenVerifyingInteraction_thenCorrect() {
-        final List<String> mockedList = mock(MyList.class);
-        mockedList.size();
-        verify(mockedList).size();
-    }
+	@Test
+	final void givenInteractionWithMockOccurred_whenVerifyingInteraction_thenCorrect() {
+		final List<String> mockedList = mock(MyList.class);
+		mockedList.size();
+		verify(mockedList).size();
+	}
 
-    @Test
-    final void givenOneInteractionWithMockOccurred_whenVerifyingNumberOfInteractions_thenCorrect() {
-        final List<String> mockedList = mock(MyList.class);
-        mockedList.size();
-        verify(mockedList, times(1)).size();
-    }
+	@Test
+	final void givenOneInteractionWithMockOccurred_whenVerifyingNumberOfInteractions_thenCorrect() {
+		final List<String> mockedList = mock(MyList.class);
+		mockedList.size();
+		verify(mockedList, times(1)).size();
+	}
 
-    @Test
-    final void givenNoInteractionWithMockOccurred_whenVerifyingInteractions_thenCorrect() {
-        final List<String> mockedList = mock(MyList.class);
-        verifyNoInteractions(mockedList);
-    }
+	@Test
+	final void givenNoInteractionWithMockOccurred_whenVerifyingInteractions_thenCorrect() {
+		final List<String> mockedList = mock(MyList.class);
+		verifyNoInteractions(mockedList);
+	}
 
-    @Test
-    final void givenNoInteractionWithMethodOfMockOccurred_whenVerifyingInteractions_thenCorrect() {
-        final List<String> mockedList = mock(MyList.class);
-        verify(mockedList, times(0)).size();
-    }
+	@Test
+	final void givenNoInteractionWithMethodOfMockOccurred_whenVerifyingInteractions_thenCorrect() {
+		final List<String> mockedList = mock(MyList.class);
+		verify(mockedList, times(0)).size();
+	}
 
-    @Test
-    final void givenUnverifiedInteraction_whenVerifyingNoUnexpectedInteractions_thenFail() {
-        final List<String> mockedList = mock(MyList.class);
-        mockedList.size();
-        mockedList.clear();
+	@Test
+	final void givenUnverifiedInteraction_whenVerifyingNoUnexpectedInteractions_thenFail() {
+		final List<String> mockedList = mock(MyList.class);
+		mockedList.size();
+		mockedList.clear();
 
-        verify(mockedList).size();
-        assertThrows(NoInteractionsWanted.class, () -> verifyNoMoreInteractions(mockedList));
-    }
+		verify(mockedList).size();
+		assertThrows(NoInteractionsWanted.class, () -> verifyNoMoreInteractions(mockedList));
+	}
 
-    @Test
-    final void whenVerifyingOrderOfInteractions_thenCorrect() {
-        final List<String> mockedList = mock(MyList.class);
-        mockedList.size();
-        mockedList.add("a parameter");
-        mockedList.clear();
+	@Test
+	final void whenVerifyingOrderOfInteractions_thenCorrect() {
+		final List<String> mockedList = mock(MyList.class);
+		mockedList.size();
+		mockedList.add("a parameter");
+		mockedList.clear();
 
-        final InOrder inOrder = Mockito.inOrder(mockedList);
-        inOrder.verify(mockedList).size();
-        inOrder.verify(mockedList).add("a parameter");
-        inOrder.verify(mockedList).clear();
-    }
+		final InOrder inOrder = Mockito.inOrder(mockedList);
+		inOrder.verify(mockedList).size();
+		inOrder.verify(mockedList).add("a parameter");
+		inOrder.verify(mockedList).clear();
+	}
 
-    @Test
-    final void whenVerifyingAnInteractionHasNotOccurred_thenCorrect() {
-        final List<String> mockedList = mock(MyList.class);
-        mockedList.size();
+	@Test
+	final void whenVerifyingAnInteractionHasNotOccurred_thenCorrect() {
+		final List<String> mockedList = mock(MyList.class);
+		mockedList.size();
 
-        verify(mockedList, never()).clear();
-    }
+		verify(mockedList, never()).clear();
+	}
 
-    @Test
-    final void whenVerifyingAnInteractionHasOccurredAtLeastOnce_thenCorrect() {
-        final List<String> mockedList = mock(MyList.class);
-        mockedList.clear();
-        mockedList.clear();
-        mockedList.clear();
+	@Test
+	final void whenVerifyingAnInteractionHasOccurredAtLeastOnce_thenCorrect() {
+		final List<String> mockedList = mock(MyList.class);
+		mockedList.clear();
+		mockedList.clear();
+		mockedList.clear();
 
-        verify(mockedList, atLeast(1)).clear();
-        verify(mockedList, atMost(10)).clear();
-    }
+		verify(mockedList, atLeast(1)).clear();
+		verify(mockedList, atMost(10)).clear();
+	}
 
-    // with arguments
+	// with arguments
 
-    @Test
-    final void whenVerifyingAnInteractionWithExactArgument_thenCorrect() {
-        final List<String> mockedList = mock(MyList.class);
-        mockedList.add("test");
+	@Test
+	final void whenVerifyingAnInteractionWithExactArgument_thenCorrect() {
+		final List<String> mockedList = mock(MyList.class);
+		mockedList.add("test");
 
-        verify(mockedList).add("test");
-    }
+		verify(mockedList).add("test");
+	}
 
-    @Test
-    final void whenVerifyingAnInteractionWithAnyArgument_thenCorrect() {
-        final List<String> mockedList = mock(MyList.class);
-        mockedList.add("test");
+	@Test
+	final void whenVerifyingAnInteractionWithAnyArgument_thenCorrect() {
+		final List<String> mockedList = mock(MyList.class);
+		mockedList.add("test");
 
-        verify(mockedList).add(anyString());
-    }
+		verify(mockedList).add(anyString());
+	}
 
-    @Test
-    final void whenVerifyingAnInteractionWithArgumentCapture_thenCorrect() {
-        final List<String> mockedList = mock(MyList.class);
-        mockedList.addAll(Lists.newArrayList("someElement"));
+	@Test
+	final void whenVerifyingAnInteractionWithArgumentCapture_thenCorrect() {
+		final List<String> mockedList = mock(MyList.class);
+		mockedList.addAll(Lists.newArrayList("someElement"));
 
-        final ArgumentCaptor<List<String>> argumentCaptor = ArgumentCaptor.forClass(List.class);
-        verify(mockedList).addAll(argumentCaptor.capture());
+		final ArgumentCaptor<List<String>> argumentCaptor = ArgumentCaptor.forClass(List.class);
+		verify(mockedList).addAll(argumentCaptor.capture());
 
-        final List<String> capturedArgument = argumentCaptor.getValue();
-        assertThat(capturedArgument).contains("someElement");
-    }
+		final List<String> capturedArgument = argumentCaptor.getValue();
+		assertThat(capturedArgument).contains("someElement");
+	}
 }

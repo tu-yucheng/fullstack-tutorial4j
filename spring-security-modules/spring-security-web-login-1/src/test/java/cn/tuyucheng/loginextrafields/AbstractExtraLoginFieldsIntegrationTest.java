@@ -15,32 +15,32 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 abstract class AbstractExtraLoginFieldsIntegrationTest {
 
-    @Autowired
-    private FilterChainProxy springSecurityFilterChain;
+	@Autowired
+	private FilterChainProxy springSecurityFilterChain;
 
-    @Autowired
-    private WebApplicationContext wac;
+	@Autowired
+	private WebApplicationContext wac;
 
-    protected MockMvc mockMvc;
+	protected MockMvc mockMvc;
 
-    @BeforeEach
-    void setup() {
-        this.mockMvc = MockMvcBuilders.webAppContextSetup(wac)
-                .apply(springSecurity(springSecurityFilterChain))
-                .build();
-    }
+	@BeforeEach
+	void setup() {
+		this.mockMvc = MockMvcBuilders.webAppContextSetup(wac)
+				.apply(springSecurity(springSecurityFilterChain))
+				.build();
+	}
 
-    @Test
-    void givenRootPathAccess_thenRedirectToIndex() throws Exception {
-        this.mockMvc.perform(get("/"))
-                .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrlPattern("/index*"));
-    }
+	@Test
+	void givenRootPathAccess_thenRedirectToIndex() throws Exception {
+		this.mockMvc.perform(get("/"))
+				.andExpect(status().is3xxRedirection())
+				.andExpect(redirectedUrlPattern("/index*"));
+	}
 
-    @Test
-    void givenSecuredResource_whenAccessUnauthenticated_thenRequiresAuthentication() throws Exception {
-        this.mockMvc.perform(get("/user/index"))
-                .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrlPattern("**/login"));
-    }
+	@Test
+	void givenSecuredResource_whenAccessUnauthenticated_thenRequiresAuthentication() throws Exception {
+		this.mockMvc.perform(get("/user/index"))
+				.andExpect(status().is3xxRedirection())
+				.andExpect(redirectedUrlPattern("**/login"));
+	}
 }

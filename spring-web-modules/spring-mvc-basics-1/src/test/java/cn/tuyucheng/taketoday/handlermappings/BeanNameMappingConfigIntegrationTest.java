@@ -23,21 +23,21 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ContextConfiguration(classes = BeanNameUrlHandlerMappingConfig.class)
 class BeanNameMappingConfigIntegrationTest {
 
-    @Autowired
-    private WebApplicationContext webAppContext;
-    private MockMvc mockMvc;
+	@Autowired
+	private WebApplicationContext webAppContext;
+	private MockMvc mockMvc;
 
-    @BeforeEach
-    void setup() {
-        MockitoAnnotations.openMocks(this);
-        mockMvc = MockMvcBuilders.webAppContextSetup(webAppContext).build();
-    }
+	@BeforeEach
+	void setup() {
+		MockitoAnnotations.openMocks(this);
+		mockMvc = MockMvcBuilders.webAppContextSetup(webAppContext).build();
+	}
 
-    @Test
-    void whenBeanNameMapping_thenMappedOK() throws Exception {
-        mockMvc.perform(get("/beanNameUrl")).
-                andExpect(status().isOk()).
-                andExpect(view().name("welcome")).
-                andDo(print());
-    }
+	@Test
+	void whenBeanNameMapping_thenMappedOK() throws Exception {
+		mockMvc.perform(get("/beanNameUrl")).
+				andExpect(status().isOk()).
+				andExpect(view().name("welcome")).
+				andDo(print());
+	}
 }

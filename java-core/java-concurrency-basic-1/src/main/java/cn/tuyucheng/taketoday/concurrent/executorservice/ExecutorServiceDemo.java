@@ -4,11 +4,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class ExecutorServiceDemo {
-    ExecutorService executor = Executors.newFixedThreadPool(10);
+	ExecutorService executor = Executors.newFixedThreadPool(10);
 
-    public void execute() {
-        executor.submit(Task::new);
-        executor.shutdown();
-        executor.shutdownNow();
-    }
+	public void execute() {
+		executor.submit(Task::new);
+		executor.shutdown();
+		executor.shutdownNow();
+	}
 }

@@ -9,19 +9,19 @@ import org.slf4j.LoggerFactory;
 
 @Aspect
 public class SecuredMethodAspect {
-    private static final Logger logger = LoggerFactory.getLogger(SecuredMethodAspect.class);
+	private static final Logger logger = LoggerFactory.getLogger(SecuredMethodAspect.class);
 
-    @Pointcut("@annotation(secured)")
-    public void callAt(Secured secured) {
-    }
+	@Pointcut("@annotation(secured)")
+	public void callAt(Secured secured) {
+	}
 
-    @Around(value = "callAt(secured)", argNames = "pjp,secured")
-    public Object around(ProceedingJoinPoint pjp, Secured secured) throws Throwable {
-        if (secured.isLocked()) {
-            logger.info(pjp.getSignature().toLongString() + " is locked");
-            return null;
-        } else {
-            return pjp.proceed();
-        }
-    }
+	@Around(value = "callAt(secured)", argNames = "pjp,secured")
+	public Object around(ProceedingJoinPoint pjp, Secured secured) throws Throwable {
+		if (secured.isLocked()) {
+			logger.info(pjp.getSignature().toLongString() + " is locked");
+			return null;
+		} else {
+			return pjp.proceed();
+		}
+	}
 }

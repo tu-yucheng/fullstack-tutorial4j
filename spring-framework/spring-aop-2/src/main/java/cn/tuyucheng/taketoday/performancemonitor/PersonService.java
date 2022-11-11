@@ -5,12 +5,12 @@ import java.time.Period;
 
 public class PersonService {
 
-    public String getFullName(Person person) {
-        return person.getLastName() + " " + person.getFirstName();
-    }
+	public String getFullName(Person person) {
+		return person.getLastName() + " " + person.getFirstName();
+	}
 
-    public int getAge(Person person) {
-        Period p = Period.between(person.getDateOfBirth(), LocalDate.now());
-        return p.getYears();
-    }
+	public int getAge(Person person) {
+		Period p = Period.between(person.getDateOfBirth(), LocalDate.now());
+		return p.getYears();
+	}
 }

@@ -5,21 +5,21 @@ import java.util.Map;
 
 class MyDictionary {
 
-    private final Map<String, String> wordMap;
+	private final Map<String, String> wordMap;
 
-    MyDictionary() {
-        wordMap = new HashMap<>();
-    }
+	MyDictionary() {
+		wordMap = new HashMap<>();
+	}
 
-    MyDictionary(Map<String, String> wordMap) {
-        this.wordMap = wordMap;
-    }
+	MyDictionary(Map<String, String> wordMap) {
+		this.wordMap = wordMap;
+	}
 
-    public void add(final String word, final String meaning) {
-        wordMap.put(word, meaning);
-    }
+	public void add(final String word, final String meaning) {
+		wordMap.put(word, meaning);
+	}
 
-    String getMeaning(final String word) {
-        return wordMap.get(word);
-    }
+	String getMeaning(final String word) {
+		return wordMap.get(word);
+	}
 }

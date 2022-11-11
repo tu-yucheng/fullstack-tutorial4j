@@ -14,30 +14,30 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 class LoginRedirectSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("user")
-                .password(encoder().encode("user"))
-                .roles("USER");
-    }
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.inMemoryAuthentication()
+				.withUser("user")
+				.password(encoder().encode("user"))
+				.roles("USER");
+	}
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.addFilterAfter(new LoginPageFilter(), UsernamePasswordAuthenticationFilter.class)
-                .authorizeRequests()
-                .antMatchers("/loginUser").permitAll()
-                .antMatchers("/user*").hasRole("USER")
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.addFilterAfter(new LoginPageFilter(), UsernamePasswordAuthenticationFilter.class)
+				.authorizeRequests()
+				.antMatchers("/loginUser").permitAll()
+				.antMatchers("/user*").hasRole("USER")
 
-                .and().formLogin().loginPage("/loginUser").loginProcessingUrl("/user_login")
-                .failureUrl("/loginUser?error=loginError").defaultSuccessUrl("/userMainPage").permitAll()
+				.and().formLogin().loginPage("/loginUser").loginProcessingUrl("/user_login")
+				.failureUrl("/loginUser?error=loginError").defaultSuccessUrl("/userMainPage").permitAll()
 
-                .and().logout().logoutUrl("/user_logout").logoutSuccessUrl("/loginUser").deleteCookies("JSESSIONID")
-                .and().csrf().disable();
-    }
+				.and().logout().logoutUrl("/user_logout").logoutSuccessUrl("/loginUser").deleteCookies("JSESSIONID")
+				.and().csrf().disable();
+	}
 
-    @Bean
-    public static PasswordEncoder encoder() {
-        return new BCryptPasswordEncoder();
-    }
+	@Bean
+	public static PasswordEncoder encoder() {
+		return new BCryptPasswordEncoder();
+	}
 }

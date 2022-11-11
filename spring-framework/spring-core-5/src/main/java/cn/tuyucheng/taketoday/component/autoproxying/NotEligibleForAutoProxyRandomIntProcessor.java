@@ -8,25 +8,25 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 
 public class NotEligibleForAutoProxyRandomIntProcessor implements BeanPostProcessor {
-    private final RandomIntGenerator randomIntGenerator;
+	private final RandomIntGenerator randomIntGenerator;
 
-    public NotEligibleForAutoProxyRandomIntProcessor(RandomIntGenerator randomIntGenerator) {
-        this.randomIntGenerator = randomIntGenerator;
-    }
+	public NotEligibleForAutoProxyRandomIntProcessor(RandomIntGenerator randomIntGenerator) {
+		this.randomIntGenerator = randomIntGenerator;
+	}
 
-    @Override
-    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        Field[] fields = bean.getClass().getDeclaredFields();
-        Arrays.stream(fields).forEach(field -> {
-            RandomInt injectRandomInt = field.getAnnotation(RandomInt.class);
-            if (injectRandomInt != null) {
-                int min = injectRandomInt.min();
-                int max = injectRandomInt.max();
-                int randomValue = randomIntGenerator.generate(min, max);
-                field.setAccessible(true);
-                ReflectionUtils.setField(field, bean, randomValue);
-            }
-        });
-        return bean;
-    }
+	@Override
+	public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+		Field[] fields = bean.getClass().getDeclaredFields();
+		Arrays.stream(fields).forEach(field -> {
+			RandomInt injectRandomInt = field.getAnnotation(RandomInt.class);
+			if (injectRandomInt != null) {
+				int min = injectRandomInt.min();
+				int max = injectRandomInt.max();
+				int randomValue = randomIntGenerator.generate(min, max);
+				field.setAccessible(true);
+				ReflectionUtils.setField(field, bean, randomValue);
+			}
+		});
+		return bean;
+	}
 }

@@ -16,28 +16,28 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(
-        loader = AnnotationConfigContextLoader.class,
-        classes = ApplicationContextTestInjectQualifier.class
+		loader = AnnotationConfigContextLoader.class,
+		classes = ApplicationContextTestInjectQualifier.class
 )
 class FieldQualifierInjectIntegrationTest {
-    
-    @Inject
-    @Qualifier("defaultFile")
-    private ArbitraryDependency defaultDependency;
 
-    @Inject
-    @Qualifier("namedFile")
-    private ArbitraryDependency namedDependency;
+	@Inject
+	@Qualifier("defaultFile")
+	private ArbitraryDependency defaultDependency;
 
-    @Test
-    void givenInjectQualifier_WhenOnField_ThenDefaultFileValid() {
-        assertNotNull(defaultDependency);
-        assertEquals("Arbitrary Dependency", defaultDependency.toString());
-    }
+	@Inject
+	@Qualifier("namedFile")
+	private ArbitraryDependency namedDependency;
 
-    @Test
-    void givenInjectQualifier_WhenOnField_ThenNamedFileValid() {
-        assertNotNull(defaultDependency);
-        assertEquals("Another Arbitrary Dependency", namedDependency.toString());
-    }
+	@Test
+	void givenInjectQualifier_WhenOnField_ThenDefaultFileValid() {
+		assertNotNull(defaultDependency);
+		assertEquals("Arbitrary Dependency", defaultDependency.toString());
+	}
+
+	@Test
+	void givenInjectQualifier_WhenOnField_ThenNamedFileValid() {
+		assertNotNull(defaultDependency);
+		assertEquals("Another Arbitrary Dependency", namedDependency.toString());
+	}
 }

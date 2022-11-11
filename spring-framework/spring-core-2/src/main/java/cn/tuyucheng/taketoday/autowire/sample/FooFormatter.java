@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @FormatterType("Foo")
 public class FooFormatter implements Formatter {
 
-    public String format() {
-        return "foo";
-    }
+	public String format() {
+		return "foo";
+	}
 }

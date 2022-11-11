@@ -13,18 +13,18 @@ import static org.junit.jupiter.api.Assertions.*;
 @ContextConfiguration(classes = {MammalConfiguration.class})
 class MammalConfigUnitTest {
 
-    @Autowired
-    ApplicationContext context;
+	@Autowired
+	ApplicationContext context;
 
-    @Test
-    void givenImportedBeans_whenGettingEach_shallFindOnlyTheImportedBeans() {
-        assertThatBeanExists("dog", Dog.class);
-        assertThatBeanExists("cat", Cat.class);
-        assertFalse(context.containsBean("bird"));
-    }
+	@Test
+	void givenImportedBeans_whenGettingEach_shallFindOnlyTheImportedBeans() {
+		assertThatBeanExists("dog", Dog.class);
+		assertThatBeanExists("cat", Cat.class);
+		assertFalse(context.containsBean("bird"));
+	}
 
-    private void assertThatBeanExists(String beanName, Class<?> beanClass) {
-        assertTrue(context.containsBean(beanName));
-        assertNotNull(context.getBean(beanClass));
-    }
+	private void assertThatBeanExists(String beanName, Class<?> beanClass) {
+		assertTrue(context.containsBean(beanName));
+		assertNotNull(context.getBean(beanClass));
+	}
 }

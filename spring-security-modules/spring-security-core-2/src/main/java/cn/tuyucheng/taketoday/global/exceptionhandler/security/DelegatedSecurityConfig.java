@@ -15,30 +15,30 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 @Order(101)
 public class DelegatedSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    @Qualifier("delegatedAuthenticationEntryPoint")
-    AuthenticationEntryPoint authEntryPoint;
+	@Autowired
+	@Qualifier("delegatedAuthenticationEntryPoint")
+	AuthenticationEntryPoint authEntryPoint;
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.requestMatchers()
-                .antMatchers("/login-handler")
-                .and()
-                .authorizeRequests()
-                .anyRequest()
-                .hasRole("ADMIN")
-                .and()
-                .httpBasic()
-                .and()
-                .exceptionHandling()
-                .authenticationEntryPoint(authEntryPoint);
-    }
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.requestMatchers()
+				.antMatchers("/login-handler")
+				.and()
+				.authorizeRequests()
+				.anyRequest()
+				.hasRole("ADMIN")
+				.and()
+				.httpBasic()
+				.and()
+				.exceptionHandling()
+				.authenticationEntryPoint(authEntryPoint);
+	}
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("admin")
-                .password("password")
-                .roles("ADMIN");
-    }
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.inMemoryAuthentication()
+				.withUser("admin")
+				.password("password")
+				.roles("ADMIN");
+	}
 }

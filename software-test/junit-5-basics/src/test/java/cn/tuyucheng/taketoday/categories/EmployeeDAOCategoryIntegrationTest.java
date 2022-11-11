@@ -24,42 +24,42 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @ContextConfiguration(classes = {SpringJdbcConfig.class}, loader = AnnotationConfigContextLoader.class)
 public class EmployeeDAOCategoryIntegrationTest {
 
-    @Autowired
-    private EmployeeDAO employeeDao;
+	@Autowired
+	private EmployeeDAO employeeDao;
 
-    @Mock
-    private JdbcTemplate jdbcTemplate;
-    private EmployeeDAO employeeDAO;
+	@Mock
+	private JdbcTemplate jdbcTemplate;
+	private EmployeeDAO employeeDAO;
 
-    @Before
-    public void setup() {
-        MockitoAnnotations.openMocks(this);
-        employeeDAO = new EmployeeDAO();
-        employeeDAO.setJdbcTemplate(jdbcTemplate);
-    }
+	@Before
+	public void setup() {
+		MockitoAnnotations.openMocks(this);
+		employeeDAO = new EmployeeDAO();
+		employeeDAO.setJdbcTemplate(jdbcTemplate);
+	}
 
-    @Test
-    @Category(IntegrationTest.class)
-    public void testAddEmployeeUsingSimpleJdbcInsert() {
-        final Employee emp = new Employee();
-        emp.setId(12);
-        emp.setFirstName("testFirstName");
-        emp.setLastName("testLastName");
-        emp.setAddress("testAddress");
+	@Test
+	@Category(IntegrationTest.class)
+	public void testAddEmployeeUsingSimpleJdbcInsert() {
+		final Employee emp = new Employee();
+		emp.setId(12);
+		emp.setFirstName("testFirstName");
+		emp.setLastName("testLastName");
+		emp.setAddress("testAddress");
 
-        Assert.assertEquals(employeeDao.addEmployeeUsingSimpleJdbcInsert(emp), 1);
-    }
+		Assert.assertEquals(employeeDao.addEmployeeUsingSimpleJdbcInsert(emp), 1);
+	}
 
-    @Test
-    @Category(UnitTest.class)
-    public void givenNumberOfEmployeeWhenCountEmployeeThenCountMatch() {
-        // given
-        Mockito.when(jdbcTemplate.queryForObject(Mockito.any(String.class), Mockito.eq(Integer.class))).thenReturn(1);
+	@Test
+	@Category(UnitTest.class)
+	public void givenNumberOfEmployeeWhenCountEmployeeThenCountMatch() {
+		// given
+		Mockito.when(jdbcTemplate.queryForObject(Mockito.any(String.class), Mockito.eq(Integer.class))).thenReturn(1);
 
-        // when
-        int countOfEmployees = employeeDAO.getCountOfEmployees();
+		// when
+		int countOfEmployees = employeeDAO.getCountOfEmployees();
 
-        // then
-        assertThat(countOfEmployees, CoreMatchers.is(1));
-    }
+		// then
+		assertThat(countOfEmployees, CoreMatchers.is(1));
+	}
 }

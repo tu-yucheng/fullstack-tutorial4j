@@ -13,12 +13,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @ContextConfiguration(classes = {SpringProfilesConfig.class}, loader = AnnotationConfigContextLoader.class)
 class SpringProfilesWithMavenPropertiesIntegrationTest {
 
-    @Autowired
-    DataSourceConfig datasourceConfig;
+	@Autowired
+	DataSourceConfig datasourceConfig;
 
-    @Test
-    void setupDatasource() {
-        datasourceConfig.setup();
-        assertTrue(datasourceConfig instanceof DevDataSourceConfig);
-    }
+	@Test
+	void setupDatasource() {
+		datasourceConfig.setup();
+		assertTrue(datasourceConfig instanceof DevDataSourceConfig);
+	}
 }

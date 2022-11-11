@@ -16,24 +16,24 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class ArgumentMatcherWithLambdaUnitTest {
 
-    @InjectMocks
-    private UnemploymentServiceImpl unemploymentService;
+	@InjectMocks
+	private UnemploymentServiceImpl unemploymentService;
 
-    @Mock
-    private JobService jobService;
+	@Mock
+	private JobService jobService;
 
-    @Test
-    void whenPersonWithJob_thenIsNotEntitled() {
-        Person peter = new Person("Peter");
-        Person linda = new Person("Linda");
+	@Test
+	void whenPersonWithJob_thenIsNotEntitled() {
+		Person peter = new Person("Peter");
+		Person linda = new Person("Linda");
 
-        JobPosition teacher = new JobPosition("Teacher");
+		JobPosition teacher = new JobPosition("Teacher");
 
-        when(jobService.findCurrentJobPosition(
-                ArgumentMatchers.argThat((p) -> p.getName().equals("Peter")))
-        ).thenReturn(Optional.of(teacher));
+		when(jobService.findCurrentJobPosition(
+				ArgumentMatchers.argThat((p) -> p.getName().equals("Peter")))
+		).thenReturn(Optional.of(teacher));
 
-        assertTrue(unemploymentService.personIsEntitledToUnemploymentSupport(linda));
-        assertFalse(unemploymentService.personIsEntitledToUnemploymentSupport(peter));
-    }
+		assertTrue(unemploymentService.personIsEntitledToUnemploymentSupport(linda));
+		assertFalse(unemploymentService.personIsEntitledToUnemploymentSupport(peter));
+	}
 }

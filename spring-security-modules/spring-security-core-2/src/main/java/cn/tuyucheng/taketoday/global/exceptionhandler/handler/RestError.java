@@ -6,6 +6,6 @@ import lombok.Data;
 @AllArgsConstructor
 @Data
 public class RestError {
-    String errorCode;
-    String errorMessage;
+	String errorCode;
+	String errorMessage;
 }

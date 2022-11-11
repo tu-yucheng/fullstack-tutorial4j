@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = "cn.tuyucheng.boot.jackson.controller")
 public class JacksonApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(JacksonApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(JacksonApplication.class, args);
+	}
 }

@@ -10,14 +10,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class NetworkTrafficProducerPushUnitTest {
 
-    @Test
-    void givenFluxWithAsynchronousPushWithListener_whenListenerIsInvoked_thenItemCollectedByTheSubscriber() throws InterruptedException {
-        List<String> elements = new ArrayList<>();
+	@Test
+	void givenFluxWithAsynchronousPushWithListener_whenListenerIsInvoked_thenItemCollectedByTheSubscriber() throws InterruptedException {
+		List<String> elements = new ArrayList<>();
 
-        NetworkTrafficProducerPush trafficProducer = new NetworkTrafficProducerPush();
-        trafficProducer.subscribe(elements::add);
-        trafficProducer.onPacket("Packet[A18]");
+		NetworkTrafficProducerPush trafficProducer = new NetworkTrafficProducerPush();
+		trafficProducer.subscribe(elements::add);
+		trafficProducer.onPacket("Packet[A18]");
 
-        assertThat(elements).containsExactly("Packet[A18]");
-    }
+		assertThat(elements).containsExactly("Packet[A18]");
+	}
 }

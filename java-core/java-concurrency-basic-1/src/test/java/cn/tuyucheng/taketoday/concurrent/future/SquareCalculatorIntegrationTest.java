@@ -14,76 +14,76 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SquareCalculatorIntegrationTest {
 
-    private static final Logger LOG = LoggerFactory.getLogger(SquareCalculatorIntegrationTest.class);
+	private static final Logger LOG = LoggerFactory.getLogger(SquareCalculatorIntegrationTest.class);
 
-    @Rule
-    public TestName name = new TestName();
+	@Rule
+	public TestName name = new TestName();
 
-    private long start;
+	private long start;
 
-    private SquareCalculator squareCalculator;
+	private SquareCalculator squareCalculator;
 
-    @Test
-    void givenExecutorIsSingleThreaded_whenTwoExecutionsAreTriggered_thenRunInSequence() throws InterruptedException, ExecutionException {
-        squareCalculator = new SquareCalculator(Executors.newSingleThreadExecutor());
+	@Test
+	void givenExecutorIsSingleThreaded_whenTwoExecutionsAreTriggered_thenRunInSequence() throws InterruptedException, ExecutionException {
+		squareCalculator = new SquareCalculator(Executors.newSingleThreadExecutor());
 
-        Future<Integer> result1 = squareCalculator.calculate(4);
-        Future<Integer> result2 = squareCalculator.calculate(1000);
+		Future<Integer> result1 = squareCalculator.calculate(4);
+		Future<Integer> result2 = squareCalculator.calculate(1000);
 
-        while (!result1.isDone() || !result2.isDone()) {
-            LOG.debug(String.format("Task 1 is %s and Task 2 is %s.", result1.isDone() ? "done" : "not done", result2.isDone() ? "done" : "not done"));
-            Thread.sleep(300);
-        }
+		while (!result1.isDone() || !result2.isDone()) {
+			LOG.debug(String.format("Task 1 is %s and Task 2 is %s.", result1.isDone() ? "done" : "not done", result2.isDone() ? "done" : "not done"));
+			Thread.sleep(300);
+		}
 
-        assertEquals(16, result1.get().intValue());
-        assertEquals(1000000, result2.get().intValue());
-    }
+		assertEquals(16, result1.get().intValue());
+		assertEquals(1000000, result2.get().intValue());
+	}
 
-    @Test
-    void whenGetWithTimeoutLowerThanExecutionTime_thenThrowException() throws InterruptedException, ExecutionException, TimeoutException {
-        squareCalculator = new SquareCalculator(Executors.newSingleThreadExecutor());
-        Future<Integer> result = squareCalculator.calculate(4);
-        assertThrows(TimeoutException.class, () -> result.get(500, TimeUnit.MILLISECONDS));
-    }
+	@Test
+	void whenGetWithTimeoutLowerThanExecutionTime_thenThrowException() throws InterruptedException, ExecutionException, TimeoutException {
+		squareCalculator = new SquareCalculator(Executors.newSingleThreadExecutor());
+		Future<Integer> result = squareCalculator.calculate(4);
+		assertThrows(TimeoutException.class, () -> result.get(500, TimeUnit.MILLISECONDS));
+	}
 
-    @Test
-    void givenExecutorIsMultiThreaded_whenTwoExecutionsAreTriggered_thenRunInParallel() throws InterruptedException, ExecutionException {
-        squareCalculator = new SquareCalculator(Executors.newFixedThreadPool(2));
+	@Test
+	void givenExecutorIsMultiThreaded_whenTwoExecutionsAreTriggered_thenRunInParallel() throws InterruptedException, ExecutionException {
+		squareCalculator = new SquareCalculator(Executors.newFixedThreadPool(2));
 
-        Future<Integer> result1 = squareCalculator.calculate(4);
-        Future<Integer> result2 = squareCalculator.calculate(1000);
+		Future<Integer> result1 = squareCalculator.calculate(4);
+		Future<Integer> result2 = squareCalculator.calculate(1000);
 
-        while (!result1.isDone() || !result2.isDone()) {
-            LOG.debug(String.format("Task 1 is %s and Task 2 is %s.", result1.isDone() ? "done" : "not done", result2.isDone() ? "done" : "not done"));
+		while (!result1.isDone() || !result2.isDone()) {
+			LOG.debug(String.format("Task 1 is %s and Task 2 is %s.", result1.isDone() ? "done" : "not done", result2.isDone() ? "done" : "not done"));
 
-            Thread.sleep(300);
-        }
+			Thread.sleep(300);
+		}
 
-        assertEquals(16, result1.get().intValue());
-        assertEquals(1000000, result2.get().intValue());
-    }
+		assertEquals(16, result1.get().intValue());
+		assertEquals(1000000, result2.get().intValue());
+	}
 
-    @Test
-    void whenCancelFutureAndCallGet_thenThrowException() throws InterruptedException, ExecutionException, TimeoutException {
-        squareCalculator = new SquareCalculator(Executors.newSingleThreadExecutor());
+	@Test
+	void whenCancelFutureAndCallGet_thenThrowException() throws InterruptedException, ExecutionException, TimeoutException {
+		squareCalculator = new SquareCalculator(Executors.newSingleThreadExecutor());
 
-        Future<Integer> result = squareCalculator.calculate(4);
+		Future<Integer> result = squareCalculator.calculate(4);
 
-        boolean canceled = result.cancel(true);
+		boolean canceled = result.cancel(true);
 
-        assertTrue(canceled, "Future was canceled");
-        assertTrue(result.isCancelled(), "Future was canceled");
+		assertTrue(canceled, "Future was canceled");
+		assertTrue(result.isCancelled(), "Future was canceled");
 
-        assertThrows(CancellationException.class, result::get);
-    }
+		assertThrows(CancellationException.class, result::get);
+	}
 
-    @BeforeEach
-    void start() {
-        start = System.currentTimeMillis();
-    }
+	@BeforeEach
+	void start() {
+		start = System.currentTimeMillis();
+	}
 
-    @AfterEach
-    void tearDown() {
-        LOG.debug(String.format("Test %s took %s ms \n", name.getMethodName(), System.currentTimeMillis() - start));
-    }
+	@AfterEach
+	void tearDown() {
+		LOG.debug(String.format("Test %s took %s ms \n", name.getMethodName(), System.currentTimeMillis() - start));
+	}
 }

@@ -22,38 +22,38 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 @DisplayName("Content Security Policy Unit Tests")
 class ContentSecurityPolicyUnitTest {
 
-    @Autowired
-    private MockMvc mockMvc;
+	@Autowired
+	private MockMvc mockMvc;
 
-    @Test
-    @DisplayName("Test to Check Bad URL")
-    void whenWrongUri_thenThrow404() throws Exception {
-        MvcResult result = mockMvc.perform(post("/reports").content("").contentType(MediaType.APPLICATION_JSON)).andReturn();
+	@Test
+	@DisplayName("Test to Check Bad URL")
+	void whenWrongUri_thenThrow404() throws Exception {
+		MvcResult result = mockMvc.perform(post("/reports").content("").contentType(MediaType.APPLICATION_JSON)).andReturn();
 
-        assertEquals(HttpStatus.NOT_FOUND.value(), result.getResponse().getStatus());
-    }
+		assertEquals(HttpStatus.NOT_FOUND.value(), result.getResponse().getStatus());
+	}
 
-    @Test
-    @DisplayName("Test to Check Page rendering")
-    void whenGet_thenRenderPage() throws Exception {
-        MvcResult result = mockMvc.perform(get("/").content("")).andReturn();
+	@Test
+	@DisplayName("Test to Check Page rendering")
+	void whenGet_thenRenderPage() throws Exception {
+		MvcResult result = mockMvc.perform(get("/").content("")).andReturn();
 
-        assertEquals(HttpStatus.OK.value(), result.getResponse().getStatus());
-        assertEquals("text/html", MediaType.TEXT_HTML_VALUE);
-    }
+		assertEquals(HttpStatus.OK.value(), result.getResponse().getStatus());
+		assertEquals("text/html", MediaType.TEXT_HTML_VALUE);
+	}
 
-    @Test
-    @DisplayName("Test to Check CSP headers")
-    void whenGet_thenCheckCspHeaders() throws Exception {
-        MvcResult result = mockMvc.perform(get("/").content("")).andReturn();
-        HttpServletResponse response = result.getResponse();
-        Collection<String> headers = response.getHeaderNames();
+	@Test
+	@DisplayName("Test to Check CSP headers")
+	void whenGet_thenCheckCspHeaders() throws Exception {
+		MvcResult result = mockMvc.perform(get("/").content("")).andReturn();
+		HttpServletResponse response = result.getResponse();
+		Collection<String> headers = response.getHeaderNames();
 
-        assertNotNull(result);
-        assertNotNull(headers);
-        assertEquals(HttpStatus.OK.value(), response.getStatus());
-        assertEquals("text/html", MediaType.TEXT_HTML_VALUE);
-        assertTrue(headers.contains("Report-To"));
-        assertTrue(headers.contains("Content-Security-Policy"));
-    }
+		assertNotNull(result);
+		assertNotNull(headers);
+		assertEquals(HttpStatus.OK.value(), response.getStatus());
+		assertEquals("text/html", MediaType.TEXT_HTML_VALUE);
+		assertTrue(headers.contains("Report-To"));
+		assertTrue(headers.contains("Content-Security-Policy"));
+	}
 }

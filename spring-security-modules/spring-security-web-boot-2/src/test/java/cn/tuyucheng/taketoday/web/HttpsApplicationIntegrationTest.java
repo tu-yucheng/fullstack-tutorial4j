@@ -27,30 +27,30 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ActiveProfiles("ssl")
 class HttpsApplicationIntegrationTest {
 
-    private static final String WELCOME_URL = "https://localhost:8443/welcome";
+	private static final String WELCOME_URL = "https://localhost:8443/welcome";
 
-    @Value("${trust.store}")
-    private Resource trustStore;
+	@Value("${trust.store}")
+	private Resource trustStore;
 
-    @Value("${trust.store.password}")
-    private String trustStorePassword;
+	@Value("${trust.store.password}")
+	private String trustStorePassword;
 
-    @Test
-    void whenGETanHTTPSResource_thenCorrectResponse() throws Exception {
-        ResponseEntity<String> response = restTemplate().getForEntity(WELCOME_URL, String.class, Collections.emptyMap());
+	@Test
+	void whenGETanHTTPSResource_thenCorrectResponse() throws Exception {
+		ResponseEntity<String> response = restTemplate().getForEntity(WELCOME_URL, String.class, Collections.emptyMap());
 
-        assertEquals("<h1>Welcome to Secured Site</h1>", response.getBody());
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-    }
+		assertEquals("<h1>Welcome to Secured Site</h1>", response.getBody());
+		assertEquals(HttpStatus.OK, response.getStatusCode());
+	}
 
-    RestTemplate restTemplate() throws Exception {
-        SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(trustStore.getURL(), trustStorePassword.toCharArray())
-                .build();
-        SSLConnectionSocketFactory socketFactory = new SSLConnectionSocketFactory(sslContext);
-        HttpClient httpClient = HttpClients.custom()
-                .setSSLSocketFactory(socketFactory)
-                .build();
-        HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory(httpClient);
-        return new RestTemplate(factory);
-    }
+	RestTemplate restTemplate() throws Exception {
+		SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(trustStore.getURL(), trustStorePassword.toCharArray())
+				.build();
+		SSLConnectionSocketFactory socketFactory = new SSLConnectionSocketFactory(sslContext);
+		HttpClient httpClient = HttpClients.custom()
+				.setSSLSocketFactory(socketFactory)
+				.build();
+		HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory(httpClient);
+		return new RestTemplate(factory);
+	}
 }

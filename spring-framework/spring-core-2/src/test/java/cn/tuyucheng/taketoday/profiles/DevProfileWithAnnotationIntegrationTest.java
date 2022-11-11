@@ -14,11 +14,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @ActiveProfiles("dev")
 @ContextConfiguration(classes = {SpringProfilesConfig.class}, loader = AnnotationConfigContextLoader.class)
 class DevProfileWithAnnotationIntegrationTest {
-    @Autowired
-    DataSourceConfig datasourceConfig;
+	@Autowired
+	DataSourceConfig datasourceConfig;
 
-    @Test
-    void testSpringProfiles() {
-        assertTrue(datasourceConfig instanceof DevDataSourceConfig);
-    }
+	@Test
+	void testSpringProfiles() {
+		assertTrue(datasourceConfig instanceof DevDataSourceConfig);
+	}
 }

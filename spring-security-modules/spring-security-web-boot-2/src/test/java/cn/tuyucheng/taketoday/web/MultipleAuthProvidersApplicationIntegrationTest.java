@@ -17,45 +17,45 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = MultipleAuthProvidersApplication.class)
 class MultipleAuthProvidersApplicationIntegrationTest {
-    @Autowired
-    private TestRestTemplate restTemplate;
+	@Autowired
+	private TestRestTemplate restTemplate;
 
-    @Test
-    void givenMemUsers_whenGetPingWithValidUser_thenOk() {
-        ResponseEntity<String> result = makeRestCallToGetPing("memuser", "pass");
+	@Test
+	void givenMemUsers_whenGetPingWithValidUser_thenOk() {
+		ResponseEntity<String> result = makeRestCallToGetPing("memuser", "pass");
 
-        assertThat(result.getStatusCodeValue()).isEqualTo(200);
-        assertThat(result.getBody()).isEqualTo("OK");
-    }
+		assertThat(result.getStatusCodeValue()).isEqualTo(200);
+		assertThat(result.getBody()).isEqualTo("OK");
+	}
 
-    @Test
-    void givenExternalUsers_whenGetPingWithValidUser_thenOK() {
-        ResponseEntity<String> result = makeRestCallToGetPing("externaluser", "pass");
+	@Test
+	void givenExternalUsers_whenGetPingWithValidUser_thenOK() {
+		ResponseEntity<String> result = makeRestCallToGetPing("externaluser", "pass");
 
-        assertThat(result.getStatusCodeValue()).isEqualTo(200);
-        assertThat(result.getBody()).isEqualTo("OK");
-    }
+		assertThat(result.getStatusCodeValue()).isEqualTo(200);
+		assertThat(result.getBody()).isEqualTo("OK");
+	}
 
-    @Test
-    void givenAuthProviders_whenGetPingWithNoCred_then401() {
-        ResponseEntity<String> result = makeRestCallToGetPing();
+	@Test
+	void givenAuthProviders_whenGetPingWithNoCred_then401() {
+		ResponseEntity<String> result = makeRestCallToGetPing();
 
-        assertThat(result.getStatusCodeValue()).isEqualTo(401);
-    }
+		assertThat(result.getStatusCodeValue()).isEqualTo(401);
+	}
 
-    @Test
-    void givenAuthProviders_whenGetPingWithBadCred_then401() {
-        ResponseEntity<String> result = makeRestCallToGetPing("user", "bad_password");
+	@Test
+	void givenAuthProviders_whenGetPingWithBadCred_then401() {
+		ResponseEntity<String> result = makeRestCallToGetPing("user", "bad_password");
 
-        assertThat(result.getStatusCodeValue()).isEqualTo(401);
-    }
+		assertThat(result.getStatusCodeValue()).isEqualTo(401);
+	}
 
-    private ResponseEntity<String> makeRestCallToGetPing(String username, String password) {
-        return restTemplate.withBasicAuth(username, password)
-                .getForEntity("/api/ping", String.class, Collections.emptyMap());
-    }
+	private ResponseEntity<String> makeRestCallToGetPing(String username, String password) {
+		return restTemplate.withBasicAuth(username, password)
+				.getForEntity("/api/ping", String.class, Collections.emptyMap());
+	}
 
-    private ResponseEntity<String> makeRestCallToGetPing() {
-        return restTemplate.getForEntity("/api/ping", String.class, Collections.emptyMap());
-    }
+	private ResponseEntity<String> makeRestCallToGetPing() {
+		return restTemplate.getForEntity("/api/ping", String.class, Collections.emptyMap());
+	}
 }

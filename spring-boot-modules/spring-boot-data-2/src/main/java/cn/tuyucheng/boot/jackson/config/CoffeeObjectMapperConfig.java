@@ -10,11 +10,11 @@ import org.springframework.context.annotation.Primary;
 @Configuration
 public class CoffeeObjectMapperConfig {
 
-    @Bean
-    @Primary
-    public ObjectMapper objectMapper() {
-        JavaTimeModule module = new JavaTimeModule();
-        module.addSerializer(CoffeeConstants.LOCAL_DATETIME_SERIALIZER);
-        return new ObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL).registerModule(module);
-    }
+	@Bean
+	@Primary
+	public ObjectMapper objectMapper() {
+		JavaTimeModule module = new JavaTimeModule();
+		module.addSerializer(CoffeeConstants.LOCAL_DATETIME_SERIALIZER);
+		return new ObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL).registerModule(module);
+	}
 }

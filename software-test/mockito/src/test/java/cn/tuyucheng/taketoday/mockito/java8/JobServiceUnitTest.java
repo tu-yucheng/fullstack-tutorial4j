@@ -15,26 +15,26 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class JobServiceUnitTest {
-    @Mock
-    private JobService jobService;
+	@Mock
+	private JobService jobService;
 
-    @Test
-    void givenDefaultMethod_whenCallRealMethod_thenNoExceptionIsRaised() {
-        Person person = new Person();
+	@Test
+	void givenDefaultMethod_whenCallRealMethod_thenNoExceptionIsRaised() {
+		Person person = new Person();
 
-        when(jobService.findCurrentJobPosition(person)).thenReturn(Optional.of(new JobPosition()));
-        doCallRealMethod().when(jobService).assignJobPosition(any(Person.class), any(JobPosition.class));
+		when(jobService.findCurrentJobPosition(person)).thenReturn(Optional.of(new JobPosition()));
+		doCallRealMethod().when(jobService).assignJobPosition(any(Person.class), any(JobPosition.class));
 
-        assertFalse(jobService.assignJobPosition(person, new JobPosition()));
-    }
+		assertFalse(jobService.assignJobPosition(person, new JobPosition()));
+	}
 
-    @Test
-    void givenReturnIsOfTypeOptional_whenDefaultValueIsReturned_thenValueIsEmpty() {
-        Person person = new Person();
+	@Test
+	void givenReturnIsOfTypeOptional_whenDefaultValueIsReturned_thenValueIsEmpty() {
+		Person person = new Person();
 
-        when(jobService.findCurrentJobPosition(person)).thenReturn(Optional.empty());
-        doCallRealMethod().when(jobService).assignJobPosition(any(Person.class), any(JobPosition.class));
+		when(jobService.findCurrentJobPosition(person)).thenReturn(Optional.empty());
+		doCallRealMethod().when(jobService).assignJobPosition(any(Person.class), any(JobPosition.class));
 
-        assertTrue(jobService.assignJobPosition(person, new JobPosition()));
-    }
+		assertTrue(jobService.assignJobPosition(person, new JobPosition()));
+	}
 }

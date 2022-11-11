@@ -11,30 +11,30 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 public class MultipleAuthProvidersSecurityConfig extends WebSecurityConfigurerAdapter {
-    @Autowired
-    CustomAuthenticationProvider customAuthProvider;
+	@Autowired
+	CustomAuthenticationProvider customAuthProvider;
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(customAuthProvider);
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.authenticationProvider(customAuthProvider);
 
-        auth.inMemoryAuthentication()
-                .withUser("memuser")
-                .password(passwordEncoder().encode("pass"))
-                .roles("USER");
-    }
+		auth.inMemoryAuthentication()
+				.withUser("memuser")
+				.password(passwordEncoder().encode("pass"))
+				.roles("USER");
+	}
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.httpBasic()
-                .and()
-                .authorizeRequests()
-                .antMatchers("/api/**")
-                .authenticated();
-    }
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.httpBasic()
+				.and()
+				.authorizeRequests()
+				.antMatchers("/api/**")
+				.authenticated();
+	}
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 }

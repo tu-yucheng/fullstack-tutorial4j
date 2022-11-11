@@ -19,18 +19,18 @@ import static org.hamcrest.Matchers.equalTo;
 @ContextConfiguration(loader = AnnotationConfigContextLoader.class)
 class RatingRetrieverUnitTest {
 
-    @Autowired
-    private List<Rating> ratings;
+	@Autowired
+	private List<Rating> ratings;
 
-    @Test
-    void givenOrderOnComponents_whenInjected_thenAutowireByOrderValue() {
-        assertThat(ratings.get(0).getRating(), is(equalTo(1)));
-        assertThat(ratings.get(1).getRating(), is(equalTo(2)));
-        assertThat(ratings.get(2).getRating(), is(equalTo(3)));
-    }
+	@Test
+	void givenOrderOnComponents_whenInjected_thenAutowireByOrderValue() {
+		assertThat(ratings.get(0).getRating(), is(equalTo(1)));
+		assertThat(ratings.get(1).getRating(), is(equalTo(2)));
+		assertThat(ratings.get(2).getRating(), is(equalTo(3)));
+	}
 
-    @Configuration
-    @ComponentScan(basePackages = {"cn.tuyucheng.taketoday.order"})
-    static class ContextConfiguration {
-    }
+	@Configuration
+	@ComponentScan(basePackages = {"cn.tuyucheng.taketoday.order"})
+	static class ContextConfiguration {
+	}
 }

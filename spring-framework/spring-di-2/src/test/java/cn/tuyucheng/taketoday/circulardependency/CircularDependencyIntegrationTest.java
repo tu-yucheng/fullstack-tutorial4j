@@ -14,22 +14,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ContextConfiguration(classes = TestConfig.class)
 class CircularDependencyIntegrationTest {
 
-    @Autowired
-    ApplicationContext context;
+	@Autowired
+	ApplicationContext context;
 
-    @Bean
-    public CircularDependencyA getCircularDependencyA() {
-        return new CircularDependencyA();
-    }
+	@Bean
+	public CircularDependencyA getCircularDependencyA() {
+		return new CircularDependencyA();
+	}
 
-    @Bean
-    public CircularDependencyB getCircularDependencyB() {
-        return new CircularDependencyB();
-    }
+	@Bean
+	public CircularDependencyB getCircularDependencyB() {
+		return new CircularDependencyB();
+	}
 
-    @Test
-    void givenCircularDependency_whenSetterInjection_thenItWorks() {
-        final CircularDependencyA circA = context.getBean(CircularDependencyA.class);
-        assertEquals("Hi!", circA.getCircB().getMessage());
-    }
+	@Test
+	void givenCircularDependency_whenSetterInjection_thenItWorks() {
+		final CircularDependencyA circA = context.getBean(CircularDependencyA.class);
+		assertEquals("Hi!", circA.getCircB().getMessage());
+	}
 }

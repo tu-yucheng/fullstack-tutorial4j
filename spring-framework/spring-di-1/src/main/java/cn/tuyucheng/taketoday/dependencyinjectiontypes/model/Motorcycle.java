@@ -1,25 +1,25 @@
 package cn.tuyucheng.taketoday.dependencyinjectiontypes.model;
 
 public class Motorcycle extends Vehicle {
-    private boolean twoWheeler;
+	private boolean twoWheeler;
 
-    public Motorcycle(String name, String manufacturer, boolean twoWheeler) {
-        super(name, manufacturer);
-        this.twoWheeler = true;
-    }
+	public Motorcycle(String name, String manufacturer, boolean twoWheeler) {
+		super(name, manufacturer);
+		this.twoWheeler = true;
+	}
 
-    public boolean isTwoWheeler() {
-        return twoWheeler;
-    }
+	public boolean isTwoWheeler() {
+		return twoWheeler;
+	}
 
-    public void setTwoWheeler(boolean twoWheeler) {
-        this.twoWheeler = twoWheeler;
-    }
+	public void setTwoWheeler(boolean twoWheeler) {
+		this.twoWheeler = twoWheeler;
+	}
 
-    @Override
-    public String toString() {
-        return "Motorcycle{" +
-               "twoWheeler=" + twoWheeler +
-               '}';
-    }
+	@Override
+	public String toString() {
+		return "Motorcycle{" +
+				"twoWheeler=" + twoWheeler +
+				'}';
+	}
 }

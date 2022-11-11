@@ -19,27 +19,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {NotEligibleForAutoProxyRandomIntProcessor.class, DataCache.class, RandomIntGenerator.class})
 class NotEligibleForAutoProxyingIntegrationTest {
-    private static MemoryLogAppender memoryAppender;
-    private NotEligibleForAutoProxyRandomIntProcessor proxyRandomIntProcessor;
+	private static MemoryLogAppender memoryAppender;
+	private NotEligibleForAutoProxyRandomIntProcessor proxyRandomIntProcessor;
 
-    @Autowired
-    private DataCache dataCache;
+	@Autowired
+	private DataCache dataCache;
 
-    @BeforeAll
-    static void setup() {
-        memoryAppender = new MemoryLogAppender();
-        memoryAppender.setContext((LoggerContext) LoggerFactory.getILoggerFactory());
+	@BeforeAll
+	static void setup() {
+		memoryAppender = new MemoryLogAppender();
+		memoryAppender.setContext((LoggerContext) LoggerFactory.getILoggerFactory());
 
-        Logger logger = (Logger) LoggerFactory.getLogger("org.springframework.context");
-        logger.setLevel(Level.INFO);
-        logger.addAppender(memoryAppender);
-        memoryAppender.start();
-    }
+		Logger logger = (Logger) LoggerFactory.getLogger("org.springframework.context");
+		logger.setLevel(Level.INFO);
+		logger.addAppender(memoryAppender);
+		memoryAppender.start();
+	}
 
-    @Test
-    void givenAutowireInBeanPostProcessor_whenSpringContextInitialize_thenNotEligibleLogShouldShowAndGroupFieldNotPopulated() {
-        List<ILoggingEvent> notEligibleEvents = memoryAppender.search("Bean 'randomIntGenerator' of type [cn.tuyucheng.taketoday.component.autoproxying.RandomIntGenerator] " + "is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)");
-        assertEquals(1, notEligibleEvents.size());
-        assertEquals(0, dataCache.getGroup());
-    }
+	@Test
+	void givenAutowireInBeanPostProcessor_whenSpringContextInitialize_thenNotEligibleLogShouldShowAndGroupFieldNotPopulated() {
+		List<ILoggingEvent> notEligibleEvents = memoryAppender.search("Bean 'randomIntGenerator' of type [cn.tuyucheng.taketoday.component.autoproxying.RandomIntGenerator] " + "is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)");
+		assertEquals(1, notEligibleEvents.size());
+		assertEquals(0, dataCache.getGroup());
+	}
 }

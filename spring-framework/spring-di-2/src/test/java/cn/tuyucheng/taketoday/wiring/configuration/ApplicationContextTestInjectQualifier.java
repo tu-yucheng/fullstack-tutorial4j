@@ -8,13 +8,13 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ApplicationContextTestInjectQualifier {
 
-    @Bean
-    public ArbitraryDependency defaultFile() {
-        return new ArbitraryDependency();
-    }
+	@Bean
+	public ArbitraryDependency defaultFile() {
+		return new ArbitraryDependency();
+	}
 
-    @Bean
-    public ArbitraryDependency namedFile() {
-        return new AnotherArbitraryDependency();
-    }
+	@Bean
+	public ArbitraryDependency namedFile() {
+		return new AnotherArbitraryDependency();
+	}
 }

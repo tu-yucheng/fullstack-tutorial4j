@@ -18,34 +18,34 @@ import java.io.IOException;
 @Controller
 public class UserController {
 
-    @Autowired
-    private ApiService apiService;
+	@Autowired
+	private ApiService apiService;
 
-    @Autowired
-    private AuthConfig config;
+	@Autowired
+	private AuthConfig config;
 
-    @GetMapping(value = "/users")
-    @ResponseBody
-    public ResponseEntity<String> users(HttpServletRequest request, HttpServletResponse response) throws IOException, IdentityVerificationException {
-        return apiService.getCall(config.getUsersUrl());
-    }
+	@GetMapping(value = "/users")
+	@ResponseBody
+	public ResponseEntity<String> users(HttpServletRequest request, HttpServletResponse response) throws IOException, IdentityVerificationException {
+		return apiService.getCall(config.getUsersUrl());
+	}
 
-    @GetMapping(value = "/userByEmail")
-    @ResponseBody
-    public ResponseEntity<String> userByEmail(HttpServletResponse response, @RequestParam String email) {
-        return apiService.getCall(config.getUsersByEmailUrl() + email);
-    }
+	@GetMapping(value = "/userByEmail")
+	@ResponseBody
+	public ResponseEntity<String> userByEmail(HttpServletResponse response, @RequestParam String email) {
+		return apiService.getCall(config.getUsersByEmailUrl() + email);
+	}
 
-    @GetMapping(value = "/createUser")
-    @ResponseBody
-    public ResponseEntity<String> createUser(HttpServletResponse response) {
-        JSONObject request = new JSONObject();
-        request.put("email", "norman.lewis@email.com");
-        request.put("given_name", "Norman");
-        request.put("family_name", "Lewis");
-        request.put("connection", "Username-Password-Authentication");
-        request.put("password", "Pa33w0rd");
+	@GetMapping(value = "/createUser")
+	@ResponseBody
+	public ResponseEntity<String> createUser(HttpServletResponse response) {
+		JSONObject request = new JSONObject();
+		request.put("email", "norman.lewis@email.com");
+		request.put("given_name", "Norman");
+		request.put("family_name", "Lewis");
+		request.put("connection", "Username-Password-Authentication");
+		request.put("password", "Pa33w0rd");
 
-        return apiService.postCall(config.getUsersUrl(), request.toString());
-    }
+		return apiService.postCall(config.getUsersUrl(), request.toString());
+	}
 }

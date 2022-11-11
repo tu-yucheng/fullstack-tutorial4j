@@ -5,25 +5,25 @@ import org.springframework.beans.factory.annotation.Configurable;
 
 @Configurable
 public class PersonObject {
-    @Autowired
-    private IdService idService;
+	@Autowired
+	private IdService idService;
 
-    private int id;
-    private String name;
+	private int id;
+	private String name;
 
-    public PersonObject(String name) {
-        this.name = name;
-    }
+	public PersonObject(String name) {
+		this.name = name;
+	}
 
-    void generateId() {
-        this.id = idService.generateId();
-    }
+	void generateId() {
+		this.id = idService.generateId();
+	}
 
-    public int getId() {
-        return id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 }

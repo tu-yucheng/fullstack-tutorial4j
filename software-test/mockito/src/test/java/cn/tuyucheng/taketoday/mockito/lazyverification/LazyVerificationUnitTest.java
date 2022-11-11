@@ -13,19 +13,19 @@ import static org.mockito.Mockito.verify;
 
 class LazyVerificationUnitTest {
 
-    @Test
-    void whenLazilyVerified_thenReportsMultipleFailures() {
-        VerificationCollector collector = MockitoJUnit.collector().assertLazily();
+	@Test
+	void whenLazilyVerified_thenReportsMultipleFailures() {
+		VerificationCollector collector = MockitoJUnit.collector().assertLazily();
 
-        List mockList = mock(List.class);
-        verify(mockList).add("one");
-        verify(mockList).clear();
+		List mockList = mock(List.class);
+		verify(mockList).add("one");
+		verify(mockList).clear();
 
-        try {
-            collector.collectAndReport();
-        } catch (MockitoAssertionError error) {
-            assertTrue(error.getMessage().contains("1. Wanted but not invoked:"));
-            assertTrue(error.getMessage().contains("2. Wanted but not invoked:"));
-        }
-    }
+		try {
+			collector.collectAndReport();
+		} catch (MockitoAssertionError error) {
+			assertTrue(error.getMessage().contains("1. Wanted but not invoked:"));
+			assertTrue(error.getMessage().contains("2. Wanted but not invoked:"));
+		}
+	}
 }

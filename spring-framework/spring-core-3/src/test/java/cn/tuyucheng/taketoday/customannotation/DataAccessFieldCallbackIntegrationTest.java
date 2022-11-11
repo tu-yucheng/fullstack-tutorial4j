@@ -16,29 +16,29 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {CustomAnnotationConfiguration.class})
 class DataAccessFieldCallbackIntegrationTest {
-    @Autowired
-    private ConfigurableListableBeanFactory configurableListableBeanFactory;
-    @Autowired
-    private BeanWithGenericDAO beanWithGenericDAO;
+	@Autowired
+	private ConfigurableListableBeanFactory configurableListableBeanFactory;
+	@Autowired
+	private BeanWithGenericDAO beanWithGenericDAO;
 
-    @Test
-    void whenObjectCreated_thenObjectCreationIsSuccessful() {
-        final DataAccessFieldCallback dataAccessFieldCallback = new DataAccessFieldCallback(configurableListableBeanFactory, beanWithGenericDAO);
-        assertThat(dataAccessFieldCallback, is(notNullValue()));
-    }
+	@Test
+	void whenObjectCreated_thenObjectCreationIsSuccessful() {
+		final DataAccessFieldCallback dataAccessFieldCallback = new DataAccessFieldCallback(configurableListableBeanFactory, beanWithGenericDAO);
+		assertThat(dataAccessFieldCallback, is(notNullValue()));
+	}
 
-    @Test
-    void whenMethodGenericTypeIsValidCalled_thenReturnCorrectValue() throws NoSuchFieldException, SecurityException {
-        final DataAccessFieldCallback callback = new DataAccessFieldCallback(configurableListableBeanFactory, beanWithGenericDAO);
-        final Type fieldType = BeanWithGenericDAO.class.getDeclaredField("personGenericDAO").getGenericType();
-        final boolean result = callback.genericTypeIsValid(Person.class, fieldType);
-        assertThat(result, is(true));
-    }
+	@Test
+	void whenMethodGenericTypeIsValidCalled_thenReturnCorrectValue() throws NoSuchFieldException, SecurityException {
+		final DataAccessFieldCallback callback = new DataAccessFieldCallback(configurableListableBeanFactory, beanWithGenericDAO);
+		final Type fieldType = BeanWithGenericDAO.class.getDeclaredField("personGenericDAO").getGenericType();
+		final boolean result = callback.genericTypeIsValid(Person.class, fieldType);
+		assertThat(result, is(true));
+	}
 
-    @Test
-    void whenMethodGetBeanInstanceCalled_thenReturnCorrectInstance() {
-        final DataAccessFieldCallback callback = new DataAccessFieldCallback(configurableListableBeanFactory, beanWithGenericDAO);
-        final Object result = callback.getBeanInstance("personGenericDAO", GenericDAO.class, Person.class);
-        assertThat((result instanceof GenericDAO), is(true));
-    }
+	@Test
+	void whenMethodGetBeanInstanceCalled_thenReturnCorrectInstance() {
+		final DataAccessFieldCallback callback = new DataAccessFieldCallback(configurableListableBeanFactory, beanWithGenericDAO);
+		final Object result = callback.getBeanInstance("personGenericDAO", GenericDAO.class, Person.class);
+		assertThat((result instanceof GenericDAO), is(true));
+	}
 }

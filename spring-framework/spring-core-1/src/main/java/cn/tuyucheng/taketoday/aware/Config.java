@@ -6,13 +6,13 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class Config {
 
-    @Bean(name = "myCustomBeanName")
-    public MyBeanName getMyBeanName() {
-        return new MyBeanName();
-    }
+	@Bean(name = "myCustomBeanName")
+	public MyBeanName getMyBeanName() {
+		return new MyBeanName();
+	}
 
-    @Bean
-    public MyBeanFactory getMyBeanFactory() {
-        return new MyBeanFactory();
-    }
+	@Bean
+	public MyBeanFactory getMyBeanFactory() {
+		return new MyBeanFactory();
+	}
 }

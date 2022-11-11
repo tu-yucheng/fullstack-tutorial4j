@@ -15,13 +15,13 @@ import java.util.Arrays;
 @ComponentScan("cn.tuyucheng.taketoday.caching.example")
 public class CachingConfig {
 
-    @Bean
-    public CacheManager cacheManager() {
-        final SimpleCacheManager cacheManager = new SimpleCacheManager();
-        cacheManager.setCaches(Arrays.asList(
-                new ConcurrentMapCache("addresses"),
-                new ConcurrentMapCache("directory")
-        ));
-        return cacheManager;
-    }
+	@Bean
+	public CacheManager cacheManager() {
+		final SimpleCacheManager cacheManager = new SimpleCacheManager();
+		cacheManager.setCaches(Arrays.asList(
+				new ConcurrentMapCache("addresses"),
+				new ConcurrentMapCache("directory")
+		));
+		return cacheManager;
+	}
 }

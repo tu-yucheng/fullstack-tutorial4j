@@ -18,13 +18,13 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @ContextConfiguration("classpath:/ioc-context-by-type.xml")
 class XmlAppConfigByTypeUnitTest {
 
-    @Autowired
-    @Qualifier("xml-store-by-autowire-type")
-    private Store storeByAutowireInjectionByType;
+	@Autowired
+	@Qualifier("xml-store-by-autowire-type")
+	private Store storeByAutowireInjectionByType;
 
-    @Test
-    void givenValidXmlConfig_WhenInjectStoreByAutowireInjectionByType_ThenBeanIsNotNull() {
-        assertNotNull(storeByAutowireInjectionByType);
-        assertNotNull(storeByAutowireInjectionByType.getItem());
-    }
+	@Test
+	void givenValidXmlConfig_WhenInjectStoreByAutowireInjectionByType_ThenBeanIsNotNull() {
+		assertNotNull(storeByAutowireInjectionByType);
+		assertNotNull(storeByAutowireInjectionByType.getItem());
+	}
 }

@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan("cn.tuyucheng.taketoday.roles.rolesauthorities")
 public class RolesAuthoritiesApplication extends SpringBootServletInitializer {
 
-    public static void main(String[] args) {
-        System.setProperty("spring.profiles.default", "rolesauthorities");
-        SpringApplication.run(RolesAuthoritiesApplication.class, args);
-    }
+	public static void main(String[] args) {
+		System.setProperty("spring.profiles.default", "rolesauthorities");
+		SpringApplication.run(RolesAuthoritiesApplication.class, args);
+	}
 }

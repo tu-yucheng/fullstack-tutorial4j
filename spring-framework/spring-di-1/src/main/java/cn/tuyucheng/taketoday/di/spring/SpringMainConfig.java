@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Import;
 @ComponentScan("cn.tuyucheng.taketoday.di.spring")
 public class SpringMainConfig {
 
-    @Bean
-    public BookService bookServiceGenerator() {
-        return new BookServiceImpl();
-    }
+	@Bean
+	public BookService bookServiceGenerator() {
+		return new BookServiceImpl();
+	}
 }

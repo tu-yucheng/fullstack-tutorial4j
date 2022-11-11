@@ -16,11 +16,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @SpringBootTest(classes = SpringDataJPA.class)
 class SpringDataJPAIntegrationTest {
 
-    @Autowired
-    private ApplicationContext context;
+	@Autowired
+	private ApplicationContext context;
 
-    @Test
-    void givenAutoConfigDisabled_whenStarting_thenNoAutoconfiguredBeansInContext() {
-        assertThrows(NoSuchBeanDefinitionException.class, () -> context.getBean(DataSource.class));
-    }
+	@Test
+	void givenAutoConfigDisabled_whenStarting_thenNoAutoconfiguredBeansInContext() {
+		assertThrows(NoSuchBeanDefinitionException.class, () -> context.getBean(DataSource.class));
+	}
 }

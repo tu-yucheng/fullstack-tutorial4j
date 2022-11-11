@@ -23,36 +23,36 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @EnableAspectJAutoProxy
 class JoinPointAroundExceptionAspectIntegrationTest {
 
-    private final List<String> messages = new ArrayList<>();
-    @Autowired
-    private ArticleService articleService;
+	private final List<String> messages = new ArrayList<>();
+	@Autowired
+	private ArticleService articleService;
 
-    @BeforeEach
-    void setUp() {
-        Handler logEventHandler = new Handler() {
-            @Override
-            public void publish(LogRecord record) {
-                messages.add(record.getLevel().getName() + " " + record.getMessage());
-            }
+	@BeforeEach
+	void setUp() {
+		Handler logEventHandler = new Handler() {
+			@Override
+			public void publish(LogRecord record) {
+				messages.add(record.getLevel().getName() + " " + record.getMessage());
+			}
 
-            @Override
-            public void flush() {
-            }
+			@Override
+			public void flush() {
+			}
 
-            @Override
-            public void close() throws SecurityException {
-            }
-        };
+			@Override
+			public void close() throws SecurityException {
+			}
+		};
 
-        Logger logger = Logger.getLogger(JoinPointAroundExceptionAspect.class.getName());
-        logger.addHandler(logEventHandler);
-    }
+		Logger logger = Logger.getLogger(JoinPointAroundExceptionAspect.class.getName());
+		logger.addHandler(logEventHandler);
+	}
 
-    @Test/*(expected = IllegalArgumentException.class)*/
-    void shouldLogMethodSignatureBeforeExecution() {
-        articleService.getArticleList(" ");
+	@Test/*(expected = IllegalArgumentException.class)*/
+	void shouldLogMethodSignatureBeforeExecution() {
+		articleService.getArticleList(" ");
 
-        assertThat(messages, hasSize(1));
-        assertTrue(messages.contains("INFO Retrying operation"));
-    }
+		assertThat(messages, hasSize(1));
+		assertTrue(messages.contains("INFO Retrying operation"));
+	}
 }

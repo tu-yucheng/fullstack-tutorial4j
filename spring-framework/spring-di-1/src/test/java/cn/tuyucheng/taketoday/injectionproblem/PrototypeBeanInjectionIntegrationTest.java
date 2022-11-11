@@ -18,42 +18,42 @@ import static org.springframework.test.util.AssertionErrors.assertTrue;
 @ContextConfiguration(loader = AnnotationConfigContextLoader.class, classes = AppConfig.class)
 class PrototypeBeanInjectionIntegrationTest {
 
-    @Test
-    void givenPrototypeInjection_whenObjectFactory_thenNewInstanceReturn() {
-        AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+	@Test
+	void givenPrototypeInjection_whenObjectFactory_thenNewInstanceReturn() {
+		AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        SingletonObjectFactoryBean firstContext = context.getBean(SingletonObjectFactoryBean.class);
-        SingletonObjectFactoryBean secondContext = context.getBean(SingletonObjectFactoryBean.class);
+		SingletonObjectFactoryBean firstContext = context.getBean(SingletonObjectFactoryBean.class);
+		SingletonObjectFactoryBean secondContext = context.getBean(SingletonObjectFactoryBean.class);
 
-        PrototypeBean firstInstance = firstContext.getPrototypeInstance();
-        PrototypeBean secondInstance = secondContext.getPrototypeInstance();
+		PrototypeBean firstInstance = firstContext.getPrototypeInstance();
+		PrototypeBean secondInstance = secondContext.getPrototypeInstance();
 
-        assertTrue("New instance expected", firstInstance != secondInstance);
-    }
+		assertTrue("New instance expected", firstInstance != secondInstance);
+	}
 
-    @Test
-    void givenPrototypeInjection_whenLookup_thenNewInstanceReturn() {
-        AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+	@Test
+	void givenPrototypeInjection_whenLookup_thenNewInstanceReturn() {
+		AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        SingletonLookupBean firstContext = context.getBean(SingletonLookupBean.class);
-        SingletonLookupBean secondContext = context.getBean(SingletonLookupBean.class);
+		SingletonLookupBean firstContext = context.getBean(SingletonLookupBean.class);
+		SingletonLookupBean secondContext = context.getBean(SingletonLookupBean.class);
 
-        PrototypeBean firstInstance = firstContext.getPrototypeBean();
-        PrototypeBean secondInstance = secondContext.getPrototypeBean();
+		PrototypeBean firstInstance = firstContext.getPrototypeBean();
+		PrototypeBean secondInstance = secondContext.getPrototypeBean();
 
-        assertTrue("New instance expected", firstInstance != secondInstance);
-    }
+		assertTrue("New instance expected", firstInstance != secondInstance);
+	}
 
-    @Test
-    void givenPrototypeInjection_whenProvider_thenNewInstanceReturn() {
-        AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+	@Test
+	void givenPrototypeInjection_whenProvider_thenNewInstanceReturn() {
+		AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        SingletonProviderBean firstContext = context.getBean(SingletonProviderBean.class);
-        SingletonProviderBean secondContext = context.getBean(SingletonProviderBean.class);
+		SingletonProviderBean firstContext = context.getBean(SingletonProviderBean.class);
+		SingletonProviderBean secondContext = context.getBean(SingletonProviderBean.class);
 
-        PrototypeBean firstInstance = firstContext.getPrototypeInstance();
-        PrototypeBean secondInstance = secondContext.getPrototypeInstance();
+		PrototypeBean firstInstance = firstContext.getPrototypeInstance();
+		PrototypeBean secondInstance = secondContext.getPrototypeInstance();
 
-        assertTrue("New instance expected", firstInstance != secondInstance);
-    }
+		assertTrue("New instance expected", firstInstance != secondInstance);
+	}
 }

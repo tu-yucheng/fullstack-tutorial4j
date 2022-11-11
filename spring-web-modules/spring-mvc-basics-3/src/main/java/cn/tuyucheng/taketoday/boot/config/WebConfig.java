@@ -15,16 +15,16 @@ import java.util.List;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
-    @Override
-    public void addFormatters(FormatterRegistry registry) {
-        registry.addConverter(new StringToEmployeeConverter());
-        registry.addConverter(new StringToEnumConverter());
-        registry.addConverterFactory(new StringToAbstractEntityConverterFactory());
-        registry.addConverter(new GenericBigDecimalConverter());
-    }
+	@Override
+	public void addFormatters(FormatterRegistry registry) {
+		registry.addConverter(new StringToEmployeeConverter());
+		registry.addConverter(new StringToEnumConverter());
+		registry.addConverterFactory(new StringToAbstractEntityConverterFactory());
+		registry.addConverter(new GenericBigDecimalConverter());
+	}
 
-    @Override
-    public void addArgumentResolvers(final List<HandlerMethodArgumentResolver> argumentResolvers) {
-        argumentResolvers.add(new HeaderVersionArgumentResolver());
-    }
+	@Override
+	public void addArgumentResolvers(final List<HandlerMethodArgumentResolver> argumentResolvers) {
+		argumentResolvers.add(new HeaderVersionArgumentResolver());
+	}
 }

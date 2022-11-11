@@ -14,12 +14,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ContextConfiguration(classes = BugConfig.class)
 class BugConfigUnitTest {
 
-    @Autowired
-    ApplicationContext context;
+	@Autowired
+	ApplicationContext context;
 
-    @Test
-    void givenImportInComponent_whenLookForBean_shallFindIt() {
-        assertTrue(context.containsBean("bug"));
-        assertNotNull(context.getBean(Bug.class));
-    }
+	@Test
+	void givenImportInComponent_whenLookForBean_shallFindIt() {
+		assertTrue(context.containsBean("bug"));
+		assertNotNull(context.getBean(Bug.class));
+	}
 }

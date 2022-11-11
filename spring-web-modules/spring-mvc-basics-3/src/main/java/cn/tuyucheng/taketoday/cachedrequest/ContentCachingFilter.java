@@ -17,10 +17,10 @@ import java.io.IOException;
 @WebFilter(filterName = "ContentCachingFilter", urlPatterns = "/*")
 public class ContentCachingFilter extends OncePerRequestFilter {
 
-    @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        System.out.println("IN  ContentCachingFilter ");
-        CachedBodyHttpServletRequest cachedBodyHttpServletRequest = new CachedBodyHttpServletRequest(request);
-        filterChain.doFilter(cachedBodyHttpServletRequest, response);
-    }
+	@Override
+	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+		System.out.println("IN  ContentCachingFilter ");
+		CachedBodyHttpServletRequest cachedBodyHttpServletRequest = new CachedBodyHttpServletRequest(request);
+		filterChain.doFilter(cachedBodyHttpServletRequest, response);
+	}
 }

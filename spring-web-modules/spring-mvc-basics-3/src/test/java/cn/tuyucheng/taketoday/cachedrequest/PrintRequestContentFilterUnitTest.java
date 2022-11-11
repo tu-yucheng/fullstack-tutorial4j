@@ -16,22 +16,22 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class PrintRequestContentFilterUnitTest {
 
-    @InjectMocks
-    private PrintRequestContentFilter filterToTest;
+	@InjectMocks
+	private PrintRequestContentFilter filterToTest;
 
-    @Test
-    void testGivenHttpRequest_whenDoFilter_thenReadsBody() throws IOException, ServletException {
-        // given
-        MockHttpServletRequest mockedRequest = new MockHttpServletRequest();
-        MockHttpServletResponse mockedResponse = new MockHttpServletResponse();
-        FilterChain mockedFilterChain = mock(FilterChain.class);
-        CachedBodyHttpServletRequest cachedBodyHttpServletRequest = new CachedBodyHttpServletRequest(mockedRequest);
+	@Test
+	void testGivenHttpRequest_whenDoFilter_thenReadsBody() throws IOException, ServletException {
+		// given
+		MockHttpServletRequest mockedRequest = new MockHttpServletRequest();
+		MockHttpServletResponse mockedResponse = new MockHttpServletResponse();
+		FilterChain mockedFilterChain = mock(FilterChain.class);
+		CachedBodyHttpServletRequest cachedBodyHttpServletRequest = new CachedBodyHttpServletRequest(mockedRequest);
 
-        // when
-        filterToTest.doFilter(cachedBodyHttpServletRequest, mockedResponse, mockedFilterChain);
+		// when
+		filterToTest.doFilter(cachedBodyHttpServletRequest, mockedResponse, mockedFilterChain);
 
-        // then
-        verify(mockedFilterChain, times(1))
-                .doFilter(cachedBodyHttpServletRequest, mockedResponse);
-    }
+		// then
+		verify(mockedFilterChain, times(1))
+				.doFilter(cachedBodyHttpServletRequest, mockedResponse);
+	}
 }

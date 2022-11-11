@@ -24,46 +24,46 @@ import java.util.List;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {
-        /*"cn.tuyucheng.taketoday.springmvcforms",*/
-        "cn.tuyucheng.taketoday.spring.controller",
-        "cn.tuyucheng.taketoday.spring.validator",
-        "cn.tuyucheng.taketoday.spring.mail",
-        "cn.tuyucheng.taketoday.spring.service"
+		/*"cn.tuyucheng.taketoday.springmvcforms",*/
+		"cn.tuyucheng.taketoday.spring.controller",
+		"cn.tuyucheng.taketoday.spring.validator",
+		"cn.tuyucheng.taketoday.spring.mail",
+		"cn.tuyucheng.taketoday.spring.service"
 })
 public class ApplicationConfiguration implements WebMvcConfigurer {
 
-    @Override
-    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-        configurer.enable();
-    }
+	@Override
+	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+		configurer.enable();
+	}
 
-    @Override
-    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-        converters.add(new StringHttpMessageConverter());
-        converters.add(new RssChannelHttpMessageConverter());
-        converters.add(new JsonChannelHttpMessageConverter());
-    }
+	@Override
+	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+		converters.add(new StringHttpMessageConverter());
+		converters.add(new RssChannelHttpMessageConverter());
+		converters.add(new JsonChannelHttpMessageConverter());
+	}
 
-    @Bean
-    public ContentNegotiatingViewResolver viewResolver(ContentNegotiationManager cnManager) {
-        ContentNegotiatingViewResolver cnvResolver = new ContentNegotiatingViewResolver();
-        cnvResolver.setContentNegotiationManager(cnManager);
-        List<ViewResolver> resolvers = new ArrayList<>();
+	@Bean
+	public ContentNegotiatingViewResolver viewResolver(ContentNegotiationManager cnManager) {
+		ContentNegotiatingViewResolver cnvResolver = new ContentNegotiatingViewResolver();
+		cnvResolver.setContentNegotiationManager(cnManager);
+		List<ViewResolver> resolvers = new ArrayList<>();
 
-        InternalResourceViewResolver bean = new InternalResourceViewResolver("/WEB-INF/views/", ".jsp");
-        ArticleRssFeedViewResolver articleRssFeedViewResolver = new ArticleRssFeedViewResolver();
+		InternalResourceViewResolver bean = new InternalResourceViewResolver("/WEB-INF/views/", ".jsp");
+		ArticleRssFeedViewResolver articleRssFeedViewResolver = new ArticleRssFeedViewResolver();
 
-        resolvers.add(bean);
-        resolvers.add(articleRssFeedViewResolver);
+		resolvers.add(bean);
+		resolvers.add(articleRssFeedViewResolver);
 
-        cnvResolver.setViewResolvers(resolvers);
-        return cnvResolver;
-    }
+		cnvResolver.setViewResolvers(resolvers);
+		return cnvResolver;
+	}
 
-    @Bean
-    public MultipartResolver multipartResolver() {
-        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
-        multipartResolver.setMaxUploadSize(5242880);
-        return multipartResolver;
-    }
+	@Bean
+	public MultipartResolver multipartResolver() {
+		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+		multipartResolver.setMaxUploadSize(5242880);
+		return multipartResolver;
+	}
 }

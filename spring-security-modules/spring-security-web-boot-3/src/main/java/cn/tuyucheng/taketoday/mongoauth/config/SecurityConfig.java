@@ -18,40 +18,40 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableGlobalMethodSecurity(securedEnabled = true, jsr250Enabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final UserDetailsService userDetailsService;
+	private final UserDetailsService userDetailsService;
 
-    public SecurityConfig(UserDetailsService userDetailsService) {
-        this.userDetailsService = userDetailsService;
-    }
+	public SecurityConfig(UserDetailsService userDetailsService) {
+		this.userDetailsService = userDetailsService;
+	}
 
-    @Bean
-    public AuthenticationManager customAuthenticationManager() throws Exception {
-        return authenticationManager();
-    }
+	@Bean
+	public AuthenticationManager customAuthenticationManager() throws Exception {
+		return authenticationManager();
+	}
 
-    @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+	@Bean
+	public BCryptPasswordEncoder bCryptPasswordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 
-    @Override
-    protected void configure(@Autowired AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
-    }
+	@Override
+	protected void configure(@Autowired AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
+	}
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.csrf()
-                .disable()
-                .authorizeRequests()
-                .and()
-                .httpBasic()
-                .and()
-                .authorizeRequests()
-                .anyRequest()
-                .permitAll()
-                .and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-    }
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.csrf()
+				.disable()
+				.authorizeRequests()
+				.and()
+				.httpBasic()
+				.and()
+				.authorizeRequests()
+				.anyRequest()
+				.permitAll()
+				.and()
+				.sessionManagement()
+				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+	}
 }

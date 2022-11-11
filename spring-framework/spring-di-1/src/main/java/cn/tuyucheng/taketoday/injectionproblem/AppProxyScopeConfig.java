@@ -9,14 +9,14 @@ import org.springframework.context.annotation.*;
 @ComponentScan("cn.tuyucheng.taketoday.injectionproblem")
 public class AppProxyScopeConfig {
 
-    @Bean
-    @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE, proxyMode = ScopedProxyMode.TARGET_CLASS)
-    public PrototypeBean prototypeBean() {
-        return new PrototypeBean();
-    }
+	@Bean
+	@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE, proxyMode = ScopedProxyMode.TARGET_CLASS)
+	public PrototypeBean prototypeBean() {
+		return new PrototypeBean();
+	}
 
-    @Bean
-    public SingletonBean singletonBean() {
-        return new SingletonBean();
-    }
+	@Bean
+	public SingletonBean singletonBean() {
+		return new SingletonBean();
+	}
 }

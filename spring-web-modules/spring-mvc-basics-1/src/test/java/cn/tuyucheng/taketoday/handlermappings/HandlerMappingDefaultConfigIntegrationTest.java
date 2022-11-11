@@ -23,21 +23,21 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ContextConfiguration(classes = HandlerMappingDefaultConfig.class)
 class HandlerMappingDefaultConfigIntegrationTest {
 
-    @Autowired
-    private WebApplicationContext webAppContext;
-    private MockMvc mockMvc;
+	@Autowired
+	private WebApplicationContext webAppContext;
+	private MockMvc mockMvc;
 
-    @BeforeEach
-    void setup() {
-        MockitoAnnotations.openMocks(this);
-        mockMvc = MockMvcBuilders.webAppContextSetup(webAppContext).build();
-    }
+	@BeforeEach
+	void setup() {
+		MockitoAnnotations.openMocks(this);
+		mockMvc = MockMvcBuilders.webAppContextSetup(webAppContext).build();
+	}
 
-    @Test
-    void whenDefaultConfig_thenMappedOK() throws Exception {
-        mockMvc.perform(get("/welcome"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("bean-name-handler-mapping"))
-                .andDo(print());
-    }
+	@Test
+	void whenDefaultConfig_thenMappedOK() throws Exception {
+		mockMvc.perform(get("/welcome"))
+				.andExpect(status().isOk())
+				.andExpect(view().name("bean-name-handler-mapping"))
+				.andDo(print());
+	}
 }

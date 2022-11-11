@@ -18,16 +18,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest
 class LogoutApplicationUnitTest {
 
-    @Autowired
-    private MockMvc mockMvc;
+	@Autowired
+	private MockMvc mockMvc;
 
-    @WithMockUser(value = "spring")
-    @Test
-    void whenLogout_thenDisableRedirect() throws Exception {
-        this.mockMvc.perform(post("/logout").with(csrf()))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$").doesNotExist())
-                .andExpect(unauthenticated())
-                .andReturn();
-    }
+	@WithMockUser(value = "spring")
+	@Test
+	void whenLogout_thenDisableRedirect() throws Exception {
+		this.mockMvc.perform(post("/logout").with(csrf()))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$").doesNotExist())
+				.andExpect(unauthenticated())
+				.andReturn();
+	}
 }

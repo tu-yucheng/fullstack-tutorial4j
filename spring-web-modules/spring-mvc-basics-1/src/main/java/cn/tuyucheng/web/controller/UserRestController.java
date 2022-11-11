@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/rest/user")
 public class UserRestController {
 
-    @Autowired
-    private UserService userService;
+	@Autowired
+	private UserService userService;
 
-    @RequestMapping(value = "/example", method = RequestMethod.GET)
-    public User fetchUserExample() {
-        return userService.exampleUser();
-    }
+	@RequestMapping(value = "/example", method = RequestMethod.GET)
+	public User fetchUserExample() {
+		return userService.exampleUser();
+	}
 
-    @RequestMapping(value = "/name", method = RequestMethod.GET)
-    public User fetchUserByFirstName(@RequestParam(value = "firstName") String firstName) {
-        return userService.fetchUserByFirstName(firstName);
-    }
+	@RequestMapping(value = "/name", method = RequestMethod.GET)
+	public User fetchUserByFirstName(@RequestParam(value = "firstName") String firstName) {
+		return userService.fetchUserByFirstName(firstName);
+	}
 }

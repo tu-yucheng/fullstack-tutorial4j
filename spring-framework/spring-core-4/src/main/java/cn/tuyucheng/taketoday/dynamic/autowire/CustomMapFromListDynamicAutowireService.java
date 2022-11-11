@@ -10,15 +10,15 @@ import java.util.stream.Collectors;
 
 @Service
 public class CustomMapFromListDynamicAutowireService {
-    private final Map<String, RegionService> servicesByCountryCode;
+	private final Map<String, RegionService> servicesByCountryCode;
 
-    @Autowired
-    public CustomMapFromListDynamicAutowireService(List<RegionService> regionServices) {
-        servicesByCountryCode = regionServices.stream().collect(Collectors.toMap(RegionService::getISOCountryCode, Function.identity()));
-    }
+	@Autowired
+	public CustomMapFromListDynamicAutowireService(List<RegionService> regionServices) {
+		servicesByCountryCode = regionServices.stream().collect(Collectors.toMap(RegionService::getISOCountryCode, Function.identity()));
+	}
 
-    public boolean isServerActive(String isoCountryCode, int serverId) {
-        RegionService service = servicesByCountryCode.get(isoCountryCode);
-        return service.isServerActive(serverId);
-    }
+	public boolean isServerActive(String isoCountryCode, int serverId) {
+		RegionService service = servicesByCountryCode.get(isoCountryCode);
+		return service.isServerActive(serverId);
+	}
 }

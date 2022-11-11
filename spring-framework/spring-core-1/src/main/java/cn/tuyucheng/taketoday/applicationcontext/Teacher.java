@@ -8,30 +8,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Teacher {
-    @Autowired
-    private ApplicationContext context;
-    private List<Course> courses = new ArrayList<>();
+	@Autowired
+	private ApplicationContext context;
+	private List<Course> courses = new ArrayList<>();
 
-    public Teacher() {
-    }
+	public Teacher() {
+	}
 
-    @PostConstruct
-    public void addCourse() {
-        if (context.containsBean("math")) {
-            Course math = context.getBean("math", Course.class);
-            courses.add(math);
-        }
-        if (context.containsBean("physics")) {
-            Course physics = context.getBean("physics", Course.class);
-            courses.add(physics);
-        }
-    }
+	@PostConstruct
+	public void addCourse() {
+		if (context.containsBean("math")) {
+			Course math = context.getBean("math", Course.class);
+			courses.add(math);
+		}
+		if (context.containsBean("physics")) {
+			Course physics = context.getBean("physics", Course.class);
+			courses.add(physics);
+		}
+	}
 
-    public List<Course> getCourses() {
-        return courses;
-    }
+	public List<Course> getCourses() {
+		return courses;
+	}
 
-    public void setCourses(List<Course> courses) {
-        this.courses = courses;
-    }
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
+	}
 }

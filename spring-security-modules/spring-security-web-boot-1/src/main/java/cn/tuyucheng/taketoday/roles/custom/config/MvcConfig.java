@@ -12,19 +12,19 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebMvc
 public class MvcConfig implements WebMvcConfigurer {
 
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
-        return new PropertySourcesPlaceholderConfigurer();
-    }
+	@Bean
+	public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+		return new PropertySourcesPlaceholderConfigurer();
+	}
 
-    @Override
-    public void addViewControllers(final ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("forward:/index");
-        registry.addViewController("/index");
-    }
+	@Override
+	public void addViewControllers(final ViewControllerRegistry registry) {
+		registry.addViewController("/").setViewName("forward:/index");
+		registry.addViewController("/index");
+	}
 
-    @Override
-    public void addResourceHandlers(final ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-    }
+	@Override
+	public void addResourceHandlers(final ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+	}
 }

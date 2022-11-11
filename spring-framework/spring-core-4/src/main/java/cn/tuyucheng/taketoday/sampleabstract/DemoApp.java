@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackages = "cn.tuyucheng.taketoday.sampleabstract")
 public class DemoApp {
 
-    public static void main(String[] args) {
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(DemoApp.class);
-    }
+	public static void main(String[] args) {
+		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(DemoApp.class);
+	}
 }

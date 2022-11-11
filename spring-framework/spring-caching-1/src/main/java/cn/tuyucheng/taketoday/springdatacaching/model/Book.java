@@ -15,7 +15,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class Book implements Serializable {
 
-    @Id
-    private UUID id;
-    private String title;
+	@Id
+	private UUID id;
+	private String title;
 }

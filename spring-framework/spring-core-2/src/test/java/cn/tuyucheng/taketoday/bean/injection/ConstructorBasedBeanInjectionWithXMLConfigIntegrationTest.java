@@ -7,13 +7,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class ConstructorBasedBeanInjectionWithXMLConfigIntegrationTest {
 
-    private static final String HELM_NAME = "HelmBrand";
+	private static final String HELM_NAME = "HelmBrand";
 
-    @Test
-    public void givenXMLConfigFile_whenUsingConstructorBasedBeanInjection_thenCorrectHelmName() {
-        final ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beanInjection-constructor.xml");
+	@Test
+	public void givenXMLConfigFile_whenUsingConstructorBasedBeanInjection_thenCorrectHelmName() {
+		final ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beanInjection-constructor.xml");
 
-        final Ship shipConstructorBean = (Ship) applicationContext.getBean("ship");
-        Assertions.assertEquals(HELM_NAME, shipConstructorBean.getHelm().getBrandOfHelm());
-    }
+		final Ship shipConstructorBean = (Ship) applicationContext.getBean("ship");
+		Assertions.assertEquals(HELM_NAME, shipConstructorBean.getHelm().getBrandOfHelm());
+	}
 }

@@ -13,12 +13,12 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @ContextConfiguration("/factorymethod/instance-bar-config.xml")
 class InstanceBarFactoryIntegrationTest {
 
-    @Autowired
-    private Bar instance;
+	@Autowired
+	private Bar instance;
 
-    @Test
-    void givenValidInstanceFactoryConfig_whenCreateInstance_thenNameIsCorrect() {
-        assertNotNull(instance);
-        assertEquals("someName", instance.getName());
-    }
+	@Test
+	void givenValidInstanceFactoryConfig_whenCreateInstance_thenNameIsCorrect() {
+		assertNotNull(instance);
+		assertEquals("someName", instance.getName());
+	}
 }

@@ -13,18 +13,18 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @ContextConfiguration(value = {"classpath:springAop-applicationContext.xml"})
 class CalculatorIntegrationTest {
 
-    @Autowired
-    private SampleAdder sampleAdder;
+	@Autowired
+	private SampleAdder sampleAdder;
 
-    @Test
-    void whenAddValidValues_returnsSuccessfully() {
-        final int addedValue = sampleAdder.add(12, 12);
+	@Test
+	void whenAddValidValues_returnsSuccessfully() {
+		final int addedValue = sampleAdder.add(12, 12);
 
-        assertEquals(24, addedValue);
-    }
+		assertEquals(24, addedValue);
+	}
 
-    @Test
-    void whenAddInValidValues_throwsException() {
-        assertThrows(IllegalArgumentException.class, () -> sampleAdder.add(12, -12));
-    }
+	@Test
+	void whenAddInValidValues_throwsException() {
+		assertThrows(IllegalArgumentException.class, () -> sampleAdder.add(12, -12));
+	}
 }

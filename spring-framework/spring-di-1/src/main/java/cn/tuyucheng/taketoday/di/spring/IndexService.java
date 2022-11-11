@@ -2,8 +2,8 @@ package cn.tuyucheng.taketoday.di.spring;
 
 public class IndexService implements Service {
 
-    @Override
-    public String serve() {
-        return "Hello World";
-    }
+	@Override
+	public String serve() {
+		return "Hello World";
+	}
 }

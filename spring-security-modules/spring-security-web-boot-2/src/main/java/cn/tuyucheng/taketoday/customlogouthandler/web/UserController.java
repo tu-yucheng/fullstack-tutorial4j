@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping(path = "/user")
 public class UserController {
 
-    private final UserCache userCache;
+	private final UserCache userCache;
 
-    public UserController(UserCache userCache) {
-        this.userCache = userCache;
-    }
+	public UserController(UserCache userCache) {
+		this.userCache = userCache;
+	}
 
-    @GetMapping(path = "/language")
-    @ResponseBody
-    public String getLanguage() {
-        String userName = UserUtils.getAuthenticatedUserName();
-        User user = userCache.getByUserName(userName);
-        return user.getLanguage();
-    }
+	@GetMapping(path = "/language")
+	@ResponseBody
+	public String getLanguage() {
+		String userName = UserUtils.getAuthenticatedUserName();
+		User user = userCache.getByUserName(userName);
+		return user.getLanguage();
+	}
 }

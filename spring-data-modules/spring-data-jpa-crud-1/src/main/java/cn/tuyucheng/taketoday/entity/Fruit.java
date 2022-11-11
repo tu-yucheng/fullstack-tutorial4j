@@ -13,8 +13,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Getter
 public class Fruit {
 
-    @Id
-    private long id;
-    private String name;
-    private String color;
+	@Id
+	private long id;
+	private String name;
+	private String color;
 }

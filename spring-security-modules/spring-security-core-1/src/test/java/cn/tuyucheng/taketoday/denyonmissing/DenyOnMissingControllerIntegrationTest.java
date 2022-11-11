@@ -20,28 +20,28 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = DenyApplication.class)
 class DenyOnMissingControllerIntegrationTest {
-    @Autowired
-    private WebApplicationContext context;
-    private MockMvc mockMvc;
+	@Autowired
+	private WebApplicationContext context;
+	private MockMvc mockMvc;
 
-    @BeforeEach
-    void setUp() {
-        mockMvc = MockMvcBuilders.webAppContextSetup(context)
-                .build();
-    }
+	@BeforeEach
+	void setUp() {
+		mockMvc = MockMvcBuilders.webAppContextSetup(context)
+				.build();
+	}
 
-    @Test
-    @WithMockUser(username = "user")
-    void givenANormalUser_whenCallingHello_thenAccessDenied() throws Exception {
-        mockMvc.perform(get("/hello"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Hello world!"));
-    }
+	@Test
+	@WithMockUser(username = "user")
+	void givenANormalUser_whenCallingHello_thenAccessDenied() throws Exception {
+		mockMvc.perform(get("/hello"))
+				.andExpect(status().isOk())
+				.andExpect(content().string("Hello world!"));
+	}
 
-    @Test
-    @WithMockUser(username = "user")
-    void givenANormalUser_whenCallingBye_thenAccessDenied() throws Exception {
-        Assertions.assertThatThrownBy(() -> mockMvc.perform(get("/bye")))
-                .hasCauseExactlyInstanceOf(AccessDeniedException.class);
-    }
+	@Test
+	@WithMockUser(username = "user")
+	void givenANormalUser_whenCallingBye_thenAccessDenied() throws Exception {
+		Assertions.assertThatThrownBy(() -> mockMvc.perform(get("/bye")))
+				.hasCauseExactlyInstanceOf(AccessDeniedException.class);
+	}
 }

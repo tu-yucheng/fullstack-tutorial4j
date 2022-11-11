@@ -7,13 +7,13 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class Bar {
-    private final String name;
+	private final String name;
 
-    public Bar(String name) {
-        this.name = name;
-    }
+	public Bar(String name) {
+		this.name = name;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 }

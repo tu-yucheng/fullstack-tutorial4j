@@ -4,10 +4,10 @@ import cn.tuyucheng.taketoday.dependson.shared.File;
 
 public class FileWriter {
 
-    public FileWriter(File file) {
-        file.setText("write");
-    }
+	public FileWriter(File file) {
+		file.setText("write");
+	}
 
-    public void writeFile() {
-    }
+	public void writeFile() {
+	}
 }

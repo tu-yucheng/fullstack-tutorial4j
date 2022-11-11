@@ -12,31 +12,31 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class GetBeanByNameWithConstructorParametersUnitTest {
-    private ApplicationContext context;
+	private ApplicationContext context;
 
-    @BeforeAll
-    void setup() {
-        context = new AnnotationConfigApplicationContext(AnnotationConfig.class);
-    }
+	@BeforeAll
+	void setup() {
+		context = new AnnotationConfigApplicationContext(AnnotationConfig.class);
+	}
 
-    @Test
-    void whenGivenCorrectName_thenShouldReturnBeanWithSpecifiedName() {
-        Tiger tiger = (Tiger) context.getBean("tiger", "Siberian");
-        assertEquals("Siberian", tiger.getName());
-    }
+	@Test
+	void whenGivenCorrectName_thenShouldReturnBeanWithSpecifiedName() {
+		Tiger tiger = (Tiger) context.getBean("tiger", "Siberian");
+		assertEquals("Siberian", tiger.getName());
+	}
 
-    @Test
-    void whenGivenCorrectNameOrAlias_shouldReturnBeanWithSpecifiedName() {
-        Tiger tiger = (Tiger) context.getBean("tiger", "Siberian");
-        Tiger secondTiger = (Tiger) context.getBean("tiger", "Striped");
-        assertEquals("Siberian", tiger.getName());
-        assertEquals("Striped", secondTiger.getName());
-    }
+	@Test
+	void whenGivenCorrectNameOrAlias_shouldReturnBeanWithSpecifiedName() {
+		Tiger tiger = (Tiger) context.getBean("tiger", "Siberian");
+		Tiger secondTiger = (Tiger) context.getBean("tiger", "Striped");
+		assertEquals("Siberian", tiger.getName());
+		assertEquals("Striped", secondTiger.getName());
+	}
 
-    @Test
-    void whenNoArgumentSpecifiedForPrototypeBean_thenShouldThrowException() {
-        assertThrows(UnsatisfiedDependencyException.class, () -> {
-            Tiger tiger = (Tiger) context.getBean("tiger");
-        });
-    }
+	@Test
+	void whenNoArgumentSpecifiedForPrototypeBean_thenShouldThrowException() {
+		assertThrows(UnsatisfiedDependencyException.class, () -> {
+			Tiger tiger = (Tiger) context.getBean("tiger");
+		});
+	}
 }

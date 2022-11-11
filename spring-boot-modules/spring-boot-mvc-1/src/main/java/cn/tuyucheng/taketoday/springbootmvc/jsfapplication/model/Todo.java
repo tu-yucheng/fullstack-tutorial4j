@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class Todo {
 
-    private int id;
-    private String message;
-    private int priority;
+	private int id;
+	private String message;
+	private int priority;
 }

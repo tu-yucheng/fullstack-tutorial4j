@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
-    private long id;
-    private String firstName;
-    private String lastName;
+	private long id;
+	private String firstName;
+	private String lastName;
 }

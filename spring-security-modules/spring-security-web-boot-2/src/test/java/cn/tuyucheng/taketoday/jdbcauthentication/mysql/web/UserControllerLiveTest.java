@@ -14,20 +14,20 @@ import static org.hamcrest.CoreMatchers.is;
  */
 class UserControllerLiveTest {
 
-    private static final String PRINCIPAL_SVC_URL = "http://localhost:8082/principal";
+	private static final String PRINCIPAL_SVC_URL = "http://localhost:8082/principal";
 
-    @Test
-    void givenExisting_whenRequestPrincipal_thenRetrieveData() throws Exception {
-        given().auth()
-                .preemptive()
-                .basic("user@email.com", "pass")
-                .when()
-                .get(PRINCIPAL_SVC_URL)
-                .then()
-                .statusCode(HttpStatus.OK.value())
-                .and()
-                .body("authorities[0].authority", is("ROLE_USER"))
-                .body("principal.username", is("user@email.com"))
-                .body("name", is("user@email.com"));
-    }
+	@Test
+	void givenExisting_whenRequestPrincipal_thenRetrieveData() throws Exception {
+		given().auth()
+				.preemptive()
+				.basic("user@email.com", "pass")
+				.when()
+				.get(PRINCIPAL_SVC_URL)
+				.then()
+				.statusCode(HttpStatus.OK.value())
+				.and()
+				.body("authorities[0].authority", is("ROLE_USER"))
+				.body("principal.username", is("user@email.com"))
+				.body("name", is("user@email.com"));
+	}
 }

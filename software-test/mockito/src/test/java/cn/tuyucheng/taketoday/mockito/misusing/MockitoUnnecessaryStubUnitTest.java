@@ -19,29 +19,29 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class MockitoUnnecessaryStubUnitTest {
 
-    @Rule
-    public ExpectedTestFailureRule rule = new ExpectedTestFailureRule(MockitoJUnit.rule().strictness(Strictness.STRICT_STUBS));
+	@Rule
+	public ExpectedTestFailureRule rule = new ExpectedTestFailureRule(MockitoJUnit.rule().strictness(Strictness.STRICT_STUBS));
 
-    @Mock
-    private ArrayList<String> mockList;
+	@Mock
+	private ArrayList<String> mockList;
 
-    @Test
-    public void givenUnusedStub_whenInvokingGetThenThrowUnnecessaryStubbingException() {
-        rule.expectedFailure(UnnecessaryStubbingException.class);
+	@Test
+	public void givenUnusedStub_whenInvokingGetThenThrowUnnecessaryStubbingException() {
+		rule.expectedFailure(UnnecessaryStubbingException.class);
 
-        // Commenting this stubbing so that it doesn't affect the builds.
-        // If you want to reproduce UnnecessaryStubbingException then uncomment below line and execute the test.
-        // when(mockList.add("one")).thenReturn(true);
-        when(mockList.get(anyInt())).thenReturn("hello");
+		// Commenting this stubbing so that it doesn't affect the builds.
+		// If you want to reproduce UnnecessaryStubbingException then uncomment below line and execute the test.
+		// when(mockList.add("one")).thenReturn(true);
+		when(mockList.get(anyInt())).thenReturn("hello");
 
-        assertEquals("List should contain hello", "hello", mockList.get(1));
-    }
+		assertEquals("List should contain hello", "hello", mockList.get(1));
+	}
 
-    @Test
-    public void givenLenientStub_whenInvokingGetThenDontThrowUnnecessaryStubbingException() {
-        lenient().when(mockList.add("one")).thenReturn(true);
-        when(mockList.get(anyInt())).thenReturn("hello");
+	@Test
+	public void givenLenientStub_whenInvokingGetThenDontThrowUnnecessaryStubbingException() {
+		lenient().when(mockList.add("one")).thenReturn(true);
+		when(mockList.get(anyInt())).thenReturn("hello");
 
-        assertEquals("List should contain hello", "hello", mockList.get(1));
-    }
+		assertEquals("List should contain hello", "hello", mockList.get(1));
+	}
 }

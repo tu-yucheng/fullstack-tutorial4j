@@ -13,29 +13,29 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ComponentApplication {
 
-    @Value("${ambiguous-bean}")
-    public String ambiguousBean;
+	@Value("${ambiguous-bean}")
+	public String ambiguousBean;
 
-    public static void main(String[] args) {
-        SpringApplication.run(ComponentApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(ComponentApplication.class, args);
+	}
 
-    @Bean
-    public BeanExample beanExample() {
-        return new BeanExample();
-    }
+	@Bean
+	public BeanExample beanExample() {
+		return new BeanExample();
+	}
 
-    @Bean
-    public OutsideScopeBeanExample outsideScopeBeanExample() {
-        return new OutsideScopeBeanExample();
-    }
+	@Bean
+	public OutsideScopeBeanExample outsideScopeBeanExample() {
+		return new OutsideScopeBeanExample();
+	}
 
-    @Bean
-    public AmbiguousBean ambiguousBean() {
-        if (ambiguousBean.equals("A")) {
-            return new BeanImplA();
-        } else {
-            return new BeanImplB();
-        }
-    }
+	@Bean
+	public AmbiguousBean ambiguousBean() {
+		if (ambiguousBean.equals("A")) {
+			return new BeanImplA();
+		} else {
+			return new BeanImplB();
+		}
+	}
 }

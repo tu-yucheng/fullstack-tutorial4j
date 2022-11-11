@@ -10,12 +10,12 @@ import javax.servlet.ServletRegistration;
 
 public class MyWebApplicationInitializer implements WebApplicationInitializer {
 
-    public void onStartup(ServletContext container) throws ServletException {
-        AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
-        context.register(AccountConfig.class);
-        context.setServletContext(container);
-        ServletRegistration.Dynamic servlet = container.addServlet("dispatcher", new DispatcherServlet(context));
-        servlet.setLoadOnStartup(1);
-        servlet.addMapping("/");
-    }
+	public void onStartup(ServletContext container) throws ServletException {
+		AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+		context.register(AccountConfig.class);
+		context.setServletContext(container);
+		ServletRegistration.Dynamic servlet = container.addServlet("dispatcher", new DispatcherServlet(context));
+		servlet.setLoadOnStartup(1);
+		servlet.addMapping("/");
+	}
 }

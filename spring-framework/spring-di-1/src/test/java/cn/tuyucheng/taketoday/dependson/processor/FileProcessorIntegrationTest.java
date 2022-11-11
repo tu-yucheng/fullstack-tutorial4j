@@ -17,25 +17,25 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @ContextConfiguration(classes = TestConfig.class)
 class FileProcessorIntegrationTest {
 
-    @Autowired
-    ApplicationContext context;
+	@Autowired
+	ApplicationContext context;
 
-    @Autowired
-    File file;
+	@Autowired
+	File file;
 
-    @Test
-    void whenAllBeansCreated_FileTextEndsWithProcessed() {
-        context.getBean("fileProcessor");
-        assertTrue(file.getText().endsWith("processed"));
-    }
+	@Test
+	void whenAllBeansCreated_FileTextEndsWithProcessed() {
+		context.getBean("fileProcessor");
+		assertTrue(file.getText().endsWith("processed"));
+	}
 
-    @Test
-    void whenDependentBeanNotAvailable_ThrowsNoSuchBeanDefinitionException() {
-        assertThrows(BeanCreationException.class, () -> context.getBean("dummyFileProcessor"));
-    }
+	@Test
+	void whenDependentBeanNotAvailable_ThrowsNoSuchBeanDefinitionException() {
+		assertThrows(BeanCreationException.class, () -> context.getBean("dummyFileProcessor"));
+	}
 
-    @Test
-    void whenCircularDependency_ThrowsBeanCreationException() {
-        assertThrows(BeanCreationException.class, () -> context.getBean("dummyFileReaderCircular"));
-    }
+	@Test
+	void whenCircularDependency_ThrowsBeanCreationException() {
+		assertThrows(BeanCreationException.class, () -> context.getBean("dummyFileReaderCircular"));
+	}
 }

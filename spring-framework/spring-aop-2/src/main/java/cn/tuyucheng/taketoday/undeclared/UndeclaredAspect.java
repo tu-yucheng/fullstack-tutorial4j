@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class UndeclaredAspect {
 
-    @Around("@annotation(undeclared)")
-    public Object advise(ProceedingJoinPoint pjp, ThrowUndeclared undeclared) throws Throwable {
-        throw new SomeCheckedException("AOP Checked Exception");
-    }
+	@Around("@annotation(undeclared)")
+	public Object advise(ProceedingJoinPoint pjp, ThrowUndeclared undeclared) throws Throwable {
+		throw new SomeCheckedException("AOP Checked Exception");
+	}
 }

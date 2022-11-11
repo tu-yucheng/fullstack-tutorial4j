@@ -18,36 +18,36 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = MyMappingController.class)
 class AliasForUnitTest {
-    Class<?> controllerClass;
-    @Autowired
-    private ConfigurableApplicationContext context;
+	Class<?> controllerClass;
+	@Autowired
+	private ConfigurableApplicationContext context;
 
-    @BeforeEach
-    public void setControllerBean() {
-        MyMappingController controllerBean = context.getBean(MyMappingController.class);
-        controllerClass = controllerBean.getClass();
-    }
+	@BeforeEach
+	public void setControllerBean() {
+		MyMappingController controllerBean = context.getBean(MyMappingController.class);
+		controllerClass = controllerBean.getClass();
+	}
 
-    @Test
-    void givenComposedAnnotation_whenExplicitAlias_thenMetaAnnotationAttributeOverridden() {
-        for (Method method : controllerClass.getMethods()) {
-            if (method.isAnnotationPresent(MyMapping.class)) {
-                MyMapping annotation = AnnotationUtils.findAnnotation(method, MyMapping.class);
-                RequestMapping metaAnnotation = AnnotationUtils.findAnnotation(method, RequestMapping.class);
-                assertEquals(RequestMethod.PATCH, annotation.action()[0]);
-                assertEquals(0, metaAnnotation.method().length);
-            }
-        }
-    }
+	@Test
+	void givenComposedAnnotation_whenExplicitAlias_thenMetaAnnotationAttributeOverridden() {
+		for (Method method : controllerClass.getMethods()) {
+			if (method.isAnnotationPresent(MyMapping.class)) {
+				MyMapping annotation = AnnotationUtils.findAnnotation(method, MyMapping.class);
+				RequestMapping metaAnnotation = AnnotationUtils.findAnnotation(method, RequestMapping.class);
+				assertEquals(RequestMethod.PATCH, annotation.action()[0]);
+				assertEquals(0, metaAnnotation.method().length);
+			}
+		}
+	}
 
-    @Test
-    void givenComposedAnnotation_whenImplictAlias_thenAttributesEqual() {
-        for (Method method : controllerClass.getMethods()) {
-            if (method.isAnnotationPresent(MyMapping.class)) {
-                MyMapping annotationOnBean = AnnotationUtils.findAnnotation(method, MyMapping.class);
-                assertEquals(annotationOnBean.mapping()[0], annotationOnBean.route()[0]);
-                assertEquals(annotationOnBean.value()[0], annotationOnBean.route()[0]);
-            }
-        }
-    }
+	@Test
+	void givenComposedAnnotation_whenImplictAlias_thenAttributesEqual() {
+		for (Method method : controllerClass.getMethods()) {
+			if (method.isAnnotationPresent(MyMapping.class)) {
+				MyMapping annotationOnBean = AnnotationUtils.findAnnotation(method, MyMapping.class);
+				assertEquals(annotationOnBean.mapping()[0], annotationOnBean.route()[0]);
+				assertEquals(annotationOnBean.value()[0], annotationOnBean.route()[0]);
+			}
+		}
+	}
 }

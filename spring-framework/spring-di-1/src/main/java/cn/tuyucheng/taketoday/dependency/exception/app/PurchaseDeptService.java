@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class PurchaseDeptService {
 
-    private InventoryRepository repository;
+	private InventoryRepository repository;
 
-    public PurchaseDeptService(@Qualifier("dresses") InventoryRepository repository) {
-        this.repository = repository;
-    }
+	public PurchaseDeptService(@Qualifier("dresses") InventoryRepository repository) {
+		this.repository = repository;
+	}
 }

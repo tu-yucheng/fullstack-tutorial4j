@@ -10,13 +10,13 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan("cn.tuyucheng.taketoday.constructordi")
 public class Config {
 
-    @Bean
-    public Engine engine() {
-        return new Engine("v8", 5);
-    }
+	@Bean
+	public Engine engine() {
+		return new Engine("v8", 5);
+	}
 
-    @Bean
-    public Transmission transmission() {
-        return new Transmission("sliding");
-    }
+	@Bean
+	public Transmission transmission() {
+		return new Transmission("sliding");
+	}
 }

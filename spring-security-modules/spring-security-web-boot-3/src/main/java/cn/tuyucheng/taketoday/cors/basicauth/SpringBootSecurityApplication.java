@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication(scanBasePackages = "cn.tuyucheng.taketoday.cors")
 public class SpringBootSecurityApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(SpringBootSecurityApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(SpringBootSecurityApplication.class, args);
+	}
 }

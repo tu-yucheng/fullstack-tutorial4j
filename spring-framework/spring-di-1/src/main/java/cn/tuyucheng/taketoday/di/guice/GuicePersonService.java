@@ -5,18 +5,18 @@ import com.google.inject.Inject;
 
 public class GuicePersonService {
 
-    private PersonDao personDao;
+	private PersonDao personDao;
 
-    @Inject
-    public GuicePersonService(PersonDao personDao) {
-        this.personDao = personDao;
-    }
+	@Inject
+	public GuicePersonService(PersonDao personDao) {
+		this.personDao = personDao;
+	}
 
-    public PersonDao getPersonDao() {
-        return personDao;
-    }
+	public PersonDao getPersonDao() {
+		return personDao;
+	}
 
-    public void setPersonDao(PersonDao personDao) {
-        this.personDao = personDao;
-    }
+	public void setPersonDao(PersonDao personDao) {
+		this.personDao = personDao;
+	}
 }

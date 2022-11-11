@@ -11,35 +11,35 @@ import java.util.Collection;
 @Component("schoolNotification")
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class SchoolNotification {
-    @Autowired
-    Grader grader;
+	@Autowired
+	Grader grader;
 
-    private String name;
-    private Collection<Integer> marks;
+	private String name;
+	private Collection<Integer> marks;
 
-    public SchoolNotification(String name) {
-        this.name = name;
-        this.marks = new ArrayList<>();
-    }
+	public SchoolNotification(String name) {
+		this.name = name;
+		this.marks = new ArrayList<>();
+	}
 
-    public String addMark(Integer mark) {
-        this.marks.add(mark);
-        return this.grader.grade(this.marks);
-    }
+	public String addMark(Integer mark) {
+		this.marks.add(mark);
+		return this.grader.grade(this.marks);
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public Collection<Integer> getMarks() {
-        return marks;
-    }
+	public Collection<Integer> getMarks() {
+		return marks;
+	}
 
-    public void setMarks(Collection<Integer> marks) {
-        this.marks = marks;
-    }
+	public void setMarks(Collection<Integer> marks) {
+		this.marks = marks;
+	}
 }

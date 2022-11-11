@@ -13,19 +13,19 @@ import java.util.Map;
 @Component
 public class JoinPointAroundCacheAspect {
 
-    public final static Map<Object, Object> CACHE = new HashMap<>();
+	public final static Map<Object, Object> CACHE = new HashMap<>();
 
-    @Pointcut("execution(* cn.tuyucheng.taketoday.joinpoint.ArticleService.getArticleList(..))")
-    public void articleListPointcut() {
-    }
+	@Pointcut("execution(* cn.tuyucheng.taketoday.joinpoint.ArticleService.getArticleList(..))")
+	public void articleListPointcut() {
+	}
 
-    @Around("articleListPointcut()")
-    public Object aroundAdviceCache(ProceedingJoinPoint pjp) throws Throwable {
-        Object articles = CACHE.get(pjp.getArgs());
-        if (articles == null) {
-            articles = pjp.proceed(pjp.getArgs());
-            CACHE.put(pjp.getArgs(), articles);
-        }
-        return articles;
-    }
+	@Around("articleListPointcut()")
+	public Object aroundAdviceCache(ProceedingJoinPoint pjp) throws Throwable {
+		Object articles = CACHE.get(pjp.getArgs());
+		if (articles == null) {
+			articles = pjp.proceed(pjp.getArgs());
+			CACHE.put(pjp.getArgs(), articles);
+		}
+		return articles;
+	}
 }

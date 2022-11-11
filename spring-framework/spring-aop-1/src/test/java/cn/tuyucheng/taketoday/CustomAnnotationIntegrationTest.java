@@ -10,11 +10,11 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @SpringBootTest
 class CustomAnnotationIntegrationTest {
 
-    @Autowired
-    private Service service;
+	@Autowired
+	private Service service;
 
-    @Test
-    void shouldApplyCustomAnnotation() throws InterruptedException {
-        service.serve();
-    }
+	@Test
+	void shouldApplyCustomAnnotation() throws InterruptedException {
+		service.serve();
+	}
 }

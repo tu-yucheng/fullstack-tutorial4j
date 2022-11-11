@@ -7,12 +7,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class BookManager {
 
-    @Autowired
-    private BookRepository repository;
+	@Autowired
+	private BookRepository repository;
 
-    @Transactional
-    public Book create(String author) {
-        System.out.println(repository.getClass().getName());
-        return repository.create(author);
-    }
+	@Transactional
+	public Book create(String author) {
+		System.out.println(repository.getClass().getName());
+		return repository.create(author);
+	}
 }

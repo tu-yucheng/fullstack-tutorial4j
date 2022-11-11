@@ -10,8 +10,8 @@ import static org.mockito.Mockito.mock;
 @ComponentScan("cn.tuyucheng.taketoday.lombok")
 class TestConfig {
 
-    @Bean
-    public Translator mockTranslator() {
-        return mock(Translator.class);
-    }
+	@Bean
+	public Translator mockTranslator() {
+		return mock(Translator.class);
+	}
 }

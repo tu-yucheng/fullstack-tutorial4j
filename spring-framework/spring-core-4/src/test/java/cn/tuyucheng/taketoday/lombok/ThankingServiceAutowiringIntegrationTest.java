@@ -12,21 +12,21 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(
-        loader = AnnotationConfigContextLoader.class,
-        classes = TestConfig.class
+		loader = AnnotationConfigContextLoader.class,
+		classes = TestConfig.class
 )
 class ThankingServiceAutowiringIntegrationTest {
 
-    @Autowired
-    private ThankingService thankingService;
+	@Autowired
+	private ThankingService thankingService;
 
-    @Autowired
-    private Translator translator;
+	@Autowired
+	private Translator translator;
 
-    @Test
-    void thankWithTranslatedMessage() {
-        String translated = "translated";
-        when(translator.translate("thank you")).thenReturn(translated);
-        assertEquals(translated, thankingService.thank());
-    }
+	@Test
+	void thankWithTranslatedMessage() {
+		String translated = "translated";
+		when(translator.translate("thank you")).thenReturn(translated);
+		assertEquals(translated, thankingService.thank());
+	}
 }

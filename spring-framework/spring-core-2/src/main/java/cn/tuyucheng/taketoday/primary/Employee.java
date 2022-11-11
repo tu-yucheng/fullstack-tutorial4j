@@ -7,5 +7,5 @@ import lombok.Data;
 @AllArgsConstructor
 public class Employee {
 
-    private final String name;
+	private final String name;
 }

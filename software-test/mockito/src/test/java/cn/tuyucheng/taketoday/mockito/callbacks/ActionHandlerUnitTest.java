@@ -17,48 +17,48 @@ import static org.mockito.Mockito.verify;
 
 class ActionHandlerUnitTest {
 
-    @Mock
-    private Service service;
+	@Mock
+	private Service service;
 
-    @Captor
-    private ArgumentCaptor<Callback<Response>> callbackCaptor;
+	@Captor
+	private ArgumentCaptor<Callback<Response>> callbackCaptor;
 
-    @BeforeEach
-    void setup() {
-        MockitoAnnotations.openMocks(this);
-    }
+	@BeforeEach
+	void setup() {
+		MockitoAnnotations.openMocks(this);
+	}
 
-    @Test
-    void givenServiceWithValidResponse_whenCallbackReceived_thenProcessed() {
-        ActionHandler handler = new ActionHandler(service);
-        handler.doAction();
+	@Test
+	void givenServiceWithValidResponse_whenCallbackReceived_thenProcessed() {
+		ActionHandler handler = new ActionHandler(service);
+		handler.doAction();
 
-        verify(service).doAction(anyString(), callbackCaptor.capture());
+		verify(service).doAction(anyString(), callbackCaptor.capture());
 
-        Callback<Response> callback = callbackCaptor.getValue();
-        Response response = new Response();
-        callback.reply(response);
+		Callback<Response> callback = callbackCaptor.getValue();
+		Response response = new Response();
+		callback.reply(response);
 
-        String expectedMessage = "Successful data response";
-        Data data = response.getData();
-        assertEquals(expectedMessage, data.getMessage(), "Should receive a successful message: ");
-    }
+		String expectedMessage = "Successful data response";
+		Data data = response.getData();
+		assertEquals(expectedMessage, data.getMessage(), "Should receive a successful message: ");
+	}
 
-    @Test
-    void givenServiceWithInvalidResponse_whenCallbackReceived_thenNotProcessed() {
-        Response response = new Response();
-        response.setValid(false);
+	@Test
+	void givenServiceWithInvalidResponse_whenCallbackReceived_thenNotProcessed() {
+		Response response = new Response();
+		response.setValid(false);
 
-        doAnswer((Answer<Void>) invocation -> {
-            Callback<Response> callback = invocation.getArgument(1);
-            callback.reply(response);
+		doAnswer((Answer<Void>) invocation -> {
+			Callback<Response> callback = invocation.getArgument(1);
+			callback.reply(response);
 
-            Data data = response.getData();
-            assertNull(data, "No data in invalid response: ");
-            return null;
-        }).when(service).doAction(anyString(), any(Callback.class));
+			Data data = response.getData();
+			assertNull(data, "No data in invalid response: ");
+			return null;
+		}).when(service).doAction(anyString(), any(Callback.class));
 
-        ActionHandler handler = new ActionHandler(service);
-        handler.doAction();
-    }
+		ActionHandler handler = new ActionHandler(service);
+		handler.doAction();
+	}
 }

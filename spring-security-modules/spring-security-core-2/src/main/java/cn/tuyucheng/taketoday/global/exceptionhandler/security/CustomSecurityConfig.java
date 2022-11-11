@@ -18,41 +18,41 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 @EnableWebSecurity
 public class CustomSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    @Qualifier("customAuthenticationEntryPoint")
-    AuthenticationEntryPoint authEntryPoint;
+	@Autowired
+	@Qualifier("customAuthenticationEntryPoint")
+	AuthenticationEntryPoint authEntryPoint;
 
-    @Bean
-    public UserDetailsService userDetailsService() {
-        UserDetails admin = User.withUsername("admin")
-                .password("password")
-                .roles("ADMIN")
-                .build();
-        InMemoryUserDetailsManager userDetailsManager = new InMemoryUserDetailsManager();
-        userDetailsManager.createUser(admin);
-        return userDetailsManager;
-    }
+	@Bean
+	public UserDetailsService userDetailsService() {
+		UserDetails admin = User.withUsername("admin")
+				.password("password")
+				.roles("ADMIN")
+				.build();
+		InMemoryUserDetailsManager userDetailsManager = new InMemoryUserDetailsManager();
+		userDetailsManager.createUser(admin);
+		return userDetailsManager;
+	}
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.requestMatchers()
-                .antMatchers("/login")
-                .and()
-                .authorizeRequests()
-                .anyRequest()
-                .hasRole("ADMIN")
-                .and()
-                .httpBasic()
-                .and()
-                .exceptionHandling()
-                .authenticationEntryPoint(authEntryPoint);
-    }
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.requestMatchers()
+				.antMatchers("/login")
+				.and()
+				.authorizeRequests()
+				.anyRequest()
+				.hasRole("ADMIN")
+				.and()
+				.httpBasic()
+				.and()
+				.exceptionHandling()
+				.authenticationEntryPoint(authEntryPoint);
+	}
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("admin")
-                .password("password")
-                .roles("ADMIN");
-    }
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.inMemoryAuthentication()
+				.withUser("admin")
+				.password("password")
+				.roles("ADMIN");
+	}
 }

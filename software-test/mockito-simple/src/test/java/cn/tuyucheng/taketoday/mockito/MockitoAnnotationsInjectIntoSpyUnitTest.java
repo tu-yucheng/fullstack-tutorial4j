@@ -16,24 +16,24 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(MockitoExtension.class)
 class MockitoAnnotationsInjectIntoSpyUnitTest {
 
-    @BeforeEach
-    void init() {
-        MockitoAnnotations.openMocks(this);
-        spyDic = Mockito.spy(new MyDictionary(wordMap));
-    }
+	@BeforeEach
+	void init() {
+		MockitoAnnotations.openMocks(this);
+		spyDic = Mockito.spy(new MyDictionary(wordMap));
+	}
 
-    @Mock
-    private Map<String, String> wordMap;
+	@Mock
+	private Map<String, String> wordMap;
 
-    @InjectMocks
-    private MyDictionary dic = new MyDictionary();
+	@InjectMocks
+	private MyDictionary dic = new MyDictionary();
 
-    private MyDictionary spyDic;
+	private MyDictionary spyDic;
 
-    @Test
-    void whenUseInjectMocksAnnotation_thenCorrect() {
-        Mockito.when(wordMap.get("aWord")).thenReturn("aMeaning");
+	@Test
+	void whenUseInjectMocksAnnotation_thenCorrect() {
+		Mockito.when(wordMap.get("aWord")).thenReturn("aMeaning");
 
-        assertEquals("aMeaning", spyDic.getMeaning("aWord"));
-    }
+		assertEquals("aMeaning", spyDic.getMeaning("aWord"));
+	}
 }

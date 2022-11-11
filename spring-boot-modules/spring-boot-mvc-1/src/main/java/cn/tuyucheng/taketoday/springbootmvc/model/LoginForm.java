@@ -11,10 +11,10 @@ import javax.validation.constraints.NotNull;
 @Getter
 public class LoginForm {
 
-    @NotEmpty(message = "{email.notempty}")
-    @Email
-    private String email;
+	@NotEmpty(message = "{email.notempty}")
+	@Email
+	private String email;
 
-    @NotNull
-    private String password;
+	@NotNull
+	private String password;
 }

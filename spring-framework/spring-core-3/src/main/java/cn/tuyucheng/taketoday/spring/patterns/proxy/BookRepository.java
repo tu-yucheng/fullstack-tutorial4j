@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class BookRepository {
 
-    public Book create(String author) {
-        return new Book(author);
-    }
+	public Book create(String author) {
+		return new Book(author);
+	}
 }

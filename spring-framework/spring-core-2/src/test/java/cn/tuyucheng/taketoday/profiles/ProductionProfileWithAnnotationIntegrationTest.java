@@ -16,18 +16,18 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @ActiveProfiles("production")
 @ContextConfiguration(classes = {SpringProfilesConfig.class}, loader = AnnotationConfigContextLoader.class)
 class ProductionProfileWithAnnotationIntegrationTest {
-    @Autowired
-    DataSourceConfig datasourceConfig;
+	@Autowired
+	DataSourceConfig datasourceConfig;
 
-    @Autowired
-    Environment environment;
+	@Autowired
+	Environment environment;
 
-    @Test
-    void testSpringProfiles() {
-        for (final String profileName : environment.getActiveProfiles()) {
-            System.out.println("Currently active profile - " + profileName);
-        }
-        assertEquals("production", environment.getActiveProfiles()[0]);
-        assertTrue(datasourceConfig instanceof ProductionDataSourceConfig);
-    }
+	@Test
+	void testSpringProfiles() {
+		for (final String profileName : environment.getActiveProfiles()) {
+			System.out.println("Currently active profile - " + profileName);
+		}
+		assertEquals("production", environment.getActiveProfiles()[0]);
+		assertTrue(datasourceConfig instanceof ProductionDataSourceConfig);
+	}
 }

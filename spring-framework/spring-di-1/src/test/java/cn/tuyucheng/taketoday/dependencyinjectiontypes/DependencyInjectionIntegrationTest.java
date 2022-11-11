@@ -8,25 +8,25 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DependencyInjectionIntegrationTest {
 
-    @Test
-    void givenAutowiredAnnotation_WhenSetOnSetter_ThenDependencyValid() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("dependencyinjectiontypes-context.xml");
-        ArticleWithSetterInjection article = (ArticleWithSetterInjection) context.getBean("articleWithSetterInjectionBean");
+	@Test
+	void givenAutowiredAnnotation_WhenSetOnSetter_ThenDependencyValid() {
+		ApplicationContext context = new ClassPathXmlApplicationContext("dependencyinjectiontypes-context.xml");
+		ArticleWithSetterInjection article = (ArticleWithSetterInjection) context.getBean("articleWithSetterInjectionBean");
 
-        String originalText = "This is a text !";
-        String formattedArticle = article.format(originalText);
+		String originalText = "This is a text !";
+		String formattedArticle = article.format(originalText);
 
-        assertEquals(originalText.toUpperCase(), formattedArticle);
-    }
+		assertEquals(originalText.toUpperCase(), formattedArticle);
+	}
 
-    @Test
-    void givenAutowiredAnnotation_WhenSetOnConstructor_ThenDependencyValid() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("dependencyinjectiontypes-context.xml");
-        ArticleWithConstructorInjection article = (ArticleWithConstructorInjection) context.getBean("articleWithConstructorInjectionBean");
+	@Test
+	void givenAutowiredAnnotation_WhenSetOnConstructor_ThenDependencyValid() {
+		ApplicationContext context = new ClassPathXmlApplicationContext("dependencyinjectiontypes-context.xml");
+		ArticleWithConstructorInjection article = (ArticleWithConstructorInjection) context.getBean("articleWithConstructorInjectionBean");
 
-        String originalText = "This is a text !";
-        String formattedArticle = article.format(originalText);
+		String originalText = "This is a text !";
+		String formattedArticle = article.format(originalText);
 
-        assertEquals(originalText.toUpperCase(), formattedArticle);
-    }
+		assertEquals(originalText.toUpperCase(), formattedArticle);
+	}
 }

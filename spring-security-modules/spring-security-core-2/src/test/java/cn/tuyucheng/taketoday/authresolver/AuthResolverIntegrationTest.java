@@ -22,50 +22,50 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = AuthResolverApplication.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class AuthResolverIntegrationTest {
-    @Autowired
-    private FilterChainProxy springSecurityFilterChain;
+	@Autowired
+	private FilterChainProxy springSecurityFilterChain;
 
-    @Autowired
-    private WebApplicationContext wac;
+	@Autowired
+	private WebApplicationContext wac;
 
-    private MockMvc mockMvc;
+	private MockMvc mockMvc;
 
-    @BeforeEach
-    void setup() {
-        this.mockMvc = MockMvcBuilders
-                .webAppContextSetup(wac)
-                .apply(springSecurity(springSecurityFilterChain))
-                .build();
-    }
+	@BeforeEach
+	void setup() {
+		this.mockMvc = MockMvcBuilders
+				.webAppContextSetup(wac)
+				.apply(springSecurity(springSecurityFilterChain))
+				.build();
+	}
 
-    @Test
-    void givenCustomerCredential_whenWelcomeCustomer_thenExpectOk() throws Exception {
-        this.mockMvc
-                .perform(get("/customer/welcome")
-                        .header("Authorization", String.format("Basic %s", Base64Utils.encodeToString("customer1:pass1".getBytes()))))
-                .andExpect(status().is2xxSuccessful());
-    }
+	@Test
+	void givenCustomerCredential_whenWelcomeCustomer_thenExpectOk() throws Exception {
+		this.mockMvc
+				.perform(get("/customer/welcome")
+						.header("Authorization", String.format("Basic %s", Base64Utils.encodeToString("customer1:pass1".getBytes()))))
+				.andExpect(status().is2xxSuccessful());
+	}
 
-    @Test
-    void givenEmployeeCredential_whenWelcomeCustomer_thenExpect401Status() throws Exception {
-        this.mockMvc
-                .perform(get("/customer/welcome")
-                        .header("Authorization", "Basic " + Base64Utils.encodeToString("employee1:pass1".getBytes())))
-                .andExpect(status().isUnauthorized());
-    }
+	@Test
+	void givenEmployeeCredential_whenWelcomeCustomer_thenExpect401Status() throws Exception {
+		this.mockMvc
+				.perform(get("/customer/welcome")
+						.header("Authorization", "Basic " + Base64Utils.encodeToString("employee1:pass1".getBytes())))
+				.andExpect(status().isUnauthorized());
+	}
 
-    @Test
-    void givenEmployeeCredential_whenWelcomeEmployee_thenExpectOk() throws Exception {
-        this.mockMvc
-                .perform(get("/employee/welcome")
-                        .header("Authorization", "Basic " + Base64Utils.encodeToString("employee1:pass1".getBytes())))
-                .andExpect(status().is2xxSuccessful());
-    }
+	@Test
+	void givenEmployeeCredential_whenWelcomeEmployee_thenExpectOk() throws Exception {
+		this.mockMvc
+				.perform(get("/employee/welcome")
+						.header("Authorization", "Basic " + Base64Utils.encodeToString("employee1:pass1".getBytes())))
+				.andExpect(status().is2xxSuccessful());
+	}
 
-    @Test
-    void givenCustomerCredential_whenWelcomeEmployee_thenExpect401Status() throws Exception {
-        this.mockMvc.perform(get("/employee/welcome")
-                        .header("Authorization", "Basic " + Base64Utils.encodeToString("customer1:pass1".getBytes())))
-                .andExpect(status().isUnauthorized());
-    }
+	@Test
+	void givenCustomerCredential_whenWelcomeEmployee_thenExpect401Status() throws Exception {
+		this.mockMvc.perform(get("/employee/welcome")
+						.header("Authorization", "Basic " + Base64Utils.encodeToString("customer1:pass1".getBytes())))
+				.andExpect(status().isUnauthorized());
+	}
 }

@@ -16,14 +16,14 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @SpringBootTest(classes = SpringMvcApplication.class)
 class SpringBootJPAIntegrationTest {
 
-    @Autowired
-    private GenericEntityRepository genericEntityRepository;
+	@Autowired
+	private GenericEntityRepository genericEntityRepository;
 
-    @Test
-    void givenGenericEntityRepository_whenSaveAndRetrieveEntity_thenOK() {
-        GenericEntity genericEntity = genericEntityRepository.save(new GenericEntity("test"));
-        GenericEntity foundEntity = genericEntityRepository.findById(genericEntity.getId()).orElse(null);
-        assertNotNull(foundEntity);
-        assertEquals(genericEntity.getValue(), foundEntity.getValue());
-    }
+	@Test
+	void givenGenericEntityRepository_whenSaveAndRetrieveEntity_thenOK() {
+		GenericEntity genericEntity = genericEntityRepository.save(new GenericEntity("test"));
+		GenericEntity foundEntity = genericEntityRepository.findById(genericEntity.getId()).orElse(null);
+		assertNotNull(foundEntity);
+		assertEquals(genericEntity.getValue(), foundEntity.getValue());
+	}
 }

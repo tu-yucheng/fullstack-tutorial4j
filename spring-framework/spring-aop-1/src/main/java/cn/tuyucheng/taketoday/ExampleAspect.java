@@ -9,14 +9,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class ExampleAspect {
 
-    @Around("@annotation(cn.tuyucheng.taketoday.LogExecutionTime)")
-    public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
-        final long start = System.currentTimeMillis();
+	@Around("@annotation(cn.tuyucheng.taketoday.LogExecutionTime)")
+	public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
+		final long start = System.currentTimeMillis();
 
-        final Object proceed = joinPoint.proceed();
+		final Object proceed = joinPoint.proceed();
 
-        final long executionTime = System.currentTimeMillis() - start;
-        System.out.println(joinPoint.getSignature() + " executed in " + executionTime + "ms");
-        return proceed;
-    }
+		final long executionTime = System.currentTimeMillis() - start;
+		System.out.println(joinPoint.getSignature() + " executed in " + executionTime + "ms");
+		return proceed;
+	}
 }

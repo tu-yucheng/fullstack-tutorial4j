@@ -13,27 +13,27 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class PublishingAspect {
 
-    private ApplicationEventPublisher eventPublisher;
+	private ApplicationEventPublisher eventPublisher;
 
-    @Autowired
-    public void setEventPublisher(ApplicationEventPublisher eventPublisher) {
-        this.eventPublisher = eventPublisher;
-    }
+	@Autowired
+	public void setEventPublisher(ApplicationEventPublisher eventPublisher) {
+		this.eventPublisher = eventPublisher;
+	}
 
-    @Pointcut("within(cn.tuyucheng.taketoday..*) && execution(* cn.tuyucheng.taketoday.pointcutadvice.dao.FooDao.*(..))")
-    public void repositoryMethods() {
-    }
+	@Pointcut("within(cn.tuyucheng.taketoday..*) && execution(* cn.tuyucheng.taketoday.pointcutadvice.dao.FooDao.*(..))")
+	public void repositoryMethods() {
+	}
 
-    @Pointcut("within(cn.tuyucheng.taketoday..*) && execution(* cn.tuyucheng.taketoday.pointcutadvice.dao.FooDao.create*(Long,..))")
-    public void firstLongParamMethods() {
-    }
+	@Pointcut("within(cn.tuyucheng.taketoday..*) && execution(* cn.tuyucheng.taketoday.pointcutadvice.dao.FooDao.create*(Long,..))")
+	public void firstLongParamMethods() {
+	}
 
-    @Pointcut("repositoryMethods() && firstLongParamMethods()")
-    public void entityCreationMethods() {
-    }
+	@Pointcut("repositoryMethods() && firstLongParamMethods()")
+	public void entityCreationMethods() {
+	}
 
-    @AfterReturning(value = "entityCreationMethods()", returning = "entity")
-    public void logMethodCall(JoinPoint jp, Object entity) throws Throwable {
-        eventPublisher.publishEvent(new FooCreationEvent(entity));
-    }
+	@AfterReturning(value = "entityCreationMethods()", returning = "entity")
+	public void logMethodCall(JoinPoint jp, Object entity) throws Throwable {
+		eventPublisher.publishEvent(new FooCreationEvent(entity));
+	}
 }

@@ -6,9 +6,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class DriverApplication {
 
-    public static void main(String[] args) {
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(Config.class);
-        ctx.getBean(FileProcessor.class);
-        ctx.close();
-    }
+	public static void main(String[] args) {
+		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(Config.class);
+		ctx.getBean(FileProcessor.class);
+		ctx.close();
+	}
 }

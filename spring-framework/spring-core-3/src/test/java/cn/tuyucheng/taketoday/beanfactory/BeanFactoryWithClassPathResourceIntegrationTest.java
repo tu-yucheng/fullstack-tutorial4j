@@ -10,15 +10,15 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class BeanFactoryWithClassPathResourceIntegrationTest {
 
-    @Test
-    void createBeanFactoryAndCheckEmployeeBean() {
-        Resource res = new ClassPathResource("beanfactory-example.xml");
-        BeanFactory factory = new XmlBeanFactory(res);
-        Employee emp = (Employee) factory.getBean("employee");
+	@Test
+	void createBeanFactoryAndCheckEmployeeBean() {
+		Resource res = new ClassPathResource("beanfactory-example.xml");
+		BeanFactory factory = new XmlBeanFactory(res);
+		Employee emp = (Employee) factory.getBean("employee");
 
-        assertTrue(factory.isSingleton("employee"));
-        assertTrue(factory.getBean("employee") instanceof Employee);
-        assertTrue(factory.isTypeMatch("employee", Employee.class));
-        assertTrue(factory.getAliases("employee").length > 0);
-    }
+		assertTrue(factory.isSingleton("employee"));
+		assertTrue(factory.getBean("employee") instanceof Employee);
+		assertTrue(factory.isTypeMatch("employee", Employee.class));
+		assertTrue(factory.getAliases("employee").length > 0);
+	}
 }

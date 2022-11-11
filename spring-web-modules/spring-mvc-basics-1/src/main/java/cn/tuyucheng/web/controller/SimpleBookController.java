@@ -11,19 +11,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("books")
 public class SimpleBookController {
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
-    public @ResponseBody Book getBook(@PathVariable int id) {
-        return findBookById(id);
-    }
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
+	public @ResponseBody Book getBook(@PathVariable int id) {
+		return findBookById(id);
+	}
 
-    private Book findBookById(int id) {
-        Book book = null;
-        if (id == 42) {
-            book = new Book();
-            book.setId(id);
-            book.setAuthor("Douglas Adamas");
-            book.setTitle("Hitchhiker's guide to the galaxy");
-        }
-        return book;
-    }
+	private Book findBookById(int id) {
+		Book book = null;
+		if (id == 42) {
+			book = new Book();
+			book.setId(id);
+			book.setAuthor("Douglas Adamas");
+			book.setTitle("Hitchhiker's guide to the galaxy");
+		}
+		return book;
+	}
 }

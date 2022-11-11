@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Import;
 @Import({SecurityConfig.class, MongoConfig.class})
 public class MongoAuthApplication {
 
-    public static void main(String... args) {
-        SpringApplication.run(MongoAuthApplication.class, args);
-    }
+	public static void main(String... args) {
+		SpringApplication.run(MongoAuthApplication.class, args);
+	}
 }

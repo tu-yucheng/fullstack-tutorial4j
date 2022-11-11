@@ -7,25 +7,25 @@ import java.util.*;
 
 @Repository
 public class InMemoryUserDao {
-    private final Map<String, User> map = new HashMap<>();
+	private final Map<String, User> map = new HashMap<>();
 
-    public void save(User user) {
-        map.put(user.getId(), user);
-    }
+	public void save(User user) {
+		map.put(user.getId(), user);
+	}
 
-    public Optional<User> findById(String userId) {
-        return Optional.ofNullable(map.get(userId));
-    }
+	public Optional<User> findById(String userId) {
+		return Optional.ofNullable(map.get(userId));
+	}
 
-    public Optional<List<User>> findAll() {
-        return Optional.of(new ArrayList<>(map.values()));
-    }
+	public Optional<List<User>> findAll() {
+		return Optional.of(new ArrayList<>(map.values()));
+	}
 
-    public void delete(String userId) {
-        map.remove(userId);
-    }
+	public void delete(String userId) {
+		map.remove(userId);
+	}
 
-    public boolean isExists(String userId) {
-        return map.containsKey(userId);
-    }
+	public boolean isExists(String userId) {
+		return map.containsKey(userId);
+	}
 }

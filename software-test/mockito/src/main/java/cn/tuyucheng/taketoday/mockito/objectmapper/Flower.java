@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Flower {
 
-    private String name;
-    private Integer petals;
+	private String name;
+	private Integer petals;
 }

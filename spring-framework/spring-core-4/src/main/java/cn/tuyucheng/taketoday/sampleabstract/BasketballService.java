@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class BasketballService extends BallService {
 
-    @Autowired
-    public BasketballService(RuleRepository ruleRepository) {
-        super(ruleRepository);
-    }
+	@Autowired
+	public BasketballService(RuleRepository ruleRepository) {
+		super(ruleRepository);
+	}
 }

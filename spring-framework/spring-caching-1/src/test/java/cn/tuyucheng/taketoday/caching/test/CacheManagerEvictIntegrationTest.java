@@ -24,72 +24,72 @@ import static org.hamcrest.core.IsNull.nullValue;
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration
 public class CacheManagerEvictIntegrationTest {
-    @Autowired
-    private CachingService cachingService;
+	@Autowired
+	private CachingService cachingService;
 
-    @BeforeEach
-    void setUp() {
-        cachingService.putToCache("first", "key1", "Tuyucheng");
-        cachingService.putToCache("first", "key2", "Article");
-        cachingService.putToCache("second", "key", "Article");
-    }
+	@BeforeEach
+	void setUp() {
+		cachingService.putToCache("first", "key1", "Tuyucheng");
+		cachingService.putToCache("first", "key2", "Article");
+		cachingService.putToCache("second", "key", "Article");
+	}
 
-    @Test
-    void givenFirstCache_whenSingleCacheValueEvictRequested_thenEmptyCacheValue() {
-        cachingService.evictSingleCacheValue("first", "key1");
-        String key1 = cachingService.getFromCache("first", "key1");
-        assertThat(key1, is(nullValue()));
-    }
+	@Test
+	void givenFirstCache_whenSingleCacheValueEvictRequested_thenEmptyCacheValue() {
+		cachingService.evictSingleCacheValue("first", "key1");
+		String key1 = cachingService.getFromCache("first", "key1");
+		assertThat(key1, is(nullValue()));
+	}
 
-    @Test
-    void givenFirstCache_whenAllCacheValueEvictRequested_thenEmptyCache() {
-        cachingService.evictAllCacheValues("first");
-        String key1 = cachingService.getFromCache("first", "key1");
-        String key2 = cachingService.getFromCache("first", "key2");
-        assertThat(key1, is(nullValue()));
-        assertThat(key2, is(nullValue()));
-    }
+	@Test
+	void givenFirstCache_whenAllCacheValueEvictRequested_thenEmptyCache() {
+		cachingService.evictAllCacheValues("first");
+		String key1 = cachingService.getFromCache("first", "key1");
+		String key2 = cachingService.getFromCache("first", "key2");
+		assertThat(key1, is(nullValue()));
+		assertThat(key2, is(nullValue()));
+	}
 
-    @Test
-    void givenAllCaches_whenAllCacheEvictRequested_thenEmptyAllCaches() {
-        cachingService.evictAllCaches();
-        String key1 = cachingService.getFromCache("first", "key1");
-        assertThat(key1, is(nullValue()));
+	@Test
+	void givenAllCaches_whenAllCacheEvictRequested_thenEmptyAllCaches() {
+		cachingService.evictAllCaches();
+		String key1 = cachingService.getFromCache("first", "key1");
+		assertThat(key1, is(nullValue()));
 
-        String key = cachingService.getFromCache("second", "key");
-        assertThat(key, is(nullValue()));
-    }
+		String key = cachingService.getFromCache("second", "key");
+		assertThat(key, is(nullValue()));
+	}
 
-    @Configuration
-    static class ContextConfiguration {
+	@Configuration
+	static class ContextConfiguration {
 
-        @Bean
-        public CachingService cachingService() {
-            return new CachingService();
-        }
+		@Bean
+		public CachingService cachingService() {
+			return new CachingService();
+		}
 
-        @Bean
-        public CacheManager cacheManager() {
-            SimpleCacheManager cacheManager = new SimpleCacheManager();
-            List<Cache> caches = new ArrayList<>();
-            caches.add(firstCacheBean().getObject());
-            caches.add(secondCacheBean().getObject());
-            cacheManager.setCaches(caches);
-            return cacheManager;
-        }
+		@Bean
+		public CacheManager cacheManager() {
+			SimpleCacheManager cacheManager = new SimpleCacheManager();
+			List<Cache> caches = new ArrayList<>();
+			caches.add(firstCacheBean().getObject());
+			caches.add(secondCacheBean().getObject());
+			cacheManager.setCaches(caches);
+			return cacheManager;
+		}
 
-        @Bean
-        public ConcurrentMapCacheFactoryBean firstCacheBean() {
-            ConcurrentMapCacheFactoryBean cacheFactoryBean = new ConcurrentMapCacheFactoryBean();
-            cacheFactoryBean.setName("first");
-            return cacheFactoryBean;
-        }
+		@Bean
+		public ConcurrentMapCacheFactoryBean firstCacheBean() {
+			ConcurrentMapCacheFactoryBean cacheFactoryBean = new ConcurrentMapCacheFactoryBean();
+			cacheFactoryBean.setName("first");
+			return cacheFactoryBean;
+		}
 
-        @Bean
-        public ConcurrentMapCacheFactoryBean secondCacheBean() {
-            ConcurrentMapCacheFactoryBean cacheFactoryBean = new ConcurrentMapCacheFactoryBean();
-            cacheFactoryBean.setName("second");
-            return cacheFactoryBean;
-        }
-    }
+		@Bean
+		public ConcurrentMapCacheFactoryBean secondCacheBean() {
+			ConcurrentMapCacheFactoryBean cacheFactoryBean = new ConcurrentMapCacheFactoryBean();
+			cacheFactoryBean.setName("second");
+			return cacheFactoryBean;
+		}
+	}
 }

@@ -10,19 +10,19 @@ import java.util.List;
 @RestController
 public class PropertyController {
 
-    @Value("${name}")
-    private static String NAME_NULL;
-    private static String NAME_STATIC;
-    @Value("${name}")
-    private String name;
+	@Value("${name}")
+	private static String NAME_NULL;
+	private static String NAME_STATIC;
+	@Value("${name}")
+	private String name;
 
-    @Value("${name}")
-    public void setNameStatic(String name) {
-        PropertyController.NAME_STATIC = name;
-    }
+	@Value("${name}")
+	public void setNameStatic(String name) {
+		PropertyController.NAME_STATIC = name;
+	}
 
-    @GetMapping("/properties")
-    public List<String> getProperties() {
-        return Arrays.asList(this.name, NAME_STATIC, NAME_NULL);
-    }
+	@GetMapping("/properties")
+	public List<String> getProperties() {
+		return Arrays.asList(this.name, NAME_STATIC, NAME_NULL);
+	}
 }

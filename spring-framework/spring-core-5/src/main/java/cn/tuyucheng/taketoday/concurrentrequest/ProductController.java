@@ -8,21 +8,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController()
 @RequestMapping("product")
 public class ProductController {
-    private final ProductService productService;
+	private final ProductService productService;
 
-    public ProductController(ProductService productService) {
-        this.productService = productService;
-    }
+	public ProductController(ProductService productService) {
+		this.productService = productService;
+	}
 
-    @GetMapping("/{id}")
-    public Product getProductDetails(@PathVariable("id") int productId) {
-        return productService.getProductById(productId).orElse(null);
-    }
+	@GetMapping("/{id}")
+	public Product getProductDetails(@PathVariable("id") int productId) {
+		return productService.getProductById(productId).orElse(null);
+	}
 
-    @GetMapping("{id}/stock")
-    public Stock getProductStock(@PathVariable("id") int productId) {
-        return productService.getProductById(productId)
-                .map(Product::stock)
-                .orElse(null);
-    }
+	@GetMapping("{id}/stock")
+	public Stock getProductStock(@PathVariable("id") int productId) {
+		return productService.getProductById(productId)
+				.map(Product::stock)
+				.orElse(null);
+	}
 }

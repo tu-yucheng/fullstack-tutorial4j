@@ -18,33 +18,33 @@ import java.util.concurrent.Future;
 @SpringBootApplication
 public class BootstrapModeApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(BootstrapModeApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(BootstrapModeApplication.class, args);
+	}
 
-    @Bean
-    AsyncTaskExecutor delayedTaskExecutor() {
-        return new ThreadPoolTaskExecutor() {
-            @Override
-            public <T> @NotNull Future<T> submit(@NotNull Callable<T> task) {
-                return super.submit(() -> {
-                    Thread.sleep(5000);
-                    return task.call();
-                });
-            }
-        };
-    }
+	@Bean
+	AsyncTaskExecutor delayedTaskExecutor() {
+		return new ThreadPoolTaskExecutor() {
+			@Override
+			public <T> @NotNull Future<T> submit(@NotNull Callable<T> task) {
+				return super.submit(() -> {
+					Thread.sleep(5000);
+					return task.call();
+				});
+			}
+		};
+	}
 
-    @Bean
-    LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, AsyncTaskExecutor delayedTaskExecutor) {
-        LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
-        factory.setPackagesToScan("cn.tuyucheng.boot.bootstrapmode");
-        factory.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-        factory.setDataSource(dataSource);
-        factory.setBootstrapExecutor(delayedTaskExecutor);
-        Map<String, Object> properties = new HashMap<>();
-        properties.put("hibernate.hbm2ddl.auto", "create-drop");
-        factory.setJpaPropertyMap(properties);
-        return factory;
-    }
+	@Bean
+	LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, AsyncTaskExecutor delayedTaskExecutor) {
+		LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
+		factory.setPackagesToScan("cn.tuyucheng.boot.bootstrapmode");
+		factory.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+		factory.setDataSource(dataSource);
+		factory.setBootstrapExecutor(delayedTaskExecutor);
+		Map<String, Object> properties = new HashMap<>();
+		properties.put("hibernate.hbm2ddl.auto", "create-drop");
+		factory.setJpaPropertyMap(properties);
+		return factory;
+	}
 }

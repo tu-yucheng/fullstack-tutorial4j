@@ -16,36 +16,36 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @ContextConfiguration(classes = {SpringStartupConfig.class}, loader = AnnotationConfigContextLoader.class)
 class SpringStartupIntegrationTest {
 
-    @Autowired
-    private ApplicationContext ctx;
+	@Autowired
+	private ApplicationContext ctx;
 
-    @Test
-    void whenInstantiating_shouldThrowBCE() {
-        assertThrows(BeanCreationException.class, () -> ctx.getBean(InvalidInitExampleBean.class));
-    }
+	@Test
+	void whenInstantiating_shouldThrowBCE() {
+		assertThrows(BeanCreationException.class, () -> ctx.getBean(InvalidInitExampleBean.class));
+	}
 
-    @Test
-    void whenPostConstruct_shouldLogEnv() {
-        ctx.getBean(PostConstructExampleBean.class);
-    }
+	@Test
+	void whenPostConstruct_shouldLogEnv() {
+		ctx.getBean(PostConstructExampleBean.class);
+	}
 
-    @Test
-    void whenConstructorInjection_shouldLogEnv() {
-        ctx.getBean(LogicInConstructorExampleBean.class);
-    }
+	@Test
+	void whenConstructorInjection_shouldLogEnv() {
+		ctx.getBean(LogicInConstructorExampleBean.class);
+	}
 
-    @Test
-    void whenInitializingBean_shouldLogEnv() {
-        ctx.getBean(InitializingBeanExampleBean.class);
-    }
+	@Test
+	void whenInitializingBean_shouldLogEnv() {
+		ctx.getBean(InitializingBeanExampleBean.class);
+	}
 
-    @Test
-    void whenInitMethod_shouldLogEnv() {
-        ctx.getBean(InitMethodExampleBean.class);
-    }
+	@Test
+	void whenInitMethod_shouldLogEnv() {
+		ctx.getBean(InitMethodExampleBean.class);
+	}
 
-    @Test
-    void whenApplicationListener_shouldRunOnce() {
-        Assertions.assertThat(StartupApplicationListenerExample.counter).isEqualTo(1);
-    }
+	@Test
+	void whenApplicationListener_shouldRunOnce() {
+		Assertions.assertThat(StartupApplicationListenerExample.counter).isEqualTo(1);
+	}
 }

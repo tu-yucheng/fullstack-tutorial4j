@@ -7,20 +7,20 @@ import org.springframework.stereotype.Component;
 @Component
 public class Setup implements ApplicationListener<ContextRefreshedEvent> {
 
-    private boolean setupDone;
+	private boolean setupDone;
 
-    public Setup() {
-        super();
-    }
+	public Setup() {
+		super();
+	}
 
-    //
+	//
 
-    @Override
-    public final void onApplicationEvent(final ContextRefreshedEvent event) {
-        if (!setupDone) {
-            System.out.println();
-            setupDone = true;
-        }
-    }
+	@Override
+	public final void onApplicationEvent(final ContextRefreshedEvent event) {
+		if (!setupDone) {
+			System.out.println();
+			setupDone = true;
+		}
+	}
 
 }

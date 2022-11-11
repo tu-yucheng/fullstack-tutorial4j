@@ -8,8 +8,8 @@ import java.io.File;
 @Configuration
 public class ApplicationContextTestResourceNameType {
 
-    @Bean(name = "namedFile")
-    public File namedFile() {
-        return new File("namedFile.txt");
-    }
+	@Bean(name = "namedFile")
+	public File namedFile() {
+		return new File("namedFile.txt");
+	}
 }

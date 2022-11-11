@@ -16,17 +16,17 @@ import static org.junit.jupiter.api.Assertions.*;
 @EnableAspectJAutoProxy
 class JoinPointAroundCacheAspectIntegrationTest {
 
-    @Autowired
-    private ArticleService articleService;
+	@Autowired
+	private ArticleService articleService;
 
-    @Test
-    void shouldPopulateCache() {
-        assertTrue(JoinPointAroundCacheAspect.CACHE.isEmpty());
+	@Test
+	void shouldPopulateCache() {
+		assertTrue(JoinPointAroundCacheAspect.CACHE.isEmpty());
 
-        List<String> articles = articleService.getArticleList();
+		List<String> articles = articleService.getArticleList();
 
-        assertFalse(JoinPointAroundCacheAspect.CACHE.isEmpty());
-        assertEquals(JoinPointAroundCacheAspect.CACHE.size(), 1);
-        assertEquals(JoinPointAroundCacheAspect.CACHE.values().iterator().next(), articles);
-    }
+		assertFalse(JoinPointAroundCacheAspect.CACHE.isEmpty());
+		assertEquals(JoinPointAroundCacheAspect.CACHE.size(), 1);
+		assertEquals(JoinPointAroundCacheAspect.CACHE.values().iterator().next(), articles);
+	}
 }

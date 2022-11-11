@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 @Order(Ordered.LOWEST_PRECEDENCE)
 public class Average implements Rating {
 
-    @Override
-    public int getRating() {
-        return 3;
-    }
+	@Override
+	public int getRating() {
+		return 3;
+	}
 }

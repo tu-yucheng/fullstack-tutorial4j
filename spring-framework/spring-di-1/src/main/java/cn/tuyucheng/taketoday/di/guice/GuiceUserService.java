@@ -5,14 +5,14 @@ import com.google.inject.Inject;
 
 public class GuiceUserService {
 
-    @Inject
-    private AccountService accountService;
+	@Inject
+	private AccountService accountService;
 
-    public AccountService getAccountService() {
-        return accountService;
-    }
+	public AccountService getAccountService() {
+		return accountService;
+	}
 
-    public void setAccountService(AccountService accountService) {
-        this.accountService = accountService;
-    }
+	public void setAccountService(AccountService accountService) {
+		this.accountService = accountService;
+	}
 }

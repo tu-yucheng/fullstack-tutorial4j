@@ -13,16 +13,16 @@ import static org.junit.jupiter.api.Assertions.assertTimeout;
 @Tag("junit5")
 class AnnotationTestExampleUnitTest {
 
-    @Test
-    void shouldRaiseAnException() throws Exception {
-        assertThrows(Exception.class, () -> {
-            throw new Exception("This is my expected exception");
-        });
-    }
+	@Test
+	void shouldRaiseAnException() throws Exception {
+		assertThrows(Exception.class, () -> {
+			throw new Exception("This is my expected exception");
+		});
+	}
 
-    @Test
-    @Disabled
-    void shouldFailBecauseTimeout() throws InterruptedException {
-        assertTimeout(Duration.ofMillis(1), () -> Thread.sleep(10));
-    }
+	@Test
+	@Disabled
+	void shouldFailBecauseTimeout() throws InterruptedException {
+		assertTimeout(Duration.ofMillis(1), () -> Thread.sleep(10));
+	}
 }

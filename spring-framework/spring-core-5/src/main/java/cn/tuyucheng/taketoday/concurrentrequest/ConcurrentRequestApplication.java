@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ConcurrentRequestApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(ConcurrentRequestApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(ConcurrentRequestApplication.class, args);
+	}
 }

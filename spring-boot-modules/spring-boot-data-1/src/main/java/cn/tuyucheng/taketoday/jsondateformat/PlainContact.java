@@ -11,9 +11,9 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PlainContact {
-    private String name;
-    private String address;
-    private String phone;
-    private LocalDate birthday;
-    private LocalDateTime lastUpdate;
+	private String name;
+	private String address;
+	private String phone;
+	private LocalDate birthday;
+	private LocalDateTime lastUpdate;
 }

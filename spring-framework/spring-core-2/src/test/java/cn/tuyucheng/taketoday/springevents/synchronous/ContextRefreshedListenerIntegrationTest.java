@@ -13,12 +13,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @ContextConfiguration(classes = {SynchronousSpringEventsConfig.class}, loader = AnnotationConfigContextLoader.class)
 class ContextRefreshedListenerIntegrationTest {
 
-    @Autowired
-    private ContextRefreshedListener listener;
+	@Autowired
+	private ContextRefreshedListener listener;
 
-    @Test
-    void testContextRefreshedListener() {
-        System.out.println("Test context re-freshed listener.");
-        assertTrue(listener.isHitContextRefreshedHandler(), "Refresh should be called once");
-    }
+	@Test
+	void testContextRefreshedListener() {
+		System.out.println("Test context re-freshed listener.");
+		assertTrue(listener.isHitContextRefreshedHandler(), "Refresh should be called once");
+	}
 }

@@ -5,21 +5,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.annotation.PostConstruct;
 
 public abstract class BallService {
-    private final RuleRepository ruleRepository;
-    private LogRepository logRepository;
+	private final RuleRepository ruleRepository;
+	private LogRepository logRepository;
 
-    public BallService(RuleRepository ruleRepository) {
-        this.ruleRepository = ruleRepository;
-    }
+	public BallService(RuleRepository ruleRepository) {
+		this.ruleRepository = ruleRepository;
+	}
 
-    @Autowired
-    public final void setLogRepository(LogRepository logRepository) {
-        this.logRepository = logRepository;
-    }
+	@Autowired
+	public final void setLogRepository(LogRepository logRepository) {
+		this.logRepository = logRepository;
+	}
 
-    @PostConstruct
-    public void afterInitialize() {
-        System.out.println(ruleRepository.toString());
-        System.out.println(logRepository.toString());
-    }
+	@PostConstruct
+	public void afterInitialize() {
+		System.out.println(ruleRepository.toString());
+		System.out.println(logRepository.toString());
+	}
 }

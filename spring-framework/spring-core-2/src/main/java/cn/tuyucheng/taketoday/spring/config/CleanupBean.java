@@ -10,24 +10,24 @@ import java.util.concurrent.ExecutorService;
 
 @Component
 public final class CleanupBean implements DisposableBean {
-    private final Logger logger = LoggerFactory.getLogger(getClass());
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Autowired
-    private ExecutorService setupExecutor;
+	@Autowired
+	private ExecutorService setupExecutor;
 
-    public CleanupBean() {
-        super();
-    }
+	public CleanupBean() {
+		super();
+	}
 
-    //
+	//
 
-    @Override
-    public void destroy() {
-        logger.info("Starting shutdown process - cleanup");
+	@Override
+	public void destroy() {
+		logger.info("Starting shutdown process - cleanup");
 
-        setupExecutor.shutdownNow();
+		setupExecutor.shutdownNow();
 
-        logger.info("Finishing shutdown process - cleanup");
-    }
+		logger.info("Finishing shutdown process - cleanup");
+	}
 
 }

@@ -11,13 +11,13 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PlainContactWithJavaUtilDate {
-    private String name;
-    private String address;
-    private String phone;
+	private String name;
+	private String address;
+	private String phone;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date birthday;
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private Date birthday;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date lastUpdate;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private Date lastUpdate;
 }

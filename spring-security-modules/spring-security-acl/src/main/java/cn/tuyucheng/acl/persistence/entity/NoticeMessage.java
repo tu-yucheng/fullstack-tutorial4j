@@ -14,9 +14,9 @@ import javax.persistence.Table;
 @Table(name = "system_message")
 public class NoticeMessage {
 
-    @Id
-    @Column
-    private Integer id;
-    @Column
-    private String content;
+	@Id
+	@Column
+	private Integer id;
+	@Column
+	private String content;
 }

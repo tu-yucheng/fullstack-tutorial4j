@@ -14,8 +14,8 @@ import java.lang.annotation.Target;
 @Inherited
 public @interface Subscriber {
 
-    /**
-     * A SpEL expression which selects the {@link com.google.common.eventbus.EventBus}.
-     */
-    String value() default GlobalEventBus.GLOBAL_EVENT_BUS_EXPRESSION;
+	/**
+	 * A SpEL expression which selects the {@link com.google.common.eventbus.EventBus}.
+	 */
+	String value() default GlobalEventBus.GLOBAL_EVENT_BUS_EXPRESSION;
 }

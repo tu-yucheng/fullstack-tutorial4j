@@ -8,5 +8,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface Secured {
-    boolean isLocked() default false;
+	boolean isLocked() default false;
 }

@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class Response {
-    private int code;
-    private String message;
-    private long timestamp;
+	private int code;
+	private String message;
+	private long timestamp;
 }

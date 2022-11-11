@@ -16,43 +16,43 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class UnemploymentServiceImplUnitTest {
-    @Mock
-    private JobService jobService;
+	@Mock
+	private JobService jobService;
 
-    @InjectMocks
-    private UnemploymentServiceImpl unemploymentService;
+	@InjectMocks
+	private UnemploymentServiceImpl unemploymentService;
 
-    @Test
-    void givenReturnIsOfTypeOptional_whenMocked_thenValueIsEmpty() {
-        Person person = new Person();
+	@Test
+	void givenReturnIsOfTypeOptional_whenMocked_thenValueIsEmpty() {
+		Person person = new Person();
 
-        when(jobService.findCurrentJobPosition(any(Person.class))).thenReturn(Optional.empty());
+		when(jobService.findCurrentJobPosition(any(Person.class))).thenReturn(Optional.empty());
 
-        assertTrue(unemploymentService.personIsEntitledToUnemploymentSupport(person));
-    }
+		assertTrue(unemploymentService.personIsEntitledToUnemploymentSupport(person));
+	}
 
-    @Test
-    void givenReturnIsOfTypeOptional_whenDefaultValueIsReturned_thenValueIsEmpty() {
-        Person person = new Person();
+	@Test
+	void givenReturnIsOfTypeOptional_whenDefaultValueIsReturned_thenValueIsEmpty() {
+		Person person = new Person();
 
-        // This will fail when Mockito 1 is used
-        assertTrue(unemploymentService.personIsEntitledToUnemploymentSupport(person));
-    }
+		// This will fail when Mockito 1 is used
+		assertTrue(unemploymentService.personIsEntitledToUnemploymentSupport(person));
+	}
 
-    @Test
-    void givenReturnIsOfTypeStream_whenMocked_thenValueIsEmpty() {
-        Person person = new Person();
+	@Test
+	void givenReturnIsOfTypeStream_whenMocked_thenValueIsEmpty() {
+		Person person = new Person();
 
-        when(jobService.listJobs(any(Person.class))).thenReturn(Stream.empty());
+		when(jobService.listJobs(any(Person.class))).thenReturn(Stream.empty());
 
-        assertFalse(unemploymentService.searchJob(person, "").isPresent());
-    }
+		assertFalse(unemploymentService.searchJob(person, "").isPresent());
+	}
 
-    @Test
-    void givenReturnIsOfTypeStream_whenDefaultValueIsReturned_thenValueIsEmpty() {
-        Person person = new Person();
+	@Test
+	void givenReturnIsOfTypeStream_whenDefaultValueIsReturned_thenValueIsEmpty() {
+		Person person = new Person();
 
-        // This will fail when Mockito 1 is used
-        assertFalse(unemploymentService.searchJob(person, "").isPresent());
-    }
+		// This will fail when Mockito 1 is used
+		assertFalse(unemploymentService.searchJob(person, "").isPresent());
+	}
 }

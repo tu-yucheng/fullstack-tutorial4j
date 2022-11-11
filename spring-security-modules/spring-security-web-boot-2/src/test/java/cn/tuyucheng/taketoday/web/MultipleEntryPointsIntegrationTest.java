@@ -23,44 +23,44 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = MultipleEntryPointsApplication.class)
 class MultipleEntryPointsIntegrationTest {
 
-    @Autowired
-    private WebApplicationContext context;
+	@Autowired
+	private WebApplicationContext context;
 
-    @Autowired
-    private FilterChainProxy springSecurityFilterChain;
+	@Autowired
+	private FilterChainProxy springSecurityFilterChain;
 
-    private MockMvc mockMvc;
+	private MockMvc mockMvc;
 
-    @BeforeEach
-    void setup() {
-        this.mockMvc = MockMvcBuilders.webAppContextSetup(this.context).addFilter(springSecurityFilterChain).build();
-    }
+	@BeforeEach
+	void setup() {
+		this.mockMvc = MockMvcBuilders.webAppContextSetup(this.context).addFilter(springSecurityFilterChain).build();
+	}
 
-    @Test
-    void whenTestAdminCredentials_thenOk() throws Exception {
-        mockMvc.perform(get("/admin/myAdminPage")).andExpect(status().isUnauthorized());
+	@Test
+	void whenTestAdminCredentials_thenOk() throws Exception {
+		mockMvc.perform(get("/admin/myAdminPage")).andExpect(status().isUnauthorized());
 
-        mockMvc.perform(get("/admin/myAdminPage").with(httpBasic("admin", "adminPass"))).andExpect(status().isOk());
+		mockMvc.perform(get("/admin/myAdminPage").with(httpBasic("admin", "adminPass"))).andExpect(status().isOk());
 
-        mockMvc.perform(get("/user/myUserPage").with(user("admin").password("adminPass").roles("ADMIN"))).andExpect(status().isForbidden());
+		mockMvc.perform(get("/user/myUserPage").with(user("admin").password("adminPass").roles("ADMIN"))).andExpect(status().isForbidden());
 
-    }
+	}
 
-    @Test
-    void whenTestUserCredentials_thenOk() throws Exception {
-        mockMvc.perform(get("/user/general/myUserPage")).andExpect(status().isFound());
+	@Test
+	void whenTestUserCredentials_thenOk() throws Exception {
+		mockMvc.perform(get("/user/general/myUserPage")).andExpect(status().isFound());
 
-        mockMvc.perform(get("/user/general/myUserPage").with(user("user").password("userPass").roles("USER"))).andExpect(status().isOk());
+		mockMvc.perform(get("/user/general/myUserPage").with(user("user").password("userPass").roles("USER"))).andExpect(status().isOk());
 
-        mockMvc.perform(get("/admin/myAdminPage").with(user("user").password("userPass").roles("USER"))).andExpect(status().isForbidden());
-    }
+		mockMvc.perform(get("/admin/myAdminPage").with(user("user").password("userPass").roles("USER"))).andExpect(status().isForbidden());
+	}
 
-    @Test
-    void givenAnyUser_whenGetGuestPage_thenOk() throws Exception {
-        mockMvc.perform(get("/guest/myGuestPage")).andExpect(status().isOk());
+	@Test
+	void givenAnyUser_whenGetGuestPage_thenOk() throws Exception {
+		mockMvc.perform(get("/guest/myGuestPage")).andExpect(status().isOk());
 
-        mockMvc.perform(get("/guest/myGuestPage").with(user("user").password("userPass").roles("USER"))).andExpect(status().isOk());
+		mockMvc.perform(get("/guest/myGuestPage").with(user("user").password("userPass").roles("USER"))).andExpect(status().isOk());
 
-        mockMvc.perform(get("/guest/myGuestPage").with(httpBasic("admin", "adminPass"))).andExpect(status().isOk());
-    }
+		mockMvc.perform(get("/guest/myGuestPage").with(httpBasic("admin", "adminPass"))).andExpect(status().isOk());
+	}
 }

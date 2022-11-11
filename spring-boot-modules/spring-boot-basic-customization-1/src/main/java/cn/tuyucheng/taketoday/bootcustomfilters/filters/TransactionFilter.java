@@ -12,28 +12,29 @@ import java.io.IOException;
 /**
  * A filter to create transaction before and commit it once request completes
  * The current implementation is just for demo
+ *
  * @author tuyucheng
  */
 @Component
 @Order(1)
 public class TransactionFilter implements Filter {
-    private final static Logger LOG = LoggerFactory.getLogger(TransactionFilter.class);
+	private final static Logger LOG = LoggerFactory.getLogger(TransactionFilter.class);
 
-    @Override
-    public void init(final FilterConfig filterConfig) {
-        LOG.info("Initializing filter :{}", this);
-    }
+	@Override
+	public void init(final FilterConfig filterConfig) {
+		LOG.info("Initializing filter :{}", this);
+	}
 
-    @Override
-    public void doFilter(final ServletRequest request, final ServletResponse response, final FilterChain chain) throws IOException, ServletException {
-        HttpServletRequest req = (HttpServletRequest) request;
-        LOG.info("Starting Transaction for req :{}", req.getRequestURI());
-        chain.doFilter(request, response);
-        LOG.info("Committing Transaction for req :{}", req.getRequestURI());
-    }
+	@Override
+	public void doFilter(final ServletRequest request, final ServletResponse response, final FilterChain chain) throws IOException, ServletException {
+		HttpServletRequest req = (HttpServletRequest) request;
+		LOG.info("Starting Transaction for req :{}", req.getRequestURI());
+		chain.doFilter(request, response);
+		LOG.info("Committing Transaction for req :{}", req.getRequestURI());
+	}
 
-    @Override
-    public void destroy() {
-        LOG.warn("Destructing filter :{}", this);
-    }
+	@Override
+	public void destroy() {
+		LOG.warn("Destructing filter :{}", this);
+	}
 }

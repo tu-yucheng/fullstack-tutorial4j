@@ -13,18 +13,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+	@Autowired
+	private UserService userService;
 
-    @RequestMapping(value = "/example", method = RequestMethod.GET)
-    @ResponseBody
-    public User fetchUserExample() {
-        return userService.exampleUser();
-    }
+	@RequestMapping(value = "/example", method = RequestMethod.GET)
+	@ResponseBody
+	public User fetchUserExample() {
+		return userService.exampleUser();
+	}
 
-    @RequestMapping(value = "/name", method = RequestMethod.GET)
-    @ResponseBody
-    public User fetchUserByFirstName(@RequestParam(value = "firstName") String firstName) {
-        return userService.fetchUserByFirstName(firstName);
-    }
+	@RequestMapping(value = "/name", method = RequestMethod.GET)
+	@ResponseBody
+	public User fetchUserByFirstName(@RequestParam(value = "firstName") String firstName) {
+		return userService.fetchUserByFirstName(firstName);
+	}
 }

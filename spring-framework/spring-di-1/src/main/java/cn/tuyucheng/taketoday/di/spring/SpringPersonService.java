@@ -6,14 +6,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class SpringPersonService {
 
-    @Autowired
-    private PersonDao personDao;
+	@Autowired
+	private PersonDao personDao;
 
-    public PersonDao getPersonDao() {
-        return personDao;
-    }
+	public PersonDao getPersonDao() {
+		return personDao;
+	}
 
-    public void setPersonDao(PersonDao personDao) {
-        this.personDao = personDao;
-    }
+	public void setPersonDao(PersonDao personDao) {
+		this.personDao = personDao;
+	}
 }

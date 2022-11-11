@@ -16,16 +16,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ContextConfiguration(loader = AnnotationConfigContextLoader.class, classes = Config.class)
 class ConstructorDependencyInjectionIntegrationTest {
 
-    @Test
-    void givenPrototypeInjection_WhenObjectFactory_ThenNewInstanceReturn() {
-        ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
-        Car firstContextCar = context.getBean(Car.class);
+	@Test
+	void givenPrototypeInjection_WhenObjectFactory_ThenNewInstanceReturn() {
+		ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+		Car firstContextCar = context.getBean(Car.class);
 
-        ApplicationContext xmlContext = new ClassPathXmlApplicationContext("constructordi.xml");
-        Car secondContextCar = xmlContext.getBean(Car.class);
+		ApplicationContext xmlContext = new ClassPathXmlApplicationContext("constructordi.xml");
+		Car secondContextCar = xmlContext.getBean(Car.class);
 
-        assertThat(firstContextCar).isNotSameAs(secondContextCar);
-        assertThat(firstContextCar).hasToString("Engine: v8 5 Transmission: sliding");
-        assertThat(secondContextCar).hasToString("Engine: v4 2 Transmission: sliding");
-    }
+		assertThat(firstContextCar).isNotSameAs(secondContextCar);
+		assertThat(firstContextCar).hasToString("Engine: v8 5 Transmission: sliding");
+		assertThat(secondContextCar).hasToString("Engine: v4 2 Transmission: sliding");
+	}
 }

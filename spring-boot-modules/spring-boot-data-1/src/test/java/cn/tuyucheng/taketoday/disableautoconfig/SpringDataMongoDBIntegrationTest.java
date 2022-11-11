@@ -15,11 +15,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @SpringBootTest(classes = SpringDataMongoDB.class)
 class SpringDataMongoDBIntegrationTest {
 
-    @Autowired
-    private ApplicationContext context;
+	@Autowired
+	private ApplicationContext context;
 
-    @Test
-    void givenAutoConfigDisabled_whenStarting_thenNoAutoconfiguredBeansInContext() {
-        assertThrows(NoSuchBeanDefinitionException.class, () -> context.getBean(MongoTemplate.class));
-    }
+	@Test
+	void givenAutoConfigDisabled_whenStarting_thenNoAutoconfiguredBeansInContext() {
+		assertThrows(NoSuchBeanDefinitionException.class, () -> context.getBean(MongoTemplate.class));
+	}
 }

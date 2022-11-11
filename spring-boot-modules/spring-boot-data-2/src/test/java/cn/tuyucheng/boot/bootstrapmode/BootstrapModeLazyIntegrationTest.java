@@ -12,13 +12,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DataJpaTest(bootstrapMode = BootstrapMode.LAZY)
 class BootstrapModeLazyIntegrationTest {
 
-    @Autowired
-    private TodoRepository todoRepository;
+	@Autowired
+	private TodoRepository todoRepository;
 
-    @Test
-    void givenBootstrapModeValueIsLazy_whenCreatingTodo_shouldSuccess() {
-        Todo todo = new Todo("Something to be done");
+	@Test
+	void givenBootstrapModeValueIsLazy_whenCreatingTodo_shouldSuccess() {
+		Todo todo = new Todo("Something to be done");
 
-        assertThat(todoRepository.save(todo)).hasNoNullFieldsOrProperties();
-    }
+		assertThat(todoRepository.save(todo)).hasNoNullFieldsOrProperties();
+	}
 }

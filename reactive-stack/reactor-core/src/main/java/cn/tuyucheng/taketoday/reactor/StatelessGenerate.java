@@ -4,7 +4,7 @@ import reactor.core.publisher.Flux;
 
 public class StatelessGenerate {
 
-    public Flux<String> statelessGenerate() {
-        return Flux.generate(sink -> sink.next("hello"));
-    }
+	public Flux<String> statelessGenerate() {
+		return Flux.generate(sink -> sink.next("hello"));
+	}
 }

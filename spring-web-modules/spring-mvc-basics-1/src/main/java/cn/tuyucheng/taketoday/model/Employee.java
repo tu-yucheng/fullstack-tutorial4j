@@ -11,8 +11,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @AllArgsConstructor
 @XmlRootElement
 public class Employee {
-    private long id;
-    private String name;
-    private String contactNumber;
-    private String workingArea;
+	private long id;
+	private String name;
+	private String contactNumber;
+	private String workingArea;
 }

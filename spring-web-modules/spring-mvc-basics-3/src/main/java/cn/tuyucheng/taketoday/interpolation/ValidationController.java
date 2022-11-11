@@ -9,8 +9,8 @@ import javax.validation.Valid;
 @RestController
 public class ValidationController {
 
-    @PostMapping("/test-not-null")
-    public void testNotNull(@Valid @RequestBody NotNullRequest request) {
+	@PostMapping("/test-not-null")
+	public void testNotNull(@Valid @RequestBody NotNullRequest request) {
 
-    }
+	}
 }

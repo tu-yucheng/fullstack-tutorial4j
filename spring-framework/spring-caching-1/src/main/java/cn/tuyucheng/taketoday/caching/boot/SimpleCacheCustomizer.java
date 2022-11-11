@@ -10,13 +10,13 @@ import static java.util.Arrays.asList;
 
 @Component
 public class SimpleCacheCustomizer implements CacheManagerCustomizer<ConcurrentMapCacheManager> {
-    static final String USER_CACHE = "users";
-    static final String TRANSACTIONS_CACHE = "transactions";
-    private static final Logger LOGGER = LoggerFactory.getLogger(SimpleCacheCustomizer.class);
+	static final String USER_CACHE = "users";
+	static final String TRANSACTIONS_CACHE = "transactions";
+	private static final Logger LOGGER = LoggerFactory.getLogger(SimpleCacheCustomizer.class);
 
-    @Override
-    public void customize(ConcurrentMapCacheManager cacheManager) {
-        LOGGER.info("Customizing Cache Manager");
-        cacheManager.setCacheNames(asList(USER_CACHE, TRANSACTIONS_CACHE));
-    }
+	@Override
+	public void customize(ConcurrentMapCacheManager cacheManager) {
+		LOGGER.info("Customizing Cache Manager");
+		cacheManager.setCacheNames(asList(USER_CACHE, TRANSACTIONS_CACHE));
+	}
 }

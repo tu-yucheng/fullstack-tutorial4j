@@ -13,35 +13,35 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BeforeEachAndAfterEachAnnotationsUnitTest {
-    private static final Logger LOG = LoggerFactory.getLogger(BeforeEachAndAfterEachAnnotationsUnitTest.class);
+	private static final Logger LOG = LoggerFactory.getLogger(BeforeEachAndAfterEachAnnotationsUnitTest.class);
 
-    private List<String> list;
+	private List<String> list;
 
-    @BeforeEach
-    public void init() {
-        LOG.debug("startup");
-        list = new ArrayList<>(Arrays.asList("test1", "test2"));
-    }
+	@BeforeEach
+	public void init() {
+		LOG.debug("startup");
+		list = new ArrayList<>(Arrays.asList("test1", "test2"));
+	}
 
-    @AfterEach
-    public void teardown() {
-        LOG.debug("teardown");
-        list.clear();
-    }
+	@AfterEach
+	public void teardown() {
+		LOG.debug("teardown");
+		list.clear();
+	}
 
-    @Test
-    void whenCheckingListSize_ThenSizeEqualsToInit() {
-        LOG.debug("executing test");
-        assertEquals(2, list.size());
+	@Test
+	void whenCheckingListSize_ThenSizeEqualsToInit() {
+		LOG.debug("executing test");
+		assertEquals(2, list.size());
 
-        list.add("another test");
-    }
+		list.add("another test");
+	}
 
-    @Test
-    void whenCheckingListSizeAgain_ThenSizeEqualsToInit() {
-        LOG.debug("executing another test");
-        assertEquals(2, list.size());
+	@Test
+	void whenCheckingListSizeAgain_ThenSizeEqualsToInit() {
+		LOG.debug("executing another test");
+		assertEquals(2, list.size());
 
-        list.add("yet another test");
-    }
+		list.add("yet another test");
+	}
 }

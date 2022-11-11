@@ -25,37 +25,37 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebAppConfiguration
 class FormLoginUnitTest {
 
-    @Autowired
-    private WebApplicationContext context;
+	@Autowired
+	private WebApplicationContext context;
 
-    @Autowired
-    private Filter springSecurityFilterChain;
+	@Autowired
+	private Filter springSecurityFilterChain;
 
-    private MockMvc mvc;
+	private MockMvc mvc;
 
-    @BeforeEach
-    void setup() {
-        mvc = MockMvcBuilders
-                .webAppContextSetup(context)
-                .addFilters(springSecurityFilterChain)
-                .build();
-    }
+	@BeforeEach
+	void setup() {
+		mvc = MockMvcBuilders
+				.webAppContextSetup(context)
+				.addFilters(springSecurityFilterChain)
+				.build();
+	}
 
-    @Test
-    void givenValidRequestWithValidCredentials_shouldLoginSuccessfully() throws Exception {
-        mvc.perform(formLogin("/perform_login").user("user1").password("user1Pass"))
-                .andExpect(status().isFound())
-                .andExpect(authenticated().withUsername("user1"));
-    }
+	@Test
+	void givenValidRequestWithValidCredentials_shouldLoginSuccessfully() throws Exception {
+		mvc.perform(formLogin("/perform_login").user("user1").password("user1Pass"))
+				.andExpect(status().isFound())
+				.andExpect(authenticated().withUsername("user1"));
+	}
 
-    @Test
-    void givenValidRequestWithInvalidCredentials_shouldFailWith401() throws Exception {
-        MvcResult result = mvc.perform(formLogin("/perform_login").user("random").password("random")).andReturn();
+	@Test
+	void givenValidRequestWithInvalidCredentials_shouldFailWith401() throws Exception {
+		MvcResult result = mvc.perform(formLogin("/perform_login").user("random").password("random")).andReturn();
                 /*.andExpect(status().isUnauthorized())
                 .andDo(print())
                 .andExpect(unauthenticated())
                 .andReturn();*/
 
-        assertTrue(result.getResponse().getContentAsString().contains("Bad credentials"));
-    }
+		assertTrue(result.getResponse().getContentAsString().contains("Bad credentials"));
+	}
 }

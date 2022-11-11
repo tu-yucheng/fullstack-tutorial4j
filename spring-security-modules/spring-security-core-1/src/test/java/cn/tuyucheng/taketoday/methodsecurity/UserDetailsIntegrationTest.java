@@ -19,39 +19,39 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @ContextConfiguration
 class UserDetailsIntegrationTest {
 
-    @Autowired
-    UserRoleService userService;
+	@Autowired
+	UserRoleService userService;
 
-    @Configuration
-    @ComponentScan("cn.tuyucheng.taketoday.methodsecurity.*")
-    public static class SpringConfig {
+	@Configuration
+	@ComponentScan("cn.tuyucheng.taketoday.methodsecurity.*")
+	public static class SpringConfig {
 
-    }
+	}
 
-    @Test
-    @WithUserDetails(value = "john", userDetailsServiceBeanName = "userDetailService")
-    void whenJohn_callLoadUserDetail_thenOK() {
-        CustomUser user = userService.loadUserDetail("jane");
-        assertEquals("jane", user.getNickName());
-    }
+	@Test
+	@WithUserDetails(value = "john", userDetailsServiceBeanName = "userDetailService")
+	void whenJohn_callLoadUserDetail_thenOK() {
+		CustomUser user = userService.loadUserDetail("jane");
+		assertEquals("jane", user.getNickName());
+	}
 
-    @Test
-    @WithUserDetails(value = "jane", userDetailsServiceBeanName = "userDetailService")
-    void givenJane_callSecuredLoadUserDetailWithJane_thenOK() {
-        CustomUser user = userService.securedLoadUserDetail("jane");
-        assertEquals("jane", user.getNickName());
-        assertEquals("jane", user.getUsername());
-    }
+	@Test
+	@WithUserDetails(value = "jane", userDetailsServiceBeanName = "userDetailService")
+	void givenJane_callSecuredLoadUserDetailWithJane_thenOK() {
+		CustomUser user = userService.securedLoadUserDetail("jane");
+		assertEquals("jane", user.getNickName());
+		assertEquals("jane", user.getUsername());
+	}
 
-    @Test
-    @WithUserDetails(value = "john", userDetailsServiceBeanName = "userDetailService")
-    void givenJohn_callSecuredLoadUserDetailWithJane_thenAccessDenied() {
-        assertThrows(AccessDeniedException.class, () -> userService.securedLoadUserDetail("jane"));
-    }
+	@Test
+	@WithUserDetails(value = "john", userDetailsServiceBeanName = "userDetailService")
+	void givenJohn_callSecuredLoadUserDetailWithJane_thenAccessDenied() {
+		assertThrows(AccessDeniedException.class, () -> userService.securedLoadUserDetail("jane"));
+	}
 
-    @Test
-    @WithUserDetails(value = "john", userDetailsServiceBeanName = "userDetailService")
-    void givenJohn_callSecuredLoadUserDetailWithJohn_thenAccessDenied() {
-        assertThrows(AccessDeniedException.class, () -> userService.securedLoadUserDetail("john"));
-    }
+	@Test
+	@WithUserDetails(value = "john", userDetailsServiceBeanName = "userDetailService")
+	void givenJohn_callSecuredLoadUserDetailWithJohn_thenAccessDenied() {
+		assertThrows(AccessDeniedException.class, () -> userService.securedLoadUserDetail("john"));
+	}
 }

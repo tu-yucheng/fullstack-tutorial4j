@@ -6,8 +6,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 class CatConfig {
 
-    @Bean
-    Cat cat() {
-        return new Cat();
-    }
+	@Bean
+	Cat cat() {
+		return new Cat();
+	}
 }

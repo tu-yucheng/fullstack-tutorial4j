@@ -1,28 +1,29 @@
 package cn.tuyucheng.taketoday.mockito.java8;
 
 public class Person {
-    private String name;
-    private JobPosition currentJobPosition;
-    
-    public Person() {}
-    
-    public Person(String name) {
-        this.name = name;
-    }
+	private String name;
+	private JobPosition currentJobPosition;
 
-    public JobPosition getCurrentJobPosition() {
-        return currentJobPosition;
-    }
+	public Person() {
+	}
 
-    public void setCurrentJobPosition(JobPosition currentJobPosition) {
-        this.currentJobPosition = currentJobPosition;
-    }
+	public Person(String name) {
+		this.name = name;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public JobPosition getCurrentJobPosition() {
+		return currentJobPosition;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setCurrentJobPosition(JobPosition currentJobPosition) {
+		this.currentJobPosition = currentJobPosition;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }

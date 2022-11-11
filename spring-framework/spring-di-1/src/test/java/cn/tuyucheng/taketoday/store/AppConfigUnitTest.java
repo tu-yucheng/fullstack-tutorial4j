@@ -13,23 +13,23 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @ContextConfiguration(classes = AppConfig.class)
 class AppConfigUnitTest {
 
-    @Autowired
-    @Qualifier("storeThroughConstructorInjection")
-    private Store storeByConstructorInjection;
+	@Autowired
+	@Qualifier("storeThroughConstructorInjection")
+	private Store storeByConstructorInjection;
 
-    @Autowired
-    @Qualifier("storeThroughSetterInjection")
-    private Store storeBySetterInjection;
+	@Autowired
+	@Qualifier("storeThroughSetterInjection")
+	private Store storeBySetterInjection;
 
-    @Test
-    void givenValidXmlConfig_WhenInjectStoreByConstructorInjection_ThenBeanIsNotNull() {
-        assertNotNull(storeByConstructorInjection);
-        assertNotNull(storeByConstructorInjection.getItem());
-    }
+	@Test
+	void givenValidXmlConfig_WhenInjectStoreByConstructorInjection_ThenBeanIsNotNull() {
+		assertNotNull(storeByConstructorInjection);
+		assertNotNull(storeByConstructorInjection.getItem());
+	}
 
-    @Test
-    void givenValidXmlConfig_WhenInjectStoreBySetterInjection_ThenBeanIsNotNull() {
-        assertNotNull(storeBySetterInjection);
-        assertNotNull(storeByConstructorInjection.getItem());
-    }
+	@Test
+	void givenValidXmlConfig_WhenInjectStoreBySetterInjection_ThenBeanIsNotNull() {
+		assertNotNull(storeBySetterInjection);
+		assertNotNull(storeByConstructorInjection.getItem());
+	}
 }

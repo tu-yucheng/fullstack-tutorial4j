@@ -10,17 +10,17 @@ import javax.validation.constraints.Size;
 @Setter
 public class Employee {
 
-    private long id;
+	private long id;
 
-    @NotNull
-    @Size(min = 5)
-    private String name;
+	@NotNull
+	@Size(min = 5)
+	private String name;
 
-    @NotNull
-    @Size(min = 7)
-    private String contactNumber;
+	@NotNull
+	@Size(min = 7)
+	private String contactNumber;
 
-    public Employee() {
-        super();
-    }
+	public Employee() {
+		super();
+	}
 }

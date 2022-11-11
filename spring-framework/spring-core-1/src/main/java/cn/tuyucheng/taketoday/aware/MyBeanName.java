@@ -6,11 +6,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.BeanNameAware;
 
 public class MyBeanName implements BeanNameAware {
-    private static final Logger log = LoggerFactory.getLogger(MyBeanName.class);
+	private static final Logger log = LoggerFactory.getLogger(MyBeanName.class);
 
-    @Override
-    public void setBeanName(@NotNull String beanName) {
-        log.info("beanName: {}", beanName);
-        System.out.println(beanName);
-    }
+	@Override
+	public void setBeanName(@NotNull String beanName) {
+		log.info("beanName: {}", beanName);
+		System.out.println(beanName);
+	}
 }

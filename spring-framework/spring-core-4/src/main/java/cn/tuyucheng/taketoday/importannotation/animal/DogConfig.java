@@ -6,8 +6,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 class DogConfig {
 
-    @Bean
-    Dog dog() {
-        return new Dog();
-    }
+	@Bean
+	Dog dog() {
+		return new Dog();
+	}
 }

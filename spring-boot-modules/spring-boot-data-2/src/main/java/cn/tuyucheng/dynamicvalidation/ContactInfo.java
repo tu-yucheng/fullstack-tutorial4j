@@ -12,10 +12,10 @@ import static java.lang.annotation.ElementType.*;
 @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ContactInfo {
-    
-    String message() default "Invalid value";
 
-    Class<?>[] groups() default {};
+	String message() default "Invalid value";
 
-    Class<? extends Payload>[] payload() default {};
+	Class<?>[] groups() default {};
+
+	Class<? extends Payload>[] payload() default {};
 }

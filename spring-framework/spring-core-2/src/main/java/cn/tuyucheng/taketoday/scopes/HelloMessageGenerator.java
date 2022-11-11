@@ -2,13 +2,13 @@ package cn.tuyucheng.taketoday.scopes;
 
 public class HelloMessageGenerator {
 
-    private String message;
+	private String message;
 
-    public String getMessage() {
-        return message;
-    }
+	public String getMessage() {
+		return message;
+	}
 
-    public void setMessage(final String message) {
-        this.message = message;
-    }
+	public void setMessage(final String message) {
+		this.message = message;
+	}
 }

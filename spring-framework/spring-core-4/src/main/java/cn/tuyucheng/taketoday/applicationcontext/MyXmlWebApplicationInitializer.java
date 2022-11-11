@@ -10,12 +10,12 @@ import javax.servlet.ServletRegistration;
 
 public class MyXmlWebApplicationInitializer implements WebApplicationInitializer {
 
-    public void onStartup(ServletContext container) throws ServletException {
-        XmlWebApplicationContext context = new XmlWebApplicationContext();
-        context.setConfigLocation("/WEB-INF/spring/applicationContext.xml");
-        context.setServletContext(container);
-        ServletRegistration.Dynamic servlet = container.addServlet("dispatcher", new DispatcherServlet(context));
-        servlet.setLoadOnStartup(1);
-        servlet.addMapping("/");
-    }
+	public void onStartup(ServletContext container) throws ServletException {
+		XmlWebApplicationContext context = new XmlWebApplicationContext();
+		context.setConfigLocation("/WEB-INF/spring/applicationContext.xml");
+		context.setServletContext(container);
+		ServletRegistration.Dynamic servlet = container.addServlet("dispatcher", new DispatcherServlet(context));
+		servlet.setLoadOnStartup(1);
+		servlet.addMapping("/");
+	}
 }

@@ -9,15 +9,15 @@ import java.time.LocalTime;
 @Slf4j
 public class SingletonBean {
 
-    @Autowired
-    private PrototypeBean prototypeBean;
+	@Autowired
+	private PrototypeBean prototypeBean;
 
-    public SingletonBean() {
-        log.info("Singleton instance created");
-    }
+	public SingletonBean() {
+		log.info("Singleton instance created");
+	}
 
-    public PrototypeBean getPrototypeBean() {
-        log.info(String.valueOf(LocalTime.now()));
-        return prototypeBean;
-    }
+	public PrototypeBean getPrototypeBean() {
+		log.info(String.valueOf(LocalTime.now()));
+		return prototypeBean;
+	}
 }

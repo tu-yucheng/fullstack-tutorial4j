@@ -11,8 +11,8 @@ import javax.validation.Valid;
 @RequestMapping("/")
 public class LoginController {
 
-    @PostMapping("loginform")
-    public String processLogin(@Valid LoginForm form) {
-        return "Success";
-    }
+	@PostMapping("loginform")
+	public String processLogin(@Valid LoginForm form) {
+		return "Success";
+	}
 }

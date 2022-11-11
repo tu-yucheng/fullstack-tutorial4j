@@ -16,28 +16,28 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(
-        loader = AnnotationConfigContextLoader.class,
-        classes = ApplicationContextTestResourceQualifier.class
+		loader = AnnotationConfigContextLoader.class,
+		classes = ApplicationContextTestResourceQualifier.class
 )
 class QualifierResourceInjectionIntegrationTest {
 
-    @Resource
-    @Qualifier("defaultFile")
-    private File dependency1;
+	@Resource
+	@Qualifier("defaultFile")
+	private File dependency1;
 
-    @Resource
-    @Qualifier("namedFile")
-    private File dependency2;
+	@Resource
+	@Qualifier("namedFile")
+	private File dependency2;
 
-    @Test
-    void givenResourceAnnotation_WhenField_ThenDependency1Valid() {
-        assertNotNull(dependency1);
-        assertEquals("defaultFile.txt", dependency1.getName());
-    }
+	@Test
+	void givenResourceAnnotation_WhenField_ThenDependency1Valid() {
+		assertNotNull(dependency1);
+		assertEquals("defaultFile.txt", dependency1.getName());
+	}
 
-    @Test
-    void givenResourceQualifier_WhenField_ThenDependency2Valid() {
-        assertNotNull(dependency2);
-        assertEquals("namedFile.txt", dependency2.getName());
-    }
+	@Test
+	void givenResourceQualifier_WhenField_ThenDependency2Valid() {
+		assertNotNull(dependency2);
+		assertEquals("namedFile.txt", dependency2.getName());
+	}
 }

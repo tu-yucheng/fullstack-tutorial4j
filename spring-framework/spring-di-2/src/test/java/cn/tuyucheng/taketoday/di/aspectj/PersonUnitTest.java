@@ -11,16 +11,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ContextConfiguration(classes = AspectJConfig.class)
 class PersonUnitTest {
 
-    @Test
-    void givenUnmanagedObjects_whenInjectingIdService_thenIdValueIsCorrectlySet() {
-        PersonObject personObject = new PersonObject("tuyucheng");
-        personObject.generateId();
+	@Test
+	void givenUnmanagedObjects_whenInjectingIdService_thenIdValueIsCorrectlySet() {
+		PersonObject personObject = new PersonObject("tuyucheng");
+		personObject.generateId();
 
-        assertEquals(1, personObject.getId());
-        assertEquals("tuyucheng", personObject.getName());
+		assertEquals(1, personObject.getId());
+		assertEquals("tuyucheng", personObject.getName());
 
-        PersonEntity personEntity = new PersonEntity("tuyucheng");
-        assertEquals(2, personEntity.getId());
-        assertEquals("tuyucheng", personEntity.getName());
-    }
+		PersonEntity personEntity = new PersonEntity("tuyucheng");
+		assertEquals(2, personEntity.getId());
+		assertEquals("tuyucheng", personEntity.getName());
+	}
 }

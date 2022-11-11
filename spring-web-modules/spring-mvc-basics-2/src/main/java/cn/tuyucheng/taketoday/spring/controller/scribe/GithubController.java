@@ -23,40 +23,40 @@ import java.util.concurrent.ExecutionException;
 @RequestMapping("github")
 public class GithubController {
 
-    @GetMapping(value = "/authorization")
-    public RedirectView authorization(HttpServletRequest servletReq) throws InterruptedException, ExecutionException, IOException {
-        String state = String.valueOf(new Random().nextInt(999_999));
-        OAuth20Service githubService = createService(state);
-        servletReq.getSession().setAttribute("state", state);
+	@GetMapping(value = "/authorization")
+	public RedirectView authorization(HttpServletRequest servletReq) throws InterruptedException, ExecutionException, IOException {
+		String state = String.valueOf(new Random().nextInt(999_999));
+		OAuth20Service githubService = createService(state);
+		servletReq.getSession().setAttribute("state", state);
 
-        String authorizationUrl = githubService.getAuthorizationUrl();
-        RedirectView redirectView = new RedirectView();
-        redirectView.setUrl(authorizationUrl);
-        return redirectView;
-    }
+		String authorizationUrl = githubService.getAuthorizationUrl();
+		RedirectView redirectView = new RedirectView();
+		redirectView.setUrl(authorizationUrl);
+		return redirectView;
+	}
 
-    private OAuth20Service createService(String state) {
-        return new ServiceBuilder("e1f8d4f1a5c71467a159")
-                .apiSecret("4851597541a8f33a4f1bf1c70f3cedcfefbeb13b")
-                .state(state)
-                .callback("http://localhost:8080/spring-mvc-simple/github/callback")
-                .build(GitHubApi.instance());
-    }
+	private OAuth20Service createService(String state) {
+		return new ServiceBuilder("e1f8d4f1a5c71467a159")
+				.apiSecret("4851597541a8f33a4f1bf1c70f3cedcfefbeb13b")
+				.state(state)
+				.callback("http://localhost:8080/spring-mvc-simple/github/callback")
+				.build(GitHubApi.instance());
+	}
 
-    @GetMapping(value = "/callback", produces = "text/plain")
-    @ResponseBody
-    public String callback(HttpServletRequest servletReq, @RequestParam("code") String code, @RequestParam("state") String state) throws InterruptedException, ExecutionException, IOException {
-        String initialState = (String) servletReq.getSession().getAttribute("state");
-        if (initialState.equals(state)) {
-            OAuth20Service githubService = createService(initialState);
-            OAuth2AccessToken accessToken = githubService.getAccessToken(code);
+	@GetMapping(value = "/callback", produces = "text/plain")
+	@ResponseBody
+	public String callback(HttpServletRequest servletReq, @RequestParam("code") String code, @RequestParam("state") String state) throws InterruptedException, ExecutionException, IOException {
+		String initialState = (String) servletReq.getSession().getAttribute("state");
+		if (initialState.equals(state)) {
+			OAuth20Service githubService = createService(initialState);
+			OAuth2AccessToken accessToken = githubService.getAccessToken(code);
 
-            OAuthRequest request = new OAuthRequest(Verb.GET, "https://api.github.com/user");
-            githubService.signRequest(accessToken, request);
-            Response response = githubService.execute(request);
+			OAuthRequest request = new OAuthRequest(Verb.GET, "https://api.github.com/user");
+			githubService.signRequest(accessToken, request);
+			Response response = githubService.execute(request);
 
-            return response.getBody();
-        }
-        return "Error";
-    }
+			return response.getBody();
+		}
+		return "Error";
+	}
 }

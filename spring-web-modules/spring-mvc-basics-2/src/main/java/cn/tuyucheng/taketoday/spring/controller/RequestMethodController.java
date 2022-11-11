@@ -14,11 +14,11 @@ import java.util.List;
 @RequestMapping(value = "/api")
 public class RequestMethodController {
 
-    @Autowired
-    EmployeeService service;
+	@Autowired
+	EmployeeService service;
 
-    @RequestMapping(value = "/employees", produces = "application/json", method = {RequestMethod.GET, RequestMethod.POST})
-    public List<Employee> findEmployees() throws InvalidRequestException {
-        return service.getEmployeeList();
-    }
+	@RequestMapping(value = "/employees", produces = "application/json", method = {RequestMethod.GET, RequestMethod.POST})
+	public List<Employee> findEmployees() throws InvalidRequestException {
+		return service.getEmployeeList();
+	}
 }

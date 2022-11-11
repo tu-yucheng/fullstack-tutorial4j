@@ -17,22 +17,22 @@ import java.util.List;
 @Controller
 public class MainController {
 
-    @Autowired
-    @Qualifier("springSecurityFilterChain")
-    private Filter springSecurityFilterChain;
+	@Autowired
+	@Qualifier("springSecurityFilterChain")
+	private Filter springSecurityFilterChain;
 
-    @GetMapping("/filters")
-    @ResponseBody
-    public void getFilters() {
-        FilterChainProxy filterChainProxy = (FilterChainProxy) springSecurityFilterChain;
-        List<SecurityFilterChain> list = filterChainProxy.getFilterChains();
-        list.stream().flatMap(chain -> chain.getFilters().stream())
-                .forEach(filter -> System.out.println(filter.getClass()));
-    }
+	@GetMapping("/filters")
+	@ResponseBody
+	public void getFilters() {
+		FilterChainProxy filterChainProxy = (FilterChainProxy) springSecurityFilterChain;
+		List<SecurityFilterChain> list = filterChainProxy.getFilterChains();
+		list.stream().flatMap(chain -> chain.getFilters().stream())
+				.forEach(filter -> System.out.println(filter.getClass()));
+	}
 
-    @GetMapping("/foos/{id}")
-    @ResponseBody
-    public Foo findById(@PathVariable final long id, HttpServletRequest request) {
-        return new Foo("Sample");
-    }
+	@GetMapping("/foos/{id}")
+	@ResponseBody
+	public Foo findById(@PathVariable final long id, HttpServletRequest request) {
+		return new Foo("Sample");
+	}
 }

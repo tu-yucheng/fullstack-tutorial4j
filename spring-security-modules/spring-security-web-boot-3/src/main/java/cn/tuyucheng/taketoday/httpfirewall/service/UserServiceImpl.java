@@ -9,25 +9,25 @@ import java.util.Optional;
 
 @Service
 public class UserServiceImpl {
-    private final InMemoryUserDao inMemoryUserDao;
+	private final InMemoryUserDao inMemoryUserDao;
 
-    public UserServiceImpl(InMemoryUserDao inMemoryUserDao) {
-        this.inMemoryUserDao = inMemoryUserDao;
-    }
+	public UserServiceImpl(InMemoryUserDao inMemoryUserDao) {
+		this.inMemoryUserDao = inMemoryUserDao;
+	}
 
-    public void saveUser(User user) {
-        inMemoryUserDao.save(user);
-    }
+	public void saveUser(User user) {
+		inMemoryUserDao.save(user);
+	}
 
-    public Optional<User> findById(String userId) {
-        return inMemoryUserDao.findById(userId);
-    }
+	public Optional<User> findById(String userId) {
+		return inMemoryUserDao.findById(userId);
+	}
 
-    public Optional<List<User>> findAll() {
-        return inMemoryUserDao.findAll();
-    }
+	public Optional<List<User>> findAll() {
+		return inMemoryUserDao.findAll();
+	}
 
-    public void deleteUser(String userId) {
-        inMemoryUserDao.delete(userId);
-    }
+	public void deleteUser(String userId) {
+		inMemoryUserDao.delete(userId);
+	}
 }

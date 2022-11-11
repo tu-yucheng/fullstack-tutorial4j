@@ -12,16 +12,16 @@ import javax.persistence.Id;
 @Setter
 @Getter
 public class Todo {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String label;
 
-    public Todo() {
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	private String label;
 
-    public Todo(String label) {
-        this.label = label;
-    }
+	public Todo() {
+	}
+
+	public Todo(String label) {
+		this.label = label;
+	}
 }

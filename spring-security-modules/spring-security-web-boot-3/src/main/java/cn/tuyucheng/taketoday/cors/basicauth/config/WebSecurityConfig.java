@@ -7,12 +7,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .anyRequest().authenticated()
-                .and()
-                .httpBasic();
-        http.cors(); // disable this line to reproduce the CORS 401
-    }
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests()
+				.anyRequest().authenticated()
+				.and()
+				.httpBasic();
+		http.cors(); // disable this line to reproduce the CORS 401
+	}
 }

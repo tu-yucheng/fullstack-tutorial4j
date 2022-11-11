@@ -16,47 +16,47 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(MockitoExtension.class)
 class CachedBodyHttpServletRequestUnitTest {
 
-    private CachedBodyServletInputStream servletInputStream;
+	private CachedBodyServletInputStream servletInputStream;
 
-    @AfterEach
-    void cleanUp() throws IOException {
-        if (null != servletInputStream) {
-            servletInputStream.close();
-        }
-    }
+	@AfterEach
+	void cleanUp() throws IOException {
+		if (null != servletInputStream) {
+			servletInputStream.close();
+		}
+	}
 
-    @Test
-    void testGivenHttpServletRequestWithBody_whenCalledGetInputStream_thenGetsServletInputStreamWithSameBody() throws IOException {
-        // given
-        byte[] cachedBody = "{\"firstName\" :\"abc\",\"lastName\" : \"xyz\",\"age\" : 30\"}".getBytes();
-        MockHttpServletRequest mockedHttpServletRequest = new MockHttpServletRequest();
-        mockedHttpServletRequest.setContent(cachedBody);
-        CachedBodyHttpServletRequest request = new CachedBodyHttpServletRequest(mockedHttpServletRequest);
+	@Test
+	void testGivenHttpServletRequestWithBody_whenCalledGetInputStream_thenGetsServletInputStreamWithSameBody() throws IOException {
+		// given
+		byte[] cachedBody = "{\"firstName\" :\"abc\",\"lastName\" : \"xyz\",\"age\" : 30\"}".getBytes();
+		MockHttpServletRequest mockedHttpServletRequest = new MockHttpServletRequest();
+		mockedHttpServletRequest.setContent(cachedBody);
+		CachedBodyHttpServletRequest request = new CachedBodyHttpServletRequest(mockedHttpServletRequest);
 
-        // when
-        InputStream inputStream = request.getInputStream();
+		// when
+		InputStream inputStream = request.getInputStream();
 
-        // then
-        assertEquals(new String(cachedBody), new String(StreamUtils.copyToByteArray(inputStream)));
-    }
+		// then
+		assertEquals(new String(cachedBody), new String(StreamUtils.copyToByteArray(inputStream)));
+	}
 
-    @Test
-    void testGivenHttpServletRequestWithBody_whenCalledGetReader_thenGetBufferedReaderWithSameBody() throws IOException {
-        // given
-        byte[] cachedBody = "{\"firstName\" :\"abc\",\"lastName\" : \"xyz\",\"age\" : 30\"}".getBytes();
-        MockHttpServletRequest mockedHttpServletRequest = new MockHttpServletRequest();
-        mockedHttpServletRequest.setContent(cachedBody);
-        CachedBodyHttpServletRequest request = new CachedBodyHttpServletRequest(mockedHttpServletRequest);
+	@Test
+	void testGivenHttpServletRequestWithBody_whenCalledGetReader_thenGetBufferedReaderWithSameBody() throws IOException {
+		// given
+		byte[] cachedBody = "{\"firstName\" :\"abc\",\"lastName\" : \"xyz\",\"age\" : 30\"}".getBytes();
+		MockHttpServletRequest mockedHttpServletRequest = new MockHttpServletRequest();
+		mockedHttpServletRequest.setContent(cachedBody);
+		CachedBodyHttpServletRequest request = new CachedBodyHttpServletRequest(mockedHttpServletRequest);
 
-        // when
-        BufferedReader bufferedReader = request.getReader();
+		// when
+		BufferedReader bufferedReader = request.getReader();
 
-        // then
-        String line = "";
-        StringBuilder builder = new StringBuilder();
-        while ((line = bufferedReader.readLine()) != null) {
-            builder.append(line);
-        }
-        assertEquals(new String(cachedBody), builder.toString());
-    }
+		// then
+		String line = "";
+		StringBuilder builder = new StringBuilder();
+		while ((line = bufferedReader.readLine()) != null) {
+			builder.append(line);
+		}
+		assertEquals(new String(cachedBody), builder.toString());
+	}
 }

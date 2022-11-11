@@ -13,11 +13,11 @@ import java.util.Date;
 @Component
 public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHandler {
 
-    @Autowired
-    private UserRepository userRepository;
+	@Autowired
+	private UserRepository userRepository;
 
-    @Override
-    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication auth) {
-        userRepository.updateLastLogin(new Date());
-    }
+	@Override
+	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication auth) {
+		userRepository.updateLastLogin(new Date());
+	}
 }

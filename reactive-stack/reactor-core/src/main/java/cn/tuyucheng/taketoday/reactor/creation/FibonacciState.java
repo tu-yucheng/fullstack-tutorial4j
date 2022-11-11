@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FibonacciState {
-    private int former;
-    private int latter;
+	private int former;
+	private int latter;
 }

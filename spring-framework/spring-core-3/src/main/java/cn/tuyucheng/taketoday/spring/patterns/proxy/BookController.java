@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class BookController {
 
-    @Autowired
-    private BookManager manager;
+	@Autowired
+	private BookManager manager;
 
-    @PostMapping("/book")
-    public Book create(@RequestParam String author) {
-        return manager.create(author);
-    }
+	@PostMapping("/book")
+	public Book create(@RequestParam String author) {
+		return manager.create(author);
+	}
 }

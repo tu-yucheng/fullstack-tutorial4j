@@ -6,8 +6,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 class BirdConfig {
 
-    @Bean
-    Bird bird() {
-        return new Bird();
-    }
+	@Bean
+	Bird bird() {
+		return new Bird();
+	}
 }

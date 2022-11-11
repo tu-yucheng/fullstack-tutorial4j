@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component;
 @Data
 @Component
 public class Company {
-    private Address address;
+	private Address address;
 
-    public Company(Address address) {
-        this.address = address;
-    }
+	public Company(Address address) {
+		this.address = address;
+	}
 }

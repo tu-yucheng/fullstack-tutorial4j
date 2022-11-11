@@ -12,11 +12,11 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @ContextConfiguration("/factorymethod/instance-foo-config.xml")
 class InstanceFooFactoryIntegrationTest {
 
-    @Autowired
-    private Foo foo;
+	@Autowired
+	private Foo foo;
 
-    @Test
-    void givenValidInstanceFactoryConfig_whenCreateFooInstance_thenInstanceIsNotNull() {
-        assertNotNull(foo);
-    }
+	@Test
+	void givenValidInstanceFactoryConfig_whenCreateFooInstance_thenInstanceIsNotNull() {
+		assertNotNull(foo);
+	}
 }

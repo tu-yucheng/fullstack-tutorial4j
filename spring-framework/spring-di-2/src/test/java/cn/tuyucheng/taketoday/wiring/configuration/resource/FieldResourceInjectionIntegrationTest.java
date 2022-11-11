@@ -15,17 +15,17 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(
-        loader = AnnotationConfigContextLoader.class,
-        classes = ApplicationContextTestResourceNameType.class
+		loader = AnnotationConfigContextLoader.class,
+		classes = ApplicationContextTestResourceNameType.class
 )
 class FieldResourceInjectionIntegrationTest {
 
-    @Resource(name = "namedFile")
-    private File defaultFile;
+	@Resource(name = "namedFile")
+	private File defaultFile;
 
-    @Test
-    void givenResourceAnnotation_WhenOnField_ThenDependencyValid() {
-        assertNotNull(defaultFile);
-        assertEquals("namedFile.txt", defaultFile.getName());
-    }
+	@Test
+	void givenResourceAnnotation_WhenOnField_ThenDependencyValid() {
+		assertNotNull(defaultFile);
+		assertEquals("namedFile.txt", defaultFile.getName());
+	}
 }

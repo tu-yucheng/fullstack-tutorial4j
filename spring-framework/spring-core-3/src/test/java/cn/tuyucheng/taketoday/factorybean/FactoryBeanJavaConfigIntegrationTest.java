@@ -15,15 +15,15 @@ import static org.hamcrest.core.IsEqual.equalTo;
 @ContextConfiguration(classes = FactoryBeanAppConfig.class)
 class FactoryBeanJavaConfigIntegrationTest {
 
-    @Autowired
-    private Tool tool;
+	@Autowired
+	private Tool tool;
 
-    @Resource(name = "&tool")
-    private ToolFactory toolFactory;
+	@Resource(name = "&tool")
+	private ToolFactory toolFactory;
 
-    @Test
-    void testConstructWorkerByJava() {
-        assertThat(tool.getId(), equalTo(2));
-        assertThat(toolFactory.getFactoryId(), equalTo(7070));
-    }
+	@Test
+	void testConstructWorkerByJava() {
+		assertThat(tool.getId(), equalTo(2));
+		assertThat(toolFactory.getFactoryId(), equalTo(7070));
+	}
 }
