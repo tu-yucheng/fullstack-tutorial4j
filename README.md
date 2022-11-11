@@ -93,6 +93,7 @@
 * [Cucumber](software-test/cucumber-1/README.md)
 * [Spring-test](software-test/spring-1/README.md)
 * [Mocking](software-test/easymock/README.md)
+* [Assertion](software-test/assertion-libraries/README.md)
 </details>
 
 # Contributors
