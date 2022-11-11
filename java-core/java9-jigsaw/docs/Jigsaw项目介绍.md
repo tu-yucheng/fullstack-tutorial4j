@@ -105,9 +105,9 @@ src
 
 让我们创建一个简单的模块化应用程序，其中包含模块及其依赖关系，如下图所示：
 
-<img src="../assets/img_1.png" align="left" height="500" width="800">
+<img src="../assets/img_1.png" align="left">
 
-cn.tuyucheng.taketoday.student.model是根模块。它定义了模型类cn.tuyucheng.taketoday.student.model.Student，包含以下属性：
+cn.tuyucheng.taketoday.student.model是根模块，它定义了模型类cn.tuyucheng.taketoday.student.model.Student，包含以下属性：
 
 ```java
 public class Student {
@@ -236,13 +236,13 @@ Java 9取消了类路径(classpath)的概念，而是引入了模块路径(modul
 
 每个JDK安装包都提供了一个src.zip，这个压缩包包含JDK Java API的代码库。如果你解压它，你会看到多个文件夹，其中少数以java开头，少数以javafx开头，其余的以jdk开头，这些文件夹每个都代表一个模块。
 
-<img src="../assets/img.png" align="left" height="600" width="300">
+<img src="../assets/img.png">
 
 以java开头的模块为JDK模块，以javafx开头的为JavaFX模块，其他以jdk开头的为JDK工具模块。
 
 所有JDK模块和所有用户定义的模块都隐式地依赖于java.base模块，java.base模块包含常用的JDK API，如 Utils、Collections、IO、Concurrency等。以下是JDK模块的依赖关系图：
 
-[![jdk-tr1](https://www.baeldung.com/wp-content/uploads/2017/03/jdk-tr1.png)](https://www.baeldung.com/wp-content/uploads/2017/03/jdk-tr1.png)
+<img src="../assets/img_2.png">
 
 你还可以直接查看JDK模块中的模块定义文件，以了解JDK本身是如何在module-info.java中定义模块语法的。
 
