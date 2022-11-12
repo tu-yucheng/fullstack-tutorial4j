@@ -3,7 +3,7 @@
 - [AssertJ的Java 8特性](docs/AssertJ的Java8特性.md)
 - [Guava与AssertJ的断言使用](docs/Guava与AssertJ.md)
 - [AssertJ简介](docs/AssertJ简介.md)
-- []()
+- [使用Google Truth进行测试](docs/使用Google Truth进行测试.md)
 - []()
 - []()
 - []()
