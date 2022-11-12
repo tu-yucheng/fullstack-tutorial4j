@@ -6,7 +6,7 @@
 - [使用Google Truth进行测试](docs/使用Google Truth进行测试.md)
 - [使用JGoTesting进行测试](docs/使用JGoTesting进行测试.md)
 - [JSpec指南](docs/JSpec指南.md)
-- []()
+- [使用AssertJ自定义断言](docs/使用AssertJ自定义断言.md)
 - []()
 - []()
 
