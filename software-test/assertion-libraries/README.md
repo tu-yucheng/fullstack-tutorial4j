@@ -8,6 +8,6 @@
 - [JSpec指南](docs/JSpec指南.md)
 - [使用AssertJ自定义断言](docs/使用AssertJ自定义断言.md)
 - [AssertJ断言使用Condition](docs/AssertJ断言使用Condition.md)
-- []()
+- [AssertJ异常断言](docs/AssertJ异常断言.md)
 
 - 更多文章： [[next -->]](../assertions/README.md)
