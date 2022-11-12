@@ -7,7 +7,7 @@
 - [Hamcrest文本匹配器](docs/Hamcrest文本匹配器.md)
 - [Hamcrest文件匹配器](docs/Hamcrest文件匹配器.md)
 - [Hamcrest对象匹配器](docs/Hamcrest对象匹配器.md)
-- []()
+- [Hamcrest Bean匹配器](docs/Hamcrest Bean匹配器.md)
 - []()
 - []()
 - []()
