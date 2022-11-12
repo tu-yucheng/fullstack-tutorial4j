@@ -4,7 +4,7 @@
 - [Guava与AssertJ的断言使用](docs/Guava与AssertJ.md)
 - [AssertJ简介](docs/AssertJ简介.md)
 - [使用Google Truth进行测试](docs/使用Google Truth进行测试.md)
-- []()
+- [使用JGoTesting进行测试](docs/使用JGoTesting进行测试.md)
 - []()
 - []()
 - []()
