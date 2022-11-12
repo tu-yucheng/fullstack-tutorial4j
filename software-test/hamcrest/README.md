@@ -10,6 +10,6 @@
 - [Hamcrest Bean匹配器](docs/Hamcrest Bean匹配器.md)
 - [Hamcrest数字匹配器](docs/Hamcrest数字匹配器.md)
 - [Hamcrest通用核心匹配器](docs/Hamcrest通用核心匹配器.md)
-- []()
+- [Hamcrest自定义匹配器](docs/Hamcrest自定义匹配器.md)
 
 - 更多文章： [[<-- prev]](../assertions/README.md)
