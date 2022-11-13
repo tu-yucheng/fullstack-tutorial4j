@@ -1,0 +1,15 @@
+ext {
+    javafaker = '0.15'
+    jukito = '1.5'
+    easymock = '4.0.2'
+    jmockit = '1.41'
+    jimf = '1.1'
+}
+
+dependencies {
+    implementation "com.github.javafaker:javafaker:${javafaker}"
+    testImplementation "org.jmockit:jmockit:${jmockit}"
+    testImplementation "org.jukito:jukito:${jukito}"
+    testImplementation "org.easymock:easymock:${easymock}"
+    implementation "com.google.jimfs:jimfs:${jimf}"
+}
