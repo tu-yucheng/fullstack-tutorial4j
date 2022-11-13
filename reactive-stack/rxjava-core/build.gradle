@@ -1,0 +1,17 @@
+description = 'Rxjava Core'
+
+ext {
+    rxJava = '1.2.5'
+    rxJava2 = '2.2.2'
+    rxJavaString = '1.1.1'
+    rxJavaMath = '1.0.0'
+    awaitility = '1.7.0'
+}
+
+dependencies {
+    implementation "io.reactivex:rxjava:${rxJava}"
+    implementation "io.reactivex.rxjava2:rxjava:${rxJava2}"
+    implementation "io.reactivex:rxjava-string:${rxJavaString}"
+    implementation "io.reactivex:rxjava-math:${rxJavaMath}"
+    implementation "com.jayway.awaitility:awaitility:${awaitility}"
+}
