@@ -5,7 +5,7 @@
 ## 相关文章
 
 - [如何在Spring Security中使用Thymeleaf](docs/SpringSecurity中使用Thymeleaf.md)
-- []()
+- [使用Thymeleaf显示登录用户的信息](docs/在Thymeleaf中显示登录用户的信息.md)
 
 - 更多文章： [[<-- prev]]()
 - 更多文章： [[next -->]]()
