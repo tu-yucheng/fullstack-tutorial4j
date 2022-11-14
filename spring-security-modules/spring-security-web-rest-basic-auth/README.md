@@ -5,7 +5,7 @@
 ## 相关文章
 
 - [使用RestTemplate进行基本身份验证](docs/使用RestTemplate进行基本身份验证.md)
-- []()
+- [SpringSecurity过滤器链中的自定义过滤器](docs/SpringSecurity过滤器链中的自定义过滤器.md)
 - []()
 - []()
 - []()
