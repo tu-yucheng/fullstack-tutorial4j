@@ -1,0 +1,17 @@
+ext {
+    groovyAll = '2.4.7'
+    spockCore = '1.3-groovy-2.4'
+}
+
+apply plugin: "groovy"
+
+dependencies {
+    testImplementation "org.spockframework:spock-core:${spockCore}"
+    implementation "org.codehaus.groovy:groovy-all:${groovyAll}"
+}
+
+sourceSets {
+    test {
+        java { srcDirs = ['src/test/groovy'] }
+    }
+}
