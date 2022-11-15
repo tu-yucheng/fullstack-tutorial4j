@@ -16,6 +16,7 @@
 
     <modules>
         <module>docker-java-jar</module>
+		<module>docker-spring-boot</module>
     </modules>
 
     <properties>
