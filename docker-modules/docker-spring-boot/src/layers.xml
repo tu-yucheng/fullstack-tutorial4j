@@ -10,7 +10,7 @@
     </application>
     <dependencies>
         <into layer="snapshot-dependencies">
-            <include>*:*:*</include>
+            <include>*:*:*SNAPSHOT</include>
         </into>
         <into layer="internal-dependencies">
             <include>cn.tuyucheng.taketoday.docker:*:*</include>
