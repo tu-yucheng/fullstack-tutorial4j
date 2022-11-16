@@ -15,6 +15,7 @@
     </parent>
 
     <modules>
+		<module>docker-containers</module>
 		<module>docker-images</module>
         <module>docker-java-jar</module>
         <module>docker-spring-boot</module>
