@@ -9,7 +9,7 @@
 - [Java 14中instanceof模式匹配](docs/Java14中instanceof模式匹配.md)
 - [Java 14中友好的空指针异常](docs/Java14中友好的空指针异常.md)
 - []()
-- []()
+- [Java 14中的record关键字](docs/Java14中的record关键字.md)
 - []()
 - []()
 
