@@ -16,6 +16,7 @@
 
     <modules>
 		<module>docker-containers</module>
+		<module>docker-compose</module>
 		<module>docker-images</module>
         <module>docker-java-jar</module>
         <module>docker-spring-boot</module>
