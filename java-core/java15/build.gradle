@@ -1,0 +1,4 @@
+dependencies {
+    implementation "org.apache.commons:commons-lang3:${commonsLang3}"
+    implementation "commons-io:commons-io:${commonsIo}"
+}
