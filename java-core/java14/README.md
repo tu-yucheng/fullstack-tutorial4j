@@ -11,7 +11,7 @@
 - [Java 14中的外部内存访问API](docs/Java14中的外部内存访问API.md)
 - [Java 14中的record关键字](docs/Java14中的record关键字.md)
 - [Java 14的新特性](docs/Java14的新特性.md)
-- []()
+- [Java 14中的Record与Lombok](docs/Java14中的Record与Lombok.md)
 
 - 更多文章： [[<-- prev]](../java13/README.md)
 - 更多文章： [[next -->]](../java15/README.md)
