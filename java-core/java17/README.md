@@ -7,7 +7,7 @@
 - [Java 17中的InstantSource简介](docs/Java17中的InstantSource简介.md)
 - [Java 17中的Switch模式匹配](docs/Switch模式匹配.md)
 - [Java 17中的HexFormat介绍](docs/Java17中的HexFormat介绍.md)
-- []()
+- [Java 17的新特性](docs/Java17的新特性.md)
 - []()
 - []()
 
