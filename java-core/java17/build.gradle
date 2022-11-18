@@ -1,0 +1,4 @@
+dependencies {
+    implementation "org.openjdk.jmh:jmh-core:${jmh}"
+    testImplementation "org.openjdk.jmh:jmh-generator-annprocess:${jmh}"
+}
