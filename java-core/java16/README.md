@@ -6,7 +6,7 @@
 
 - [将Java流收集到不可变集合](docs/将Java流收集到不可变集合.md)
 - [流API中的mapMulti指南](docs/流API中的mapMulti指南.md)
-- []()
+- [在Java中将流元素收集到集合中](docs/在Java中将流元素收集到集合中.md)
 - [Java 16的新特性](docs/Java16的新特性.md)
 - []()
 
