@@ -5,7 +5,7 @@
 ## 相关文章
 
 - [Java 12中的字符串API更新](docs/Java12中的字符串API更新.md)
-- []()
+- [Java 12的新特性](docs/Java12的新特性.md)
 - []()
 
 - 更多文章： [[<-- prev]](../java11-3/README.md)
