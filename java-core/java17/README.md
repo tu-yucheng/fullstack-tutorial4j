@@ -5,7 +5,7 @@
 ## 相关文章
 
 - [Java 17中的InstantSource简介](docs/Java17中的InstantSource简介.md)
-- []()
+- [Java 17中的Switch模式匹配](docs/Switch模式匹配.md)
 - []()
 - []()
 - []()
