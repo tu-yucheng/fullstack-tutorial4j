@@ -131,6 +131,6 @@
 		<powermock.version>2.0.9</powermock.version>
 		<spring.version>5.3.13</spring.version>
 		<surefire.report.plugin>3.0.0-M3</surefire.report.plugin>
-		<mockito.version>4.0.0</mockito.version>
+		<mockito.version>3.3.0</mockito.version>
 	</properties>
 </project>
