@@ -1,0 +1,16 @@
+description = 'Spring Boot Persistence'
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation('org.springframework.boot:spring-boot-starter-data-jpa') {
+		exclude group: 'com.zaxxer', module: 'HikariCP'
+	}
+	implementation 'com.h2database:h2:1.4.200'
+	implementation 'org.apache.tomcat:tomcat-jdbc'
+	implementation 'mysql:mysql-connector-java'
+	implementation 'javax.validation:validation-api'
+	implementation 'org.xerial:sqlite-jdbc'
+	implementation 'org.apache.derby:derby'
+	implementation 'org.hsqldb:hsqldb'
+}
