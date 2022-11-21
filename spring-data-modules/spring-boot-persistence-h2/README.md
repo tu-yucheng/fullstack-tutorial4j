@@ -4,6 +4,6 @@
 - [Spring Boot中使用H2数据库](docs/SpringBoot中使用H2数据库.md)
 - [Hibernate中的@NotNull与@Column(nullable=false)注解的区别](docs/Hibernate中的@NotNull与@Column(nullable=false).md)
 - [Hibernate中的enable_lazy_load_no_trans属性快速指南](docs/Hibernate中的enable_lazy_load_no_trans属性快速指南.md)
-- []()
+- [H2嵌入式数据库将数据存储在哪里](docs/H2嵌入式数据库将数据存储在哪里.md)
 
 - 更多文章： [[<-- prev]](../spring-boot-persistence-3/README.md)
