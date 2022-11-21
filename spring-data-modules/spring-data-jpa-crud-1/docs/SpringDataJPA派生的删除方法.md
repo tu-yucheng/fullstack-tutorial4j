@@ -9,7 +9,6 @@ Spring Data JPA允许我们定义从数据库读取，更新或删除记录的�
 首先，我们定义一个Fruit实体来保存水果的名称和颜色：
 
 ```java
-
 @Entity
 @Setter
 @Getter
@@ -29,7 +28,6 @@ public class Fruit {
 下面是根据水果名称删除Fruit实体的方法：
 
 ```java
-
 @Repository
 public interface FruitRepository extends JpaRepository<Fruit, Long> {
 
@@ -42,7 +40,6 @@ public interface FruitRepository extends JpaRepository<Fruit, Long> {
 类似地，我们还可以派生以下形式的删除方法：
 
 ```java
-
 @Repository
 public interface FruitRepository extends JpaRepository<Fruit, Long> {
 
@@ -95,7 +92,6 @@ class FruitRepositoryIntegrationTest {
 接下来，让我们为第二个delete方法添加一个类似的测试用例：
 
 ```java
-
 class FruitRepositoryIntegrationTest {
 
     @Test
@@ -114,7 +110,6 @@ class FruitRepositoryIntegrationTest {
 **我们还可以使用removeBy动词派生删除方法**：
 
 ```java
-
 @Repository
 public interface FruitRepository extends JpaRepository<Fruit, Long> {
 
@@ -129,7 +124,6 @@ public interface FruitRepository extends JpaRepository<Fruit, Long> {
 此时我们FruitRepository接口包含如下几个方法:
 
 ```java
-
 public interface FruitRepository extends JpaRepository<Fruit, Long> {
 
     Long deleteByName(String name);
@@ -186,8 +180,7 @@ public interface FruitRepository extends JpaRepository<Fruit, Long> {
 }
 ```
 
-虽然这两种解决方案看起来很相似，并且确实达到了相同的效果，但它们采取的方法略有不同。
-**@Query注解方法针对数据库创建单个JPQL查询。相比之下，deleteBy方法执行一个读取查询，然后逐个删除每一项**。
+虽然这两种解决方案看起来很相似，并且确实达到了相同的效果，但它们采取的方法略有不同。**@Query注解方法针对数据库创建单个JPQL查询。相比之下，deleteBy方法执行一个读取查询，然后逐个删除每一项**。
 
 此外，deleteBy方法可以返回已删除记录的集合，而自定义查询返回的是已删除记录的总数量。
 

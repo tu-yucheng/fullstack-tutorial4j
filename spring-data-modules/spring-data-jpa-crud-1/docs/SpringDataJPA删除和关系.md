@@ -9,7 +9,6 @@ Repository接口为我们提供了对实体的一些基本操作支持。
 假设我们有一个实体，比如Book：
 
 ```java
-
 @Entity
 public class Book {
 
@@ -27,7 +26,6 @@ public class Book {
 然后，我们可以继承Spring Data JPA的CrudRepository接口，是我们能够访问Book实体上的CRUD操作：
 
 ```java
-
 @Repository
 public interface BookRepository extends CrudRepository<Book, Long> {
 
@@ -41,7 +39,6 @@ public interface BookRepository extends CrudRepository<Book, Long> {
 我们编写一个测试用例直接从BookRepository中测试这些方法：
 
 ```java
-
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = {Application.class})
 class DeleteFromRepositoryUnitTest {
@@ -81,8 +78,7 @@ class DeleteFromRepositoryUnitTest {
 }
 ```
 
-尽管我们使用的是CrudRepository，但请注意，对于其他Spring Data JPA接口，
-例如JpaRepositories或PagingAndSortingRepository，也存在这些相同的方法。
+尽管我们使用的是CrudRepository，但请注意，对于其他Spring Data JPA接口，例如JpaRepositories或PagingAndSortingRepository，也存在这些相同的方法。
 
 ## 4. 派生删除方法
 
@@ -93,7 +89,6 @@ class DeleteFromRepositoryUnitTest {
 假设我们想按标题删除Book对象，根据命名约定，我们以deleteBy开头，并使用title作为条件：
 
 ```java
-
 @Repository
 public interface BookRepository extends CrudRepository<Book, Long> {
 
@@ -117,9 +112,7 @@ class DeleteFromRepositoryUnitTest {
 }
 ```
 
-**在JPA中持久化和删除对象需要一个事务。
-这就是为什么在使用这些派生的删除方法时应该使用@Transactional注解，以确保在事务中运行**。
-这在[Spring与ORM文档](https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#orm)中有详细说明。
+**在JPA中持久化和删除对象需要一个事务。这就是为什么在使用这些派生的删除方法时应该使用@Transactional注解，以确保在事务中运行**。这在[Spring与ORM文档](https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#orm)中有详细说明。
 
 ## 5. 自定义删除
 
@@ -163,7 +156,6 @@ class DeleteFromRepositoryUnitTest {
 假设我们有一个Category实体，它与Book实体有一个一对多的关联关系：
 
 ```java
-
 @Entity
 @Setter
 @Getter
@@ -186,7 +178,6 @@ public class Category {
 CategoryRepository可以是一个继承CrudRepository的空接口：
 
 ```java
-
 @Repository
 public interface CategoryRepository extends CrudRepository<Category, Long> {
 
@@ -196,7 +187,6 @@ public interface CategoryRepository extends CrudRepository<Category, Long> {
 我们还应该修改Book实体以反映这种关联关系：
 
 ```java
-
 @Entity
 public class Book {
 
@@ -214,7 +204,6 @@ public class Book {
 现在让我们添加两个Category，并将它们与当前拥有的Book相关联。
 
 ```java
-
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = DeleteApplication.class)
 class DeleteInRelationshipsUnitTest {

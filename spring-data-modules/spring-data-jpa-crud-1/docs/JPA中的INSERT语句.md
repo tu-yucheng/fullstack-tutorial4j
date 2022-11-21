@@ -6,8 +6,7 @@
 
 在JPA中，每一个从瞬时态到托管状态的实体都由EntityManager自动处理。
 
-EntityManager检查给定实体是否已经存在，然后决定是否应该插入或更新该实体。
-**由于这种自动管理，JPA只允许SELECT，UPDATE和DELETE语句**。
+EntityManager检查给定实体是否已经存在，然后决定是否应该插入或更新该实体。**由于这种自动管理，JPA只允许SELECT，UPDATE和DELETE语句**。
 
 在下面的示例中，我们将研究管理和绕过此限制的不同方法。
 
@@ -16,7 +15,6 @@ EntityManager检查给定实体是否已经存在，然后决定是否应该插�
 我们从定义一个简单的实体开始：
 
 ```java
-
 @Entity
 @Setter
 @Getter
@@ -34,7 +32,6 @@ public class Person {
 另外，让我们定义一个将用于实现的Repository类：
 
 ```java
-
 @Repository
 public class PersonInsertRepository {
 
@@ -43,8 +40,7 @@ public class PersonInsertRepository {
 }
 ```
 
-此外，我们使用@Transactional注解来自动处理Spring的事务。
-这样，我们就不必担心使用EntityManager创建事务，提交更改或在出现异常时手动执行回滚。
+此外，我们使用@Transactional注解来自动处理Spring的事务。这样，我们就不必担心使用EntityManager创建事务，提交更改或在出现异常时手动执行回滚。
 
 ## 4. createNativeQuery
 
@@ -70,7 +66,6 @@ public class PersonInsertRepository {
 现在可以测试我们的Repository：
 
 ```java
-
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 @Import(PersonInsertRepository.class)
@@ -101,8 +96,7 @@ class PersonInsertRepositoryIntegrationTest {
 }
 ```
 
-在我们测试方法中，每个insertWithQuery操作都试图向数据库中插入一条新记录。
-由于我们试图插入两个具有相同id的实体，第二个插入操作因抛出PersistenceException而失败。
+在我们测试方法中，每个insertWithQuery操作都试图向数据库中插入一条新记录。由于我们试图插入两个具有相同id的实体，第二个插入操作因抛出PersistenceException而失败。
 
 如果我们使用Spring Data的@Query注解，这里的原理是相同的。
 
@@ -115,7 +109,6 @@ class PersonInsertRepositoryIntegrationTest {
 与前面的示例一样，我们向PersonInsertRepository类添加一个新的方法：
 
 ```java
-
 @Repository
 public class PersonInsertRepository {
 
@@ -149,10 +142,8 @@ class PersonInsertRepositoryIntegrationTest {
 
 在上面的测试中，我们期望抛出的是EntityExistsException，而不是它的父类PersistenceException，后者更规范，由persist抛出。
 
-另一方面，在本例中，**我们必须确保每次调用我们的插入方法时都使用一个新的Person实例**。
-否则，它将已经由EntityManager管理，从而执行的是update操作而不是insert。
+另一方面，在本例中，**我们必须确保每次调用我们的插入方法时都使用一个新的Person实例**。否则，它将已经由EntityManager管理，从而执行的是update操作而不是insert。
 
 ## 6. 总结
 
-在本文中，我们说明了对JPA对象执行插入操作的方法。
-我们演示了使用原生查询以及使用EntityManager#persist创建自定义INSERT语句的示例。
+在本文中，我们说明了对JPA对象执行插入操作的方法。我们演示了使用原生查询以及使用EntityManager#persist创建自定义INSERT语句的示例。
