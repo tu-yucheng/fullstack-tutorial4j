@@ -1,4 +1,4 @@
-package cn.tuyucheng.taketoday.boot.tomcatconnectionpool.test.application;
+package cn.tuyucheng.taketoday.tomcatconnectionpool.test.application;
 
 import cn.tuyucheng.taketoday.tomcatconnectionpool.application.SpringBootConsoleApplication;
 import org.junit.Test;

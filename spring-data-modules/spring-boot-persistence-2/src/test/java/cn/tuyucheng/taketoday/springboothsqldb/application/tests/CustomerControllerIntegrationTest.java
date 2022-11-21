@@ -1,4 +1,4 @@
-package cn.tuyucheng.taketoday.boot.springboothsqldb.application.tests;
+package cn.tuyucheng.taketoday.springboothsqldb.application.tests;
 
 import cn.tuyucheng.taketoday.springboothsqldb.application.Application;
 import cn.tuyucheng.taketoday.springboothsqldb.application.entities.Customer;
