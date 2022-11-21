@@ -6,7 +6,7 @@
 - [内存数据库列表](docs/内存数据库列表.md)
 - [Oracle连接池与Spring](docs/Oracle连接池与Spring.md)
 - [Hibernate会话中的对象状态](docs/Hibernate会话中的对象状态.md)
-- []()
+- [存储由数据库索引的文件](docs/存储由数据库索引的文件.md)
 
 - 更多文章： [[<-- prev]](../spring-boot-persistence-1/README.md)
 - 更多文章： [[next -->]](../spring-boot-persistence-3/README.md)
