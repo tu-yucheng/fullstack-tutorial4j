@@ -1,15 +1,15 @@
-## Spring Data JPA - CRUD - 1
+## Spring Data JPA - CRUD
 
-This module contains articles about CRUD operations in Spring Data JPA
+本模块包含Spring Data JPA中有关CRUD操作的文章
 
-## Relevant Articles:
+## 相关文章
 
 - [Spring Data JPA – Derived Delete Methods](docs/SpringData_Jpa_DeleteBy.md)
 - [Spring Data JPA Delete and Relationships](docs/SpringData_Jpa_Delete.md)
 - [INSERT Statement in JPA](docs/SpringData_Insert.md)
-- [Spring Data JPA Batch Inserts]()
+- [Spring Data JPA批量插入](docs/SpringData-JPA批量插入.md)
 - [Batch Insert/Update with Hibernate/JPA]()
 - [Difference Between save() and saveAndFlush() in Spring Data JPA]()
 - [How to Implement a Soft Delete with Spring JPA]()
 
-- More articles: [[next -->]](../spring-data-jpa-crud-2/README.md)
+- 更多文章：[[next -->]](../spring-data-jpa-crud-2/README.md)
