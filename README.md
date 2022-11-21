@@ -65,6 +65,7 @@
 <summary>spring-data</summary>
 
 * [spring-data-crud](spring-data-modules/spring-data-jpa-crud-1/README.md)
+* [spring-boot-persistence](spring-data-modules/spring-boot-persistence-1/README.md)
 </details>
 <details>
 
