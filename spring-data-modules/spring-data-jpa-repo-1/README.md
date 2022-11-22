@@ -7,7 +7,7 @@
 - [使用Spring Data Repository进行不区分大小写的查询](docs/使用SpringData-Repository进行不区分大小写的查询.md)
 - [Spring Data JPA Repository中的派生查询方法](docs/SpringDataJPA-Repository中的派生查询方法.md)
 - [Spring Data CrudRepository中的save()方法](docs/SpringData-CrudRepository中的save()方法.md)
-- []()
+- [Spring Data JPA在所有Repository中添加一个方法](docs/SpringData-JPA在所有Repository中添加一个方法.md)
 - []()
 - []()
 - []()
