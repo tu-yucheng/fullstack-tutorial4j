@@ -10,6 +10,6 @@
 - [使用Spring Data对查询结果进行排序](docs/使用SpringData对查询结果进行排序.md)
 - [Spring Data JPA Example示例](docs/SpringDataJPA-Example示例.md)
 - [JPA连接类型](docs/JPA连接类型.md)
-- []()
+- [Spring Data JPA和命名实体图](docs/SpringDataJPA和命名实体图.md)
 
 - 更多文章：[[more -->]](../spring-data-jpa-query-2/README.md)
