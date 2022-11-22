@@ -10,6 +10,6 @@
 - [Spring Data JPA在所有Repository中添加一个方法](docs/SpringData-JPA在所有Repository中添加一个方法.md)
 - [Spring Data可组合的Repository](docs/SpringData可组合的Repository.md)
 - [Spring Data JPA Repository填充器](docs/SpringData-JPA-Repository填充器.md)
-- []()
+- [从Spring Data JPA Repository调用存储过程](docs/从SpringData-JPA-Repository调用存储过程.md)
 
 - 更多文章： [[next -->]](../spring-data-jpa-repo-2/README.md)
