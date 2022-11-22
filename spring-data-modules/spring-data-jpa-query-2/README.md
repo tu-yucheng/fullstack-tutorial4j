@@ -7,7 +7,7 @@
 - [Spring Data @Query注解](docs/SpringData-@Query注解.md)
 - [在Spring Data应用程序中使用条件查询](docs/在SpringData应用程序中使用条件查询.md)
 - [Hibernate分页](docs/Hibernate分页.md)
-- []()
+- [使用Hibernate排序](docs/使用Hibernate排序.md)
 - []()
 - []()
 - []()
