@@ -8,7 +8,7 @@
 - [在Spring Data应用程序中使用条件查询](docs/在SpringData应用程序中使用条件查询.md)
 - [Hibernate分页](docs/Hibernate分页.md)
 - [使用Hibernate排序](docs/使用Hibernate排序.md)
-- []()
+- [Hibernate的存储过程](docs/Hibernate的存储过程.md)
 - []()
 - []()
 
