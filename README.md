@@ -2,7 +2,7 @@
      that smart and dearly wants an empty line before a heading to be able to
      display it as such, e.g. website) -->
 
-# Fullstack RoadMaps
+# Fullstack Tutorial4j
 
 ![Language](https://img.shields.io/badge/language-java-brightgreen)
 [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/tu-yucheng/java-development-practice/master/LICENSE.md)
@@ -64,7 +64,8 @@
 
 <summary>spring-data</summary>
 
-* [spring-data-crud](spring-data-modules/spring-data-jpa-crud-1/README.md)
+* [spring-data-jpa-crud](spring-data-modules/spring-data-jpa-crud-1/README.md)
+* [spring-data-jpa-repo](spring-data-modules/spring-data-jpa-repo-1/README.md)
 * [spring-boot-persistence](spring-data-modules/spring-boot-persistence-1/README.md)
 </details>
 <details>
