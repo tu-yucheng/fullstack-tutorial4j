@@ -9,7 +9,7 @@
 - [Hibernate分页](docs/Hibernate分页.md)
 - [使用Hibernate排序](docs/使用Hibernate排序.md)
 - [Hibernate的存储过程](docs/Hibernate的存储过程.md)
-- []()
+- [Hibernate中的急切/延迟加载](docs/Hibernate中的急切-延迟加载.md)
 - []()
 
 - 更多文章： [[<-- prev]](../spring-data-jpa-query-1/README.md)
