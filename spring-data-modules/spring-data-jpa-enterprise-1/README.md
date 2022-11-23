@@ -9,7 +9,7 @@
 - [Spring的Open Session In View指南](docs/Spring的Open-Session-In-View指南.md)
 - [在JPA中使用惰性元素集合](docs/在JPA中使用惰性元素集合.md)
 - [使用Spring Data JPA自定义命名约定](docs/使用SpringData-JPA的自定义命名约定.md)
-- []()
+- [使用Spring Data进行部分数据更新](docs/使用SpringData进行部分数据更新.md)
 - []()
 
 - 更多文章： [[next -->]](../spring-boot-persistence-2/README.md)
