@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>groovy.core</artifactId>
+    <name>groovy.core</name>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>cn.tuyucheng.taketoday</groupId>
+        <artifactId>fullstack-tutorial4j</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <modules>
+        <module>groovy-1</module>
+        <module>groovy-2</module>
+        <module>groovy.collections</module>
+        <module>groovy.strings</module>
+    </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <groovy.version>2.5.7</groovy.version>
+        <groovy-all.version>2.5.6</groovy-all.version>
+        <groovy-sql.version>2.5.6</groovy-sql.version>
+        <hsqldb.version>2.4.0</hsqldb.version>
+        <spock-core.version>1.1-groovy-2.4</spock-core.version>
+        <gmavenplus-plugin.version>1.6</gmavenplus-plugin.version>
+    </properties>
+</project>
