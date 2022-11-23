@@ -67,6 +67,7 @@
 * [spring-data-jpa-crud](spring-data-modules/spring-data-jpa-crud-1/README.md)
 * [spring-data-jpa-query](spring-data-modules/spring-data-jpa-query-1/README.md)
 * [spring-data-jpa-repo](spring-data-modules/spring-data-jpa-repo-1/README.md)
+* [spring-data-jpa-enterprise](spring-data-modules/spring-data-jpa-enterprise-1/README.md)
 * [spring-boot-persistence](spring-data-modules/spring-boot-persistence-1/README.md)
 </details>
 <details>
