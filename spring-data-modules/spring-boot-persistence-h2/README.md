@@ -7,3 +7,4 @@
 - [H2嵌入式数据库将数据存储在哪里](docs/H2嵌入式数据库将数据存储在哪里.md)
 
 - 更多文章： [[<-- prev]](../spring-boot-persistence-3/README.md)
+- 更多文章： [[next -->]](../spring-boot-persistence-simple/README.md)
