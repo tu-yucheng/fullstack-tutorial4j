@@ -5,7 +5,7 @@
 ## 相关文章
 
 - [DDD聚合和@DomainEvents](docs/DDD聚合和@DomainEvents.md)
-- []()
+- [JPA中的@Embedded和@Embeddable注解](docs/JPA中的@Embedded和@Embeddable.md)
 - []()
 - []()
 - []()
