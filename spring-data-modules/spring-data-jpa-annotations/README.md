@@ -9,4 +9,4 @@
 - [Spring JPA中的@Embedded和@EmbeddedId注解](docs/SpringJPA中的@Embedded和@EmbeddedId.md)
 - [Spring中的编程化事务管理](docs/Spring中的编程化事务管理.md)
 - [JPA实体生命周期事件](docs/JPA实体生命周期事件.md)
-- []()
+- [使用@AttributeOverride注解覆盖列定义](docs/使用@AttributeOverride覆盖列定义.md)
