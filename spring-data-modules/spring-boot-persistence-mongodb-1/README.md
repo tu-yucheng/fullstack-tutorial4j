@@ -1,7 +1,7 @@
 ## 相关文章
 
 - [使用Spring Boot为MongoDB自动生成字段](docs/使用SpringBoot为MongoDB自动生成字段.md)
-- []()
+- [使用嵌入式MongoDB进行Spring Boot集成测试](docs/使用嵌入式MongoDB进行SpringBoot集成测试.md)
 - []()
 - []()
 - []()
