@@ -13,4 +13,9 @@
 		<artifactId>fullstack-roadmaps</artifactId>
 		<version>1.0.0</version>
 	</parent>
+
+	<modules>
+		<module>spring-security-web-rest-basic-auth</module>
+		<module>spring-security-web-rest-custom</module>
+	</modules>
 </project>

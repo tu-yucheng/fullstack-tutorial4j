@@ -15,7 +15,8 @@
 	</parent>
 
 	<modules>
-		<module>spring-cloud-docker</module>
+		<module>spring-cloud-eureka</module>
+		<module>spring-cloud-openfeign-1</module>
 	</modules>
 
 	<build>
@@ -49,7 +50,7 @@
 	</dependencyManagement>
 
 	<properties>
-		<spring-cloud-dependencies.version>2021.0.1</spring-cloud-dependencies.version>
+		<spring-cloud-dependencies.version>2021.0.0</spring-cloud-dependencies.version>
 		<spring-cloud-starter-config.version>2.2.3.RELEASE</spring-cloud-starter-config.version>
 		<spring-cloud-config-server.version>2.2.3.RELEASE</spring-cloud-config-server.version>
 		<spring-cloud-starter-eureka.version>1.4.7.RELEASE</spring-cloud-starter-eureka.version>

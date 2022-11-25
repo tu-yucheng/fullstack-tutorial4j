@@ -9,14 +9,65 @@
 
 	<parent>
 		<groupId>cn.tuyucheng.taketoday</groupId>
-		<artifactId>fullstack-roadmaps</artifactId>
+		<artifactId>fullstack-tutorial4j</artifactId>
 		<version>1.0.0</version>
 	</parent>
 
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+		</dependency>
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.junit</groupId>
+				<artifactId>junit-bom</artifactId>
+				<version>${junit-jupiter.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring-boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<modules>
+		<module>spring-boot-persistence-1</module>
+		<module>spring-boot-persistence-2</module>
+		<module>spring-boot-persistence-3</module>
+		<module>spring-boot-persistence-h2</module>
+		<module>spring-boot-persistence-simple</module>
+		<module>spring-boot-persistence-mongodb-1</module>
+		<module>spring-boot-persistence-mongodb-2</module>
+		<module>spring-boot-persistence-mongodb-3</module>
+		<module>spring-data-jpa-crud-1</module>
+		<module>spring-data-jpa-crud-2</module>
+		<module>spring-data-jpa-repo-1</module>
+		<module>spring-data-jpa-repo-2</module>
+		<module>spring-data-jpa-query-1</module>
+		<module>spring-data-jpa-query-2</module>
+		<module>spring-data-jpa-query-3</module>
+		<module>spring-data-jpa-enterprise-1</module>
+		<module>spring-data-jpa-enterprise-2</module>
+		<module>spring-data-jpa-filtering</module>
+		<module>spring-data-jpa-annotations</module>
+		<module>spring-data-jdbc</module>
+		<module>spring-boot-mysql</module>
+	</modules>
+
 	<properties>
-		<hibernate.version>5.6.1.Final</hibernate.version>
-		<!--<postgresql.version>42.2.20</postgresql.version>-->
-		<!--<hsqldb.version>2.3.4</hsqldb.version>-->
-		<!--<testcontainers.version>1.16.3</testcontainers.version>-->
+		<hibernate.version>5.2.17.Final</hibernate.version>
+		<postgresql.version>42.2.20</postgresql.version>
+		<spring-boot.version>2.6.1</spring-boot.version>
+		<hsqldb.version>2.3.4</hsqldb.version>
+		<testcontainers.version>1.16.3</testcontainers.version>
 	</properties>
 </project>
