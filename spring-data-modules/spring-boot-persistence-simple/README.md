@@ -1,7 +1,7 @@
 ## 相关文章
 
 - [Spring注解@Transactional中的事务传播和隔离级别](docs/Spring注解@Transactional中的事务传播和隔离级别.md)
-- []()
+- [Spring与JTA中的@Transactional注解](docs/Spring与JTA中的@Transactional注解.md)
 - []()
 - []()
 - []()
