@@ -70,6 +70,7 @@
 * [spring-data-jpa-enterprise](spring-data-modules/spring-data-jpa-enterprise-1/README.md)
 * [spring-data-jpa-annotations](spring-data-modules/spring-data-jpa-annotations/README.md)
 * [spring-data-jpa-filtering](spring-data-modules/spring-data-jpa-filtering/README.md)
+* [spring-data-jdbc](spring-data-modules/spring-data-jdbc/README.md)
 * [spring-boot-persistence](spring-data-modules/spring-boot-persistence-1/README.md)
 * [spring-boot-persistence-mongodb](spring-data-modules/spring-boot-persistence-mongodb-1/README.md)
 </details>
