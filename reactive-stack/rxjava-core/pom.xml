@@ -8,7 +8,7 @@
 	<name>rxjava-core</name>
 
 	<parent>
-		<groupId>cn.tuyucheng.taketoday</groupId>
+		<groupId>cn.tuyucheng.taketoday.reactive.stack</groupId>
 		<artifactId>reactive-stack</artifactId>
 		<version>1.0.0</version>
 	</parent>
