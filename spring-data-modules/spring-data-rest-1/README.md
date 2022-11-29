@@ -5,7 +5,7 @@
 ## 相关文章
 
 + [Spring Data REST简介](docs/SpringData-REST简介.md)
-+ []()
++ [在Spring Data REST中处理关系映射](docs/在SpringData-REST中处理关系.md)
 + []()
 + []()
 + []()
