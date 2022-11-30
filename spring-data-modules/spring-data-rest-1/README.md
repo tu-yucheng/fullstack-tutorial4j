@@ -9,7 +9,7 @@
 + [AngularJS CRUD应用程序与Spring Data REST](docs/AngularJS-CRUD应用程序与SpringData-REST.md)
 + [Spring Data REST中的投影和摘录](docs/SpringData-REST中的投影和摘录.md)
 + [@RepositoryEventHandler与Spring Data REST事件](docs/带有@RepositoryEventHandler的SpringData-REST事件.md)
-+ []()
++ [在Spring Data REST中自定义HTTP端点](docs/在SpringData-REST中自定义HTTP端点.md)
 + []()
 
 - 更多文章： [[next -->]](../spring-data-rest-2/README.md)
