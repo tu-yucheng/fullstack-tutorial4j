@@ -7,7 +7,7 @@
 + [Spring Data REST简介](docs/SpringData-REST简介.md)
 + [在Spring Data REST中处理关系映射](docs/在SpringData-REST中处理关系.md)
 + [AngularJS CRUD应用程序与Spring Data REST](docs/AngularJS-CRUD应用程序与SpringData-REST.md)
-+ []()
++ [Spring Data REST中的投影和摘录](docs/SpringData-REST中的投影和摘录.md)
 + []()
 + []()
 + []()
