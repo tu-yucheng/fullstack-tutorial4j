@@ -17,7 +17,7 @@ This module contains articles about Mockito that are also part of an Ebook.
 - [Mocking Exception Throwing using Mockito](docs/Mockito_Exceptions.md)
 - [Mockito and JUnit 5 – Using ExtendWith](docs/Mockito_Junit5_Extension.md)
 
-- More articles: [[<-- prev]](../mockito/README.md)
+- More articles: [[<-- prev]](../mockito-2/README.md)
 - More articles: [[next -->]](../mockito-spring/README.md)
 
 ### NOTE:

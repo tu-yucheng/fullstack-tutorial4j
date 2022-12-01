@@ -1,4 +1,4 @@
-## testing-mockito
+## Mockito
 
 This module contains articles about Mockito.
 
@@ -15,4 +15,4 @@ This module contains articles about Mockito.
 - [Testing Callbacks with Mockito](docs/Mockito_Callbacks.md)
 - [Quick Guide to BDDMockito](docs/Mockito_BDDMockito.md)
 
-- More articles: [[next -->]](../mockito-simple/README.md)
+- 更多文章： [[next -->]](../mockito-2/README.md)
