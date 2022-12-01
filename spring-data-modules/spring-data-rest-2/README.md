@@ -6,7 +6,7 @@
 
 + [Spring Data REST验证器指南](docs/SpringData-REST验证器指南.md)
 + [Spring Data Web支持](docs/SpringData-Web支持.md)
-+ []()
++ [Spring REST和HAL浏览器](docs/SpringREST和HAL浏览器.md)
 + []()
 
 - 更多文章： [[<-- prev]](../spring-data-rest-1/README.md)
