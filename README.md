@@ -103,7 +103,7 @@
 <summary>software-testing</summary>
 
 * [Junit-5](software-test/junit-5/README.md)
-* [Mockito](software-test/mockito/README.md)
+* [Mockito](software-test/mockito-1/README.md)
 * [Cucumber](software-test/cucumber-1/README.md)
 * [Spring-test](software-test/spring-1/README.md)
 * [Mocking](software-test/easymock/README.md)
