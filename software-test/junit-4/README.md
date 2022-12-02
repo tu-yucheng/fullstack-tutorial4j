@@ -7,4 +7,4 @@
 + [Lambda Behave简介](docs/LambdaBehave简介.md)
 + [在JUnit 4中有条件地运行或忽略测试](docs/在JUnit4中有条件地运行或忽略测试.md)
 + [关于JUnit 4如何忽略基测试类](docs/JUnit4关于如何忽略基测试类.md)
-+ []()
++ [在JUnit中使用失败断言](docs/在JUnit中使用失败断言.md)
