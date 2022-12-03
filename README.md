@@ -111,6 +111,7 @@
 * [Assertion](software-test/assertion-libraries/README.md)
 * [Groovy-Spock](software-test/groovy-spock/README.md)
 * [TestContainers](software-test/containers/README.md)
+* [EasyRandom](software-test/easy-random/README.md)
 </details>
 
 # Contributors
