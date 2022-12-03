@@ -6,7 +6,7 @@
 - [Spring Data中MongoDB文档中的唯一字段](docs/SpringData中MongoDB文档中的唯一字段.md)
 - [使用Spring Data MongoDB Repository统计文档](docs/使用SpringData-MongoDB-Repository统计文档.md)
 - [Spring Data MongoDB配置连接](docs/SpringData-MongoDB配置连接.md)
-- []()
+- [使用Spring Data MongoDB连接到多个数据库](docs/使用SpringData-MongoDB连接到多个数据库.md)
 
 - 更多文章： [[<-- prev]](../spring-boot-persistence-mongodb-1/README.md)
 - 更多文章： [[next -->]](../spring-boot-persistence-mongodb-3/README.md)
