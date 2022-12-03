@@ -4,7 +4,7 @@
 - [为Spring Data中的类配置MongoDB集合名称](docs/为SpringData中的类配置MongoDB集合名称.md)
 - [Spring Data与MongoDB复合键](docs/SpringData与MongoDB复合键.md)
 - [Spring Data中MongoDB文档中的唯一字段](docs/SpringData中MongoDB文档中的唯一字段.md)
-- []()
+- [使用Spring Data MongoDB Repository统计文档](docs/使用SpringData-MongoDB-Repository统计文档.md)
 - []()
 - []()
 
