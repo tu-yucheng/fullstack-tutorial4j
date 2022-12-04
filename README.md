@@ -109,6 +109,7 @@
 * [Spring-test](software-test/spring-1/README.md)
 * [Mocking](software-test/easymock/README.md)
 * [Assertion](software-test/assertion-libraries/README.md)
+* [Libraries](software-test/libraries-1/README.md)
 * [Groovy-Spock](software-test/groovy-spock/README.md)
 * [TestContainers](software-test/containers/README.md)
 * [EasyRandom](software-test/easy-random/README.md)
