@@ -6,4 +6,3 @@
 - [断言对象是否为特定类型](docs/断言对象是否为特定类型.md)
 
 - 更多文章： [[<-- prev]](../assertion-libraries/README.md)
-- 更多文章： [[next -->]](../hamcrest/README.md)
