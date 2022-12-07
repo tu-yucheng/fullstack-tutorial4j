@@ -5,10 +5,9 @@
 - [Mockito、EasyMock、JMockit之间的对比](docs/Mockito-EasyMock-JMockit.md)
 - [EasyMock简介](docs/EasyMock简介.md)
 - [JMockit101](docs/JMockit101.md)
-- []()
+- [JMockit高级用法](docs/JMockit高级用法.md)
 - []()
 - []()
 - []()
 
-- 更多文章： [[<-- prev]]()
-- 更多文章： [[next -->]]()
+- 更多文章： [[next -->]](../mocks-2/README.md)
