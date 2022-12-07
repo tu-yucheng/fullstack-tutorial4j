@@ -1,0 +1,11 @@
+ext {
+	mockSeverNetty = '3.10.8'
+	apcheHttp = '4.4.1'
+}
+
+dependencies {
+	implementation "org.mock-server:mockserver-netty:${mockSeverNetty}"
+	implementation "org.mock-server:mockserver-client-java:${mockSeverNetty}"
+	implementation "org.apache.httpcomponents:httpclient:${apcheHttp}"
+	implementation "org.apache.httpcomponents:httpcore:${apcheHttp}"
+}
