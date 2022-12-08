@@ -110,6 +110,7 @@
 * [EasyMock](software-test/easymock/README.md)
 * [Mocks](software-test/mocks-1/README.md)
 * [Cucumber](software-test/cucumber-1/README.md)
+* [Rest Assured](software-test/rest-assured/README.md)
 * [Spring-test](software-test/spring-1/README.md)
 * [MockServer](software-test/mockserver/README.md)
 * [Rest API](software-test/rest-testing/README.md)
