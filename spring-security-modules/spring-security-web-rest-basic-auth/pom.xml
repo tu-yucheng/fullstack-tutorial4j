@@ -9,9 +9,10 @@
 	<packaging>war</packaging>
 
 	<parent>
-		<artifactId>spring-security-modules</artifactId>
+		<artifactId>spring-boot-parent-2</artifactId>
 		<groupId>cn.tuyucheng.taketoday</groupId>
 		<version>1.0.0</version>
+		<relativePath>../../spring-boot-parent-2</relativePath>
 	</parent>
 
 	<dependencies>
@@ -110,6 +111,11 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<scope>test</scope>
@@ -147,6 +153,15 @@
 							<cargo.servlet.port>8082</cargo.servlet.port>
 						</properties>
 					</configuration>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -191,7 +206,7 @@
 										<exclude>none</exclude>
 									</excludes>
 									<includes>
-										<include>/LiveTest.java</include>
+										<include>**/*LiveTest.java</include>
 									</includes>
 									<systemPropertyVariables>
 										<webTarget>cargo</webTarget>
@@ -206,8 +221,8 @@
 	</profiles>
 
 	<properties>
-		<httpcore.version>4.4.14</httpcore.version>
-		<httpclient.version>4.5.13</httpclient.version>
+		<httpcore.version>4.4.11</httpcore.version>
+		<httpclient.version>4.5.8</httpclient.version>
 		<cargo-maven2-plugin.version>1.6.1</cargo-maven2-plugin.version>
 	</properties>
 </project>
