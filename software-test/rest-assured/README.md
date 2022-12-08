@@ -5,7 +5,7 @@
 + [使用Rest Assured获取和验证响应数据](docs/使用RestAssured获取和验证响应数据.md)
 + [Rest Assured中的身份验证](docs/RestAssured中的身份验证.md)
 + [Groovy中使用Rest Assured](docs/Groovy-RestAssured.md)
-+ []()
++ [Rest Assured中的参数、Header和Cookie](docs/RestAssured中的参数-Header和Cookie.md)
 + []()
 
 - 更多文章： [[next -->]](../rest-assured-selenium/README.md)
