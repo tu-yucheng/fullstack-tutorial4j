@@ -5,6 +5,6 @@
 ## 相关文章
 
 + [RabbitMQ简介](docs/RabbitMQ简介.md)
-+ []()
++ [RabbitMQ中的交换器、队列和绑定](docs/RabbitMQ中的交换器-队列和绑定.md)
 + []()
 + []()
