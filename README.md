@@ -78,7 +78,6 @@
 
 * [Reactor Core](reactive-stack/reactor-core/README.md)
 
-
 **Software Testing**
 
 * [Junit 4](software-test/junit-4/README.md)
@@ -103,6 +102,8 @@
 **Message Queue**
 
 * [RabbitMQ](messaging.queue/rabbitmq/README.md)
+* [Spring JMS](messaging.queue/spring-jms/README.md)
+* [JGroups](messaging.queue/jgroups/README.md)
 
 # Contributors
 
