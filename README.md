@@ -45,6 +45,7 @@
 
 **Spring Boot**
 
+* [Spring Boot Admin](spring-boot-modules/spring-boot-admin/README.md)
 * [Spring Boot Data](spring-boot-modules/spring-boot-data-1/README.md)
 * [Spring Boot Annotations](spring-boot-modules/spring-boot-annotations-1/README.md)
 * [Spring Boot Customization](spring-boot-modules/spring-boot-basic-customization-1/README.md)
