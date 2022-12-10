@@ -1,18 +1,18 @@
 ## Mockito
 
-This module contains articles about Mockito.
+本模块包含有关Mockito的文章
 
-### Relevant articles
+## 相关文章
 
-- [Mockito’s Java 8 Features](docs/Mockito_Java8.md)
-- [Lazy Verification with Mockito 2](docs/Mockito_Lazy_Verification.md)
-- [Mockito Strict Stubbing and The UnnecessaryStubbingException](docs/Mockito_Unnecessary_Stubbing_Exception.md)
-- [Mockito and Fluent APIs](docs/Mockito_Fluent_API.md)
-- [Mocking the ObjectMapper readValue() Method](docs/Mockito_MockJackson_ReadValue.md)
-- [Introduction to Mockito’s AdditionalAnswers](docs/Mockito_AdditionalAnswers.md)
-- [Difference Between when() and doXxx() Methods in Mockito](docs/Mockito_When_DoXxx_Method.md)
-- [Overview of Mockito MockSettings](docs/Mockito_MockSettings.md)
-- [Testing Callbacks with Mockito](docs/Mockito_Callbacks.md)
-- [Quick Guide to BDDMockito](docs/Mockito_BDDMockito.md)
++ [Mockito的Java 8特性](docs/Mockito的Java8特性.md)
++ [使用Mockito 2进行惰性验证](docs/使用Mockito2进行惰性验证.md)
++ [Mockito中的严格存根和UnnecessaryStubbingException异常](docs/Mockito中的严格存根和UnnecessaryStubbingException异常.md)
++ [Mockito和流式API](docs/Mockito和流式API.md)
++ [对ObjectMapper中的readValue()方法进行Mock](docs/对ObjectMapper中的readValue()方法进行Mock.md)
++ [Mockito的AdditionalAnswers介绍](docs/Mockito的AdditionalAnswers介绍.md)
++ [Mockito中when()和doXxx()方法的区别](docs/Mockito中when()和doXxx()方法的区别.md)
++ [Mockito中的MockSettings概述](docs/Mockito中的MockSettings概述.md)
++ [使用Mockito测试回调](docs/使用Mockito测试回调.md)
++ [BDDMockito快速指南](docs/BDDMockito快速指南.md)
 
 - 更多文章： [[next -->]](../mockito-2/README.md)
